@@ -67,10 +67,18 @@
 
       // Determine which times to display based on method
       const method = prayTimes.getMethod();
-      let list = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
-      if (method !== 'Jafari' && method !== 'Tehran') {
-        list.push('Asr', 'Isha');
-      }
+      // let list = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
+      // if (method !== 'Jafari' && method !== 'Tehran') {
+     //   list.push('Asr', 'Isha');
+      let list = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr'];
+if (method !== 'Jafari' && method !== 'Tehran') {
+  list.push('Asr');
+}
+list.push('Sunset', 'Maghrib');
+if (method !== 'Jafari' && method !== 'Tehran') {
+  list.push('Isha');
+}
+
 
       document.getElementById('locationLabel').textContent = "Prayer Times for " + locationName;
 
