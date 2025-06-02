@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Islamic Prayer Times by Location</title>
-  <meta name="description" content="Get accurate daily Islamic prayer times based on your current location using Geolocation. Supports Jafari and other methods.">
-  <meta name="keywords" content="Islamic prayer times, Muslim prayer schedule, Salah times, prayer times by location, automatic prayer times, Fajr, Dhuhr, Asr, Maghrib, Isha">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Get accurate daily Islamic prayer times based on your current location using Geolocation. Supports multiple calculation methods.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -17,78 +15,78 @@
     table {
       margin: auto;
       border-collapse: collapse;
-      width: 300px;
+      width: 320px;
     }
     th, td {
-      padding: 8px 12px;
+      padding: 10px;
       border-bottom: 1px solid #ccc;
-      text-align: left;
     }
-    h1, h2 {
+    h1, #locationLabel {
       text-align: center;
     }
-    #locationLabel {
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 20px;
+    #methodSelector {
+      display: block;
+      margin: 10px auto;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
 
   <h1>Islamic Prayer Times by Location</h1>
-  <p style="text-align: center;">Automatically detect your location and display today's prayer times based on the Jafari calculation method.</p>
+  <p style="text-align:center;">Automatically calculated daily prayer times using your current location.</p>
+
+  <label for="methodSelector" style="text-align:center; display:block;">Select Calculation Method:</label>
+  <select id="methodSelector">
+    <option value="Jafari" selected>Jafari (Default)</option>
+    <option value="Tehran">Tehran</option>
+    <option value="MWL">Muslim World League</option>
+    <option value="ISNA">Islamic Society of North America</option>
+    <option value="Egypt">Egyptian General Authority of Survey</option>
+    <option value="Makkah">Umm al-Qura University, Makkah</option>
+    <option value="Karachi">University of Islamic Sciences, Karachi</option>
+  </select>
 
   <div id="locationLabel">Fetching your location...</div>
-  <div align="center" id="table"></div>
+  <div id="table"></div>
 
-  <!-- PrayTimes.js core embedded inline -->
+  <!-- Load PrayTimes.js -->
+  <script src="PrayTimes.js"></script>
+
   <script>
-    // Simplified PrayTimes.js (Jafari method only)
-    const prayTimes = {
-      calcMethod: 'Jafari',
-      timeFormat: '12h',
-      getTimes: function(date, coords, timezone, dst, format) {
-        // Minimal version of PrayTimes logic for this demo
-        const times = {
-          imsak: '04:00 am',
-          fajr: '04:15 am',
-          sunrise: '05:30 am',
-          dhuhr: '01:15 pm',
-          sunset: '08:30 pm',
-          maghrib: '08:45 pm',
-        };
-        return times;
-      },
-      setMethod: function(method) {
-        this.calcMethod = method;
-      }
-    };
+    // Set default method
     prayTimes.setMethod('Jafari');
-  </script>
 
-  <!-- Geolocation and prayer time rendering -->
-  <script>
+    let currentCoords = null;
+    let currentLocationName = '';
+
     function renderPrayerTimes(lat, lon, locationName) {
-      var date = new Date();
-      var times = prayTimes.getTimes(date, [lat, lon], date.getTimezoneOffset() / -60, 'auto', '12h');
-      var list = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
+      const date = new Date();
+      const timezoneOffset = -date.getTimezoneOffset() / 60; // in hours
+      const times = prayTimes.getTimes(date, [lat, lon], timezoneOffset, 'auto', '12h');
+
+      // Determine which times to display based on method
+      const method = prayTimes.getMethod();
+      let list = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
+      if (method !== 'Jafari' && method !== 'Tehran') {
+        list.push('Asr', 'Isha');
+      }
 
       document.getElementById('locationLabel').textContent = "Prayer Times for " + locationName;
 
-      var html = '<table>';
+      let html = '<table>';
       html += '<tr><th colspan="2">' + date.toDateString() + '</th></tr>';
-      for (var i in list) {
-        html += '<tr><td>' + list[i] + '</td>';
-        html += '<td>' + times[list[i].toLowerCase()] + '</td></tr>';
+      for (let i = 0; i < list.length; i++) {
+        html += '<tr><td>' + list[i] + '</td><td>' + times[list[i].toLowerCase()] + '</td></tr>';
       }
       html += '</table>';
+
       document.getElementById('table').innerHTML = html;
     }
 
-    function fetchLocationAndRender() {
+    function fetchLocation() {
       if (!navigator.geolocation) {
-        document.getElementById('locationLabel').textContent = "Geolocation is not supported by your browser.";
+        document.getElementById('locationLabel').textContent = "Geolocation is not supported.";
         return;
       }
 
@@ -96,30 +94,40 @@
         function(position) {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
+          currentCoords = { lat, lon };
 
-          // Use OpenCage Geocoding API (replace with your own key)
-          const apiKey = 'b2ffbeb936c44b8f86a2ed97048d00ea';
+          // Optional: Use OpenCage reverse geocoding for friendly location name
+          const apiKey = 'b2ffbeb936c44b8f86a2ed97048d00ea'; // Replace with your API key or remove this block
           fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=${apiKey}`)
             .then(response => response.json())
             .then(data => {
-              const locationName = data.results[0]?.formatted || `(${lat}, ${lon})`;
-              renderPrayerTimes(lat, lon, locationName);
+              currentLocationName = data.results[0]?.formatted || `(${lat.toFixed(2)}, ${lon.toFixed(2)})`;
+              renderPrayerTimes(lat, lon, currentLocationName);
             })
             .catch(() => {
-              renderPrayerTimes(lat, lon, `(${lat}, ${lon})`);
+              currentLocationName = `(${lat.toFixed(2)}, ${lon.toFixed(2)})`;
+              renderPrayerTimes(lat, lon, currentLocationName);
             });
         },
-        function() {
-          document.getElementById('locationLabel').textContent = "Unable to retrieve your location.";
+        function(error) {
+          document.getElementById('locationLabel').textContent = "Location access denied.";
         }
       );
     }
 
-    fetchLocationAndRender();
+    document.getElementById('methodSelector').addEventListener('change', function() {
+      const selectedMethod = this.value;
+      prayTimes.setMethod(selectedMethod);
+      if (currentCoords && currentLocationName) {
+        renderPrayerTimes(currentCoords.lat, currentCoords.lon, currentLocationName);
+      }
+    });
+
+    fetchLocation();
   </script>
 
-  <footer style="text-align: center; margin-top: 40px;">
-    <p>&copy; 2025 Prayer Times App. Powered by Geolocation and Jafari method.</p>
+  <footer style="text-align:center; margin-top:40px;">
+    <p>&copy; 2025 Prayer Times App</p>
   </footer>
 
 </body>
