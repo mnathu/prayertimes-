@@ -62,8 +62,8 @@
 
     function renderPrayerTimes(lat, lon, locationName) {
       const date = new Date();
-      const timezoneOffset = -date.getTimezoneOffset() / 60; // in hours
-      const times = prayTimes.getTimes(date, [lat, lon], timezoneOffset, 'auto', '12h');
+      // const timezoneOffset = -date.getTimezoneOffset() / 60; // in hours
+      const times = prayTimes.getTimes(date, [lat, lon], 'auto', 'auto', '12h');
 
       // Determine which times to display based on method
       const method = prayTimes.getMethod();
