@@ -55,7 +55,23 @@
 
   <script>
     // Set default method
-    prayTimes.setMethod('Jafari');
+    // prayTimes.setMethod('Jafari');
+    // Load saved method or default to Jafari
+const savedMethod = localStorage.getItem('calcMethod') || 'Jafari';
+prayTimes.setMethod(savedMethod);
+document.getElementById('methodSelector').value = savedMethod;
+
+    document.getElementById('methodSelector').addEventListener('change', function() {
+  const selectedMethod = this.value;
+  prayTimes.setMethod(selectedMethod);
+
+  // Save the selected method to localStorage
+  localStorage.setItem('calcMethod', selectedMethod);
+
+  if (currentCoords && currentLocationName) {
+    renderPrayerTimes(currentCoords.lat, currentCoords.lon, currentLocationName);
+  }
+});
 
     let currentCoords = null;
     let currentLocationName = '';
