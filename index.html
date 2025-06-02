@@ -99,7 +99,17 @@ if (method !== 'Jafari' && method !== 'Tehran') {
       document.getElementById('locationLabel').textContent = "Prayer Times for " + locationName;
 
       let html = '<table>';
-      html += '<tr><th colspan="2">' + date.toDateString() + '</th></tr>';
+      // html += '<tr><th colspan="2">' + date.toDateString() + '</th></tr>';
+      const hijriFormatter = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+const hijriDate = hijriFormatter.format(date);
+const gregorianDate = date.toDateString();
+
+html += `<tr><th colspan="2">${gregorianDate}<br><small>${hijriDate}</small></th></tr>`;
       for (let i = 0; i < list.length; i++) {
         html += '<tr><td>' + list[i] + '</td><td>' + times[list[i].toLowerCase()] + '</td></tr>';
       }
