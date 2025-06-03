@@ -2,32 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Islamic Prayer Times by Location</title>
-  <meta name="description" content="Get accurate daily Islamic prayer times based on your current location using Geolocation. Supports multiple calculation methods.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Accurate Islamic Prayer Times by Location | Multiple Methods</title>
+
+  <!-- Essential Meta Tags -->
+  <meta name="description" content="Get accurate daily Islamic prayer times based on your current location. Supports multiple calculation methods including Jafari, MWL, ISNA, and more.">
+  <meta name="keywords" content="prayer times, salat times, Islamic prayer times, fajr, dhuhr, asr, maghrib, isha, Jafari, Muslim World League, ISNA">
+  <meta name="author" content="MN Athee">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph Tags (Social Sharing) -->
+  <meta property="og:title" content="Islamic Prayer Times by Location">
+  <meta property="og:description" content="Get accurate Islamic prayer times using your location. Choose from Jafari, MWL, ISNA, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mnathu.github.io">
+  <meta property="og:image" content="https://mnathu.github.io/prayertimes-preview.jpg"> <!-- Optional image for social preview -->
+
+  <!-- Twitter Card (Optional) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Islamic Prayer Times by Location">
+  <meta name="twitter:description" content="Get accurate Islamic prayer times using your location. Choose from multiple calculation methods.">
+  <meta name="twitter:image" content="https://mnathu.github.io/prayertimes-preview.jpg">
+
+  <!-- Favicon (Optional) -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Islamic Prayer Times",
+    "url": "https://mnathu.github.io",
+    "description": "Web app that calculates accurate daily prayer times based on user location and preferred Islamic calculation method."
+  }
+  </script>
+
+  <!-- Stylesheet (optional if you add CSS later) -->
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f7fa;
-      color: #0A166C;
-      padding: 20px;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 1em;
     }
-    table {
+    table#timetable {
       margin: auto;
       border-collapse: collapse;
-      width: 320px;
     }
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-    }
-    h1, #locationLabel {
+    table#timetable td, table#timetable th {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
       text-align: center;
     }
-    #methodSelector {
-      display: block;
-      margin: 10px auto;
-      font-size: 16px;
+    h1, h2 {
+      text-align: center;
+      color: #0A166C;
     }
   </style>
 </head>
