@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Annual Prayer Timetable</title>
-    <style>
-        body, form { font-family: Tahoma, sans-serif; font-size: 12px; color: #404040; text-align: center; margin: 0; padding: 0; }
-        pre { font-family: Courier, monospace; margin: 0 auto; text-align: left; white-space: pre; }
-        .header { background: #ffe6e6; border-bottom: 1px solid #ddd; padding: 10px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; }
-        .btn { font-size: 12px; padding: 2px 8px; margin-left: 5px; }
-        .location-display { margin-top: 10px; font-weight: bold; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annual Prayer Timetable</title>
+  <script src="PrayTimes.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <style>
+    body { font-family: Tahoma, sans-serif; font-size: 13px; color: #333; text-align: center; margin: 0; padding: 0; }
+    .header, .nav { background: #f3f3f3; padding: 10px; border-bottom: 1px solid #ddd; }
+    .nav a { margin: 0 10px; text-decoration: none; color: #0A166C; }
+    .nav a.active { font-weight: bold; color: #d40000; }
+    pre { font-family: Courier New, monospace; font-size: 12px; margin: 0 auto; text-align: left; white-space: pre-wrap; }
 
-        @media print {
-            .header, .buttons, .location-display, a { display: none; }
-            pre { font-size: 10px; }
-        }
-    </style>
-    <script src="PrayTimes.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    #print-btn, #export-btn { margin: 10px; }
+    #locationDisplay { margin-top: 5px; font-style: italic; font-size: 12px; }
+
+    @media print {
+      .header, .nav, #print-btn, #export-btn { display: none; }
+      body { margin: 0; }
+    }
+  </style>
 </head>
 
 <body>
@@ -23,201 +28,152 @@
   <a href="index.html" style="color:white; margin:0 10px; text-decoration:none;">Home</a>
   <a href="annual.html" style="color:white; margin:0 10px; text-decoration:none;">Annual Timetable</a>
 </nav>
-    
-<div class="header">
-    Latitude: <input type="text" id="latitude" size="6" onchange="update();">
-    Longitude: <input type="text" id="longitude" size="6" onchange="update();">
-    Year: <input type="text" id="year" size="4" onchange="update();">
-    Time Zone: <input type="text" id="timezone" size="3" readonly>
-    Method:
-    <select id="method" onchange="update();" style="font-size: 12px;">
-        <option value="Jafari">Leva Research Institute (Jafari)</option>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="annual.html" class="active">Annual Timetable</a>
+  </div>
+
+  <div class="header">
+    <form onsubmit="event.preventDefault(); update();">
+      Latitude: <input type="text" id="latitude" size="6" onchange="update()">
+      Longitude: <input type="text" id="longitude" size="6" onchange="update()">
+      Year: <input type="text" id="year" size="4" onchange="update()">
+      Method:
+      <select id="method" onchange="update()">
+        <option value="Jafari">Leva Research Institute, Qum</option>
         <option value="Tehran">University of Tehran</option>
         <option value="MWL">Muslim World League</option>
-        <option value="ISNA">Islamic Society of North America</option>
-        <option value="Egypt">Egyptian General Survey</option>
-        <option value="Makkah">Umm al-Qura University</option>
-        <option value="Karachi">University of Islamic Sciences, Karachi</option>
-    </select>
-    <span class="buttons">
-        <button class="btn" onclick="window.print()">🖨 Print</button>
-        <button class="btn" onclick="downloadCSV()">CSV</button>
-        <button class="btn" onclick="downloadXLSX()">XLSX</button>
-    </span>
-</div>
+        <option value="ISNA">ISNA</option>
+        <option value="Egypt">Egyptian General Authority</option>
+        <option value="Makkah">Umm al-Qura, Makkah</option>
+        <option value="Karachi">University of Karachi</option>
+      </select>
+      <button id="print-btn" onclick="window.print()">🖨️ Print</button>
+      <button id="export-btn" onclick="exportXLSX()">📥 Download XLSX</button>
+      <div id="locationDisplay"></div>
+    </form>
+  </div>
 
-<div class="location-display" id="locationLabel">Location: Detecting...</div>
+  <pre id="timetable"></pre>
 
-<pre>
- Date   Imsak   Fajr   Sunrise   Dhuhr   [Asr]   Sunset   Maghrib   [Isha]
---------------------------------------------------------------------------
-</pre>
+  <div style="margin-top: 10px;">
+    Powered by <a href="https://praytimes.org/" target="_blank">PrayTimes.org</a>
+  </div>
 
-<div id="timetable"></div>
-
-<br>
-<div style="text-align: center;">
-    Powered by: <a href="https://praytimes.org/">PrayTimes.org</a>
-</div>
-<br>
-
-<script>
+  <script>
     const $ = id => document.getElementById(id);
-    let visiblePrayers = [];
-    let currentCSV = '';
     let currentXLSXData = [];
 
-    // Init
-    $('year').value = new Date().getFullYear();
-    const storedMethod = localStorage.getItem('method');
-    if (storedMethod) $('method').value = storedMethod;
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pos => {
-            const lat = pos.coords.latitude.toFixed(4);
-            const lon = pos.coords.longitude.toFixed(4);
-            $('latitude').value = lat;
-            $('longitude').value = lon;
-            resolveLocation(lat, lon);
-            update();
-        }, () => {
-            useDefaultLocation();
-        });
-    } else {
-        useDefaultLocation();
-    }
-
-    function useDefaultLocation() {
-        $('latitude').value = "45.0000";
-        $('longitude').value = "-93.2500";
-        $('locationLabel').innerText = "Location: Minneapolis, MN (Default)";
-        update();
-    }
-
-    function resolveLocation(lat, lon) {
-        // Try to get city and region using Intl if available
-        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
-            .then(res => res.json())
-            .then(data => {
-                const city = data.address.city || data.address.town || data.address.village || '';
-                const state = data.address.state || '';
-                $('locationLabel').innerText = `Location: ${city}, ${state}`;
-            })
-            .catch(() => {
-                $('locationLabel').innerText = "Location: Unknown";
-            });
-    }
-
     function update() {
-        const lat = parseFloat($('latitude').value);
-        const lng = parseFloat($('longitude').value);
-        const year = parseInt($('year').value);
-        const method = $('method').value;
+      const lat = parseFloat($("latitude").value);
+      const lng = parseFloat($("longitude").value);
+      const year = parseInt($("year").value);
+      const method = $("method").value;
 
-        localStorage.setItem('method', method);
+      // Save to localStorage
+      localStorage.setItem("latitude", lat);
+      localStorage.setItem("longitude", lng);
+      localStorage.setItem("method", method);
 
-        const midYear = new Date(year, 6, 1);
-        const tzOffset = -midYear.getTimezoneOffset() / 60;
-        $('timezone').value = tzOffset;
+      // Timezone auto-detection
+      const today = new Date();
+      const tzOffset = -today.getTimezoneOffset() / 60;
 
-        const result = makeTable(method, year, lat, lng, tzOffset);
-        $('timetable').innerHTML = '<pre>' + result.text + '</pre>';
-        currentCSV = result.csv;
-        currentXLSXData = result.xlsx;
+      const { text, xlsx } = makeTable(method, year, lat, lng, tzOffset);
+      $("timetable").textContent = text;
+      currentXLSXData = xlsx;
 
-        // Init
-$('year').value = new Date().getFullYear();
-const storedMethod = localStorage.getItem('method');
-if (storedMethod) $('method').value = storedMethod;
+      // Reverse geocode for city/state
+      resolveLocation(lat, lng);
+    }
 
-// Restore location or use geolocation
-const storedLat = localStorage.getItem('latitude');
-const storedLng = localStorage.getItem('longitude');
+    function makeTable(method, year, lat, lng, timeZone) {
+      prayTimes.setMethod(method);
+      prayTimes.adjust({ highLats: "AngleBased" });
 
-if (storedLat && storedLng) {
-    $('latitude').value = storedLat;
-    $('longitude').value = storedLng;
-    resolveLocation(storedLat, storedLng);
-    update();
-} else if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(pos => {
-        const lat = pos.coords.latitude.toFixed(4);
-        const lon = pos.coords.longitude.toFixed(4);
-        $('latitude').value = lat;
-        $('longitude').value = lon;
-        resolveLocation(lat, lon);
+      const noAsrIsha = method === "Jafari" || method === "Tehran";
+      const headers = ["Date", "Imsak", "Fajr", "Sunrise", "Dhuhr", "Sunset", "Maghrib"];
+      if (!noAsrIsha) headers.splice(6, 0, "Asr", "Isha");
+
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const xlsxData = [headers];
+      let text = headers.join("\t") + "\n" + "-".repeat(70) + "\n";
+
+      let date = new Date(year, 0, 1);
+      const end = new Date(year + 1, 0, 1);
+
+      while (date < end) {
+        const times = prayTimes.getTimes(date, [lat, lng], timeZone, "auto", "12hNS");
+        const row = [
+          `${monthNames[date.getMonth()]} ${String(date.getDate()).padStart(2, "0")}`,
+          times.imsak,
+          times.fajr,
+          times.sunrise,
+          times.dhuhr,
+          times.sunset,
+          times.maghrib
+        ];
+        if (!noAsrIsha) {
+          row.splice(6, 0, times.asr, times.isha);
+        }
+
+        text += row.join("\t") + "\n";
+        xlsxData.push(row);
+        date.setDate(date.getDate() + 1);
+      }
+
+      return { text, xlsx: xlsxData };
+    }
+
+    function exportXLSX() {
+      const worksheet = XLSX.utils.aoa_to_sheet(currentXLSXData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Prayer Timetable");
+      XLSX.writeFile(workbook, "AnnualPrayerTimetable.xlsx");
+    }
+
+    function resolveLocation(lat, lng) {
+      fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)
+        .then(res => res.json())
+        .then(data => {
+          const city = data.address.city || data.address.town || data.address.village || "";
+          const state = data.address.state || "";
+          $("locationDisplay").textContent = `📍 ${city}, ${state}`;
+        })
+        .catch(() => {
+          $("locationDisplay").textContent = "";
+        });
+    }
+
+    // On load: restore preferences or use geolocation
+    window.onload = () => {
+      $("year").value = new Date().getFullYear();
+      const savedMethod = localStorage.getItem("method");
+      const savedLat = localStorage.getItem("latitude");
+      const savedLng = localStorage.getItem("longitude");
+
+      if (savedMethod) $("method").value = savedMethod;
+      if (savedLat && savedLng) {
+        $("latitude").value = savedLat;
+        $("longitude").value = savedLng;
         update();
-    }, () => {
-        useDefaultLocation();
-    });
-} else {
-    useDefaultLocation();
-}
-    
-    }
-
-    function makeTable(method, year, lat, lng, tzOffset) {
-        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-        prayTimes.setMethod(method);
-        prayTimes.adjust({ highLats: 'AngleBased' });
-
-        visiblePrayers = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
-        if (method !== 'Jafari' && method !== 'Tehran') {
-            visiblePrayers.splice(4, 0, 'Asr');
-            visiblePrayers.push('Isha');
-        }
-
-        let text = 'Date\t' + visiblePrayers.join('\t') + '\n';
-        text += '-'.repeat(8 * (visiblePrayers.length + 1)) + '\n';
-        let csv = 'Date,' + visiblePrayers.join(',') + '\n';
-        let xlsx = [['Date', ...visiblePrayers]];
-
-        let date = new Date(year, 0, 1);
-        const endDate = new Date(year + 1, 0, 1);
-
-        while (date < endDate) {
-            const times = prayTimes.getTimes(date, [lat, lng], tzOffset, 'auto', '12hNS');
-            const dayStr = `${monthNames[date.getMonth()]} ${String(date.getDate()).padStart(2, '0')}`;
-
-            text += dayStr + '\t';
-            csv += `"${dayStr}",`;
-            let row = [dayStr];
-
-            for (const prayer of visiblePrayers) {
-                const time = times[prayer.toLowerCase()];
-                text += time + '\t';
-                csv += `"${time}",`;
-                row.push(time);
-            }
-
-            text += '\n';
-            csv = csv.slice(0, -1) + '\n';
-            xlsx.push(row);
-            date.setDate(date.getDate() + 1);
-        }
-
-        return { text, csv, xlsx };
-    }
-
-    function downloadCSV() {
-        const blob = new Blob([currentCSV], { type: 'text/csv' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = `Prayer_Timetable_${$('year').value}.csv`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    function downloadXLSX() {
-        const wb = XLSX.utils.book_new();
-        const ws = XLSX.utils.aoa_to_sheet(currentXLSXData);
-        XLSX.utils.book_append_sheet(wb, ws, 'Prayer Times');
-        XLSX.writeFile(wb, `Prayer_Timetable_${$('year').value}.xlsx`);
-    }
-</script>
-
+      } else if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          $("latitude").value = pos.coords.latitude.toFixed(4);
+          $("longitude").value = pos.coords.longitude.toFixed(4);
+          update();
+        }, () => {
+          $("latitude").value = 45.0;
+          $("longitude").value = -93.2;
+          update();
+        });
+      } else {
+        $("latitude").value = 45.0;
+        $("longitude").value = -93.2;
+        update();
+      }
+    };
+  </script>
 </body>
 </html>
