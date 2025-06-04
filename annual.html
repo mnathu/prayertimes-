@@ -103,13 +103,19 @@
   function update() {
     const lat = parseFloat($('latitude').value);
     const lng = parseFloat($('longitude').value);
-    const tz = $('timezone').value;
     const dst = $('dst').value;
     const year = $('year').value;
     const method = $('method').value;
-    const html = makeTable(method, year, lat, lng, tz, dst, false);
+
+    // Auto-detect time zone offset in hours
+    let now = new Date();
+    let offsetMinutes = now.getTimezoneOffset(); // e.g. -300 for CDT (UTC-5)
+    let offsetHours = -offsetMinutes / 60; // Convert to hours and flip sign
+    $('timezone').value = offsetHours;
+
+    const html = makeTable(method, year, lat, lng, offsetHours, dst);
     $('timetable').innerHTML = '<pre>' + html + '</pre>';
-  }
+}
 
   function makeTable(method, year, lat, lng, timeZone, dst) {
     var table = ''; 
