@@ -100,22 +100,21 @@
     localStorage.setItem('method', methodSelector.value);
   }
 
-  function update() {
-    const lat = parseFloat($('latitude').value);
-    const lng = parseFloat($('longitude').value);
-    const dst = $('dst').value;
-    const year = $('year').value;
-    const method = $('method').value;
+      const lat = parseFloat($('latitude').value);
+        const lng = parseFloat($('longitude').value);
+        const year = parseInt($('year').value);
+        const method = $('method').value;
 
-    // Auto-detect time zone offset in hours
-    let now = new Date();
-    let tzOffset = -new Date(year, 6, 1).getTimezoneOffset() / 60; // Use July to catch DST if active
-$('timezone').value = tzOffset;
-    $('timezone').value = offsetHours;
+        localStorage.setItem('method', method);
 
-    const html = makeTable(method, year, lat, lng, offsetHours, dst);
-    $('timetable').innerHTML = '<pre>' + html + '</pre>';
-}
+        // Get DST-aware time zone offset using July 1st (middle of year)
+        const midYear = new Date(year, 6, 1);
+        const offset = -midYear.getTimezoneOffset() / 60;
+        $('timezone').value = offset;
+
+        const html = makeTable(method, year, lat, lng, offset);
+        $('timetable').innerHTML = '<pre>' + html + '</pre>';
+    }
 
   function makeTable(method, year, lat, lng, timeZone, dst) {
     var table = ''; 
