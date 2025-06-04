@@ -109,8 +109,8 @@
 
     // Auto-detect time zone offset in hours
     let now = new Date();
-    let offsetMinutes = now.getTimezoneOffset(); // e.g. -300 for CDT (UTC-5)
-    let offsetHours = -offsetMinutes / 60; // Convert to hours and flip sign
+    let tzOffset = -new Date(year, 6, 1).getTimezoneOffset() / 60; // Use July to catch DST if active
+$('timezone').value = tzOffset;
     $('timezone').value = offsetHours;
 
     const html = makeTable(method, year, lat, lng, offsetHours, dst);
