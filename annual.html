@@ -1,156 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Annual Prayer Timetable</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body, form { font-family: Tahoma, sans-serif; font-size: 14px; color: #333; text-align: center; margin: 0; padding: 0 }
-    pre { font-family: Courier, monospace; margin: 0 auto; white-space: pre-wrap; text-align: left; max-width: 90%; }
-    .header { background: #f2f2f2; padding: 10px; border-bottom: 1px solid #ccc; }
-    .footer { margin-top: 10px; font-size: 12px; color: #666; }
-    .button-group { margin: 10px 0; }
-    button { padding: 5px 10px; font-size: 14px; }
-    #cityState { font-size: 14px; margin-top: 5px; color: #006 }
-    nav { background: #0A166C; padding: 10px; text-align: center; }
-    nav a { color: #fff; margin: 0 10px; text-decoration: none; font-weight: bold; }
-    nav a.active { text-decoration: underline; }
-
-    @media print {
-      nav, .button-group, .footer, .header input, .header select, .header button { display: none !important; }
-      body { font-size: 12px; color: #000; }
-    }
-  </style>
+	<title> Yearly Prayer Timetable </title>
+	<style>
+		body, form {font-family: tahoma; font-size: 12px; color: #404040; text-align: center; margin: 0; padding: 0}
+		pre {font-family: courier, serif, size: 10pt; margin: 0px auto;}
+		.header {background:#ffe6e6; border-bottom: 1px solid #ddd; padding: 7px;}
+	</style>
 </head>
+
 <body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="PrayTimes.js"></script>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="annual.html" class="active">Annual Timetable</a>
+<nav style="background:#0A166C; color:white; padding:10px; text-align:center;">
+  <a href="index.html" style="color:white; margin:0 10px; text-decoration:none;">Home</a>
+  <a href="annual.html" style="color:white; margin:0 10px; text-decoration:none;">Annual Timetable</a>
 </nav>
+<script type="text/javascript" src="PrayTimes.js"></script>
 
 <div class="header">
-  <form onsubmit="return false;">
-    Latitude: <input type="text" id="latitude" size="6"> &nbsp;
-    Longitude: <input type="text" id="longitude" size="6"> &nbsp;
-    Year: <input type="text" id="year" size="4"> &nbsp;
-    Time Zone: <input type="text" id="timezone" size="3"> &nbsp;
-    DST: 
-    <select id="dst" onchange="update()">
-      <option value="auto" selected>Auto</option>
-      <option value="0">0</option>
-      <option value="1">1</option>
-    </select> &nbsp;
-    Method: 
-    <select id="method" onchange="update()">
-      <option value="Jafari">Jafari</option>
-      <option value="Tehran">Tehran</option>
-      <option value="MWL">MWL</option>
-      <option value="ISNA">ISNA</option>
-      <option value="Egypt">Egypt</option>
-      <option value="Makkah">Makkah</option>
-      <option value="Karachi">Karachi</option>
-    </select>
-    <button onclick="window.print()">🖨️ Print</button>
-  </form>
-  <div id="cityState"></div>
+<form class="form" action="javascript:update();">
+	Latitude: <input type="text" value="45.0941" id="latitude" size="5" onchange="update();">&nbsp;
+	Longitude: <input type="text" value="-93.3563" id="longitude" size="5" onchange="update();">&nbsp;
+	Year: <input type="text" value="2011" id="year" size="4" onchange="update();">&nbsp;
+	Time Zone: <input type="text" value="-6" id="timezone" size="2" onchange="update();">&nbsp;
+	DST: 
+	<select id="dst" size="1" style="font-size: 12px;" onchange="update()">
+		<option value="auto" selected="selected">Auto</option>
+		<option value="0">0</option>
+		<option value="1">1</option>
+    </select>&nbsp;
+	Method: 
+	<select id="method" size="1" style="font-size: 12px;" onchange="update()">
+		<option value="Jafari" selected="selected">Leva Research Institute, Qum</option>
+		<option value="Tehran">Institute of Geophysics, University of Tehran</option>
+		<option value="MWL">Muslim World League (MWL)</option>
+		<option value="ISNA">Islamic Society of North America (ISNA)</option>
+		<option value="Egypt">Egyptian General Authority of Survey</option>
+		<option value="Makkah">Umm al-Qura University, Makkah</option>
+		<option value="Karachi">University of Islamic Sciences, Karachi</option>
+	</select>
+	<button onclick="window.print()">Print this page</button>
+</form>
 </div>
+<br/>
 
 <pre>
- Date      Imsak   Fajr   Sunrise  Dhuhr  Sunset  Maghrib [Asr Isha if applicable]
-----------------------------------------------------------------------------------
+ Date  Imsak   Fajr   Sunrise  Dhuhr  Sunset  Maghrib   
+----------------------------------------------------------
 </pre>
-<div id="timetable"></div>
 
-<div class="button-group">
-  <button onclick="exportCSV()">⬇️ Export CSV</button>
-  <button onclick="exportXLSX()">⬇️ Export Excel</button>
+<div id="timetable">
 </div>
+<br/>
 
-<div class="footer">
-  Powered by <a href="https://praytimes.org" target="_blank">PrayTimes.org</a>
+<div align="center" style="margin-top: 7px">
+	Powered by: <a href="http://praytimes.org/">PrayTimes.org</a>
 </div>
+<br/>
 
-<script>
-function $(id) { return document.getElementById(id); }
+<script type="text/javascript">
 
-function storePrefs() {
-  localStorage.setItem('method', $('method').value);
-  localStorage.setItem('lat', $('latitude').value);
-  localStorage.setItem('lng', $('longitude').value);
-}
+	var date = new Date();
+	$('year').value = date.getFullYear();
+	update();
 
-function loadPrefs() {
-  $('method').value = localStorage.getItem('method') || 'Jafari';
-  $('latitude').value = localStorage.getItem('lat') || '44.98';
-  $('longitude').value = localStorage.getItem('lng') || '-93.27';
-}
+	function update() {
+		var lat = $('latitude').value;
+		var lng = $('longitude').value;
+		var timeZone = $('timezone').value;
+		var dst = $('dst').value;
+		var year = $('year').value;
+		var method = $('method').value;
+		var html = makeTable(method, year, lat, lng, timeZone, dst);
+		$('timetable').innerHTML = '<pre>'+ html+ '</pre>';
+	}
 
-function getTimeZoneOffset(date) {
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const dtf = new Intl.DateTimeFormat('en-US', {
-    timeZone: tz, timeZoneName: 'short'
-  });
-  const parts = dtf.formatToParts(date);
-  const zone = parts.find(i => i.type === 'timeZoneName').value;
-  const match = zone.match(/GMT([+-]?\d+)/);
-  return match ? parseInt(match[1]) : -date.getTimezoneOffset() / 60;
-}
 
-function update() {
-  storePrefs();
-  const lat = parseFloat($('latitude').value);
-  const lng = parseFloat($('longitude').value);
-  const method = $('method').value;
-  const year = parseInt($('year').value);
-  const dst = $('dst').value;
+	function makeTable(method, year, lat, lng, timeZone, dst) {
+		var table = ''; 
+		var monthNames = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May',
+				'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+		var date = new Date(year, 0, 1);
+		var endDate = new Date(1*year+ 1, 0, 1);
+		prayTimes.setMethod(method);
+		
+		var output = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
 
-  $('timetable').innerHTML = '<pre>' + makeTable(method, year, lat, lng, dst) + '</pre>';
-  getLocationName(lat, lng);
-}
+		while (date < endDate) {
+			prayTimes.adjust({highLats: 'AngleBased'} );
+			var times = prayTimes.getTimes(date, [lat, lng], timeZone, dst, '12hNS');
+			var day = date.getDate();
+			day = (day <10) ? '0'+ day : day;
+			table += monthNames[date.getMonth()]+ ' '+ day+ '\t';
+			for (var i in output)
+				table += times[output[i].toLowerCase()]+ '\t';
+			table += '\n';
+			date.setDate(date.getDate()+ 1);  // next day
+		}
+		return table;
+	}
 
-function makeTable(method, year, lat, lng, dst) {
-  const prayTimesMethodsNoAsrIsha = ['Jafari', 'Tehran'];
-  const showAsrIsha = !prayTimesMethodsNoAsrIsha.includes(method);
-  prayTimes.setMethod(method);
-  prayTimes.adjust({ highLats: 'AngleBased' });
+	function $(id) {
+		return document.getElementById(id);
+	}
 
-  const output = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
-  if (showAsrIsha) output.push('Asr', 'Isha');
-
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-  let table = '';
-  let date = new Date(year, 0, 1);
-  const endDate = new Date(year + 1, 0, 1);
-
-  while (date < endDate) {
-    const tz = getTimeZoneOffset(date);
-    const times = prayTimes.getTimes(date, [lat, lng], tz, dst, '12hNS');
-    const day = date.getDate().toString().padStart(2, '0');
-    table += `${monthNames[date.getMonth()]} ${day}\t`;
-    for (const key of output) table += (times[key.toLowerCase()] || '-') + '\t';
-    table += '\n';
-    date.setDate(date.getDate() + 1);
-  }
-  return table;
-}
-
-function getLocationName(lat, lng) {
-  fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
-    .then(res => res.json())
-    .then(data => {
-      const city = data.address.city || data.address.town || data.address.village || '';
-      const state = data.address.state || '';
-      $('cityState').textContent = `📍 ${city}, ${state}`;
-    });
-}
-
-function exportCSV() {
+  function exportCSV() {
   const text = $('timetable').innerText;
   const rows = text.trim().split('\n').map(line => line.split('\t'));
   const csv = rows.map(row => row.join(',')).join('\n');
@@ -170,21 +123,6 @@ function exportXLSX() {
   XLSX.utils.book_append_sheet(wb, ws, "Timetable");
   XLSX.writeFile(wb, `Prayer_Timetable_${$('year').value}.xlsx`);
 }
-
-// Init
-window.onload = () => {
-  $('year').value = new Date().getFullYear();
-  loadPrefs();
-  update();
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(pos => {
-      $('latitude').value = pos.coords.latitude.toFixed(5);
-      $('longitude').value = pos.coords.longitude.toFixed(5);
-      update();
-    });
-  }
-};
 </script>
 
 </body>
