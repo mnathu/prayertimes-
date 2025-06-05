@@ -115,31 +115,44 @@ Date      Imsak   Fajr   Sunrise  Dhuhr   Asr    Sunset  Maghrib  Isha
     $('timetable').innerHTML = '<pre>' + html + '</pre>';
   }
 
-  function makeTable(method, year, lat, lng, timeZone, dst, forCSV) {
-    let table = '';
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const start = new Date(year, 0, 1);
-    const end = new Date(+year + 1, 0, 1);
+  function makeTable(method, year, lat, lng, timeZone, dst) {
+    var table = ''; 
+    var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var date = new Date(year, 0, 1);
+    var endDate = new Date(parseInt(year) + 1, 0, 1);
 
-    const includeAsrIsha = methodListWithAsr.includes(method);
-    const list = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr'];
-    if (includeAsrIsha) list.push('Asr');
-    list.push('Sunset', 'Maghrib');
-    if (includeAsrIsha) list.push('Isha');
-
+    // Set prayer calculation method
     prayTimes.setMethod(method);
-    prayTimes.adjust({ highLats: 'AngleBased' });
+    prayTimes.adjust({highLats: 'AngleBased'});
 
-    while (start < end) {
-      const times = prayTimes.getTimes(new Date(start), [lat, lng], timeZone, dst, '12hNS');
-      const day = ('0' + start.getDate()).slice(-2);
-      const month = months[start.getMonth()];
-      const line = [month + ' ' + day, ...list.map(p => times[p.toLowerCase()] || '-')];
-      table += (forCSV ? line.join(',') : line.join('\t')) + '\n';
-      start.setDate(start.getDate() + 1);
+    // Determine which prayers to include
+    let output = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Sunset', 'Maghrib'];
+
+    // Include Asr and Isha for all except Jafari and Tehran
+    if (method !== 'Jafari' && method !== 'Tehran') {
+        output.splice(4, 0, 'Asr');     // Insert after Dhuhr
+        output.push('Isha');            // Add to the end
     }
+
+    // Create header row
+    table += ' Date\t' + output.join('\t') + '\n';
+    table += '----------------------------------------------------------\n';
+
+    // Generate timetable
+    while (date < endDate) {
+        let times = prayTimes.getTimes(date, [lat, lng], timeZone, dst, '12hNS');
+        let day = date.getDate().toString().padStart(2, '0');
+        table += monthNames[date.getMonth()] + ' ' + day + '\t';
+        output.forEach(prayer => {
+            table += times[prayer.toLowerCase()] + '\t';
+        });
+        table += '\n';
+        date.setDate(date.getDate() + 1);
+    }
+
     return table;
-  }
+}
 
   function downloadCSV() {
     const lat = parseFloat($('latitude').value);
