@@ -123,6 +123,23 @@ function exportXLSX() {
   XLSX.utils.book_append_sheet(wb, ws, "Timetable");
   XLSX.writeFile(wb, `Prayer_Timetable_${$('year').value}.xlsx`);
 }
+
+
+// Init
+window.onload = () => {
+  $('year').value = new Date().getFullYear();
+  loadPrefs();
+  update();
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(pos => {
+      $('latitude').value = pos.coords.latitude.toFixed(5);
+      $('longitude').value = pos.coords.longitude.toFixed(5);
+      update();
+    });
+  }
+};
+	
 </script>
 
 </body>
