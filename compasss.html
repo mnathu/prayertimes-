@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Qibla Locator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      font-family: Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+    }
+
+    .header {
+      background: #ffe6e6;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .header a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #444;
+      font-weight: bold;
+      padding: 6px 10px;
+    }
+
+    .header a.active {
+      background-color: #cc0000;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    h1 {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    #compass {
+      display: block;
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+      transition: transform 0.3s ease-out;
+    }
+
+    #info {
+      margin: 15px auto;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+    }
+
+    #map {
+      width: 90%;
+      height: 300px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+
+    @media print {
+      .header, #map {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="index.html">Home</a>
+    <a href="annual.html">Annual Timetable</a>
+    <a href="qibla.html" class="active">Qibla Locator</a>
+  </div>
+
+  <h1>Qibla Compass</h1>
+  <img id="compass" src="compass.PNG" alt="Compass">
+  <div id="info">Getting your location...</div>
+  <div id="map"></div>
+
+  <script>
+    const compass = document.getElementById('compass');
+    const info = document.getElementById('info');
+
+    let qiblaDirection = 0;
+
+    function toRadians(deg) {
+      return deg * Math.PI / 180;
+    }
+
+    function toDegrees(rad) {
+      return rad * 180 / Math.PI;
+    }
+
+    function calculateQibla(lat, lon) {
+      const kaabaLat = toRadians(21.4225);
+      const kaabaLon = toRadians(39.8262);
+      const userLat = toRadians(lat);
+      const userLon = toRadians(lon);
+
+      const deltaLon = kaabaLon - userLon;
+
+      const y = Math.sin(deltaLon) * Math.cos(kaabaLat);
+      const x = Math.cos(userLat) * Math.sin(kaabaLat) -
+                Math.sin(userLat) * Math.cos(kaabaLat) * Math.cos(deltaLon);
+
+      const bearing = Math.atan2(y, x);
+      return (toDegrees(bearing) + 360) % 360;
+    }
+
+    function handleOrientation(event) {
+      if (typeof event.alpha === 'number') {
+        const rotation = qiblaDirection - event.alpha;
+        compass.style.transform = `rotate(${rotation}deg)`;
+      }
+    }
+
+    function showMap(lat, lon) {
+      const mapUrl = `https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
+      document.getElementById('map').innerHTML = `<iframe width="100%" height="100%" src="${mapUrl}" frameborder="0"></iframe>`;
+    }
+
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        const { latitude, longitude } = pos.coords;
+        qiblaDirection = calculateQibla(latitude, longitude);
+        info.innerText = `Qibla direction: ${qiblaDirection.toFixed(2)}° from North`;
+        showMap(latitude, longitude);
+      }, err => {
+        info.innerText = 'Unable to get your location.';
+      });
+    } else {
+      info.innerText = 'Geolocation is not supported by this browser.';
+    }
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientationabsolute', handleOrientation, true);
+      window.addEventListener('deviceorientation', handleOrientation, true);
+    } else {
+      info.innerText += '\nDevice orientation is not supported.';
+    }
+  </script>
+
+</body>
+</html>
