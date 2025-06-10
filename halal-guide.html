@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halal Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; margin: 0; }
+    #map { height: 400px; width: 100%; }
+    .controls { padding: 10px; background: #f8f8f8; display: flex; justify-content: center; gap: 10px; }
+    .list { padding: 10px; }
+    .place { margin-bottom: 12px; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+    button { padding: 8px 12px; border: none; border-radius: 4px; background-color: #4CAF50; color: white; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Nearby Halal Restaurants & Mosques</h2>
+<div class="controls">
+  <button onclick="showHalalRestaurants()">Show Halal Restaurants</button>
+  <button onclick="showMosques()">Show Mosques</button>
+</div>
+
+<div id="map"></div>
+<div class="list" id="places-list"></div>
+
+<script>
+  let map, userLocation, markers = [];
+  const placesList = document.getElementById("places-list");
+
+  function initMap() {
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: userLocation,
+        zoom: 14,
+      });
+      new google.maps.Marker({ position: userLocation, map, title: "You are here" });
+    }, err => {
+      alert("Could not get your location.");
+    });
+  }
+
+  function clearMarkers() {
+    markers.forEach(marker => marker.setMap(null));
+    markers = [];
+    placesList.innerHTML = '';
+  }
+
+  function showHalalRestaurants() {
+    clearMarkers();
+    const service = new google.maps.places.PlacesService(map);
+    const request = {
+      location: userLocation,
+      radius: 4000,
+      keyword: "halal restaurant"
+    };
+    service.nearbySearch(request, (results, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        results.forEach(place => {
+          const marker = new google.maps.Marker({
+            position: place.geometry.location,
+            map,
+            title: place.name,
+            icon: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+          });
+          markers.push(marker);
+          placesList.innerHTML += `
+            <div class="place">
+              <strong>${place.name}</strong><br/>
+              ${place.vicinity}<br/>
+              Rating: ${place.rating || "N/A"} (${place.user_ratings_total || 0} reviews)
+            </div>
+          `;
+        });
+      }
+    });
+  }
+
+  function showMosques() {
+    clearMarkers();
+    const service = new google.maps.places.PlacesService(map);
+    const request = {
+      location: userLocation,
+      radius: 4000,
+      keyword: "mosque"
+    };
+    service.nearbySearch(request, (results, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        results.forEach(place => {
+          const marker = new google.maps.Marker({
+            position: place.geometry.location,
+            map,
+            title: place.name,
+            icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+          });
+          markers.push(marker);
+          placesList.innerHTML += `
+            <div class="place">
+              <strong>${place.name}</strong><br/>
+              ${place.vicinity}
+            </div>
+          `;
+        });
+      }
+    });
+  }
+</script>
+
+<!-- Load Google Maps API -->
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap">
+</script>
+
+</body>
+</html>
