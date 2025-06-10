@@ -38,8 +38,8 @@
 
   <div id="location"><em>Locating...</em></div>
   <div id="links" style="display:none;">
-    <a id="google-link" href="#" class="link-button" target="_blank">Search Google for Halal Food</a>
-    <a id="zabihah-link" href="#" class="link-button" target="_blank">View Listings on Zabihah</a>
+    <a id="google-food-link" href="#" class="link-button" target="_blank">Search Halal Food</a>
+    <a id="google-mosque-link" href="#" class="link-button" target="_blank">Find Mosques Nearby</a>
   </div>
 
   <script>
@@ -58,8 +58,8 @@
 
     function fallbackLinks() {
       document.getElementById('location').innerText = "Location not available. Showing general search options:";
-      document.getElementById('google-link').href = "https://www.google.com/search?q=halal+restaurants+near+me";
-      document.getElementById('zabihah-link').href = "https://www.zabihah.com";
+      document.getElementById('google-food-link').href = "https://www.google.com/search?q=halal+restaurants+near+me";
+      document.getElementById('google-mosque-link').href = "https://www.google.com/maps/search/mosque+near+me";
       document.getElementById('links').style.display = "block";
     }
 
@@ -72,11 +72,11 @@
         const cityState = `${city}, ${state}`;
         document.getElementById('location').innerText = `Your location: ${cityState}`;
 
-        const googleSearch = `https://www.google.com/search?q=halal+restaurants+in+${encodeURIComponent(cityState)}`;
-        const zabihahSearch = `https://www.zabihah.com/sub/?t=Halal&l=${encodeURIComponent(city)}`;
+        const foodSearch = `https://www.google.com/search?q=halal+restaurants+in+${encodeURIComponent(cityState)}`;
+        const mosqueSearch = `https://www.google.com/maps/search/mosque+near+${encodeURIComponent(cityState)}`;
 
-        document.getElementById('google-link').href = googleSearch;
-        document.getElementById('zabihah-link').href = zabihahSearch;
+        document.getElementById('google-food-link').href = foodSearch;
+        document.getElementById('google-mosque-link').href = mosqueSearch;
         document.getElementById('links').style.display = "block";
       }, fallbackLinks, { timeout: 8000 });
     } else {
