@@ -1,93 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Halal Guide Near Me</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 2rem;
-      background-color: #f9f9f9;
     }
     h1 {
-      color: #2c3e50;
+      color: #2d8659;
     }
-    #location, #links {
-      margin-top: 20px;
+    .links {
+      margin-top: 2rem;
     }
-    .link-button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background-color: #2c3e50;
-      color: #fff;
-      border-radius: 5px;
+    .links a {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
+      background-color: #f2f2f2;
+      border-radius: 8px;
       text-decoration: none;
+      color: #2d2d2d;
+      width: fit-content;
+      transition: background-color 0.3s;
     }
-    .link-button:hover {
-      background-color: #1a252f;
+    .links a:hover {
+      background-color: #e6ffe6;
     }
   </style>
 </head>
 <body>
-<nav style="background:#0A166C; color:white; padding:10px; text-align:center;">
-  <a href="index.html" style="color:white; margin:0 10px; text-decoration:none;">Home</a>
-  <a href="annual.html" style="color:white; margin:0 10px; text-decoration:none;">Annual Timetable</a>
-  <a href="qibla.html" style="color:white; margin:0 10px; text-decoration:none;">Qibla Locator</a> 
-  <a href="halal.html" style="color:white; margin:0 10px; text-decoration:none;">Halal Guide</a>
-</nav>
-  <h1>🍽️ Halal Guide Near Me</h1>
-  <p>Finding halal restaurants and mosques near you...</p>
 
-  <div id="location"><em>Locating...</em></div>
-  <div id="links" style="display:none;">
-    <a id="google-food-link" href="#" class="link-button" target="_blank">Search Halal Food</a>
-    <a id="google-mosque-link" href="#" class="link-button" target="_blank">Find Mosques Nearby</a>
+  <h1>Halal Guide Near Me</h1>
+  <p id="location">Detecting your location...</p>
+
+  <div class="links" id="halalLinks" style="display:none;">
+    <a id="foodLink" href="#" target="_blank">🍽️ Halal Restaurants Near Me</a>
+    <a id="mosqueLink" href="#" target="_blank">🕌 Mosques Near Me</a>
   </div>
 
   <script>
-    async function reverseGeocode(lat, lon) {
-      try {
-        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
-        const data = await res.json();
-        return {
-          city: data.address.city || data.address.town || data.address.village || '',
-          state: data.address.state || '',
-        };
-      } catch {
-        return { city: '', state: '' };
-      }
+    // Get user's city/state from lat/lon using OpenStreetMap
+    function reverseGeocode(lat, lon) {
+      fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+        .then(response => response.json())
+        .then(data => {
+          const city = data.address.city || data.address.town || data.address.village || '';
+          const state = data.address.state || '';
+          document.getElementById('location').textContent = `Showing results for ${city}, ${state}`;
+
+          // Build Google Maps search links
+          const foodUrl = `https://www.google.com/maps/search/halal+food+in+${encodeURIComponent(city)},+${encodeURIComponent(state)}`;
+          const mosqueUrl = `https://www.google.com/maps/search/mosques+in+${encodeURIComponent(city)},+${encodeURIComponent(state)}`;
+
+          document.getElementById('foodLink').href = foodUrl;
+          document.getElementById('mosqueLink').href = mosqueUrl;
+
+          document.getElementById('halalLinks').style.display = 'block';
+        })
+        .catch(() => {
+          document.getElementById('location').textContent = "Unable to get your city/state.";
+        });
     }
 
-    function fallbackLinks() {
-      document.getElementById('location').innerText = "Location not available. Showing general search options:";
-      document.getElementById('google-food-link').href = "https://www.google.com/search?q=halal+restaurants+near+me";
-      document.getElementById('google-mosque-link').href = "https://www.google.com/maps/search/mosque+near+me";
-      document.getElementById('links').style.display = "block";
-    }
-
+    // Get geolocation
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(async position => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        const { city, state } = await reverseGeocode(lat, lon);
-
-        const cityState = `${city}, ${state}`;
-        document.getElementById('location').innerText = `Your location: ${cityState}`;
-
-        const foodSearch = `https://www.google.com/maps/search/halal+restaurant+in+${encodeURIComponent(cityState)}';
-        const mosqueSearch = `https://www.google.com/maps/search/mosque+near+${encodeURIComponent(cityState)}`;
-
-        document.getElementById('google-food-link').href = foodSearch;
-        document.getElementById('google-mosque-link').href = mosqueSearch;
-        document.getElementById('links').style.display = "block";
-      }, fallbackLinks, { timeout: 8000 });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          reverseGeocode(latitude, longitude);
+        },
+        (error) => {
+          document.getElementById('location').textContent = "Location access denied or unavailable.";
+        }
+      );
     } else {
-      fallbackLinks();
+      document.getElementById('location').textContent = "Geolocation is not supported by this browser.";
     }
   </script>
-  * Please verify halal status by calling the establishment
+
 </body>
 </html>
