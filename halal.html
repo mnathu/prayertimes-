@@ -77,7 +77,7 @@
         const cityState = `${city}, ${state}`;
         document.getElementById('location').innerText = `Your location: ${cityState}`;
 
-        const foodSearch = `https://www.google.com/search?q=halal+restaurants+in+${encodeURIComponent(cityState)}`;
+        const foodSearch = `https://www.google.com/maps/search/halal+restaurant+in+${encodeURIComponent(cityState)}';
         const mosqueSearch = `https://www.google.com/maps/search/mosque+near+${encodeURIComponent(cityState)}`;
 
         document.getElementById('google-food-link').href = foodSearch;
