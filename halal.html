@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Halal Guide Near Me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 2rem;
-      background-color: #f9f9f9;
+      margin: 0;
+      background: #f9f9f9;
+    }
+    header {
+      background-color: #2d8659;
+      color: white;
+      padding: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
     }
     h1 {
-      color: #2c3e50;
+      margin-top: 2rem;
+      color: #2d8659;
     }
-    #location, #links {
-      margin-top: 20px;
+    .links {
+      margin-top: 2rem;
     }
-    .link-button {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background-color: #2c3e50;
-      color: #fff;
-      border-radius: 5px;
+    .links a {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
+      background-color: white;
+      border: 1px solid #2d8659;
+      border-radius: 8px;
       text-decoration: none;
+      color: #2d8659;
+      font-size: 1.2rem;
+      width: fit-content;
+      max-width: 90%;
+      transition: background-color 0.3s;
     }
-    .link-button:hover {
-      background-color: #1a252f;
+    .links a:hover {
+      background-color: #e6ffe6;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="annual.html">Annual Timetable</a>
+      <a href="qibla.html">Qibla</a>
+      <a href="halal.html" style="text-decoration: underline;">Halal Guide</a>
+    </nav>
+  </header>
 
   <h1>Halal Guide Near Me</h1>
   <p id="location">Detecting your location...</p>
@@ -42,7 +69,6 @@
   </div>
 
   <script>
-    // Get user's city/state from lat/lon using OpenStreetMap
     function reverseGeocode(lat, lon) {
       fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
         .then(response => response.json())
@@ -51,7 +77,6 @@
           const state = data.address.state || '';
           document.getElementById('location').textContent = `Showing results for ${city}, ${state}`;
 
-          // Build Google Maps search links
           const foodUrl = `https://www.google.com/maps/search/halal+food+in+${encodeURIComponent(city)},+${encodeURIComponent(state)}`;
           const mosqueUrl = `https://www.google.com/maps/search/mosques+in+${encodeURIComponent(city)},+${encodeURIComponent(state)}`;
 
@@ -65,14 +90,13 @@
         });
     }
 
-    // Get geolocation
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
           reverseGeocode(latitude, longitude);
         },
-        (error) => {
+        () => {
           document.getElementById('location').textContent = "Location access denied or unavailable.";
         }
       );
