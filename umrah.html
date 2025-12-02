@@ -85,13 +85,27 @@
 <body>
 
 <!-- NAVIGATION -->
-<div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="annual.html">Annual Timetable</a>
-    <a href="qibla.html">Qibla</a>
-    <a href="halal.html">Halal Guide</a>
-    
-</div>
+     /* Navbar */
+    .navbar {
+        width: 100%;
+        background: #0A166C;
+        display: flex;
+        padding: 12px;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .navbar a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .navbar a.active {
+        background: #ffffff33;
+        border-bottom: 2px solid #fff;
+    } 
 
 <div class="container">
 
