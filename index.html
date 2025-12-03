@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Accurate Islamic Prayer Times by Location | Multiple Methods</title>
+
+  <!-- Essential Meta Tags -->
+  <meta name="description" content="Get accurate daily Islamic prayer times based on your current location. Supports multiple calculation methods including Jafari, MWL, ISNA, and more.">
+  <meta name="keywords" content="prayer times, salat times, Islamic prayer times, fajr, dhuhr, asr, maghrib, isha, Jafari, Muslim World League, ISNA">
+  <meta name="author" content="MN Athee">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Islamic Prayer Times by Location">
+  <meta property="og:description" content="Get accurate Islamic prayer times using your location. Choose from Jafari, MWL, ISNA, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mnathu.github.io">
+  <meta property="og:image" content="https://mnathu.github.io/prayertimes-preview.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Islamic Prayer Times by Location">
+  <meta name="twitter:description" content="Get accurate Islamic prayer times using your location. Choose from multiple calculation methods.">
+  <meta name="twitter:image" content="https://mnathu.github.io/prayertimes-preview.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Islamic Prayer Times",
+    "url": "https://mnathu.github.io",
+    "description": "Web app that calculates accurate daily prayer times based on user location and preferred Islamic calculation method."
+  }
+  </script>
+
+  <!-- Styles -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #0A166C;
+      padding: 20px;
+    }
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 320px;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    h1, #locationLabel {
+      text-align: center;
+    }
+    #methodSelector {
+      display: block;
+      margin: 10px auto;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav style="background:#0A166C; color:white; padding:10px; text-align:center;">
+  <a href="index.html" style="color:white; margin:0 10px; text-decoration:none;">Home</a>
+  <a href="annual.html" style="color:white; margin:0 10px; text-decoration:none;">Annual Timetable</a>
+  <a href="qibla.html" style="color:white; margin:0 10px; text-decoration:none;">Qibla Locator</a>
+  <a href="halal.html" style="color:white; margin:0 10px; text-decoration:none;">Halal Guide</a>
+  <a href="umrah.html" style="color:white; margin:0 10px; text-decoration:none;">Umrah Guide</a>
+</nav>
+
+<h1>Islamic Prayer Times by Location</h1>
+<p style="text-align:center;">Automatically calculated daily prayer times using your current location.</p>
+
+<label for="methodSelector" style="text-align:center; display:block;">Select Calculation Method:</label>
+
+<select id="methodSelector">
+  <option value="Jafari" selected>Jafari - Leva Research Institute - Qum</option>
+  <option value="Tehran">Institute of Geophysics, Tehran</option>
+  <option value="MWL">Muslim World League</option>
+  <option value="ISNA">Islamic Society of North America</option>
+  <option value="Egypt">Egyptian General Authority of Survey</option>
+  <option value="Makkah">Umm al-Qura University, Makkah</option>
+  <option value="Karachi">University of Islamic Sciences, Karachi</option>
+</select>
+
+<div id="locationLabel">Fetching your location...</div>
+<div id="table"></div>
+
+<script src="PrayTimes.js"></script>
+
+<script>
+
+// ----- Load saved calculation method -----
+const savedMethod = localStorage.getItem('calcMethod') || 'Jafari';
+prayTimes.setMethod(savedMethod);
+document.getElementById('methodSelector').value = savedMethod;
+
+// ----- Save method change -----
+document.getElementById('methodSelector').addEventListener('change', function() {
+  const selectedMethod = this.value;
+  prayTimes.setMethod(selectedMethod);
+  localStorage.setItem('calcMethod', selectedMethod);
+
+  if (currentCoords && currentLocationName) {
+    renderPrayerTimes(currentCoords.lat, currentCoords.lon, currentLocationName);
+  }
+});
+
+let currentCoords = null;
+let currentLocationName = '';
+
+
+// ---------------------------------------------------------
+// FREE Reverse-Geocoding via OpenStreetMap (Nominatim)
+// SAME LOGIC as annual.html
+// ---------------------------------------------------------
+async function reverseGeocode(lat, lon) {
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
+      { headers: { "User-Agent": "PrayerTimesApp/1.0 (mnathu.github.io)" } }
+    );
+
+    const data = await res.json();
+    const addr = data.address;
+
+    const city = addr.city || addr.town || addr.village || "";
+    const state = addr.state || "";
+
+    return city && state ? `${city}, ${state}` :
+           city ? city :
+           state ? state :
+           `(${lat.toFixed(2)}, ${lon.toFixed(2)})`;
+
+  } catch (e) {
+    return `(${lat.toFixed(2)}, ${lon.toFixed(2)})`;
+  }
+}
+
+
+// ---------------------------------------------------------
+// Render Prayer Times Table
+// ---------------------------------------------------------
+function renderPrayerTimes(lat, lon, locationName) {
+  const date = new Date();
+  const times = prayTimes.getTimes(date, [lat, lon], 'auto', 'auto', '12h');
+
+  const method = prayTimes.getMethod();
+
+  let list = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr'];
+  if (method !== 'Jafari' && method !== 'Tehran') list.push('Asr');
+  list.push('Sunset', 'Maghrib');
+  if (method !== 'Jafari' && method !== 'Tehran') list.push('Isha');
+
+  document.getElementById('locationLabel').textContent = "Prayer Times for " + locationName;
+
+  const hijriFormatter = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  const hijriDate = hijriFormatter.format(date);
+  const gregorianDate = date.toDateString();
+
+  let html = `<table>
+    <tr><th colspan="2">${gregorianDate}<br><small>${hijriDate}</small></th></tr>`;
+
+  list.forEach(item => {
+    html += `<tr><td>${item}</td><td>${times[item.toLowerCase()]}</td></tr>`;
+  });
+
+  html += '</table>';
+
+  document.getElementById('table').innerHTML = html;
+}
+
+
+// ---------------------------------------------------------
+// Fetch Location (Geolocation → Reverse Geocode → Render)
+// ---------------------------------------------------------
+function fetchLocation() {
+  if (!navigator.geolocation) {
+    document.getElementById('locationLabel').textContent = "Geolocation is not supported.";
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(async position => {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    currentCoords = { lat, lon };
+
+    currentLocationName = await reverseGeocode(lat, lon);
+
+    renderPrayerTimes(lat, lon, currentLocationName);
+
+  }, () => {
+    document.getElementById('locationLabel').textContent = "Location access denied.";
+  });
+}
+
+fetchLocation();
+
+</script>
+
+<br>
+* As a precaution please delay Fajr salah by 15 minutes to ensure true Fajr is established.
+
+<footer style="text-align:center; margin-top:40px;">
+  <p>&copy; 2025 Prayer Times App</p>
+</footer>
+
+</body>
+</html>
