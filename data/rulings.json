@@ -1,0 +1,787 @@
+[
+  {
+    "id": "salah_001",
+    "topic": "Salah",
+    "question": "What are the daily obligatory prayers?",
+    "answer": "The five obligatory prayers are: Fajr (2 rakahs), Dhuhr (4), Asr (4), Maghrib (3), and Isha (4).",
+    "source_url": "https://www.sistani.org/english/book/48/2073/",
+    "tags": ["obligatory", "daily_prayers"]
+  },
+  {
+    "id": "salah_002",
+    "topic": "Salah",
+    "question": "Is prayer valid without facing the qibla?",
+    "answer": "Facing the qibla is obligatory. Prayer becomes invalid unless the person is genuinely unable to determine the direction.",
+    "source_url": "https://www.sistani.org/english/book/48/2065/",
+    "tags": ["qibla", "direction"]
+  },
+  {
+    "id": "salah_003",
+    "topic": "Salah",
+    "question": "What breaks the prayer?",
+    "answer": "Invalidators include: intentional speech, turning away from qibla, losing purity, excessive movement, or laughing.",
+    "source_url": "https://www.sistani.org/english/book/48/2099/",
+    "tags": ["invalidators"]
+  },
+  {
+    "id": "salah_004",
+    "topic": "Salah",
+    "question": "When should Dhuhr and Asr be prayed?",
+    "answer": "Dhuhr begins at midday and Asr begins after completing Dhuhr. Both must be finished before sunset.",
+    "source_url": "https://www.sistani.org/english/book/48/2080/",
+    "tags": ["timing"]
+  },
+  {
+    "id": "salah_005",
+    "topic": "Salah",
+    "question": "Can prayers be combined during travel?",
+    "answer": "Yes. A traveler performs Dhuhr and Asr as two rakahs each, and Maghrib remains three.",
+    "source_url": "https://www.sistani.org/english/book/48/2150/",
+    "tags": ["travel", "qasr"]
+  },
+  {
+    "id": "salah_006",
+    "topic": "Salah",
+    "question": "Is congregational prayer recommended?",
+    "answer": "Yes, praying in jama'ah is highly recommended, especially for men.",
+    "source_url": "https://www.sistani.org/english/book/48/2127/",
+    "tags": ["jamaah", "recommended"]
+  },
+  {
+    "id": "salah_007",
+    "topic": "Salah",
+    "question": "What if someone doubts the number of rakahs?",
+    "answer": "If unsure between 3 and 4 rakahs in a four-rakah prayer, assume the higher number and perform a precautionary prayer afterward.",
+    "source_url": "https://www.sistani.org/english/book/48/2167/",
+    "tags": ["doubt", "rakah"]
+  },
+  {
+    "id": "salah_008",
+    "topic": "Salah",
+    "question": "Is prayer valid in clothing contaminated with najasah?",
+    "answer": "No, unless the najasah is small (like blood under a coin size) or excused.",
+    "source_url": "https://www.sistani.org/english/book/48/2049/",
+    "tags": ["purity", "clothing"]
+  },
+
+
+  /* ---------------- WUDHU ---------------- */
+
+  {
+    "id": "wudhu_001",
+    "topic": "Wudhu",
+    "question": "What are the obligatory steps of wudhu?",
+    "answer": "Wash the face, wash the right arm, wash the left arm, wipe the head, wipe the feet.",
+    "source_url": "https://www.sistani.org/english/book/48/1990/",
+    "tags": ["steps"]
+  },
+  {
+    "id": "wudhu_002",
+    "topic": "Wudhu",
+    "question": "Does touching the opposite gender break wudhu?",
+    "answer": "No, touching another person does not invalidate wudhu.",
+    "source_url": "https://www.sistani.org/english/book/48/2006/",
+    "tags": ["invalidators"]
+  },
+  {
+    "id": "wudhu_003",
+    "topic": "Wudhu",
+    "question": "Does bleeding break wudhu?",
+    "answer": "No, bleeding does not break wudhu unless it causes loss of consciousness.",
+    "source_url": "https://www.sistani.org/english/book/48/2006/",
+    "tags": ["blood"]
+  },
+  {
+    "id": "wudhu_004",
+    "topic": "Wudhu",
+    "question": "Can one perform wudhu with makeup on?",
+    "answer": "Makeup that blocks water must be removed. Non-blocking substances are permissible.",
+    "source_url": "https://www.sistani.org/english/book/48/1987/",
+    "tags": ["makeup", "purity"]
+  },
+  {
+    "id": "wudhu_005",
+    "topic": "Wudhu",
+    "question": "When is tayammum allowed instead of wudhu?",
+    "answer": "Tayammum is allowed when water is unavailable, harmful, or insufficient.",
+    "source_url": "https://www.sistani.org/english/book/48/2022/",
+    "tags": ["tayammum"]
+  },
+  {
+    "id": "wudhu_006",
+    "topic": "Wudhu",
+    "question": "Can wudhu be performed with cold water?",
+    "answer": "Yes, unless it causes harm.",
+    "source_url": "https://www.sistani.org/english/book/48/1981/",
+    "tags": ["water"]
+  },
+
+
+  /* ---------------- GHUSL ---------------- */
+
+  {
+    "id": "ghusl_001",
+    "topic": "Ghusl",
+    "question": "What occasions require obligatory ghusl?",
+    "answer": "Ghusl Janabah, Haydh, Nifas, Istihadha (some forms), touching a corpse before washing it, and others.",
+    "source_url": "https://www.sistani.org/english/book/48/1896/",
+    "tags": ["obligatory"]
+  },
+  {
+    "id": "ghusl_002",
+    "topic": "Ghusl",
+    "question": "How is ghusl Janabah performed?",
+    "answer": "Either sequential washing: head/neck, right side, left side; or immersion under water with intention.",
+    "source_url": "https://www.sistani.org/english/book/48/1898/",
+    "tags": ["janabah"]
+  },
+  {
+    "id": "ghusl_003",
+    "topic": "Ghusl",
+    "question": "Does ghusl replace wudhu?",
+    "answer": "Ghusl Janabah replaces wudhu. Other ghusls do not, unless specifically stated.",
+    "source_url": "https://www.sistani.org/english/book/48/1903/",
+    "tags": ["wudhu_replacement"]
+  },
+  {
+    "id": "ghusl_004",
+    "topic": "Ghusl",
+    "question": "Does hair dye prevent ghusl?",
+    "answer": "Hair dye is allowed as long as it does not create a barrier preventing water from reaching the skin.",
+    "source_url": "https://www.sistani.org/english/book/48/1889/",
+    "tags": ["hair", "barrier"]
+  },
+  {
+    "id": "ghusl_005",
+    "topic": "Ghusl",
+    "question": "Is ghusl valid without removing nail polish?",
+    "answer": "Nail polish must be removed because it creates a barrier.",
+    "source_url": "https://www.sistani.org/english/book/48/1889/",
+    "tags": ["nail_polish"]
+  },
+    
+  /* ---------------- HAJJ ---------------- */
+
+  {
+    "id": "hajj_001",
+    "topic": "Hajj",
+    "question": "Who is obligated to perform Hajj?",
+    "answer": "Hajj is obligatory once in a lifetime for every adult, sane, financially and physically capable Muslim.",
+    "source_url": "https://www.sistani.org/english/book/49/2350/",
+    "tags": ["obligation", "conditions"]
+  },
+  {
+    "id": "hajj_002",
+    "topic": "Hajj",
+    "question": "What are the types of Hajj?",
+    "answer": "The three types are: Hajj al-Tamattu', Hajj al-Ifrad, and Hajj al-Qiran. Tamattu' is required for those living far from Mecca.",
+    "source_url": "https://www.sistani.org/english/book/49/2351/",
+    "tags": ["types"]
+  },
+  {
+    "id": "hajj_003",
+    "topic": "Hajj",
+    "question": "What invalidates the state of Ihram?",
+    "answer": "Perfume, hunting, cutting nails, shaving hair, intimate relations, marriage contracts, and other prohibitions invalidate Ihram.",
+    "source_url": "https://www.sistani.org/english/book/49/2367/",
+    "tags": ["ihram", "prohibitions"]
+  },
+
+  /* ---------------- UMRAH ---------------- */
+
+  {
+    "id": "umrah_001",
+    "topic": "Umrah",
+    "question": "What are the acts of Umrah al-Mufradah?",
+    "answer": "Ihram, Tawaf, Tawaf prayer, Sa'i, Taqsir, and optionally a second Tawaf (Nisa) for permissibility of marital relations.",
+    "source_url": "https://www.sistani.org/english/book/49/2415/",
+    "tags": ["acts"]
+  },
+  {
+    "id": "umrah_002",
+    "topic": "Umrah",
+    "question": "Can Umrah be performed at any time?",
+    "answer": "Umrah al-Mufradah may be performed at any time of year; Umrah al-Tamattu' is tied to Hajj season.",
+    "source_url": "https://www.sistani.org/english/book/49/2414/",
+    "tags": ["timing"]
+  },
+  {
+    "id": "umrah_003",
+    "topic": "Umrah",
+    "question": "What is forbidden in Ihram during Umrah?",
+    "answer": "Same as Hajj: perfume, hair removal, nail cutting, sexual acts, hunting, and wearing stitched clothing for men.",
+    "source_url": "https://www.sistani.org/english/book/49/2367/",
+    "tags": ["ihram"]
+  },
+
+  /* ---------------- TAHARAH ---------------- */
+
+  {
+    "id": "taharah_001",
+    "topic": "Taharah",
+    "question": "What is considered najis (ritually impure)?",
+    "answer": "Najis items include: urine, feces, semen, blood, dead bodies, dogs, pigs, unbelievers (according to precaution), and intoxicating liquids.",
+    "source_url": "https://www.sistani.org/english/book/48/1851/",
+    "tags": ["najasah"]
+  },
+  {
+    "id": "taharah_002",
+    "topic": "Taharah",
+    "question": "How is something purified?",
+    "answer": "Purification is achieved through water, earth (for shoes), transformation, removal of substance, or by the sun on fixed surfaces.",
+    "source_url": "https://www.sistani.org/english/book/48/1870/",
+    "tags": ["purification"]
+  },
+  {
+    "id": "taharah_003",
+    "topic": "Taharah",
+    "question": "Does doubt make an object najis?",
+    "answer": "No. If purity or impurity is uncertain, the item is considered pure (tahir).",
+    "source_url": "https://www.sistani.org/english/book/48/1854/",
+    "tags": ["doubt"]
+  },
+
+  /* ---------------- BUSINESS ---------------- */
+
+  {
+    "id": "business_001",
+    "topic": "Business",
+    "question": "What makes a business transaction valid?",
+    "answer": "It must involve mutual consent, lawful goods, clear conditions, and no gharar (excessive uncertainty).",
+    "source_url": "https://www.sistani.org/english/book/50/2371/",
+    "tags": ["transactions"]
+  },
+  {
+    "id": "business_002",
+    "topic": "Business",
+    "question": "Is it allowed to sell something one does not own?",
+    "answer": "No. Selling an item one does not possess or control is invalid except in specific contracts like salam.",
+    "source_url": "https://www.sistani.org/english/book/50/2379/",
+    "tags": ["ownership"]
+  },
+  {
+    "id": "business_003",
+    "topic": "Business",
+    "question": "Is deception allowed in trade?",
+    "answer": "Deliberate deception, fraud, or hiding defects is forbidden.",
+    "source_url": "https://www.sistani.org/english/book/50/2383/",
+    "tags": ["fraud"]
+  },
+
+  /* ---------------- HALAL FOOD ---------------- */
+
+  {
+    "id": "halal_001",
+    "topic": "Halal Food",
+    "question": "What animals are halal to eat?",
+    "answer": "Animals slaughtered according to Islamic law; cattle, sheep, goats, camels, certain birds, and fish with scales.",
+    "source_url": "https://www.sistani.org/english/book/48/2633/",
+    "tags": ["diet"]
+  },
+  {
+    "id": "halal_002",
+    "topic": "Halal Food",
+    "question": "Is meat from Ahlul Kitab halal?",
+    "answer": "According to obligatory precaution, meat slaughtered by Ahlul Kitab is not halal unless proper Islamic slaughtering is confirmed.",
+    "source_url": "https://www.sistani.org/english/book/48/2637/",
+    "tags": ["ahlul_kitab"]
+  },
+  {
+    "id": "halal_003",
+    "topic": "Halal Food",
+    "question": "Is gelatin halal?",
+    "answer": "If gelatin is transformed (istihalah), it becomes tahir and halal. Otherwise, gelatin from non-halal animals remains haram.",
+    "source_url": "https://www.sistani.org/english/book/48/2640/",
+    "tags": ["gelatin"]
+  },
+
+  /* ---------------- HUNTING ---------------- */
+
+  {
+    "id": "hunting_001",
+    "topic": "Hunting",
+    "question": "Is hunting allowed in Ihram?",
+    "answer": "It is strictly forbidden to hunt or assist in hunting while in Ihram.",
+    "source_url": "https://www.sistani.org/english/book/49/2367/",
+    "tags": ["ihram", "hunting"]
+  },
+  {
+    "id": "hunting_002",
+    "topic": "Hunting",
+    "question": "Is hunting allowed for food?",
+    "answer": "Yes, if the animal is lawful, properly hunted, and slaughtered according to Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/48/2663/",
+    "tags": ["halal_hunting"]
+  },
+  {
+    "id": "hunting_003",
+    "topic": "Hunting",
+    "question": "Is hunting for sport allowed?",
+    "answer": "Hunting purely for sport is not permitted, as animals may only be killed for valid benefit such as food.",
+    "source_url": "https://www.sistani.org/english/book/48/2665/",
+    "tags": ["sport"]
+  },
+  /* ---------------- MARRIAGE ---------------- */
+
+  {
+    "id": "marriage_001",
+    "topic": "Marriage",
+    "question": "What are the conditions for a valid marriage contract?",
+    "answer": "A valid marriage requires an offer (ijab) and acceptance (qabul), presence of two just witnesses for permanent marriage, consent of both parties, and permission from the guardian for a virgin girl in most cases.",
+    "source_url": "https://www.sistani.org/english/book/50/2405/",
+    "tags": ["contract", "conditions"]
+  },
+  {
+    "id": "marriage_002",
+    "topic": "Marriage",
+    "question": "Is temporary marriage (Mut'ah) allowed?",
+    "answer": "Yes, temporary marriage is valid in Shia jurisprudence with a defined period and dowry. Both parties must consent.",
+    "source_url": "https://www.sistani.org/english/book/50/2422/",
+    "tags": ["mutah"]
+  },
+  {
+    "id": "marriage_003",
+    "topic": "Marriage",
+    "question": "Can a Muslim marry a non-Muslim?",
+    "answer": "A Muslim man may marry a woman from Ahlul Kitab (as a recommended precaution it is avoided), but a Muslim woman cannot marry a non-Muslim man.",
+    "source_url": "https://www.sistani.org/english/book/50/2425/",
+    "tags": ["ahlul_kitab", "interfaith"]
+  },
+
+  /* ---------------- DIVORCE ---------------- */
+
+  {
+    "id": "divorce_001",
+    "topic": "Divorce",
+    "question": "What are the conditions for a valid divorce?",
+    "answer": "The husband must pronounce divorce verbally, two just witnesses must hear it, the wife must not be menstruating unless the marriage was unconsummated, and the marriage must be valid.",
+    "source_url": "https://www.sistani.org/english/book/50/2444/",
+    "tags": ["conditions"]
+  },
+  {
+    "id": "divorce_002",
+    "topic": "Divorce",
+    "question": "What is the waiting period (‘iddah) after divorce?",
+    "answer": "A divorced woman must observe ‘iddah of three menstrual cycles. If pregnant, her ‘iddah continues until childbirth.",
+    "source_url": "https://www.sistani.org/english/book/50/2455/",
+    "tags": ["iddah"]
+  },
+  {
+    "id": "divorce_003",
+    "topic": "Divorce",
+    "question": "Is khulʿ divorce allowed?",
+    "answer": "Yes. Khulʿ divorce is allowed if the wife offers compensation (fidyah) to be released from the marriage due to dislike or conflict.",
+    "source_url": "https://www.sistani.org/english/book/50/2463/",
+    "tags": ["khula"]
+  },
+
+  /* ---------------- FASTING ---------------- */
+
+  {
+    "id": "fasting_001",
+    "topic": "Fasting",
+    "question": "What breaks the fast?",
+    "answer": "Intentional eating, drinking, sexual intercourse, masturbation, remaining in janabah until Fajr, thick dust inhalation, vomiting, and ascribing lies to Allah or the Prophet.",
+    "source_url": "https://www.sistani.org/english/book/48/1738/",
+    "tags": ["invalidators"]
+  },
+  {
+    "id": "fasting_002",
+    "topic": "Fasting",
+    "question": "Who is exempt from fasting in Ramadan?",
+    "answer": "The sick, travelers, elderly who cannot fast, pregnant and nursing women fearing harm, and those with unavoidable hardship are exempt.",
+    "source_url": "https://www.sistani.org/english/book/48/1708/",
+    "tags": ["exemptions"]
+  },
+  {
+    "id": "fasting_003",
+    "topic": "Fasting",
+    "question": "Can one fast while traveling?",
+    "answer": "A traveler cannot fast unless their trip is sinful, habitual, or their return is before midday without invalidating their fast.",
+    "source_url": "https://www.sistani.org/english/book/48/1667/",
+    "tags": ["travel"]
+  },
+
+  /* ---------------- INTEREST (RIBA) ---------------- */
+
+  {
+    "id": "interest_001",
+    "topic": "Interest",
+    "question": "Is interest strictly forbidden?",
+    "answer": "Yes. Charging or paying interest in loans between Muslims is forbidden. Contracts designed to circumvent riba are also invalid.",
+    "source_url": "https://www.sistani.org/english/book/50/2610/",
+    "tags": ["haram", "financial"]
+  },
+  {
+    "id": "interest_002",
+    "topic": "Interest",
+    "question": "Is receiving interest from non-Muslim banks allowed?",
+    "answer": "Yes. Taking interest from banks owned by non-Muslim governments is permissible, though paying interest remains problematic.",
+    "source_url": "https://www.sistani.org/english/book/50/2620/",
+    "tags": ["banking"]
+  },
+  {
+    "id": "interest_003",
+    "topic": "Interest",
+    "question": "Can Muslims open interest-based accounts?",
+    "answer": "Opening an account is allowed. Intention should not be to engage in riba, and interest taken from non-Muslim banks may be used.",
+    "source_url": "https://www.sistani.org/english/book/50/2620/",
+    "tags": ["accounts"]
+  },
+
+  /* ---------------- TRADING ---------------- */
+
+  {
+    "id": "trading_001",
+    "topic": "Trading",
+    "question": "Is trading haram items allowed?",
+    "answer": "Trading alcohol, pork, dead animals, and items used only for haram purposes is forbidden.",
+    "answer_url": "https://www.sistani.org/english/book/50/2633/",
+    "tags": ["haram_goods"]
+  },
+  {
+    "id": "trading_002",
+    "topic": "Trading",
+    "question": "Is cryptocurrency trading allowed?",
+    "answer": "Trading is permissible if the currency has legitimate market value and is not used for fraud. Observing laws and avoiding harm is required.",
+    "source_url": "https://www.sistani.org/",
+    "tags": ["crypto"]
+  },
+  {
+    "id": "trading_003",
+    "topic": "Trading",
+    "question": "Is day trading allowed?",
+    "answer": "Yes, as long as it avoids manipulation, insider trading, deception, and haram financial instruments.",
+    "source_url": "https://www.sistani.org/",
+    "tags": ["stocks"]
+  },
+
+  /* ---------------- BURIAL ---------------- */
+
+  {
+    "id": "burial_001",
+    "topic": "Burial",
+    "question": "What must be done immediately after a Muslim dies?",
+    "answer": "The body must be washed (ghusl), shrouded (kafan), prayed over (salat al-mayyit), and buried promptly with respect.",
+    "source_url": "https://www.sistani.org/english/book/48/1712/",
+    "tags": ["funeral"]
+  },
+  {
+    "id": "burial_002",
+    "topic": "Burial",
+    "question": "Can a Muslim be buried in a non-Muslim cemetery?",
+    "answer": "It is not recommended unless no Muslim cemetery is available. Separation within the cemetery should be maintained if possible.",
+    "source_url": "https://www.sistani.org/english/book/48/1721/",
+    "tags": ["cemetery"]
+  },
+  {
+    "id": "burial_003",
+    "topic": "Burial",
+    "question": "Is autopsy allowed?",
+    "answer": "Autopsy is ordinarily forbidden unless required by law, necessary for saving lives, or for essential forensic investigation.",
+    "source_url": "https://www.sistani.org/english/book/48/1723/",
+    "tags": ["autopsy"]
+  },
+  {
+  "Marriage & Divorce": {
+    "marriage_conditions": {
+      "question": "What are the conditions for a valid Islamic marriage?",
+      "answer": "A valid marriage requires the recitation of the marriage formula (ijab and qubul), consent of both parties, the woman not being in a forbidden relationship (mahram or unlawful situation), and, if required, permission from her wali if she is a virgin. The formula must be spoken in correct Arabic or translated with the correct intent.",
+      "source": "https://www.sistani.org/english/book/48/2354/"
+    },
+    "marital_rights": {
+      "question": "What are the rights and obligations between spouses?",
+      "answer": "The husband is obligated to provide financial support, housing, and maintenance. The wife must allow reasonable access for marital relations unless she has a legitimate Islamic excuse. Both must treat each other with kindness and respect.",
+      "source": "https://www.sistani.org/english/book/48/2362/"
+    },
+    "temporary_marriage": {
+      "question": "Is temporary marriage (Mut’ah) allowed?",
+      "answer": "Yes, temporary marriage is permissible with a fixed time period and dowry. Both parties must recite the marriage formula, and the woman must not be in an unlawful relationship or 'idda period.",
+      "source": "https://www.sistani.org/english/book/48/2377/"
+    },
+    "divorce_conditions": {
+      "question": "What makes a divorce (Talaq) valid?",
+      "answer": "For a valid divorce, the husband must be sane, adult, divorced by free will, and the formula must be recited in Arabic before two just male witnesses. The woman must not be in menstruation or postpartum bleeding unless specific exceptions apply.",
+      "source": "https://www.sistani.org/english/book/48/2412/"
+    },
+    "iddah_rules": {
+      "question": "What is the waiting period ('Iddah) after divorce?",
+      "answer": "A divorced woman typically observes a three-menstrual-cycle waiting period unless she is pregnant (iddah lasts until birth) or post-menopausal (three months). For temporary marriage, the iddah is two menstrual cycles.",
+      "source": "https://www.sistani.org/english/book/48/2428/"
+    }
+  },
+
+  "Fasting": {
+    "ramadan_obligation": {
+      "question": "Who must fast during Ramadan?",
+      "answer": "Every adult, sane Muslim capable of fasting must fast unless exempt due to illness, travel, pregnancy, breastfeeding, or other valid excuses. Intention must be made before Fajr.",
+      "source": "https://www.sistani.org/english/book/29/2141/"
+    },
+    "invalidators_of_fast": {
+      "question": "What invalidates the fast?",
+      "answer": "Eating, drinking, sexual intercourse, masturbation, remaining in a state of janabah intentionally until Fajr, immersing the entire head underwater (as a recommended precaution), lying about Allah or the Prophet, intentionally vomiting, and allowing thick dust/smoke to reach the throat intentionally.",
+      "source": "https://www.sistani.org/english/book/29/2150/"
+    },
+    "making_up_fast": {
+      "question": "How do you make up missed fasts?",
+      "answer": "Any missed fasts due to valid reasons like sickness or travel must be made up after Ramadan. Delaying until the next Ramadan requires paying fidyah along with qadha.",
+      "source": "https://www.sistani.org/english/book/29/2173/"
+    },
+    "fidya_kaffara": {
+      "question": "What are the penalties for intentionally breaking a fast?",
+      "answer": "The kaffarah is either fasting two consecutive months or feeding sixty poor people. Additionally, qadha must be performed.",
+      "source": "https://www.sistani.org/english/book/29/2177/"
+    }
+  },
+
+  "Interest & Loans": {
+    "interest_prohibition": {
+      "question": "Is interest (Riba) allowed in Islam?",
+      "answer": "Interest on loans between Muslims is strictly forbidden. Receiving or paying interest is prohibited unless taken from a non-Muslim who is not under Muslim protection (kafir harbi).",
+      "source": "https://www.sistani.org/english/book/47/2097/"
+    },
+    "loan_rules": {
+      "question": "What are the rules for giving or taking loans?",
+      "answer": "Loans must be without interest. The amount must be returned exactly as borrowed unless inflation clauses are mutually agreed upon without constituting interest.",
+      "source": "https://www.sistani.org/english/book/47/2094/"
+    },
+    "bank_interest": {
+      "question": "Can a Muslim take interest from banks?",
+      "answer": "If a bank is owned by non-Muslims not under Muslim protection, interest collected is permissible. Otherwise, it must be taken with specific precautions, often requiring the intention of 'istinqadh' (seizing unlawfully acquired wealth).",
+      "source": "https://www.sistani.org/english/book/47/2110/"
+    }
+  },
+
+  "Trading & Business Transactions": {
+    "permissible_trade": {
+      "question": "What transactions are generally permissible?",
+      "answer": "Any sale or transaction is valid if the commodity is halal, both parties consent, the item is lawful and deliverable, and the price is known.",
+      "source": "https://www.sistani.org/english/book/47/2058/"
+    },
+    "forbidden_transactions": {
+      "question": "What types of business transactions are forbidden?",
+      "answer": "Selling alcohol, pork, idols, or anything used for haram purposes; participating in gambling; interest-bearing deals; and fraud are all forbidden.",
+      "source": "https://www.sistani.org/english/book/47/2060/"
+    },
+    "gharar_uncertainty": {
+      "question": "Is selling something unknown (gharar) allowed?",
+      "answer": "Transactions with excessive uncertainty or unknown outcomes (gharar) are invalid. The product, quantity, and price must be known.",
+      "source": "https://www.sistani.org/english/book/47/2065/"
+    }
+  },
+
+  "Burial": {
+    "burial_obligation": {
+      "question": "What are the obligations when a Muslim dies?",
+      "answer": "Three acts are obligatory: ghusl of the deceased, shrouding in three cloths, and burial. Prayer over the deceased (Salat al-Mayyit) is also wajib.",
+      "source": "https://www.sistani.org/english/book/46/1983/"
+    },
+    "burial_rules": {
+      "question": "Are there rules about where to bury the deceased?",
+      "answer": "The body must be buried in the ground in a way that prevents smell and prevents animals from disturbing it. It is recommended to bury in a Muslim cemetery.",
+      "source": "https://www.sistani.org/english/book/46/1996/"
+    },
+    "transporting_body": {
+      "question": "Can the body be transported to another country?",
+      "answer": "Transportation is allowed unless it delays burial excessively or causes disrespect. Costs should be paid from the estate unless heirs object.",
+      "source": "https://www.sistani.org/english/book/46/1998/"
+    }
+  }
+}
+  {
+  "Zakat": {
+    "zakat_obligation": {
+      "question": "Is Zakat obligatory on all forms of wealth?",
+      "answer": "Zakat is obligatory only on specific items: wheat, barley, dates, raisins, gold, silver, camels, cows, sheep, and certain forms of business wealth depending on the marja’s rulings. It is not required for modern salaries or general savings.",
+      "source": "https://www.sistani.org/english/book/50/2449/"
+    },
+    "zakat_recipients": {
+      "question": "Who can receive Zakat?",
+      "answer": "Zakat can be given to the poor, the needy, those in debt, those working to distribute zakat, travelers stranded without funds, and others listed in the Qur’an. It cannot be given to non-Sayyids by Sayyids and cannot be used for sinful purposes.",
+      "source": "https://www.sistani.org/english/book/50/2456/"
+    },
+    "zakat_on_business": {
+      "question": "Is Zakat due on business inventory?",
+      "answer": "According to Sayyid Sistani, zakat is not obligatory on commercial goods, although giving charity from profits is recommended.",
+      "source": "https://www.sistani.org/english/book/50/2449/"
+    }
+  },
+
+  "Khums": {
+    "khums_definition": {
+      "question": "What is Khums and who must pay it?",
+      "answer": "Khums is a 20% religious tax due on surplus income remaining at the end of the Khums year after expenses. It is also due on extracted minerals, treasure finds, and other specific cases.",
+      "source": "https://www.sistani.org/english/book/51/2473/"
+    },
+    "khums_categories": {
+      "question": "How is Khums divided?",
+      "answer": "Khums is divided into two parts: Sahm al-Imam (a.s.), used under the marja’s guidance for community and religious needs, and Sahm as-Sada (for needy Sayyids).",
+      "source": "https://www.sistani.org/english/book/51/2478/"
+    },
+    "khums_expenses": {
+      "question": "What expenses can be deducted before calculating Khums?",
+      "answer": "Necessary yearly expenses such as rent, food, clothing, transportation, insurance, business expenses, and essential living costs can be deducted before calculating Khums.",
+      "source": "https://www.sistani.org/english/book/51/2481/"
+    }
+  },
+
+  "Enjoining Good & Forbidding Evil": {
+    "conditions_obligation": {
+      "question": "When is enjoining good and forbidding evil obligatory?",
+      "answer": "It becomes obligatory when the person committing the act is aware it is wrong, there is a reasonable chance of influencing them, the action will not cause significant harm to the enjoining person, and the sin is ongoing.",
+      "source": "https://www.sistani.org/english/book/52/2501/"
+    },
+    "methods": {
+      "question": "What are the levels of enjoining good?",
+      "answer": "Sistani lists three levels: (1) expressing disapproval verbally in a kind manner, (2) stronger admonishment if the first level fails, and (3) preventing the sin physically if no serious harm occurs and the sin is significant.",
+      "source": "https://www.sistani.org/english/book/52/2505/"
+    }
+  },
+
+  "Halal Food": {
+    "meat_requirements": {
+      "question": "What conditions make meat halal?",
+      "answer": "The animal must be slaughtered by a Muslim, facing the qibla, invoking the name of Allah, cutting the necessary vessels, and ensuring the animal is alive at slaughter. For imported meat, reliable Islamic certification is required.",
+      "source": "https://www.sistani.org/english/book/26/2285/"
+    },
+    "seafood_rules": {
+      "question": "What seafood is halal to eat?",
+      "answer": "Only fish with scales are halal. Shrimp is also permissible. All other sea creatures including lobster, crab, shellfish, and catfish are forbidden.",
+      "source": "https://www.sistani.org/english/book/26/2290/"
+    }
+  },
+
+  "Hunting": {
+    "hunting_rules": {
+      "question": "When is hunting permissible?",
+      "answer": "Hunting is allowed if the hunter is Muslim, the animal is halal to eat, Allah’s name is invoked, the weapon causes death through a valid method, and the animal is not captured alive before dying.",
+      "source": "https://www.sistani.org/english/book/26/2298/"
+    },
+    "dog_hunting": {
+      "question": "Is hunting with trained dogs allowed?",
+      "answer": "Yes, if the dog is trained, released intentionally, Allah’s name is mentioned at release, and the animal dies from the dog's attack without the hunter reaching it alive.",
+      "source": "https://www.sistani.org/english/book/26/2306/"
+    }
+  },
+
+  "General Rulings": {
+    "music_rules": {
+      "question": "Is listening to music allowed?",
+      "answer": "Music that is suitable for gatherings of entertainment and sin is forbidden. Non-lahw, non-entertainment music is permissible.",
+      "source": "https://www.sistani.org/english/book/22/2210/"
+    },
+    "modesty_rules": {
+      "question": "What are Islam’s rules on modest dressing?",
+      "answer": "Men must cover from navel to knee. Women must cover their entire body except face and hands; covering the feet is recommended. Clothing must not be tight or revealing.",
+      "source": "https://www.sistani.org/english/book/23/2231/"
+    },
+    "lying_backbiting": {
+      "question": "What is the ruling on backbiting and lying?",
+      "answer": "Both are strictly forbidden. Backbiting includes saying anything about a believer that they would dislike, even if true. Lying is prohibited under all circumstances except rare cases like saving a life.",
+      "source": "https://www.sistani.org/english/book/22/2189/"
+    },
+    "taharah_impurity": {
+      "question": "What are the main types of impurities (najasa)?",
+      "answer": "Najis things include urine, feces, semen, dead animals, blood, dogs, pigs, intoxicants (as a precaution), and non-Ahlul Kitab kafir. Purification methods include water, earth (tayammum-like), evaporation, and others.",
+      "source": "https://www.sistani.org/english/book/2/1/"
+    }
+  }
+},
+  {
+  "End_of_Life": {
+    "will_obligation": {
+      "question": "Is it obligatory to write an Islamic will?",
+      "answer": "Yes. If a person owes khums, zakat, unpaid debts, or has rights of others that must be fulfilled after death, it is obligatory to include these in a written will. It is also recommended for every believer to write a will clarifying burial wishes and religious obligations.",
+      "source": "https://www.sistani.org/english/book/46/2104/"
+    },
+    "will_witness_rules": {
+      "question": "What are the requirements for a valid Islamic will?",
+      "answer": "The will must clearly state the person's intention, be signed or otherwise authenticated, and ideally be witnessed by two just individuals. The executor must be capable and trustworthy.",
+      "source": "https://www.sistani.org/english/book/46/2105/"
+    },
+    "third_of_estate_rule": {
+      "question": "How much of the estate can a person allocate freely in their will?",
+      "answer": "A person can distribute up to one-third of their estate as they wish (wasiyyah). The remaining two-thirds must go to the Islamic heirs according to inheritance law.",
+      "source": "https://www.sistani.org/english/book/46/2107/"
+    },
+    "life_support": {
+      "question": "Is it permissible to remove life support?",
+      "answer": "If a patient is fully dependent on life support and is considered medically deceased (e.g., brain death), removing life support is permissible. However, actively causing death is forbidden.",
+      "source": "https://www.sistani.org/english/book/27/2356/"
+    },
+    "dnr_orders": {
+      "question": "Can a Muslim sign a Do-Not-Resuscitate (DNR) order?",
+      "answer": "DNR orders are permissible if resuscitation is medically futile or causes significant harm. Actively preventing life-saving treatment when it is reasonably effective may not be permissible.",
+      "source": "https://www.sistani.org/english/book/27/2356/"
+    }
+  },
+
+  "Burial_Rites": {
+    "ghusl_kafan": {
+      "question": "What are the obligatory funeral rites?",
+      "answer": "They include: (1) Ghusl for the deceased, (2) Kafan (shrouding in three cloths), (3) Salat al-Mayyit (funeral prayer), (4) Burial in the ground with the face toward Qibla.",
+      "source": "https://www.sistani.org/english/book/48/1928/"
+    },
+    "burial_direction": {
+      "question": "How must a Muslim be buried?",
+      "answer": "The body must be placed on its right side with the face directly toward the qibla. Burial above ground or in structures is not allowed unless mandated by law.",
+      "source": "https://www.sistani.org/english/book/48/1940/"
+    },
+    "embalming": {
+      "question": "Is embalming allowed?",
+      "answer": "Embalming is generally not permissible unless required by law. Cutting or mutilation of the body is prohibited unless absolutely necessary.",
+      "source": "https://www.sistani.org/english/book/27/2345/"
+    },
+    "autopsy": {
+      "question": "Is autopsy allowed on a Muslim body?",
+      "answer": "Autopsy is forbidden unless required by law or needed to save another life (e.g., determining cause of a contagious disease).",
+      "source": "https://www.sistani.org/english/book/27/2348/"
+    },
+    "organ_donation": {
+      "question": "Is donating organs permissible?",
+      "answer": "Organ donation during life is allowed if it does not cause serious harm. Donation after death is permissible if the deceased permitted it in their will and the body is not significantly disfigured.",
+      "source": "https://www.sistani.org/english/book/27/2353/"
+    }
+  },
+
+  "Estate_and_Inheritance": {
+    "inheritance_general": {
+      "question": "How is inheritance divided in Islamic law?",
+      "answer": "Estate is divided based on fixed Qur’anic shares. Common heirs include spouse, children, parents, and siblings. Sons typically receive twice the share of daughters unless a will affects the one-third portion.",
+      "source": "https://www.sistani.org/english/book/47/2113/"
+    },
+    "spousal_inheritance": {
+      "question": "What does a spouse inherit?",
+      "answer": "A wife inherits one-quarter if no children exist, or one-eighth if children exist. A husband inherits one-half if no children exist, or one-quarter if they do.",
+      "source": "https://www.sistani.org/english/book/47/2114/"
+    },
+    "debt_priority": {
+      "question": "Do debts take priority over inheritance?",
+      "answer": "Yes. All debts—including unpaid khums, zakat, vows, and people’s rights—must be paid before distributing inheritance. Burial costs also come before inheritance distribution.",
+      "source": "https://www.sistani.org/english/book/47/2110/"
+    },
+    "non_muslim_heirs": {
+      "question": "Can a non-Muslim inherit from a Muslim?",
+      "answer": "A non-Muslim generally cannot inherit from a Muslim unless given from the one-third discretionary portion through a will.",
+      "source": "https://www.sistani.org/english/book/47/2113/"
+    }
+  },
+
+  "Financial_and_Estate_Planning": {
+    "khums_after_death": {
+      "question": "Is khums due after death?",
+      "answer": "Khums must be paid from the estate if the deceased had unpaid khums obligations at the end of their khums year. This is resolved before inheritance distribution.",
+      "source": "https://www.sistani.org/english/book/51/2473/"
+    },
+    "charitable_wasiyyah": {
+      "question": "Can someone dedicate part of their estate to charity?",
+      "answer": "Yes. Up to one-third of the estate can be allocated to charitable or religious causes such as a masjid, needy families, or Islamic institutions.",
+      "source": "https://www.sistani.org/english/book/46/2107/"
+    },
+    "executor_responsibility": {
+      "question": "What are the responsibilities of the executor?",
+      "answer": "The executor (wasiy) must fulfill the will, settle debts, ensure religious obligations are paid, arrange proper burial, and distribute the estate according to Islamic rules.",
+      "source": "https://www.sistani.org/english/book/46/2106/"
+    }
+  }
+}
