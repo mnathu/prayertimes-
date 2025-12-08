@@ -160,3 +160,285 @@
     "tags": ["children", "movement", "necessity"]
   }
 ]
+[
+  {
+    "id": "salah_021",
+    "category": "Salah",
+    "subcategory": "Adhan & Iqamah",
+    "title": "Ruling on Adhan and Iqamah for Daily Prayers",
+    "summary": "Adhan and iqamah are highly recommended for all daily obligatory prayers and carry major spiritual reward, especially for men.",
+    "details_markdown": "Adhan and iqamah are **mustahab mu’akkad (highly emphasized recommended acts)** for the five daily obligatory prayers. According to Sayyid Sistani, their recitation brings great reward and is considered part of the etiquette of prayer.\n\nEven when praying alone, it is recommended for men to recite both. For women, they may recite them, but it is not emphasized. When praying in congregation, only one adhan and iqamah are required for the group.\n\nIf one joins a congregational prayer that has already recited the adhan and iqamah, they are not repeated. Adhan and iqamah are not legislated for funeral (janazah) prayer.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Adhan & Iqamah",
+        "url": "https://www.sistani.org/english/book/48/2121/"
+      }
+    ]
+  },
+  {
+    "id": "salah_022",
+    "category": "Salah",
+    "subcategory": "Adhan & Iqamah",
+    "title": "When Adhan and Iqamah Are Not Needed",
+    "summary": "Certain circumstances remove the recommendation to recite the adhan and iqamah.",
+    "details_markdown": "There are cases where adhan and iqamah become unnecessary. If a person is praying in congregation immediately following another congregational prayer in the same place, they do not recite a second adhan or iqamah.\n\nSimilarly, if the time of prayer has already been established publicly—such as by hearing another adhan in the area—then a believer praying individually may recite only the iqamah or omit both if desired (though still recommended).\n\nFor missed (qadha') prayers, adhan is not mustahab, but iqamah remains recommended. Adhan and iqamah also do not apply to non-obligatory prayers.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Instances Where Adhan/Iqamah Drop",
+        "url": "https://www.sistani.org/english/book/48/2123/"
+      }
+    ]
+  },
+  {
+    "id": "salah_023",
+    "category": "Salah",
+    "subcategory": "Doubt in Prayer",
+    "title": "General Principle of Doubt in Salah",
+    "summary": "Doubts in prayer are governed by strict rules; some doubts are ignored while others must be resolved through special actions.",
+    "details_markdown": "According to Sayyid Sistani, doubts during salah fall into three categories: doubts to **ignore**, doubts requiring **specific actions**, and doubts that **invalidate the prayer**. The guiding principle is that doubts about actions already passed are often ignored, while doubts about essential pillars may require correction.\n\nFor example, if someone doubts whether they recited Surah al-Fatiha after they have already started the next surah, the doubt is ignored. But if one doubts the number of rak‘āt in a four-unit prayer, specific rules apply.\n\nUnderstanding the classification of doubts is crucial because acting incorrectly—such as redoing an act unnecessarily—can invalidate the prayer.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Doubts in Prayers",
+        "url": "https://www.sistani.org/english/book/48/2200/"
+      }
+    ]
+  },
+  {
+    "id": "salah_024",
+    "category": "Salah",
+    "subcategory": "Doubt in Prayer",
+    "title": "Doubt Between 2 and 3 Rak‘āt",
+    "summary": "A common doubt in Dhuhr, Asr, or Isha is doubting whether one is in the 2nd or 3rd rak‘ah; a specific rule exists for this case.",
+    "details_markdown": "If during a four-rak‘ah prayer a person doubts whether they are in the **second or third rak‘ah**, they must immediately assume they are in the **third rak‘ah** and continue the prayer.\n\nAfter finishing, they must perform **one Sajdat al-Sahw** or a precautionary prayer depending on additional factors. According to Sayyid Sistani, the standard ruling is to complete the prayer and then perform **one standing precautionary rak‘ah**.\n\nThis ruling only applies when the doubt occurs **after completing the two sujoods** of the current rak‘ah. If the doubt occurs earlier, it is treated differently.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Doubt Between Two Options",
+        "url": "https://www.sistani.org/english/book/48/2205/"
+      }
+    ]
+  },
+  {
+    "id": "salah_025",
+    "category": "Salah",
+    "subcategory": "Doubt in Prayer",
+    "title": "Doubt Between 3 and 4 Rak‘āt",
+    "summary": "If unsure whether one is in the third or fourth rak‘ah, the prayer continues based on the higher number.",
+    "details_markdown": "A person who doubts whether they are in the **third or fourth rak‘ah** of Dhuhr, Asr, or Isha must assume they are in the **fourth rak‘ah** and complete the prayer. After finishing, they perform a precautionary prayer of **either one standing rak‘ah or two sitting rak‘āt**.\n\nBoth forms are valid, but the standing rak‘ah is preferred. This ruling ensures that any potential deficiency in the total number of rak‘āt is corrected.\n\nThis doubt is among the *valid doubts* that have legally defined solutions and do not invalidate the prayer.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Doubt Between Third and Fourth",
+        "url": "https://www.sistani.org/english/book/48/2206/"
+      }
+    ]
+  },
+  {
+    "id": "salah_026",
+    "category": "Salah",
+    "subcategory": "Doubt in Prayer",
+    "title": "Doubt Between 2, 3, and 4 Rak‘āt",
+    "summary": "A complex doubt involving three possibilities has a structured solution.",
+    "details_markdown": "If a person doubted whether they are in the **second, third, or fourth rak‘ah**, they must assume they are in the **fourth rak‘ah**, complete the prayer, and then perform **two precautionary prayers**:\n\n1. **One standing rak‘ah**, AND\n2. **Two sitting rak‘āt**.\n\nThis combination ensures all possible deficiencies are corrected. Sayyid Sistani notes that this doubt only applies after passing the point of recitation; otherwise, additional rules may apply. Despite being complex, this doubt does not invalidate the prayer as long as the prescribed actions are followed.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Complex Doubts in Prayer",
+        "url": "https://www.sistani.org/english/book/48/2208/"
+      }
+    ]
+  },
+  {
+    "id": "salah_027",
+    "category": "Salah",
+    "subcategory": "Travel Prayer",
+    "title": "Who Must Pray Qasr (Shortened Prayer) While Traveling",
+    "summary": "Shortened prayers apply when traveling a certain minimum distance with specific conditions.",
+    "details_markdown": "A traveler must pray **two rak‘āt instead of four** for Dhuhr, Asr, and Isha when the journey meets certain criteria. The primary condition is that the total travel distance (round-trip) must be **at least 44 km (approx. 27 miles)**.\n\nThe traveler must also intend the journey from the start, the journey cannot be sinful, and they cannot be someone whose lifestyle involves constant travel (like a full-time driver). If all conditions are met, praying full instead of qasr is invalid.\n\nSayyid Sistani outlines additional nuances, such as temporary residence (10-day rule) and frequent travel exceptions.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Traveler’s Prayer",
+        "url": "https://www.sistani.org/english/book/48/2169/"
+      }
+    ]
+  },
+  {
+    "id": "salah_028",
+    "category": "Salah",
+    "subcategory": "Travel Prayer",
+    "title": "The 10-Day Intention Rule",
+    "summary": "If a traveler intends to stay somewhere for 10 days or more, they must pray full (not shortened).",
+    "details_markdown": "If a traveler reaches a destination and intends to stay there **10 consecutive days**, they must pray **full four-rak‘ah prayers**, not qasr. This rule applies even if they arrived by a qualifying journey.\n\nThe intention must be firm. If the person is uncertain, such as saying “I might stay 10 days,” then qasr remains obligatory until certainty is formed. If during the stay the person changes their intention to leave earlier, they resume praying qasr immediately.\n\nThis ruling is one of the most important for travelers and directly affects all daily prayers.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Resident & Traveler",
+        "url": "https://www.sistani.org/english/book/48/2173/"
+      }
+    ]
+  },
+  {
+    "id": "salah_029",
+    "category": "Salah",
+    "subcategory": "Travel Prayer",
+    "title": "Frequent Travelers (Those Who Pray Full While Traveling)",
+    "summary": "Some people who travel regularly are required to pray full even though they meet the distance requirement.",
+    "details_markdown": "Individuals whose job or life activity requires frequent travel—such as taxi drivers, truckers, delivery personnel, or airline crew—**pray full four-rak‘ah prayers even while traveling**.\n\nSayyid Sistani states that this applies if travel is a regular part of one’s occupation or if one makes frequent non-occupational trips but with sufficient repetition. However, the threshold varies, and the intention of livelihood or repeated habit is the key condition.\n\nOccasional travelers do not fall under this rule and continue to pray qasr when distance conditions are met.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Frequent Travelers",
+        "url": "https://www.sistani.org/english/book/48/2178/"
+      }
+    ]
+  },
+  {
+    "id": "salah_030",
+    "category": "Salah",
+    "subcategory": "Travel Prayer",
+    "title": "Invalidating Qasr: Return Intention and Detours",
+    "summary": "Certain changes in travel intention can invalidate the requirement to shorten prayers.",
+    "details_markdown": "If a traveler changes their intention and decides to **return home before covering the required distance**, or if they take a detour that reduces the overall distance below the legal threshold, qasr is no longer valid.\n\nSimilarly, if the traveler decides midway to stay somewhere fewer than 10 days, or loses clarity about the journey’s purpose, additional rules may apply.\n\nThe determining factor is whether the person still intends a full qualifying journey *from their current location*.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Changing Travel Intentions",
+        "url": "https://www.sistani.org/english/book/48/2171/"
+      }
+    ]
+  },
+  {
+    "id": "salah_031",
+    "category": "Salah",
+    "subcategory": "Jama‘ah (Congregation)",
+    "title": "Merits of Praying in Congregation",
+    "summary": "Congregational prayer is highly recommended and carries immense spiritual reward.",
+    "details_markdown": "Praying in congregation (jama‘ah) is among the greatest recommended acts in Islam. According to narrations and supported by Sayyid Sistani, it carries reward beyond individual prayer and fosters unity, humility, and spiritual discipline.\n\nEven two people praying together constitute a jama‘ah. A person praying alone nearby should join if possible, unless doing so compromises their concentration or form.\n\nAlthough not obligatory, congregational prayer is strongly encouraged for men and recommended for women as well.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Congregational Prayer",
+        "url": "https://www.sistani.org/english/book/48/2225/"
+      }
+    ]
+  },
+  {
+    "id": "salah_032",
+    "category": "Salah",
+    "subcategory": "Jama‘ah (Congregation)",
+    "title": "Conditions for a Valid Congregational Prayer",
+    "summary": "Several conditions must be met for jama‘ah to be valid, including the imam’s qualifications and physical arrangement.",
+    "details_markdown": "Congregational prayer is only valid if certain conditions are met:\n\n- The **imam must be sane, adult, just (‘adil)**, and capable of reciting correctly.\n- The rows must be properly connected; large gaps invalidate the connection.\n- Followers must not stand ahead of the imam.\n- Followers must hear or reasonably follow the imam’s recitation and movements.\n\nWomen may follow a male imam, but men may not follow a female imam. The place of prayer must also allow clear access and sightline continuity among worshippers.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Conditions of Jama‘ah",
+        "url": "https://www.sistani.org/english/book/48/2230/"
+      }
+    ]
+  },
+  {
+    "id": "salah_033",
+    "category": "Salah",
+    "subcategory": "Jama‘ah (Congregation)",
+    "title": "Following the Imam: Timing Rules",
+    "summary": "The follower must not precede the imam in movements and must follow immediately after.",
+    "details_markdown": "A follower (ma’mūm) must delay slightly behind the imam’s movements. It is invalid to move **before** the imam or simultaneously in a manner that cancels the notion of following.\n\nIn qiyam (standing), rukū‘, sujood, and tashahhud, the timing must reflect the imam leading and the congregation following. If a follower mistakenly precedes the imam in a pillar of the prayer and fails to correct it, the prayer becomes invalid.\n\nSayyid Sistani also notes that the follower must listen silently during the imam’s loud recitation in Maghrib, Isha, and Fajr.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Following the Imam",
+        "url": "https://www.sistani.org/english/book/48/2233/"
+      }
+    ]
+  },
+  {
+    "id": "salah_034",
+    "category": "Salah",
+    "subcategory": "Jama‘ah (Congregation)",
+    "title": "Late Joiners (Masbuq) in Congregation",
+    "summary": "A person who joins a congregational prayer late must follow specific rules for completing missed rak‘āt.",
+    "details_markdown": "If someone joins a jama‘ah after it has started, they simply join the imam wherever he is. For example, if the imam is in rukū‘ of the second rak‘ah, the follower joins by entering rukū‘ immediately.\n\nWhen the imam finishes the prayer, the late joiner stands and completes the number of rak‘āt they missed. These additional rak‘āt are prayed individually but are treated as the follower's first rak‘āt for recitation purposes.\n\nAccording to Sayyid Sistani, joining before the imam rises from rukū‘ counts as catching that rak‘ah.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Late Joiners",
+        "url": "https://www.sistani.org/english/book/48/2235/"
+      }
+    ]
+  },
+  {
+    "id": "salah_035",
+    "category": "Salah",
+    "subcategory": "Jama‘ah (Congregation)",
+    "title": "Invalidating the Congregational Prayer",
+    "summary": "Certain violations make following the imam invalid, turning the prayer into individual prayer.",
+    "details_markdown": "If any condition of jama‘ah is violated—such as losing connection to the row, not hearing or seeing the imam sufficiently, or discovering the imam is not just (‘adil)—the follower’s jama‘ah becomes invalid.\n\nIn such a case, the follower must immediately switch the intention to **individual prayer** and continue without interruption. The prayer remains valid as an individual salah.\n\nHowever, deliberately invalidating jama‘ah without reason is disliked.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Invalidating Jama‘ah",
+        "url": "https://www.sistani.org/english/book/48/2240/"
+      }
+    ]
+  },
+  {
+    "id": "salah_036",
+    "category": "Salah",
+    "subcategory": "Qadha (Missed Prayers)",
+    "title": "Obligation to Make Up Missed Prayers",
+    "summary": "Any missed obligatory prayer must be made up, regardless of the reason for missing it.",
+    "details_markdown": "If a person misses any obligatory prayer—whether due to sleep, forgetfulness, or negligence—they must make it up (qadha). Sayyid Sistani emphasizes that qadha prayers carry the same sequence rules as original prayers when multiple are due.\n\nThere is no expiration for qadha obligations; they remain until fulfilled. One may perform qadha at any time except during sunrise, sunset, and exact noon.\n\nIf a person dies with qadha prayers outstanding, their eldest son becomes responsible for making them up or arranging someone to do so.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Qadha Prayers",
+        "url": "https://www.sistani.org/english/book/48/2263/"
+      }
+    ]
+  },
+  {
+    "id": "salah_037",
+    "category": "Salah",
+    "subcategory": "Qadha (Missed Prayers)",
+    "title": "How to Perform Qadha Prayers",
+    "summary": "Qadha prayers follow the same structure as the original obligation, with special attention to intention.",
+    "details_markdown": "Qadha prayers must be performed in the same format as the original obligatory prayer. For example, Fajr qadha is two rak‘āt, and Dhuhr qadha is four. The intention must specify that the prayer is **qadha**.\n\nThe prayers should be performed in the same order originally required—such as performing Dhuhr before Asr if both were missed on the same day. However, if order is forgotten or unclear, one may perform them in any sequence.\n\nIt is recommended to complete qadha prayers quickly and not delay them unnecessarily.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Qadha Format",
+        "url": "https://www.sistani.org/english/book/48/2264/"
+      }
+    ]
+  },
+  {
+    "id": "salah_038",
+    "category": "Salah",
+    "subcategory": "Qadha (Missed Prayers)",
+    "title": "Qadha for Women After Menstruation",
+    "summary": "Obligatory prayers missed during menstruation are not made up, except specific cases.",
+    "details_markdown": "A woman does **not** perform qadha for prayers missed during menstruation (hayd). However, if the menstrual cycle begins **after** the time of prayer had entered and she had sufficient time to perform the prayer but did not, then qadha becomes required.\n\nSimilarly, after the menstruation ends, she must make up missed fasts but not prayers. This distinction is consistently upheld in Shia jurisprudence.\n\nThis rule simplifies obligations and is based on prophetic teaching.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Menstruation & Missed Prayers",
+        "url": "https://www.sistani.org/english/book/48/2450/"
+      }
+    ]
+  },
+  {
+    "id": "salah_039",
+    "category": "Salah",
+    "subcategory": "Qadha (Missed Prayers)",
+    "title": "Making Up Prayers for the Deceased",
+    "summary": "The eldest son is responsible for ensuring the deceased’s missed prayers are completed.",
+    "details_markdown": "If a deceased person had obligatory prayers outstanding, the **eldest son** becomes responsible for either performing the qadha or arranging someone to do so. This duty applies regardless of whether the deceased missed prayers intentionally or unintentionally.\n\nAccording to Sayyid Sistani, the son may hire someone using the estate funds only if the deceased had explicitly willed it. Otherwise, it is the son's personal responsibility.\n\nFemales and younger sons are not obligated, though they may volunteer.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Eldest Son’s Duty",
+        "url": "https://www.sistani.org/english/book/48/2266/"
+      }
+    ]
+  },
+  {
+    "id": "salah_040",
+    "category": "Salah",
+    "subcategory": "Qadha (Missed Prayers)",
+    "title": "Performing Qadha While Traveling",
+    "summary": "Qadha prayers must be performed in the format that applied at the time the original prayer was missed.",
+    "details_markdown": "If a person missed a prayer while traveling—even if they are now at home—its qadha must be prayed in the **travel (qasr) format**. Likewise, if a prayer was missed at home, its qadha must be prayed **full** even if the person is now traveling.\n\nThis principle emphasizes that qadha reflects the state at the time of the original obligation. Sayyid Sistani states that mixing formats is invalid.\n\nThis is especially important for those who travel frequently or have accumulated missed prayers from various circumstances.",
+    "sources": [
+      {
+        "title": "Islamic Laws – Qadha While Traveling",
+        "url": "https://www.sistani.org/english/book/48/2267/"
+      }
+    ]
+  }
+]
