@@ -1,0 +1,162 @@
+[
+  {
+    "id": "salah_001",
+    "topic": "Salah",
+    "question": "What are the five daily obligatory prayers in Islam?",
+    "answer": "**The five daily obligatory prayers are:**\n\n- **Fajr (2 rak'ahs):** Performed at dawn.\n- **Dhuhr (4 rak'ahs):** Performed after the sun passes the zenith.\n- **Asr (4 rak'ahs):** Performed in the afternoon.\n- **Maghrib (3 rak'ahs):** Performed just after sunset.\n- **Isha (4 rak'ahs):** Performed after twilight disappears.\n\nThese five prayers form the core of daily Islamic worship and are mandatory for every adult Muslim. Performing them punctually is among the greatest acts of obedience and spiritual discipline.",
+    "source_url": "https://www.sistani.org/english/book/48/2073/",
+    "tags": ["obligatory", "daily_prayers", "fard"]
+  },
+  {
+    "id": "salah_002",
+    "topic": "Salah",
+    "question": "Is it obligatory to face the qibla during prayer?",
+    "answer": "Facing the **qibla (toward the Kaaba in Mecca)** is a mandatory condition for the validity of prayer. One must make a reasonable effort to determine the correct direction through observation, tools, or reliable information.\n\nIf a person is genuinely unable to determine the qibla despite trying, they may pray in the direction they reasonably believe is correct. If afterward they discover they faced incorrectly, the prayer is still valid provided they exerted due effort.",
+    "source_url": "https://www.sistani.org/english/book/48/2065/",
+    "tags": ["qibla", "direction", "conditions"]
+  },
+  {
+    "id": "salah_003",
+    "topic": "Salah",
+    "question": "What actions invalidate the prayer?",
+    "answer": "Prayer becomes invalid through actions that contradict the nature of worship, including **intentional speech**, **turning away from the qibla**, **losing the required purity**, or performing **excessive bodily movements** not part of prayer. Intentional laughter also breaks the prayer.\n\nMinor, involuntary motions do not harm the prayer, but anything considered disruptive or resembling normal daily activity invalidates it. Preserving stillness and humility is essential to maintaining validity.",
+    "source_url": "https://www.sistani.org/english/book/48/2099/",
+    "tags": ["invalidators", "actions", "purity"]
+  },
+  {
+    "id": "salah_004",
+    "topic": "Salah",
+    "question": "When do the times for Dhuhr and Asr begin and end?",
+    "answer": "**Dhuhr begins** once the sun passes the zenith (midday). After completing Dhuhr, the time for **Asr begins** and continues until sunset. A person must pray both Dhuhr and Asr before the sun sets.\n\nIf time is short and only one prayer can be performed before sunset, Dhuhr takes precedence since its time technically starts earlier. However, both should be prayed even when late, but as qadha.",
+    "source_url": "https://www.sistani.org/english/book/48/2080/",
+    "tags": ["timing", "dhuhr", "asr"]
+  },
+  {
+    "id": "salah_005",
+    "topic": "Salah",
+    "question": "How should a traveler perform their prayers?",
+    "answer": "A traveler who meets the conditions for qasr must reduce **Dhuhr**, **Asr**, and **Isha** to two rak'ahs each. **Fajr and Maghrib remain unchanged.**\n\nTravel prayers apply when the journey is long enough (approx. 44 km one way), the person intends to travel that distance from the beginning, and they do not intend to stay at the destination for ten days. These rules encourage ease and flexibility for the traveler.",
+    "source_url": "https://www.sistani.org/english/book/48/2150/",
+    "tags": ["travel", "qasr", "shortened_prayer"]
+  },
+  {
+    "id": "salah_006",
+    "topic": "Salah",
+    "question": "Is praying in congregation (jama'ah) recommended?",
+    "answer": "Congregational prayer is among the most emphasized recommended acts in Islam. For men, performing daily prayers in jama'ah carries immense spiritual reward and strengthens communal bonds.\n\nAlthough not obligatory for daily prayers according to Sistani, it is highly encouraged and especially emphasized for Fajr, Maghrib, and Isha. Joining a jama'ah should be prioritized whenever possible unless a legitimate excuse prevents participation.",
+    "source_url": "https://www.sistani.org/english/book/48/2127/",
+    "tags": ["jamaah", "congregation", "recommended"]
+  },
+  {
+    "id": "salah_007",
+    "topic": "Salah",
+    "question": "What should a person do when unsure about the number of rak'ahs?",
+    "answer": "If a person doubts between **three and four rak'ahs** in a four-rakah prayer, they must assume the higher number (four) and complete the prayer. Afterward, they perform a **precautionary prayer** of one or two standing rak'ahs depending on the type of doubt.\n\nThese rules ensure the prayer maintains its structure even when uncertainty arises, while the precautionary prayer compensates for any potential deficiency.",
+    "source_url": "https://www.sistani.org/english/book/48/2167/",
+    "tags": ["doubt", "rakah", "sujood_al_sahw"]
+  },
+  {
+    "id": "salah_008",
+    "topic": "Salah",
+    "question": "Does najasah on clothing invalidate prayer?",
+    "answer": "Prayer requires purity of the body and clothing. Najasah invalidates the prayer unless it belongs to categories considered excused, such as **blood less than the size of a coin** or unavoidable impurities.\n\nIf the impurity is discovered during prayer and removal is possible without breaking posture, one must remove or purify it immediately. If removal is not possible, the prayer should be repeated afterward.",
+    "source_url": "https://www.sistani.org/english/book/48/2049/",
+    "tags": ["purity", "clothing", "najasah"]
+  },
+  {
+    "id": "salah_009",
+    "topic": "Salah",
+    "question": "Does missing an obligatory prayer require immediate makeup?",
+    "answer": "Missed obligatory prayers must be performed as **qadha**, but they do not need to be made up immediately unless the person fears forgetting. However, delaying them without reasonable cause is spiritually detrimental.\n\nConsistency is encouraged—performing qadha gradually while maintaining regular daily prayers helps restore spiritual discipline and accountability.",
+    "source_url": "https://www.sistani.org/english/book/48/2244/",
+    "tags": ["qadha", "missed_prayers", "obligation"]
+  },
+  {
+    "id": "salah_010",
+    "topic": "Salah",
+    "question": "Can one pray wearing shoes?",
+    "answer": "Praying with shoes is permissible as long as they are **pure**, and the ground beneath the shoes meets prayer conditions. The place of prostration, however, must allow the forehead to directly touch a valid material like earth, stone, or paper.\n\nIf the shoes are najis or contain prohibited materials, one should remove them unless necessity dictates otherwise.",
+    "source_url": "https://www.sistani.org/english/book/48/2027/",
+    "tags": ["clothing", "shoes", "purity"]
+  },
+  {
+    "id": "salah_011",
+    "topic": "Salah",
+    "question": "What surfaces are valid for sujood?",
+    "answer": "Sujood must be performed on natural elements such as **earth, sand, stone, leaves, or wood**, provided they are not eaten or worn. The most recommended of all is the **turbah of Karbala** due to its spiritual merit.\n\nSujood on synthetic materials or metals is invalid unless one is compelled by lack of alternatives, in which case sujood is done on the back of the hand as a precaution.",
+    "source_url": "https://www.sistani.org/english/book/48/2041/",
+    "tags": ["sujood", "turbah", "valid_materials"]
+  },
+  {
+    "id": "salah_12",
+    "topic": "Salah",
+    "question": "Can men and women pray side by side?",
+    "answer": "A woman praying immediately next to a man—without any barrier or separation and at the same level—invalidates the prayer according to obligatory precaution, unless she is slightly behind him by at least a small measurement.\n\nA slight offset (the woman standing behind the man’s position) or a barrier makes both prayers valid without issue.",
+    "source_url": "https://www.sistani.org/english/book/48/2159/",
+    "tags": ["gender", "placement", "congregation"]
+  },
+  {
+    "id": "salah_013",
+    "topic": "Salah",
+    "question": "Is moving during prayer allowed?",
+    "answer": "Minor movements such as adjusting clothing or scratching are permissible as long as they do not disrupt the form of prayer. However, **excessive movement** that makes the prayer appear unlike prayer invalidates it.\n\nMovements necessary for safety or preventing harm are excused, but one should return to stillness without delay.",
+    "source_url": "https://www.sistani.org/english/book/48/2098/",
+    "tags": ["movement", "stillness", "actions"]
+  },
+  {
+    "id": "salah_014",
+    "topic": "Salah",
+    "question": "Does eating or drinking break the prayer?",
+    "answer": "Eating or drinking—even a small amount—invalidates the prayer because it directly contradicts the posture of worship. Swallowing saliva is allowed, but swallowing food remnants intentionally is not.\n\nAccidental swallowing does not harm the prayer, but one should avoid keeping food in the mouth while praying.",
+    "source_url": "https://www.sistani.org/english/book/48/2099/",
+    "tags": ["invalidators", "eating", "drinking"]
+  },
+  {
+    "id": "salah_015",
+    "topic": "Salah",
+    "question": "Can prayer be performed while sitting?",
+    "answer": "A person may pray while sitting only if they are unable to stand or doing so causes significant hardship or harm. In such cases, they perform all possible movements from the sitting position.\n\nIf one cannot sit, prayer may be performed lying down, and if even that is impossible, prayer is completed through gestures and intention alone.",
+    "source_url": "https://www.sistani.org/english/book/48/2117/",
+    "tags": ["sitting", "disability", "hardship"]
+  },
+  {
+    "id": "salah_016",
+    "topic": "Salah",
+    "question": "What is the ruling on praying in a moving car, plane, or train?",
+    "answer": "If the vehicle’s movement prevents facing the qibla or maintaining stillness, one should only pray in the vehicle when the prayer time is about to expire. In such cases, the person prays in whatever direction and posture is possible.\n\nWhen facing the qibla is possible, it must be maintained at least during takbiratul ihram. One should minimize unnecessary movement and maintain reverence.",
+    "source_url": "https://www.sistani.org/english/book/48/2118/",
+    "tags": ["travel", "moving_vehicle", "qibla"]
+  },
+  {
+    "id": "salah_017",
+    "topic": "Salah",
+    "question": "Can prayer be performed in a najis place?",
+    "answer": "The place of prayer must be pure. Praying on najis ground invalidates the prayer unless the impurity does not transfer to the body or clothing, such as a dried najasah on the ground.\n\nThe place of the forehead during sujood must always be pure without exceptions.",
+    "source_url": "https://www.sistani.org/english/book/48/2038/",
+    "tags": ["place", "purity", "ground"]
+  },
+  {
+    "id": "salah_018",
+    "topic": "Salah",
+    "question": "Is reciting loudly or silently obligatory in certain prayers?",
+    "answer": "**Men must recite Fajr, Maghrib, and Isha aloud.** Dhuhr and Asr must be recited silently. Women may choose either method but traditionally recite silently.\n\nReciting deliberately against the rule invalidates the prayer, but innocent mistakes do not require repeating if unintentional.",
+    "source_url": "https://www.sistani.org/english/book/48/2090/",
+    "tags": ["recitation", "loud", "silent"]
+  },
+  {
+    "id": "salah_019",
+    "topic": "Salah",
+    "question": "What is the ruling on praying in a stolen place?",
+    "answer": "Praying on property obtained unlawfully—such as stolen land or a place entered without permission—is invalid. The prayer must be repeated even if all other conditions were met.\n\nThis is because worship must be grounded in legality and justice; unlawful occupation corrupts the nature of the prayer itself.",
+    "source_url": "https://www.sistani.org/english/book/48/2037/",
+    "tags": ["property", "stolen", "jurisdiction"]
+  },
+  {
+    "id": "salah_020",
+    "topic": "Salah",
+    "question": "Can one pray while holding a child?",
+    "answer": "Praying while holding a child is permissible if the person is still able to perform all essential actions such as ruku', sujood, and maintaining stillness. If the child’s movement disrupts the required calm, the prayer may become invalid.\n\nIt is recommended to place the child down when possible, but necessity or keeping the child safe justifies holding them during prayer.",
+    "source_url": "https://www.sistani.org/english/book/48/2098/",
+    "tags": ["children", "movement", "necessity"]
+  }
+]
