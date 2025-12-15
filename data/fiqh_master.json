@@ -2274,5 +2274,3275 @@
     "answer": "Khums applies mainly to surplus income and certain items, while zakat applies to specific assets.\n\nBoth are obligatory but governed by different rules.",
     "source_url": "https://www.sistani.org/english/book/48/1685/",
     "tags": ["khums_vs_zakat", "comparison"]
+  },
+    {
+    "id": "food_001",
+    "topic": "Halal & Haram Food",
+    "question": "What is the basic principle regarding halal and haram food?",
+    "answer": "The basic principle is that **all food is halal unless proven otherwise**.\n\nOnly items explicitly declared haram by Islamic law are prohibited. Doubt alone does not make food haram unless certainty is reached.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["principle", "halal"]
+  },
+  {
+    "id": "food_002",
+    "topic": "Halal & Haram Food",
+    "question": "Is pork halal or haram?",
+    "answer": "Pork and all products derived from pigs are **haram** to consume.\n\nThis prohibition is absolute and applies regardless of how the pork is prepared or processed.",
+    "source_url": "https://www.sistani.org/english/book/46/203/",
+    "tags": ["pork", "haram"]
+  },
+  {
+    "id": "food_003",
+    "topic": "Halal & Haram Food",
+    "question": "Are carnivorous land animals halal?",
+    "answer": "Carnivorous land animals that have fangs or claws—such as lions, tigers, and wolves—are **haram**.\n\nOnly animals that meet Islamic criteria and are slaughtered correctly are halal.",
+    "source_url": "https://www.sistani.org/english/book/46/210/",
+    "tags": ["animals", "carnivorous"]
+  },
+  {
+    "id": "food_004",
+    "topic": "Halal & Haram Food",
+    "question": "Which land animals are halal to eat?",
+    "answer": "Animals such as cows, sheep, goats, and camels are halal **if properly slaughtered according to Islamic law**.\n\nImproper slaughter renders otherwise halal animals haram.",
+    "source_url": "https://www.sistani.org/english/book/46/206/",
+    "tags": ["land_animals", "slaughter"]
+  },
+  {
+    "id": "food_005",
+    "topic": "Halal & Haram Food",
+    "question": "Is meat halal if it is not slaughtered Islamically?",
+    "answer": "Meat from halal animals becomes **haram** if not slaughtered according to Islamic requirements.\n\nThis includes failing to mention the name of Allah or improper cutting.",
+    "source_url": "https://www.sistani.org/english/book/46/214/",
+    "tags": ["slaughter", "meat"]
+  },
+
+  {
+    "id": "food_006",
+    "topic": "Halal & Haram Food",
+    "question": "Is seafood halal?",
+    "answer": "Only fish that have **scales** are halal to eat.\n\nAll other sea creatures, such as shellfish, crabs, and lobsters, are haram.",
+    "source_url": "https://www.sistani.org/english/book/46/219/",
+    "tags": ["seafood", "fish"]
+  },
+  {
+    "id": "food_007",
+    "topic": "Halal & Haram Food",
+    "question": "Are shrimp halal?",
+    "answer": "Shrimp are considered halal according to Ayatollah Sistani.\n\nThey are treated as fish with scales for dietary purposes.",
+    "source_url": "https://www.sistani.org/english/book/46/220/",
+    "tags": ["shrimp", "seafood"]
+  },
+  {
+    "id": "food_008",
+    "topic": "Halal & Haram Food",
+    "question": "Are birds halal to eat?",
+    "answer": "Birds that do not have talons and do not prey on other animals are halal.\n\nBirds of prey such as hawks and eagles are haram.",
+    "source_url": "https://www.sistani.org/english/book/46/211/",
+    "tags": ["birds", "halal_animals"]
+  },
+  {
+    "id": "food_009",
+    "topic": "Halal & Haram Food",
+    "question": "Is alcohol halal in food?",
+    "answer": "Alcohol that is **intoxicating and derived for intoxication** is haram, even in small quantities.\n\nFood cooked with intoxicating alcohol remains haram unless the alcohol is completely transformed.",
+    "source_url": "https://www.sistani.org/english/book/46/232/",
+    "tags": ["alcohol", "intoxicants"]
+  },
+  {
+    "id": "food_010",
+    "topic": "Halal & Haram Food",
+    "question": "Is cooking wine permissible if alcohol evaporates?",
+    "answer": "Food prepared with wine or intoxicating alcohol remains haram, even if cooked.\n\nEvaporation does not make it permissible unless complete chemical transformation occurs.",
+    "source_url": "https://www.sistani.org/english/book/46/233/",
+    "tags": ["cooking", "wine"]
+  },
+
+  {
+    "id": "food_011",
+    "topic": "Halal & Haram Food",
+    "question": "Is gelatin halal?",
+    "answer": "Gelatin is halal if derived from halal sources or if it undergoes complete chemical transformation (istihalah).\n\nGelatin from pigs is haram unless transformation is proven.",
+    "source_url": "https://www.sistani.org/english/book/46/244/",
+    "tags": ["gelatin", "istihalah"]
+  },
+  {
+    "id": "food_012",
+    "topic": "Halal & Haram Food",
+    "question": "Is cheese halal?",
+    "answer": "Cheese is halal if it does not contain haram rennet.\n\nIf the source of rennet is unknown, the cheese is considered halal.",
+    "source_url": "https://www.sistani.org/english/book/46/247/",
+    "tags": ["cheese", "rennet"]
+  },
+  {
+    "id": "food_013",
+    "topic": "Halal & Haram Food",
+    "question": "Is eating food prepared by non-Muslims allowed?",
+    "answer": "Food prepared by non-Muslims is halal **unless it contains haram ingredients**.\n\nThere is no requirement to investigate excessively.",
+    "source_url": "https://www.sistani.org/english/book/46/252/",
+    "tags": ["non_muslims", "food_preparation"]
+  },
+  {
+    "id": "food_014",
+    "topic": "Halal & Haram Food",
+    "question": "Is fast food halal by default?",
+    "answer": "Fast food is halal unless it contains haram meat, alcohol, or impure ingredients.\n\nMeat must be confirmed halal if animal-based.",
+    "source_url": "https://www.sistani.org/english/book/46/254/",
+    "tags": ["fast_food", "doubt"]
+  },
+  {
+    "id": "food_015",
+    "topic": "Halal & Haram Food",
+    "question": "Is consuming blood halal?",
+    "answer": "Consuming blood is **haram**.\n\nMeat containing residual blood is permissible if properly slaughtered and drained.",
+    "source_url": "https://www.sistani.org/english/book/46/208/",
+    "tags": ["blood", "haram"]
+  },
+
+  {
+    "id": "food_016",
+    "topic": "Halal & Haram Food",
+    "question": "Is carrion halal?",
+    "answer": "Carrion—animals that die without proper slaughter—is haram.\n\nThis includes animals killed by strangulation, beating, or accidents.",
+    "source_url": "https://www.sistani.org/english/book/46/213/",
+    "tags": ["carrion", "dead_animals"]
+  },
+  {
+    "id": "food_017",
+    "topic": "Halal & Haram Food",
+    "question": "Are insects halal to eat?",
+    "answer": "Insects are haram to consume.\n\nThe exception is locusts, which are halal.",
+    "source_url": "https://www.sistani.org/english/book/46/221/",
+    "tags": ["insects", "locusts"]
+  },
+  {
+    "id": "food_018",
+    "topic": "Halal & Haram Food",
+    "question": "Is food contaminated with najasah halal?",
+    "answer": "Food contaminated with najasah becomes haram.\n\nIf it can be purified and restored, it becomes halal again.",
+    "source_url": "https://www.sistani.org/english/book/46/260/",
+    "tags": ["najasah", "purity"]
+  },
+  {
+    "id": "food_019",
+    "topic": "Halal & Haram Food",
+    "question": "Is artificial flavoring halal?",
+    "answer": "Artificial flavoring is halal unless it is derived from haram substances.\n\nUncertainty alone does not make it haram.",
+    "source_url": "https://www.sistani.org/english/book/46/243/",
+    "tags": ["flavoring", "additives"]
+  },
+  {
+    "id": "food_020",
+    "topic": "Halal & Haram Food",
+    "question": "Is vanilla extract halal?",
+    "answer": "Vanilla extract that contains intoxicating alcohol is haram if consumed in a manner that intoxicates.\n\nTrace non-intoxicating amounts used in food are permissible according to common practice.",
+    "source_url": "https://www.sistani.org/english/book/46/233/",
+    "tags": ["vanilla", "alcohol"]
+  },
+
+  {
+    "id": "food_021",
+    "topic": "Halal & Haram Food",
+    "question": "Is eating doubtful food allowed?",
+    "answer": "Eating doubtful food is allowed unless certainty of prohibition is reached.\n\nIslam does not obligate unnecessary investigation.",
+    "source_url": "https://www.sistani.org/english/book/46/252/",
+    "tags": ["doubt", "certainty"]
+  },
+  {
+    "id": "food_022",
+    "topic": "Halal & Haram Food",
+    "question": "Is MSG halal?",
+    "answer": "MSG is halal unless proven to be derived from haram sources.\n\nIts chemical nature does not make it impermissible.",
+    "source_url": "https://www.sistani.org/english/book/46/243/",
+    "tags": ["msg", "additives"]
+  },
+  {
+    "id": "food_023",
+    "topic": "Halal & Haram Food",
+    "question": "Is vinegar halal if derived from wine?",
+    "answer": "If wine transforms into vinegar naturally, it becomes halal.\n\nThis is due to complete chemical transformation (istihalah).",
+    "source_url": "https://www.sistani.org/english/book/46/235/",
+    "tags": ["vinegar", "istihalah"]
+  },
+  {
+    "id": "food_024",
+    "topic": "Halal & Haram Food",
+    "question": "Is consuming haram food allowed in necessity?",
+    "answer": "In cases of genuine necessity where life is at risk, consuming haram food becomes permissible **only to the extent required**.\n\nOnce necessity ends, prohibition resumes.",
+    "source_url": "https://www.sistani.org/english/book/46/267/",
+    "tags": ["necessity", "darura"]
+  },
+  {
+    "id": "food_025",
+    "topic": "Halal & Haram Food",
+    "question": "Is cross-contaminated food halal?",
+    "answer": "Food that comes into contact with haram substances becomes haram if najasah transfers.\n\nDry contact without transfer does not affect permissibility.",
+    "source_url": "https://www.sistani.org/english/book/46/260/",
+    "tags": ["cross_contamination", "najasah"]
+  },
+
+  {
+    "id": "food_026",
+    "topic": "Halal & Haram Food",
+    "question": "Is meat labeled halal always permissible?",
+    "answer": "Halal labeling is acceptable if it comes from a trustworthy source.\n\nIf there is reasonable doubt about authenticity, caution is advised.",
+    "source_url": "https://www.sistani.org/english/book/46/214/",
+    "tags": ["halal_label", "trust"]
+  },
+  {
+    "id": "food_027",
+    "topic": "Halal & Haram Food",
+    "question": "Is food fried in shared oil halal?",
+    "answer": "If the oil is contaminated with haram substances that are najis, the food becomes haram.\n\nIf no transfer occurs, the food remains halal.",
+    "source_url": "https://www.sistani.org/english/book/46/260/",
+    "tags": ["shared_oil", "contamination"]
+  },
+  {
+    "id": "food_028",
+    "topic": "Halal & Haram Food",
+    "question": "Is animal fat halal?",
+    "answer": "Animal fat is halal if derived from a halal animal slaughtered Islamically.\n\nFat from haram animals is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/208/",
+    "tags": ["fat", "animal_products"]
+  },
+  {
+    "id": "food_029",
+    "topic": "Halal & Haram Food",
+    "question": "Is lab-grown meat halal?",
+    "answer": "Lab-grown meat requires further clarification regarding its source and process.\n\nIf derived from haram origins, it is not permissible.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["lab_grown", "modern_food"]
+  },
+  {
+    "id": "food_030",
+    "topic": "Halal & Haram Food",
+    "question": "Is consuming excessive halal food sinful?",
+    "answer": "Excessive consumption is discouraged even if the food is halal.\n\nModeration is emphasized in Islamic ethics.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["ethics", "moderation"]
+  },
+
+  {
+    "id": "food_031",
+    "topic": "Halal & Haram Food",
+    "question": "Is food containing animal enzymes halal?",
+    "answer": "Animal enzymes are halal if sourced from halal-slaughtered animals.\n\nIf the source is unknown, the food is considered halal.",
+    "source_url": "https://www.sistani.org/english/book/46/247/",
+    "tags": ["enzymes", "processing"]
+  },
+  {
+    "id": "food_032",
+    "topic": "Halal & Haram Food",
+    "question": "Is seafood oil halal?",
+    "answer": "Oil extracted from halal seafood is halal.\n\nIf derived from haram sea creatures, it is not permissible.",
+    "source_url": "https://www.sistani.org/english/book/46/219/",
+    "tags": ["seafood_oil", "fish"]
+  },
+  {
+    "id": "food_033",
+    "topic": "Halal & Haram Food",
+    "question": "Is eating organs of halal animals permissible?",
+    "answer": "Organs of halal animals are permissible except for parts explicitly prohibited, such as blood.\n\nProper slaughter remains a requirement.",
+    "source_url": "https://www.sistani.org/english/book/46/208/",
+    "tags": ["organs", "animal_parts"]
+  },
+  {
+    "id": "food_034",
+    "topic": "Halal & Haram Food",
+    "question": "Is artificial meat flavor halal?",
+    "answer": "Artificial meat flavor is halal unless proven to contain haram ingredients.\n\nChemical similarity does not affect permissibility.",
+    "source_url": "https://www.sistani.org/english/book/46/243/",
+    "tags": ["flavor", "artificial"]
+  },
+  {
+    "id": "food_035",
+    "topic": "Halal & Haram Food",
+    "question": "Is consuming non-alcoholic beer halal?",
+    "answer": "Non-alcoholic beer that originates from intoxicating beer remains problematic.\n\nCaution is advised unless it is proven non-intoxicating in origin.",
+    "source_url": "https://www.sistani.org/english/book/46/232/",
+    "tags": ["non_alcoholic_beer", "intoxicants"]
+  },
+
+  {
+    "id": "food_036",
+    "topic": "Halal & Haram Food",
+    "question": "Is fermentation always haram?",
+    "answer": "Fermentation is not haram in itself.\n\nOnly fermentation that produces intoxicating alcohol is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/232/",
+    "tags": ["fermentation", "process"]
+  },
+  {
+    "id": "food_037",
+    "topic": "Halal & Haram Food",
+    "question": "Is consuming food from people of the Book allowed?",
+    "answer": "Food from people of the Book is halal unless it contains haram meat or alcohol.\n\nInvestigation is not required unless doubt is strong.",
+    "source_url": "https://www.sistani.org/english/book/46/252/",
+    "tags": ["ahl_al_kitab", "non_muslims"]
+  },
+  {
+    "id": "food_038",
+    "topic": "Halal & Haram Food",
+    "question": "Is food packaging contamination relevant?",
+    "answer": "Packaging does not affect permissibility unless najasah transfers to the food.\n\nExternal contact alone does not make food haram.",
+    "source_url": "https://www.sistani.org/english/book/46/260/",
+    "tags": ["packaging", "contamination"]
+  },
+  {
+    "id": "food_039",
+    "topic": "Halal & Haram Food",
+    "question": "Is tasting haram food allowed without swallowing?",
+    "answer": "Tasting without swallowing is not considered consumption.\n\nHowever, it should be avoided unless necessary.",
+    "source_url": "https://www.sistani.org/english/book/46/267/",
+    "tags": ["tasting", "avoidance"]
+  },
+  {
+    "id": "food_040",
+    "topic": "Halal & Haram Food",
+    "question": "What is the ruling on wasting food?",
+    "answer": "Wasting food is strongly discouraged and considered sinful when done deliberately.\n\nIslam emphasizes gratitude, moderation, and avoiding waste.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["waste", "ethics"]
+  },
+    {
+    "id": "business_001",
+    "topic": "Business & Transactions",
+    "question": "What is the general principle governing business transactions in Islam?",
+    "answer": "The general principle is that **all business transactions are permissible unless explicitly prohibited** by Islamic law.\n\nTransactions become haram when they involve riba (interest), fraud, gambling, injustice, or unlawful goods.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["principle", "permissibility"]
+  },
+  {
+    "id": "business_002",
+    "topic": "Business & Transactions",
+    "question": "What is riba (interest) and why is it prohibited?",
+    "answer": "Riba refers to any guaranteed excess or profit stipulated in a loan or exchange of specific commodities.\n\nIt is prohibited because it leads to injustice, exploitation, and economic imbalance, regardless of whether the rate is small or large.",
+    "source_url": "https://www.sistani.org/english/book/46/528/",
+    "tags": ["riba", "interest", "prohibition"]
+  },
+  {
+    "id": "business_003",
+    "topic": "Business & Transactions",
+    "question": "Is taking interest from a bank haram?",
+    "answer": "Taking interest from conventional banks is haram if it qualifies as riba.\n\nSome exceptions apply when dealing with non-Muslim-owned banks under specific legal constructs, but caution and scholarly guidance are required.",
+    "source_url": "https://www.sistani.org/english/book/46/529/",
+    "tags": ["banking", "interest"]
+  },
+  {
+    "id": "business_004",
+    "topic": "Business & Transactions",
+    "question": "Is paying interest on loans permissible?",
+    "answer": "Paying interest is also haram when it constitutes riba.\n\nHowever, if a person is compelled by necessity and has no alternative, they may pay interest without intention of endorsement.",
+    "source_url": "https://www.sistani.org/english/book/46/533/",
+    "tags": ["loans", "necessity"]
+  },
+  {
+    "id": "business_005",
+    "topic": "Business & Transactions",
+    "question": "Is profit in trade halal?",
+    "answer": "Profit earned through lawful trade is halal.\n\nIslam encourages fair commerce, transparency, and mutual consent between buyer and seller.",
+    "source_url": "https://www.sistani.org/english/book/46/451/",
+    "tags": ["profit", "trade"]
+  },
+
+  {
+    "id": "business_006",
+    "topic": "Business & Transactions",
+    "question": "Is cheating in business allowed?",
+    "answer": "Cheating, deception, and misrepresentation are strictly haram.\n\nAny profit earned through fraud is unlawful and must be returned to its rightful owner.",
+    "source_url": "https://www.sistani.org/english/book/46/460/",
+    "tags": ["fraud", "cheating"]
+  },
+  {
+    "id": "business_007",
+    "topic": "Business & Transactions",
+    "question": "Is selling stolen goods permissible?",
+    "answer": "Selling stolen goods is haram, and the transaction is invalid.\n\nOne must return stolen property to its owner or their heirs.",
+    "source_url": "https://www.sistani.org/english/book/46/470/",
+    "tags": ["stolen_goods", "invalid_sale"]
+  },
+  {
+    "id": "business_008",
+    "topic": "Business & Transactions",
+    "question": "Is selling haram items allowed?",
+    "answer": "Selling items that are inherently haram—such as alcohol or pork—is prohibited.\n\nIncome earned from such sales is unlawful.",
+    "source_url": "https://www.sistani.org/english/book/46/476/",
+    "tags": ["haram_items", "sales"]
+  },
+  {
+    "id": "business_009",
+    "topic": "Business & Transactions",
+    "question": "Is gambling income halal?",
+    "answer": "Income earned through gambling or games of chance is haram.\n\nAny winnings must be returned if possible or given away without intention of reward.",
+    "source_url": "https://www.sistani.org/english/book/46/481/",
+    "tags": ["gambling", "haram_income"]
+  },
+  {
+    "id": "business_010",
+    "topic": "Business & Transactions",
+    "question": "Is selling unknown or ambiguous goods allowed?",
+    "answer": "Transactions involving excessive uncertainty (gharar) are invalid.\n\nThe goods, price, and terms must be clearly known to both parties.",
+    "source_url": "https://www.sistani.org/english/book/46/457/",
+    "tags": ["gharar", "uncertainty"]
+  },
+
+  {
+    "id": "business_011",
+    "topic": "Business & Transactions",
+    "question": "Is advance payment for goods allowed?",
+    "answer": "Advance payment (salam) is permissible if all details—price, quantity, and delivery date—are clearly specified.\n\nAmbiguity invalidates the contract.",
+    "source_url": "https://www.sistani.org/english/book/46/455/",
+    "tags": ["advance_payment", "contracts"]
+  },
+  {
+    "id": "business_012",
+    "topic": "Business & Transactions",
+    "question": "Is price manipulation allowed?",
+    "answer": "Artificially inflating prices through deception or hoarding is haram.\n\nMarket fairness and consumer protection are emphasized in Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/46/462/",
+    "tags": ["price_manipulation", "ethics"]
+  },
+  {
+    "id": "business_013",
+    "topic": "Business & Transactions",
+    "question": "Is monopoly (ihtikar) permissible?",
+    "answer": "Monopoly that harms the public by withholding essential goods is haram.\n\nNormal competition without harm is permissible.",
+    "source_url": "https://www.sistani.org/english/book/46/463/",
+    "tags": ["monopoly", "ihtikar"]
+  },
+  {
+    "id": "business_014",
+    "topic": "Business & Transactions",
+    "question": "Is earning commission halal?",
+    "answer": "Commission-based earnings are halal if the underlying transaction is lawful.\n\nThe commission amount must be agreed upon and transparent.",
+    "source_url": "https://www.sistani.org/english/book/46/468/",
+    "tags": ["commission", "agency"]
+  },
+  {
+    "id": "business_015",
+    "topic": "Business & Transactions",
+    "question": "Is bribery allowed in business dealings?",
+    "answer": "Bribery is strictly haram for both the giver and receiver.\n\nIt corrupts justice and invalidates ethical transactions.",
+    "source_url": "https://www.sistani.org/english/book/46/487/",
+    "tags": ["bribery", "corruption"]
+  },
+
+  {
+    "id": "business_016",
+    "topic": "Business & Transactions",
+    "question": "Is working in a haram business permissible?",
+    "answer": "Employment that directly supports haram activities is impermissible.\n\nIncome derived from such work is unlawful.",
+    "source_url": "https://www.sistani.org/english/book/46/476/",
+    "tags": ["employment", "haram_work"]
+  },
+  {
+    "id": "business_017",
+    "topic": "Business & Transactions",
+    "question": "Is insurance permissible?",
+    "answer": "Commercial insurance is permissible under contractual agreement.\n\nMutual consent and lack of exploitation are key considerations.",
+    "source_url": "https://www.sistani.org/english/book/46/514/",
+    "tags": ["insurance", "contracts"]
+  },
+  {
+    "id": "business_018",
+    "topic": "Business & Transactions",
+    "question": "Is stock trading halal?",
+    "answer": "Stock trading is permissible if the company’s core business is halal and does not primarily involve riba or haram activities.\n\nSpeculative and deceptive practices are prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/519/",
+    "tags": ["stocks", "investing"]
+  },
+  {
+    "id": "business_019",
+    "topic": "Business & Transactions",
+    "question": "Is day trading permissible?",
+    "answer": "Day trading is permissible if it avoids gambling-like speculation and deception.\n\nTrades must represent legitimate ownership transfer.",
+    "source_url": "https://www.sistani.org/english/book/46/519/",
+    "tags": ["day_trading", "speculation"]
+  },
+  {
+    "id": "business_020",
+    "topic": "Business & Transactions",
+    "question": "Is cryptocurrency trading halal?",
+    "answer": "Cryptocurrency requires careful assessment.\n\nIf treated as a legitimate asset and not used for speculation or fraud, it may be permissible under certain conditions.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["crypto", "modern_finance"]
+  },
+
+  {
+    "id": "business_021",
+    "topic": "Business & Transactions",
+    "question": "Is leasing property allowed?",
+    "answer": "Leasing (ijarah) is permissible if the terms, rent, and duration are clearly specified.\n\nAmbiguity invalidates the contract.",
+    "source_url": "https://www.sistani.org/english/book/46/490/",
+    "tags": ["leasing", "ijarah"]
+  },
+  {
+    "id": "business_022",
+    "topic": "Business & Transactions",
+    "question": "Is subleasing allowed?",
+    "answer": "Subleasing is permissible if allowed by the original contract or owner.\n\nUnauthorized subleasing is invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/492/",
+    "tags": ["subleasing", "contracts"]
+  },
+  {
+    "id": "business_023",
+    "topic": "Business & Transactions",
+    "question": "Is partnership in business allowed?",
+    "answer": "Business partnerships are permissible if profit-sharing ratios are agreed upon in advance.\n\nLosses must be shared proportionally to investment.",
+    "source_url": "https://www.sistani.org/english/book/46/498/",
+    "tags": ["partnership", "profit_sharing"]
+  },
+  {
+    "id": "business_024",
+    "topic": "Business & Transactions",
+    "question": "Is silence considered acceptance in contracts?",
+    "answer": "Silence does not constitute acceptance unless customarily understood as such.\n\nClear consent is required for validity.",
+    "source_url": "https://www.sistani.org/english/book/46/453/",
+    "tags": ["contracts", "consent"]
+  },
+  {
+    "id": "business_025",
+    "topic": "Business & Transactions",
+    "question": "Is verbal agreement valid?",
+    "answer": "Verbal contracts are valid if all essential elements are present.\n\nWritten contracts are recommended for clarity and dispute prevention.",
+    "source_url": "https://www.sistani.org/english/book/46/452/",
+    "tags": ["verbal_contract", "agreement"]
+  },
+
+  {
+    "id": "business_026",
+    "topic": "Business & Transactions",
+    "question": "Is selling debt permissible?",
+    "answer": "Selling debt is generally not permissible unless specific conditions are met.\n\nComplex cases require scholarly guidance.",
+    "source_url": "https://www.sistani.org/english/book/46/505/",
+    "tags": ["debt", "financial"]
+  },
+  {
+    "id": "business_027",
+    "topic": "Business & Transactions",
+    "question": "Is installment payment allowed?",
+    "answer": "Installment sales are permissible if the total price is agreed upon upfront.\n\nLate payment penalties resembling interest are not allowed.",
+    "source_url": "https://www.sistani.org/english/book/46/456/",
+    "tags": ["installments", "sales"]
+  },
+  {
+    "id": "business_028",
+    "topic": "Business & Transactions",
+    "question": "Is charging late fees permissible?",
+    "answer": "Late fees that function as interest are haram.\n\nNon-interest penalties donated to charity may be allowed in some contracts.",
+    "source_url": "https://www.sistani.org/english/book/46/533/",
+    "tags": ["late_fees", "interest"]
+  },
+  {
+    "id": "business_029",
+    "topic": "Business & Transactions",
+    "question": "Is inheritance wealth halal?",
+    "answer": "Inherited wealth is halal provided the original wealth was lawful.\n\nUnlawfully acquired assets must be rectified.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["inheritance", "wealth"]
+  },
+  {
+    "id": "business_030",
+    "topic": "Business & Transactions",
+    "question": "Is wage withholding permissible?",
+    "answer": "Withholding wages unjustly is haram.\n\nEmployees must be paid promptly and fairly.",
+    "source_url": "https://www.sistani.org/english/book/46/488/",
+    "tags": ["wages", "employment"]
+  },
+
+  {
+    "id": "business_031",
+    "topic": "Business & Transactions",
+    "question": "Is tipping obligatory?",
+    "answer": "Tipping is not obligatory unless stipulated by agreement.\n\nVoluntary tipping is permissible and commendable.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["tipping", "custom"]
+  },
+  {
+    "id": "business_032",
+    "topic": "Business & Transactions",
+    "question": "Is refund denial allowed?",
+    "answer": "Refund denial is permissible if consistent with agreed terms.\n\nDeceptive denial is haram.",
+    "source_url": "https://www.sistani.org/english/book/46/457/",
+    "tags": ["refunds", "consumer_rights"]
+  },
+  {
+    "id": "business_033",
+    "topic": "Business & Transactions",
+    "question": "Is price discrimination allowed?",
+    "answer": "Charging different prices is permissible if not deceptive or unjust.\n\nExploitation is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/462/",
+    "tags": ["pricing", "fairness"]
+  },
+  {
+    "id": "business_034",
+    "topic": "Business & Transactions",
+    "question": "Is selling future goods allowed?",
+    "answer": "Selling future goods is allowed only under salam contracts with full specification.\n\nUnspecified future sales are invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/455/",
+    "tags": ["future_goods", "salam"]
+  },
+  {
+    "id": "business_035",
+    "topic": "Business & Transactions",
+    "question": "Is debt forgiveness encouraged?",
+    "answer": "Forgiving debt is highly encouraged and rewarded.\n\nIt is considered an act of charity and mercy.",
+    "source_url": "https://www.sistani.org/english/book/46/507/",
+    "tags": ["debt", "charity"]
+  },
+
+  {
+    "id": "business_036",
+    "topic": "Business & Transactions",
+    "question": "Is reselling goods allowed?",
+    "answer": "Reselling goods is permissible once ownership is fully transferred.\n\nSelling what one does not own is invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/454/",
+    "tags": ["resale", "ownership"]
+  },
+  {
+    "id": "business_037",
+    "topic": "Business & Transactions",
+    "question": "Is working under unjust laws allowed?",
+    "answer": "Compliance with unjust laws is allowed only to the extent necessary.\n\nParticipation in injustice is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["law", "ethics"]
+  },
+  {
+    "id": "business_038",
+    "topic": "Business & Transactions",
+    "question": "Is accepting gifts from clients allowed?",
+    "answer": "Accepting gifts is permissible unless it influences unfair advantage.\n\nGifts linked to favoritism are considered bribery.",
+    "source_url": "https://www.sistani.org/english/book/46/487/",
+    "tags": ["gifts", "bribery"]
+  },
+  {
+    "id": "business_039",
+    "topic": "Business & Transactions",
+    "question": "Is bankruptcy permissible?",
+    "answer": "Declaring bankruptcy is permissible when genuine inability to repay exists.\n\nHonesty and transparency are required.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["bankruptcy", "debt"]
+  },
+  {
+    "id": "business_040",
+    "topic": "Business & Transactions",
+    "question": "What is the ethical foundation of Islamic business?",
+    "answer": "Islamic business is founded on justice, honesty, transparency, and mutual consent.\n\nProfit must never come at the expense of exploitation or harm.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["ethics", "justice"]
+  },
+    {
+    "id": "marriage_001",
+    "topic": "Marriage (Nikah)",
+    "question": "What is the status of marriage in Islam?",
+    "answer": "Marriage is a highly recommended act (mustahabb) in Islam and is considered a means of spiritual completion, moral protection, and social stability.\n\nIn some cases—such as fear of committing sin—it may become obligatory.",
+    "source_url": "https://www.sistani.org/english/book/46/568/",
+    "tags": ["marriage", "recommended"]
+  },
+  {
+    "id": "marriage_002",
+    "topic": "Marriage (Nikah)",
+    "question": "What are the essential components of a valid marriage contract?",
+    "answer": "A valid marriage contract requires a clear offer (ijab) and acceptance (qabul), expressed verbally with intention, specifying the spouses.\n\nConsent of both parties is mandatory.",
+    "source_url": "https://www.sistani.org/english/book/46/569/",
+    "tags": ["contract", "validity"]
+  },
+  {
+    "id": "marriage_003",
+    "topic": "Marriage (Nikah)",
+    "question": "Is verbal recitation of the marriage contract required?",
+    "answer": "Yes, the marriage contract must be recited verbally, either in Arabic or another language that correctly conveys the meaning.\n\nMere intention or written agreement alone is insufficient.",
+    "source_url": "https://www.sistani.org/english/book/46/570/",
+    "tags": ["contract", "verbal"]
+  },
+  {
+    "id": "marriage_004",
+    "topic": "Marriage (Nikah)",
+    "question": "Can someone else recite the marriage contract on behalf of the couple?",
+    "answer": "Yes, a representative (wakil) may recite the marriage contract on behalf of either or both spouses with their permission.\n\nThe representative must clearly specify whom they represent.",
+    "source_url": "https://www.sistani.org/english/book/46/571/",
+    "tags": ["wakil", "representation"]
+  },
+  {
+    "id": "marriage_005",
+    "topic": "Marriage (Nikah)",
+    "question": "Is the consent of the bride mandatory?",
+    "answer": "Yes, the free and willing consent of the bride is mandatory for a valid marriage.\n\nForced marriages are invalid in Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/46/572/",
+    "tags": ["consent", "bride"]
+  },
+
+  {
+    "id": "marriage_006",
+    "topic": "Marriage (Nikah)",
+    "question": "Is the permission of the father or paternal grandfather required for marriage?",
+    "answer": "For a virgin woman, the permission of her father or paternal grandfather is required as an obligatory precaution, even if she is mature and independent.\n\nThis does not apply to widows or divorcees.",
+    "source_url": "https://www.sistani.org/english/book/46/573/",
+    "tags": ["guardian", "wali"]
+  },
+  {
+    "id": "marriage_007",
+    "topic": "Marriage (Nikah)",
+    "question": "Is dowry (mahr) required for marriage?",
+    "answer": "Yes, specifying a dowry (mahr) is obligatory in marriage.\n\nThe mahr must be lawful property and agreed upon by both parties.",
+    "source_url": "https://www.sistani.org/english/book/46/574/",
+    "tags": ["mahr", "dowry"]
+  },
+  {
+    "id": "marriage_008",
+    "topic": "Marriage (Nikah)",
+    "question": "Can marriage be valid without specifying the mahr?",
+    "answer": "In permanent marriage, the contract is valid even if the mahr is not specified, but the woman is entitled to a customary dowry (mahr al-mithl).\n\nIn temporary marriage, specifying mahr is mandatory.",
+    "source_url": "https://www.sistani.org/english/book/46/575/",
+    "tags": ["mahr", "permanent_marriage"]
+  },
+  {
+    "id": "marriage_009",
+    "topic": "Marriage (Nikah)",
+    "question": "What types of marriage exist in Islamic law?",
+    "answer": "Islamic law recognizes **permanent marriage (nikah da'im)** and **temporary marriage (mut'ah)**.\n\nEach has distinct rulings regarding duration, inheritance, and maintenance.",
+    "source_url": "https://www.sistani.org/english/book/46/576/",
+    "tags": ["permanent", "temporary"]
+  },
+  {
+    "id": "marriage_010",
+    "topic": "Marriage (Nikah)",
+    "question": "Is temporary marriage (mut'ah) permissible?",
+    "answer": "Temporary marriage is permissible with clear specification of duration and dowry.\n\nUpon expiry of the term, the marriage ends automatically without divorce.",
+    "source_url": "https://www.sistani.org/english/book/46/577/",
+    "tags": ["mutah", "temporary_marriage"]
+  },
+
+  {
+    "id": "marriage_011",
+    "topic": "Marriage (Nikah)",
+    "question": "Is cohabitation allowed without marriage?",
+    "answer": "Cohabitation without a valid marriage contract is haram.\n\nAny intimate relationship outside marriage is strictly prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/564/",
+    "tags": ["cohabitation", "zina"]
+  },
+  {
+    "id": "marriage_012",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marriage to non-Muslims allowed?",
+    "answer": "A Muslim man may contract temporary marriage with a chaste woman from the People of the Book.\n\nPermanent marriage with a non-Muslim woman is not permitted without her embracing Islam.",
+    "source_url": "https://www.sistani.org/english/book/46/580/",
+    "tags": ["interfaith", "marriage"]
+  },
+  {
+    "id": "marriage_013",
+    "topic": "Marriage (Nikah)",
+    "question": "Can a Muslim woman marry a non-Muslim man?",
+    "answer": "A Muslim woman may not marry a non-Muslim man under any circumstances.\n\nSuch a marriage contract is invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/581/",
+    "tags": ["interfaith", "women"]
+  },
+  {
+    "id": "marriage_014",
+    "topic": "Marriage (Nikah)",
+    "question": "Is secrecy recommended in marriage?",
+    "answer": "Marriage should not be secretive.\n\nPublicizing the marriage helps prevent suspicion and affirms social responsibility.",
+    "source_url": "https://www.sistani.org/english/book/46/582/",
+    "tags": ["announcement", "ethics"]
+  },
+  {
+    "id": "marriage_015",
+    "topic": "Marriage (Nikah)",
+    "question": "Is a marriage conducted under coercion valid?",
+    "answer": "A marriage conducted under coercion or pressure is invalid.\n\nTrue consent must exist at the time of the contract.",
+    "source_url": "https://www.sistani.org/english/book/46/572/",
+    "tags": ["coercion", "invalid"]
+  },
+
+  {
+    "id": "marriage_016",
+    "topic": "Marriage (Nikah)",
+    "question": "Is setting conditions in a marriage contract allowed?",
+    "answer": "Conditions may be included in the marriage contract as long as they do not contradict Islamic law.\n\nValid conditions are binding upon both spouses.",
+    "source_url": "https://www.sistani.org/english/book/46/586/",
+    "tags": ["conditions", "contract"]
+  },
+  {
+    "id": "marriage_017",
+    "topic": "Marriage (Nikah)",
+    "question": "Is polygamy allowed in Islam?",
+    "answer": "A man may marry up to four wives permanently, provided he can maintain justice among them.\n\nFailure to ensure fairness makes polygamy impermissible.",
+    "source_url": "https://www.sistani.org/english/book/46/587/",
+    "tags": ["polygamy", "justice"]
+  },
+  {
+    "id": "marriage_018",
+    "topic": "Marriage (Nikah)",
+    "question": "Is equal treatment among wives obligatory?",
+    "answer": "Justice in financial support, time allocation, and treatment among wives is obligatory.\n\nEmotional inclination alone is not sinful but must not lead to injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/588/",
+    "tags": ["justice", "wives"]
+  },
+  {
+    "id": "marriage_019",
+    "topic": "Marriage (Nikah)",
+    "question": "Is maintenance (nafaqah) obligatory?",
+    "answer": "Providing maintenance—including food, clothing, and housing—is obligatory upon the husband in permanent marriage.\n\nFailure without excuse is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/589/",
+    "tags": ["maintenance", "nafaqah"]
+  },
+  {
+    "id": "marriage_020",
+    "topic": "Marriage (Nikah)",
+    "question": "Does the wife have the right to housing?",
+    "answer": "Yes, the wife has the right to suitable housing appropriate to her status.\n\nShe may not be forced to live with others without consent.",
+    "source_url": "https://www.sistani.org/english/book/46/590/",
+    "tags": ["housing", "rights"]
+  },
+
+  {
+    "id": "marriage_021",
+    "topic": "Marriage (Nikah)",
+    "question": "Is obedience to the husband obligatory?",
+    "answer": "The wife must allow marital intimacy and not leave the house without permission where it affects marital rights.\n\nThis does not justify abuse or injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/591/",
+    "tags": ["obedience", "marital_rights"]
+  },
+  {
+    "id": "marriage_022",
+    "topic": "Marriage (Nikah)",
+    "question": "Is domestic abuse permitted in Islam?",
+    "answer": "All forms of abuse—physical, emotional, or psychological—are prohibited.\n\nMarriage is founded on mercy, respect, and kindness.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["abuse", "ethics"]
+  },
+  {
+    "id": "marriage_023",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marital intimacy obligatory?",
+    "answer": "Spouses are obligated to fulfill reasonable marital intimacy rights.\n\nProlonged refusal without valid excuse is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/592/",
+    "tags": ["intimacy", "rights"]
+  },
+  {
+    "id": "marriage_024",
+    "topic": "Marriage (Nikah)",
+    "question": "Is contraception allowed in marriage?",
+    "answer": "Contraception is permissible with mutual consent as long as it causes no harm.\n\nPermanent sterilization without necessity is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/593/",
+    "tags": ["contraception", "family_planning"]
+  },
+  {
+    "id": "marriage_025",
+    "topic": "Marriage (Nikah)",
+    "question": "Is pregnancy prevention without consent allowed?",
+    "answer": "Preventing pregnancy without the spouse’s consent is not permissible when it violates marital rights.\n\nMutual agreement is required.",
+    "source_url": "https://www.sistani.org/english/book/46/594/",
+    "tags": ["consent", "contraception"]
+  },
+
+  {
+    "id": "marriage_026",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marriage recommended for financial reasons?",
+    "answer": "Financial hardship should not deter marriage.\n\nIslam encourages trust in Allah and lawful effort to sustain family life.",
+    "source_url": "https://www.sistani.org/english/book/46/568/",
+    "tags": ["financial", "trust_in_Allah"]
+  },
+  {
+    "id": "marriage_027",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marrying solely for immigration benefits valid?",
+    "answer": "If the marriage contract is valid and genuine, it is legally binding.\n\nHowever, deception and misuse of marriage for fraud are sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["intentions", "ethics"]
+  },
+  {
+    "id": "marriage_028",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marrying while intending divorce allowed?",
+    "answer": "Marrying with a concealed intention to divorce is ethically blameworthy.\n\nIn temporary marriage, specifying duration is mandatory.",
+    "source_url": "https://www.sistani.org/english/book/46/577/",
+    "tags": ["intentions", "divorce"]
+  },
+  {
+    "id": "marriage_029",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marrying close relatives allowed?",
+    "answer": "Marriage to close blood relatives such as siblings, parents, and certain in-laws is permanently prohibited.\n\nThese prohibitions are explicitly defined in Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/46/565/",
+    "tags": ["mahram", "prohibited_marriage"]
+  },
+  {
+    "id": "marriage_030",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marrying a pregnant woman allowed?",
+    "answer": "If the pregnancy resulted from zina, marriage before childbirth is not permitted.\n\nOtherwise, the marriage may be valid depending on circumstances.",
+    "source_url": "https://www.sistani.org/english/book/46/566/",
+    "tags": ["pregnancy", "zina"]
+  },
+
+  {
+    "id": "marriage_031",
+    "topic": "Marriage (Nikah)",
+    "question": "Is consent required at the time of contract?",
+    "answer": "Yes, consent must exist at the exact time the marriage contract is concluded.\n\nLater approval does not validate an invalid contract.",
+    "source_url": "https://www.sistani.org/english/book/46/572/",
+    "tags": ["consent", "timing"]
+  },
+  {
+    "id": "marriage_032",
+    "topic": "Marriage (Nikah)",
+    "question": "Is joking or joking words valid for marriage contract?",
+    "answer": "A marriage contract recited jokingly but with correct wording and intention is legally valid.\n\nMarriage seriousness must be respected.",
+    "source_url": "https://www.sistani.org/english/book/46/571/",
+    "tags": ["contract", "intention"]
+  },
+  {
+    "id": "marriage_033",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marriage valid without witnesses?",
+    "answer": "Witnesses are not required for validity in Shia jurisprudence.\n\nHowever, witnesses are recommended to prevent disputes.",
+    "source_url": "https://www.sistani.org/english/book/46/582/",
+    "tags": ["witnesses", "validity"]
+  },
+  {
+    "id": "marriage_034",
+    "topic": "Marriage (Nikah)",
+    "question": "Is the marriage of minors allowed?",
+    "answer": "Marriage of minors requires guardian involvement and must not cause harm.\n\nConsummation is prohibited until maturity.",
+    "source_url": "https://www.sistani.org/english/book/46/567/",
+    "tags": ["minors", "guardianship"]
+  },
+  {
+    "id": "marriage_035",
+    "topic": "Marriage (Nikah)",
+    "question": "Is refusing marriage without valid reason sinful?",
+    "answer": "Refusing marriage is not sinful unless it leads to falling into haram.\n\nEach individual’s circumstances differ.",
+    "source_url": "https://www.sistani.org/english/book/46/568/",
+    "tags": ["choice", "marriage"]
+  },
+
+  {
+    "id": "marriage_036",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marriage encouraged at a young age?",
+    "answer": "Marriage is encouraged when physical, emotional, and moral readiness exists.\n\nAge alone is not the determining factor.",
+    "source_url": "https://www.sistani.org/english/book/46/568/",
+    "tags": ["youth", "readiness"]
+  },
+  {
+    "id": "marriage_037",
+    "topic": "Marriage (Nikah)",
+    "question": "Is cultural practice binding in marriage?",
+    "answer": "Cultural practices are respected as long as they do not contradict Islamic law.\n\nUn-Islamic customs have no legal force.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["culture", "custom"]
+  },
+  {
+    "id": "marriage_038",
+    "topic": "Marriage (Nikah)",
+    "question": "Is marriage between cousins allowed?",
+    "answer": "Marriage between cousins is permissible in Islam.\n\nHowever, health and family considerations are recommended.",
+    "source_url": "https://www.sistani.org/english/book/46/565/",
+    "tags": ["cousins", "permissible"]
+  },
+  {
+    "id": "marriage_039",
+    "topic": "Marriage (Nikah)",
+    "question": "Is dissolving engagement sinful?",
+    "answer": "An engagement is not a binding contract.\n\nEnding it is permissible, though courtesy and honesty are encouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/569/",
+    "tags": ["engagement", "ethics"]
+  },
+  {
+    "id": "marriage_040",
+    "topic": "Marriage (Nikah)",
+    "question": "What is the ultimate objective of marriage in Islam?",
+    "answer": "Marriage aims to establish tranquility, mercy, companionship, and lawful fulfillment of desires.\n\nIt is a foundation for family, faith preservation, and societal health.",
+    "source_url": "https://www.sistani.org/english/book/46/568/",
+    "tags": ["objectives", "family"]
+  },
+    {
+    "id": "divorce_001",
+    "topic": "Divorce (Talaq)",
+    "question": "What is the ruling on divorce in Islam?",
+    "answer": "Divorce is permissible but strongly disliked (makruh) in Islam.\n\nIt is allowed only when reconciliation is not possible and continuing the marriage would cause harm or injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/600/",
+    "tags": ["divorce", "makruh"]
+  },
+  {
+    "id": "divorce_002",
+    "topic": "Divorce (Talaq)",
+    "question": "Who has the authority to pronounce divorce?",
+    "answer": "In Islamic law, the right to pronounce divorce lies with the husband, unless the wife has been granted delegated authority (wakalah) in the marriage contract.\n\nA judge may intervene in specific cases of harm.",
+    "source_url": "https://www.sistani.org/english/book/46/601/",
+    "tags": ["authority", "talaq"]
+  },
+  {
+    "id": "divorce_003",
+    "topic": "Divorce (Talaq)",
+    "question": "Is verbal pronouncement of divorce required?",
+    "answer": "Yes, divorce must be pronounced verbally using correct wording with intention.\n\nWritten statements or intention alone are insufficient without verbal recitation.",
+    "source_url": "https://www.sistani.org/english/book/46/602/",
+    "tags": ["verbal", "pronouncement"]
+  },
+  {
+    "id": "divorce_004",
+    "topic": "Divorce (Talaq)",
+    "question": "Can divorce be issued in any language?",
+    "answer": "Divorce must be pronounced in Arabic if the husband is capable.\n\nIf incapable, it may be pronounced in another language that conveys the exact meaning.",
+    "source_url": "https://www.sistani.org/english/book/46/603/",
+    "tags": ["language", "conditions"]
+  },
+  {
+    "id": "divorce_005",
+    "topic": "Divorce (Talaq)",
+    "question": "Is intention required for a valid divorce?",
+    "answer": "Yes, intention is mandatory.\n\nDivorce pronounced jokingly or without intention is invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/604/",
+    "tags": ["intention", "validity"]
+  },
+
+  {
+    "id": "divorce_006",
+    "topic": "Divorce (Talaq)",
+    "question": "Are witnesses required for divorce?",
+    "answer": "Yes, the presence of **two just male witnesses** who hear the divorce pronouncement is mandatory.\n\nWithout witnesses, the divorce is invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/605/",
+    "tags": ["witnesses", "conditions"]
+  },
+  {
+    "id": "divorce_007",
+    "topic": "Divorce (Talaq)",
+    "question": "Can divorce occur while the wife is menstruating?",
+    "answer": "Divorce during menstruation is invalid unless the husband has not had marital relations with her since the last period.\n\nThis rule protects against impulsive divorce.",
+    "source_url": "https://www.sistani.org/english/book/46/606/",
+    "tags": ["menstruation", "timing"]
+  },
+  {
+    "id": "divorce_008",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce valid during post-natal bleeding (nifas)?",
+    "answer": "Divorce during nifas follows the same ruling as menstruation and is generally invalid unless conditions are met.\n\nProper timing is essential.",
+    "source_url": "https://www.sistani.org/english/book/46/607/",
+    "tags": ["nifas", "timing"]
+  },
+  {
+    "id": "divorce_009",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce valid if the wife is pregnant?",
+    "answer": "Yes, divorce of a pregnant woman is valid regardless of timing.\n\nHer waiting period continues until childbirth.",
+    "source_url": "https://www.sistani.org/english/book/46/608/",
+    "tags": ["pregnancy", "iddah"]
+  },
+  {
+    "id": "divorce_010",
+    "topic": "Divorce (Talaq)",
+    "question": "What is iddah after divorce?",
+    "answer": "Iddah is the mandatory waiting period a woman must observe after divorce.\n\nIts duration depends on pregnancy status and menstruation cycles.",
+    "source_url": "https://www.sistani.org/english/book/46/609/",
+    "tags": ["iddah", "waiting_period"]
+  },
+
+  {
+    "id": "divorce_011",
+    "topic": "Divorce (Talaq)",
+    "question": "How long is iddah for a non-pregnant woman?",
+    "answer": "The iddah for a non-pregnant woman who menstruates is **three complete menstrual cycles**.\n\nIf she does not menstruate, it is three lunar months.",
+    "source_url": "https://www.sistani.org/english/book/46/610/",
+    "tags": ["iddah", "duration"]
+  },
+  {
+    "id": "divorce_012",
+    "topic": "Divorce (Talaq)",
+    "question": "Is maintenance required during iddah?",
+    "answer": "Maintenance is obligatory during **revocable divorce (talaq raj‘i)**.\n\nIn irrevocable divorce, maintenance is only required if the wife is pregnant.",
+    "source_url": "https://www.sistani.org/english/book/46/611/",
+    "tags": ["maintenance", "iddah"]
+  },
+  {
+    "id": "divorce_013",
+    "topic": "Divorce (Talaq)",
+    "question": "What is a revocable divorce (talaq raj‘i)?",
+    "answer": "A revocable divorce allows the husband to return to the marriage during iddah without a new contract.\n\nThis applies to first and second divorces under valid conditions.",
+    "source_url": "https://www.sistani.org/english/book/46/612/",
+    "tags": ["revocable", "raj‘i"]
+  },
+  {
+    "id": "divorce_014",
+    "topic": "Divorce (Talaq)",
+    "question": "What is an irrevocable divorce (talaq ba’in)?",
+    "answer": "An irrevocable divorce permanently ends the marriage.\n\nRe-marriage requires a new contract, and in some cases, an intervening marriage.",
+    "source_url": "https://www.sistani.org/english/book/46/613/",
+    "tags": ["irrevocable", "ba’in"]
+  },
+  {
+    "id": "divorce_015",
+    "topic": "Divorce (Talaq)",
+    "question": "How many divorces are permitted between the same spouses?",
+    "answer": "A man may divorce the same woman **three times**.\n\nAfter the third divorce, remarriage is prohibited unless she marries another man genuinely and later separates.",
+    "source_url": "https://www.sistani.org/english/book/46/614/",
+    "tags": ["three_divorces", "remarriage"]
+  },
+
+  {
+    "id": "divorce_016",
+    "topic": "Divorce (Talaq)",
+    "question": "Is triple divorce in one sitting valid?",
+    "answer": "Pronouncing divorce three times in one sitting counts as **one divorce only**.\n\nIslamic law does not recognize instant triple divorce.",
+    "source_url": "https://www.sistani.org/english/book/46/615/",
+    "tags": ["triple_talaq", "invalid"]
+  },
+  {
+    "id": "divorce_017",
+    "topic": "Divorce (Talaq)",
+    "question": "Can a woman initiate divorce?",
+    "answer": "A woman may seek divorce through **khul‘**, judicial intervention, or delegated authority.\n\nShe cannot independently pronounce talaq without legal grounds.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["khul", "women"]
+  },
+  {
+    "id": "divorce_018",
+    "topic": "Divorce (Talaq)",
+    "question": "What is khul‘ divorce?",
+    "answer": "Khul‘ is a divorce initiated by the wife in exchange for compensation, usually returning the mahr.\n\nIt requires the husband’s acceptance.",
+    "source_url": "https://www.sistani.org/english/book/46/617/",
+    "tags": ["khul", "compensation"]
+  },
+  {
+    "id": "divorce_019",
+    "topic": "Divorce (Talaq)",
+    "question": "What is mubarat divorce?",
+    "answer": "Mubarat divorce occurs when both spouses mutually desire separation.\n\nCompensation may be involved but is not mandatory.",
+    "source_url": "https://www.sistani.org/english/book/46/618/",
+    "tags": ["mubarat", "mutual"]
+  },
+  {
+    "id": "divorce_020",
+    "topic": "Divorce (Talaq)",
+    "question": "Can divorce be conditional?",
+    "answer": "Divorce cannot be conditional upon future events.\n\nIt must take effect immediately upon pronouncement.",
+    "source_url": "https://www.sistani.org/english/book/46/619/",
+    "tags": ["conditional", "invalid"]
+  },
+
+  {
+    "id": "divorce_021",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce valid if pronounced in anger?",
+    "answer": "Divorce pronounced in anger is valid if the person is aware and intends divorce.\n\nLoss of sanity or awareness invalidates it.",
+    "source_url": "https://www.sistani.org/english/book/46/620/",
+    "tags": ["anger", "intention"]
+  },
+  {
+    "id": "divorce_022",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce valid if the husband is intoxicated?",
+    "answer": "Divorce pronounced while intoxicated to the extent of losing awareness is invalid.\n\nPartial intoxication requires careful assessment.",
+    "source_url": "https://www.sistani.org/english/book/46/621/",
+    "tags": ["intoxication", "invalid"]
+  },
+  {
+    "id": "divorce_023",
+    "topic": "Divorce (Talaq)",
+    "question": "Can divorce be issued via text or message?",
+    "answer": "Divorce via text or writing alone is invalid.\n\nIt must be pronounced verbally with witnesses.",
+    "source_url": "https://www.sistani.org/english/book/46/602/",
+    "tags": ["text_message", "invalid"]
+  },
+  {
+    "id": "divorce_024",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce valid without witnesses if both agree?",
+    "answer": "Divorce without witnesses is invalid even if both spouses agree.\n\nWitnesses are a mandatory condition.",
+    "source_url": "https://www.sistani.org/english/book/46/605/",
+    "tags": ["witnesses", "invalid"]
+  },
+  {
+    "id": "divorce_025",
+    "topic": "Divorce (Talaq)",
+    "question": "Is reconciliation encouraged after divorce?",
+    "answer": "Reconciliation is highly encouraged during iddah in revocable divorce.\n\nIslam prioritizes preserving family whenever possible.",
+    "source_url": "https://www.sistani.org/english/book/46/612/",
+    "tags": ["reconciliation", "iddah"]
+  },
+
+  {
+    "id": "divorce_026",
+    "topic": "Divorce (Talaq)",
+    "question": "Is a woman allowed to remarry during iddah?",
+    "answer": "Remarriage during iddah is strictly prohibited.\n\nA new marriage contract during this period is invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/622/",
+    "tags": ["remarriage", "iddah"]
+  },
+  {
+    "id": "divorce_027",
+    "topic": "Divorce (Talaq)",
+    "question": "Is observing iddah obligatory?",
+    "answer": "Observing iddah is obligatory for divorced women except in specific exempt cases.\n\nNeglecting iddah is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/609/",
+    "tags": ["iddah", "obligation"]
+  },
+  {
+    "id": "divorce_028",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce sinful if no valid reason exists?",
+    "answer": "Divorce without valid reason is disliked but not sinful.\n\nHowever, it may carry moral and social consequences.",
+    "source_url": "https://www.sistani.org/english/book/46/600/",
+    "tags": ["ethics", "reason"]
+  },
+  {
+    "id": "divorce_029",
+    "topic": "Divorce (Talaq)",
+    "question": "Is arbitration recommended before divorce?",
+    "answer": "Arbitration and mediation are strongly recommended before finalizing divorce.\n\nThis aligns with Quranic guidance for reconciliation.",
+    "source_url": "https://www.sistani.org/english/book/46/599/",
+    "tags": ["mediation", "reconciliation"]
+  },
+  {
+    "id": "divorce_030",
+    "topic": "Divorce (Talaq)",
+    "question": "Can a judge enforce divorce?",
+    "answer": "A qualified Islamic judge may enforce divorce if the husband refuses while causing harm.\n\nThis protects the rights of the wife.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["judge", "harm"]
+  },
+
+  {
+    "id": "divorce_031",
+    "topic": "Divorce (Talaq)",
+    "question": "Is emotional neglect grounds for divorce?",
+    "answer": "Severe emotional neglect may justify judicial intervention.\n\nEach case depends on evidence and severity.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["neglect", "harm"]
+  },
+  {
+    "id": "divorce_032",
+    "topic": "Divorce (Talaq)",
+    "question": "Is infertility grounds for divorce?",
+    "answer": "Infertility alone is not automatic grounds for divorce.\n\nHowever, it may be considered if it leads to severe hardship.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["infertility", "hardship"]
+  },
+  {
+    "id": "divorce_033",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce valid if husband is absent?",
+    "answer": "Divorce may be pronounced by a representative if authorized.\n\nAbsence alone does not invalidate the process.",
+    "source_url": "https://www.sistani.org/english/book/46/601/",
+    "tags": ["absence", "wakil"]
+  },
+  {
+    "id": "divorce_034",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce allowed during illness?",
+    "answer": "Divorce during terminal illness carries special inheritance implications.\n\nSuch cases must be handled carefully.",
+    "source_url": "https://www.sistani.org/english/book/46/623/",
+    "tags": ["illness", "inheritance"]
+  },
+  {
+    "id": "divorce_035",
+    "topic": "Divorce (Talaq)",
+    "question": "Is forced khul‘ valid?",
+    "answer": "Khul‘ must be voluntary.\n\nCoercion invalidates the agreement.",
+    "source_url": "https://www.sistani.org/english/book/46/617/",
+    "tags": ["khul", "coercion"]
+  },
+
+  {
+    "id": "divorce_036",
+    "topic": "Divorce (Talaq)",
+    "question": "Is child custody decided by divorce?",
+    "answer": "Custody rulings are separate from divorce itself.\n\nChildren’s welfare is the primary consideration.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["custody", "children"]
+  },
+  {
+    "id": "divorce_037",
+    "topic": "Divorce (Talaq)",
+    "question": "Does divorce cancel prior marital obligations?",
+    "answer": "Certain obligations such as iddah and child support remain after divorce.\n\nOthers cease immediately.",
+    "source_url": "https://www.sistani.org/english/book/46/611/",
+    "tags": ["obligations", "post_divorce"]
+  },
+  {
+    "id": "divorce_038",
+    "topic": "Divorce (Talaq)",
+    "question": "Is insulting the spouse grounds for divorce?",
+    "answer": "Insults alone do not automatically justify divorce.\n\nPersistent abuse may warrant judicial intervention.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["abuse", "harm"]
+  },
+  {
+    "id": "divorce_039",
+    "topic": "Divorce (Talaq)",
+    "question": "Is divorce valid if the wife is unaware?",
+    "answer": "The wife does not need to be present for divorce.\n\nHowever, she must be informed to observe iddah.",
+    "source_url": "https://www.sistani.org/english/book/46/609/",
+    "tags": ["notification", "iddah"]
+  },
+  {
+    "id": "divorce_040",
+    "topic": "Divorce (Talaq)",
+    "question": "What is the ethical approach to divorce in Islam?",
+    "answer": "Divorce must be conducted with dignity, fairness, and compassion.\n\nIslam forbids oppression, humiliation, and injustice even at separation.",
+    "source_url": "https://www.sistani.org/english/book/46/600/",
+    "tags": ["ethics", "justice"]
+  },
+    {
+    "id": "custody_001",
+    "topic": "Children & Custody",
+    "question": "What is the general principle governing child custody in Islam?",
+    "answer": "The primary principle governing child custody is the **best interest and welfare of the child**.\n\nIslam prioritizes emotional, physical, and moral well-being over parental preference.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["custody", "child_welfare"]
+  },
+  {
+    "id": "custody_002",
+    "topic": "Children & Custody",
+    "question": "Who has custody of a child after divorce?",
+    "answer": "Custody depends on the child’s age and circumstances.\n\nGenerally, the mother has priority during early childhood, provided she meets eligibility conditions.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["divorce", "priority"]
+  },
+  {
+    "id": "custody_003",
+    "topic": "Children & Custody",
+    "question": "Until what age does the mother have priority custody of a son?",
+    "answer": "The mother has priority custody of a son until the age of **two years**.\n\nAfter that, custody typically transfers to the father.",
+    "source_url": "https://www.sistani.org/english/book/46/625/",
+    "tags": ["son", "age_limit"]
+  },
+  {
+    "id": "custody_004",
+    "topic": "Children & Custody",
+    "question": "Until what age does the mother have priority custody of a daughter?",
+    "answer": "The mother has priority custody of a daughter until the age of **seven years**.\n\nAfter that, custody usually transfers to the father.",
+    "source_url": "https://www.sistani.org/english/book/46/625/",
+    "tags": ["daughter", "age_limit"]
+  },
+  {
+    "id": "custody_005",
+    "topic": "Children & Custody",
+    "question": "Does custody automatically transfer after the age limit?",
+    "answer": "Yes, custody generally transfers to the father after the specified age.\n\nHowever, exceptions may apply if the father is unfit.",
+    "source_url": "https://www.sistani.org/english/book/46/625/",
+    "tags": ["transfer", "custody"]
+  },
+
+  {
+    "id": "custody_006",
+    "topic": "Children & Custody",
+    "question": "What conditions must a custodial parent meet?",
+    "answer": "The custodial parent must be sane, trustworthy, morally upright, and capable of proper care.\n\nLoss of these conditions may forfeit custody rights.",
+    "source_url": "https://www.sistani.org/english/book/46/626/",
+    "tags": ["conditions", "eligibility"]
+  },
+  {
+    "id": "custody_007",
+    "topic": "Children & Custody",
+    "question": "Does remarriage affect the mother’s custody rights?",
+    "answer": "Yes, if the mother remarries a non-mahram, she may lose priority custody.\n\nThe father then becomes entitled to custody.",
+    "source_url": "https://www.sistani.org/english/book/46/626/",
+    "tags": ["remarriage", "mother"]
+  },
+  {
+    "id": "custody_008",
+    "topic": "Children & Custody",
+    "question": "Does remarriage affect the father’s custody rights?",
+    "answer": "The father’s remarriage does not automatically remove custody rights.\n\nHowever, neglect or harm may warrant reassessment.",
+    "source_url": "https://www.sistani.org/english/book/46/626/",
+    "tags": ["father", "remarriage"]
+  },
+  {
+    "id": "custody_009",
+    "topic": "Children & Custody",
+    "question": "Can custody be transferred by mutual agreement?",
+    "answer": "Parents may mutually agree on custody arrangements.\n\nHowever, agreements that harm the child are invalid.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["agreement", "parents"]
+  },
+  {
+    "id": "custody_010",
+    "topic": "Children & Custody",
+    "question": "Is the child’s preference considered in custody decisions?",
+    "answer": "A child’s preference may be considered if they are mature and discerning.\n\nFinal decisions prioritize welfare over preference.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["child_preference", "maturity"]
+  },
+
+  {
+    "id": "custody_011",
+    "topic": "Children & Custody",
+    "question": "Who is financially responsible for the child?",
+    "answer": "The father is financially responsible for the child’s maintenance.\n\nThis obligation remains regardless of custody arrangements.",
+    "source_url": "https://www.sistani.org/english/book/46/611/",
+    "tags": ["financial_support", "father"]
+  },
+  {
+    "id": "custody_012",
+    "topic": "Children & Custody",
+    "question": "Is the mother obligated to financially support the child?",
+    "answer": "The mother is not legally obligated to provide financial support.\n\nHowever, voluntary contribution is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/611/",
+    "tags": ["mother", "support"]
+  },
+  {
+    "id": "custody_013",
+    "topic": "Children & Custody",
+    "question": "Can a mother demand payment for breastfeeding?",
+    "answer": "Yes, a mother may demand fair compensation for breastfeeding if not married to the father.\n\nThis is her legal right.",
+    "source_url": "https://www.sistani.org/english/book/46/627/",
+    "tags": ["breastfeeding", "compensation"]
+  },
+  {
+    "id": "custody_014",
+    "topic": "Children & Custody",
+    "question": "Is visitation a right for the non-custodial parent?",
+    "answer": "Yes, the non-custodial parent has the right to visitation.\n\nPreventing access without justification is impermissible.",
+    "source_url": "https://www.sistani.org/english/book/46/628/",
+    "tags": ["visitation", "rights"]
+  },
+  {
+    "id": "custody_015",
+    "topic": "Children & Custody",
+    "question": "Can visitation be restricted?",
+    "answer": "Visitation may be restricted if it poses harm to the child.\n\nSuch decisions require credible justification.",
+    "source_url": "https://www.sistani.org/english/book/46/628/",
+    "tags": ["restriction", "harm"]
+  },
+
+  {
+    "id": "custody_016",
+    "topic": "Children & Custody",
+    "question": "Who decides disputes regarding custody?",
+    "answer": "A qualified Islamic judge or recognized authority decides custody disputes.\n\nPrivate arbitration may also be used if fair.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["judge", "dispute"]
+  },
+  {
+    "id": "custody_017",
+    "topic": "Children & Custody",
+    "question": "Can custody be revoked due to abuse?",
+    "answer": "Yes, physical or emotional abuse is grounds for immediate custody revocation.\n\nProtecting the child is paramount.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["abuse", "revocation"]
+  },
+  {
+    "id": "custody_018",
+    "topic": "Children & Custody",
+    "question": "Does neglect affect custody rights?",
+    "answer": "Severe neglect may result in loss of custody.\n\nConsistent care is a mandatory requirement.",
+    "source_url": "https://www.sistani.org/english/book/46/626/",
+    "tags": ["neglect", "care"]
+  },
+  {
+    "id": "custody_019",
+    "topic": "Children & Custody",
+    "question": "Can a child be separated from siblings?",
+    "answer": "Separating siblings is discouraged unless necessary for welfare.\n\nKeeping siblings together is generally preferred.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["siblings", "family"]
+  },
+  {
+    "id": "custody_020",
+    "topic": "Children & Custody",
+    "question": "Is education the responsibility of the custodial parent?",
+    "answer": "Education decisions are shared responsibilities.\n\nThe father bears financial responsibility, while both ensure proper upbringing.",
+    "source_url": "https://www.sistani.org/english/book/46/611/",
+    "tags": ["education", "upbringing"]
+  },
+
+  {
+    "id": "custody_021",
+    "topic": "Children & Custody",
+    "question": "Can custody be transferred to grandparents?",
+    "answer": "If both parents are unfit or unavailable, custody may transfer to grandparents.\n\nThe child’s welfare remains decisive.",
+    "source_url": "https://www.sistani.org/english/book/46/629/",
+    "tags": ["grandparents", "alternative_custody"]
+  },
+  {
+    "id": "custody_022",
+    "topic": "Children & Custody",
+    "question": "Can custody be granted to a non-relative?",
+    "answer": "Custody may be granted to a trustworthy non-relative if no suitable relatives exist.\n\nJudicial approval is required.",
+    "source_url": "https://www.sistani.org/english/book/46/629/",
+    "tags": ["non_relative", "guardianship"]
+  },
+  {
+    "id": "custody_023",
+    "topic": "Children & Custody",
+    "question": "Is guardianship different from custody?",
+    "answer": "Yes, guardianship relates to legal authority, while custody concerns daily care.\n\nA guardian may differ from the custodian.",
+    "source_url": "https://www.sistani.org/english/book/46/630/",
+    "tags": ["guardianship", "custody"]
+  },
+  {
+    "id": "custody_024",
+    "topic": "Children & Custody",
+    "question": "Who is the legal guardian of a child?",
+    "answer": "The father is the primary legal guardian.\n\nAfter his death, guardianship transfers according to Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/46/630/",
+    "tags": ["guardian", "father"]
+  },
+  {
+    "id": "custody_025",
+    "topic": "Children & Custody",
+    "question": "Can a mother be appointed legal guardian?",
+    "answer": "A mother may be appointed guardian through a will or judicial decision.\n\nThis occurs when no eligible male guardian exists.",
+    "source_url": "https://www.sistani.org/english/book/46/630/",
+    "tags": ["mother", "guardianship"]
+  },
+
+  {
+    "id": "custody_026",
+    "topic": "Children & Custody",
+    "question": "Does custody affect inheritance rights?",
+    "answer": "Custody does not affect inheritance.\n\nInheritance rights are fixed by Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/48/",
+    "tags": ["inheritance", "rights"]
+  },
+  {
+    "id": "custody_027",
+    "topic": "Children & Custody",
+    "question": "Can custody be lost due to immorality?",
+    "answer": "Open immorality that harms the child’s upbringing may result in loss of custody.\n\nMoral integrity is essential.",
+    "source_url": "https://www.sistani.org/english/book/46/626/",
+    "tags": ["morality", "upbringing"]
+  },
+  {
+    "id": "custody_028",
+    "topic": "Children & Custody",
+    "question": "Is religious upbringing mandatory?",
+    "answer": "Ensuring Islamic upbringing is obligatory.\n\nNeglecting religious education is considered harmful.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["religion", "upbringing"]
+  },
+  {
+    "id": "custody_029",
+    "topic": "Children & Custody",
+    "question": "Can a child be relocated without consent?",
+    "answer": "Relocation that disrupts parental rights or harms the child is impermissible without consent.\n\nJudicial approval may be required.",
+    "source_url": "https://www.sistani.org/english/book/46/628/",
+    "tags": ["relocation", "consent"]
+  },
+  {
+    "id": "custody_030",
+    "topic": "Children & Custody",
+    "question": "Is international relocation allowed?",
+    "answer": "International relocation is allowed only if it does not harm the child or violate parental rights.\n\nLegal review is recommended.",
+    "source_url": "https://www.sistani.org/english/book/46/628/",
+    "tags": ["international", "travel"]
+  },
+
+  {
+    "id": "custody_031",
+    "topic": "Children & Custody",
+    "question": "Can custody be shared?",
+    "answer": "Shared custody is permissible if it serves the child’s best interests.\n\nClear arrangements must be established.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["shared_custody", "arrangements"]
+  },
+  {
+    "id": "custody_032",
+    "topic": "Children & Custody",
+    "question": "Is emotional bonding considered in custody?",
+    "answer": "Yes, emotional attachment is an important factor.\n\nSevering healthy bonds is discouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["emotional_bond", "welfare"]
+  },
+  {
+    "id": "custody_033",
+    "topic": "Children & Custody",
+    "question": "Can custody be modified later?",
+    "answer": "Custody arrangements may be modified if circumstances change.\n\nChild welfare remains the deciding factor.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["modification", "circumstances"]
+  },
+  {
+    "id": "custody_034",
+    "topic": "Children & Custody",
+    "question": "Is custody affected by financial status?",
+    "answer": "Financial hardship alone does not disqualify custody.\n\nSupport obligations compensate for lack of means.",
+    "source_url": "https://www.sistani.org/english/book/46/611/",
+    "tags": ["financial", "support"]
+  },
+  {
+    "id": "custody_035",
+    "topic": "Children & Custody",
+    "question": "Is discipline by a custodial parent allowed?",
+    "answer": "Discipline must be reasonable and non-harmful.\n\nAbusive discipline is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["discipline", "abuse"]
+  },
+
+  {
+    "id": "custody_036",
+    "topic": "Children & Custody",
+    "question": "Can custody be waived voluntarily?",
+    "answer": "A parent may waive custody rights.\n\nHowever, the waiver must not harm the child.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["waiver", "rights"]
+  },
+  {
+    "id": "custody_037",
+    "topic": "Children & Custody",
+    "question": "Does custody end at adulthood?",
+    "answer": "Custody ends when the child reaches maturity and independence.\n\nParental authority then ceases.",
+    "source_url": "https://www.sistani.org/english/book/46/631/",
+    "tags": ["adulthood", "maturity"]
+  },
+  {
+    "id": "custody_038",
+    "topic": "Children & Custody",
+    "question": "Is obedience to custodial parent obligatory?",
+    "answer": "Children should respect custodial parents.\n\nHowever, obedience does not extend to sinful commands.",
+    "source_url": "https://www.sistani.org/english/book/46/631/",
+    "tags": ["obedience", "ethics"]
+  },
+  {
+    "id": "custody_039",
+    "topic": "Children & Custody",
+    "question": "Can custody decisions be appealed?",
+    "answer": "Custody decisions may be appealed if new evidence arises.\n\nJudicial review ensures fairness.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["appeal", "review"]
+  },
+  {
+    "id": "custody_040",
+    "topic": "Children & Custody",
+    "question": "What is the ethical approach to child custody in Islam?",
+    "answer": "Islam mandates compassion, justice, and mercy in custody matters.\n\nChildren must never be used as leverage in disputes.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["ethics", "justice"]
+  },
+    {
+    "id": "inheritance_001",
+    "topic": "Inheritance (Mirath)",
+    "question": "What is inheritance (mirath) in Islamic law?",
+    "answer": "Inheritance (mirath) refers to the **mandatory distribution of a deceased person’s estate** among legally entitled heirs according to Islamic law.\n\nThese shares are divinely prescribed and cannot be altered except within specific limits.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["inheritance", "estate"]
+  },
+  {
+    "id": "inheritance_002",
+    "topic": "Inheritance (Mirath)",
+    "question": "When does inheritance distribution take effect?",
+    "answer": "Inheritance distribution takes effect **immediately after death**.\n\nHowever, debts, funeral expenses, and valid wills must be settled before distributing the estate.",
+    "source_url": "https://www.sistani.org/english/book/49/2397/",
+    "tags": ["death", "distribution"]
+  },
+  {
+    "id": "inheritance_003",
+    "topic": "Inheritance (Mirath)",
+    "question": "What is the order of obligations before inheritance is distributed?",
+    "answer": "The estate is used in the following order:\n1) Funeral and burial expenses\n2) Outstanding debts\n3) Execution of valid will (up to one-third)\n4) Distribution to heirs",
+    "source_url": "https://www.sistani.org/english/book/49/2397/",
+    "tags": ["debts", "will"]
+  },
+  {
+    "id": "inheritance_004",
+    "topic": "Inheritance (Mirath)",
+    "question": "Who are considered legal heirs in Islam?",
+    "answer": "Legal heirs include close blood relatives and spouses such as children, parents, spouses, siblings, and grandparents.\n\nEligibility depends on family structure at the time of death.",
+    "source_url": "https://www.sistani.org/english/book/49/2401/",
+    "tags": ["heirs", "relatives"]
+  },
+  {
+    "id": "inheritance_005",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can a person choose their heirs freely?",
+    "answer": "No, heirs are determined by Islamic law.\n\nA person may only allocate **up to one-third** of the estate through a will to non-heirs.",
+    "source_url": "https://www.sistani.org/english/book/49/2403/",
+    "tags": ["will", "one_third"]
+  },
+
+  {
+    "id": "inheritance_006",
+    "topic": "Inheritance (Mirath)",
+    "question": "What is the maximum portion that can be given through a will?",
+    "answer": "A will may cover **up to one-third** of the estate.\n\nAnything beyond one-third requires the consent of all heirs.",
+    "source_url": "https://www.sistani.org/english/book/49/2403/",
+    "tags": ["will", "limitations"]
+  },
+  {
+    "id": "inheritance_007",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can an heir receive something through a will?",
+    "answer": "A will in favor of an heir is invalid **unless all other heirs consent**.\n\nWithout consent, the bequest is void.",
+    "source_url": "https://www.sistani.org/english/book/49/2404/",
+    "tags": ["heir", "consent"]
+  },
+  {
+    "id": "inheritance_008",
+    "topic": "Inheritance (Mirath)",
+    "question": "Does gender affect inheritance shares?",
+    "answer": "Yes, in certain cases males receive a larger share than females.\n\nThis difference reflects financial responsibilities assigned by Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/49/2410/",
+    "tags": ["gender", "shares"]
+  },
+  {
+    "id": "inheritance_009",
+    "topic": "Inheritance (Mirath)",
+    "question": "What share does a husband receive from his wife’s estate?",
+    "answer": "A husband receives **half** if the wife has no children, and **one-quarter** if she has children.\n\nThis applies regardless of the number of children.",
+    "source_url": "https://www.sistani.org/english/book/49/2412/",
+    "tags": ["husband", "spouse"]
+  },
+  {
+    "id": "inheritance_010",
+    "topic": "Inheritance (Mirath)",
+    "question": "What share does a wife receive from her husband’s estate?",
+    "answer": "A wife receives **one-quarter** if the husband has no children, and **one-eighth** if he has children.\n\nMultiple wives share this portion equally.",
+    "source_url": "https://www.sistani.org/english/book/49/2413/",
+    "tags": ["wife", "spouse"]
+  },
+
+  {
+    "id": "inheritance_011",
+    "topic": "Inheritance (Mirath)",
+    "question": "How is inheritance divided among children?",
+    "answer": "Sons receive **twice the share of daughters**.\n\nThis rule applies when both sons and daughters are present.",
+    "source_url": "https://www.sistani.org/english/book/49/2415/",
+    "tags": ["children", "sons_daughters"]
+  },
+  {
+    "id": "inheritance_012",
+    "topic": "Inheritance (Mirath)",
+    "question": "Do parents inherit from their child?",
+    "answer": "Yes, both parents inherit from their child if alive.\n\nTheir exact shares depend on whether the deceased had children.",
+    "source_url": "https://www.sistani.org/english/book/49/2418/",
+    "tags": ["parents", "inherit"]
+  },
+  {
+    "id": "inheritance_013",
+    "topic": "Inheritance (Mirath)",
+    "question": "What share does the mother receive?",
+    "answer": "The mother generally receives **one-third**.\n\nIf the deceased has children or siblings, her share reduces to **one-sixth**.",
+    "source_url": "https://www.sistani.org/english/book/49/2419/",
+    "tags": ["mother", "share"]
+  },
+  {
+    "id": "inheritance_014",
+    "topic": "Inheritance (Mirath)",
+    "question": "What share does the father receive?",
+    "answer": "The father receives **one-sixth** if the deceased has children.\n\nIf there are no children, he may receive the remainder.",
+    "source_url": "https://www.sistani.org/english/book/49/2420/",
+    "tags": ["father", "share"]
+  },
+  {
+    "id": "inheritance_015",
+    "topic": "Inheritance (Mirath)",
+    "question": "Do siblings inherit when parents are alive?",
+    "answer": "Siblings do not inherit if the father is alive.\n\nThe father blocks their entitlement.",
+    "source_url": "https://www.sistani.org/english/book/49/2422/",
+    "tags": ["siblings", "exclusion"]
+  },
+
+  {
+    "id": "inheritance_016",
+    "topic": "Inheritance (Mirath)",
+    "question": "Do grandchildren inherit directly?",
+    "answer": "Grandchildren inherit only if their parent (the deceased’s child) has already passed away.\n\nThey inherit through substitution.",
+    "source_url": "https://www.sistani.org/english/book/49/2425/",
+    "tags": ["grandchildren", "substitution"]
+  },
+  {
+    "id": "inheritance_017",
+    "topic": "Inheritance (Mirath)",
+    "question": "Do adopted children inherit?",
+    "answer": "Adopted children do not inherit automatically.\n\nThey may receive a share only through a will within one-third.",
+    "source_url": "https://www.sistani.org/english/book/49/2403/",
+    "tags": ["adoption", "non_heir"]
+  },
+  {
+    "id": "inheritance_018",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can a non-Muslim inherit from a Muslim?",
+    "answer": "A non-Muslim does not inherit from a Muslim.\n\nHowever, a Muslim may inherit from a non-Muslim relative.",
+    "source_url": "https://www.sistani.org/english/book/49/2430/",
+    "tags": ["religion", "eligibility"]
+  },
+  {
+    "id": "inheritance_019",
+    "topic": "Inheritance (Mirath)",
+    "question": "Does intentional killing affect inheritance rights?",
+    "answer": "A person who intentionally kills the deceased is barred from inheritance.\n\nAccidental killing does not necessarily bar inheritance.",
+    "source_url": "https://www.sistani.org/english/book/49/2432/",
+    "tags": ["killing", "disqualification"]
+  },
+  {
+    "id": "inheritance_020",
+    "topic": "Inheritance (Mirath)",
+    "question": "Does illegitimacy affect inheritance?",
+    "answer": "A child born out of wedlock does not inherit from the biological father.\n\nThey may inherit from the mother.",
+    "source_url": "https://www.sistani.org/english/book/49/2435/",
+    "tags": ["lineage", "illegitimacy"]
+  },
+
+  {
+    "id": "inheritance_021",
+    "topic": "Inheritance (Mirath)",
+    "question": "Are stepchildren entitled to inheritance?",
+    "answer": "Stepchildren are not legal heirs.\n\nThey may only receive through a will within one-third.",
+    "source_url": "https://www.sistani.org/english/book/49/2403/",
+    "tags": ["stepchildren", "non_heir"]
+  },
+  {
+    "id": "inheritance_022",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can inheritance shares be changed by agreement?",
+    "answer": "Heirs may redistribute their shares **after** inheritance is established.\n\nPre-death agreements are invalid.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["agreement", "redistribution"]
+  },
+  {
+    "id": "inheritance_023",
+    "topic": "Inheritance (Mirath)",
+    "question": "Is delaying inheritance distribution allowed?",
+    "answer": "Unjustified delay in distribution is sinful.\n\nHeirs must receive their shares promptly.",
+    "source_url": "https://www.sistani.org/english/book/49/2398/",
+    "tags": ["delay", "sin"]
+  },
+  {
+    "id": "inheritance_024",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can inheritance include business assets?",
+    "answer": "All assets—including businesses, properties, and investments—are part of the estate.\n\nThey must be valued fairly.",
+    "source_url": "https://www.sistani.org/english/book/49/2396/",
+    "tags": ["business", "assets"]
+  },
+  {
+    "id": "inheritance_025",
+    "topic": "Inheritance (Mirath)",
+    "question": "Are debts forgiven after death?",
+    "answer": "Debts are **not forgiven** by death.\n\nThey must be paid from the estate before inheritance.",
+    "source_url": "https://www.sistani.org/english/book/49/2397/",
+    "tags": ["debts", "liability"]
+  },
+
+  {
+    "id": "inheritance_026",
+    "topic": "Inheritance (Mirath)",
+    "question": "Does unpaid khums or zakat affect inheritance?",
+    "answer": "Unpaid khums and zakat are debts.\n\nThey must be settled before distributing inheritance.",
+    "source_url": "https://www.sistani.org/english/book/49/2397/",
+    "tags": ["khums", "zakat"]
+  },
+  {
+    "id": "inheritance_027",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can a deceased person’s home be inherited?",
+    "answer": "Yes, the home is part of the estate.\n\nThe wife may not inherit land but inherits the structure value.",
+    "source_url": "https://www.sistani.org/english/book/49/2414/",
+    "tags": ["home", "property"]
+  },
+  {
+    "id": "inheritance_028",
+    "topic": "Inheritance (Mirath)",
+    "question": "Does a wife inherit land?",
+    "answer": "A wife does not inherit land itself.\n\nShe inherits the **value of the building and structures**.",
+    "source_url": "https://www.sistani.org/english/book/49/2414/",
+    "tags": ["wife", "land"]
+  },
+  {
+    "id": "inheritance_029",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can inheritance be renounced?",
+    "answer": "An heir may renounce their share after inheritance is established.\n\nRenunciation must be voluntary.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["renounce", "voluntary"]
+  },
+  {
+    "id": "inheritance_030",
+    "topic": "Inheritance (Mirath)",
+    "question": "Is equal distribution among heirs allowed?",
+    "answer": "Equal distribution is not allowed **unless all heirs voluntarily agree** after entitlement.\n\nMandatory shares remain the default.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["equal_distribution", "agreement"]
+  },
+
+  {
+    "id": "inheritance_031",
+    "topic": "Inheritance (Mirath)",
+    "question": "Who manages inheritance disputes?",
+    "answer": "Inheritance disputes are resolved by a qualified Islamic judge or authority.\n\nCivil courts may be used when necessary.",
+    "source_url": "https://www.sistani.org/english/book/49/2399/",
+    "tags": ["disputes", "judge"]
+  },
+  {
+    "id": "inheritance_032",
+    "topic": "Inheritance (Mirath)",
+    "question": "Is concealing inheritance sinful?",
+    "answer": "Concealing or withholding inheritance is a major sin.\n\nIt violates justice and divine law.",
+    "source_url": "https://www.sistani.org/english/book/49/2398/",
+    "tags": ["concealment", "sin"]
+  },
+  {
+    "id": "inheritance_033",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can inheritance be calculated incorrectly intentionally?",
+    "answer": "Intentionally miscalculating inheritance is forbidden.\n\nIt constitutes unlawful consumption of wealth.",
+    "source_url": "https://www.sistani.org/english/book/49/2398/",
+    "tags": ["fraud", "calculation"]
+  },
+  {
+    "id": "inheritance_034",
+    "topic": "Inheritance (Mirath)",
+    "question": "Is professional valuation allowed?",
+    "answer": "Professional valuation is allowed and recommended.\n\nIt ensures fairness in complex estates.",
+    "source_url": "https://www.sistani.org/english/book/49/2396/",
+    "tags": ["valuation", "estate"]
+  },
+  {
+    "id": "inheritance_035",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can inheritance be distributed in installments?",
+    "answer": "Installments are allowed if all heirs consent.\n\nOtherwise, prompt distribution is required.",
+    "source_url": "https://www.sistani.org/english/book/49/2398/",
+    "tags": ["installments", "consent"]
+  },
+
+  {
+    "id": "inheritance_036",
+    "topic": "Inheritance (Mirath)",
+    "question": "Does guardianship affect inheritance?",
+    "answer": "Guardianship does not affect inheritance rights.\n\nShares remain fixed by law.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["guardianship", "rights"]
+  },
+  {
+    "id": "inheritance_037",
+    "topic": "Inheritance (Mirath)",
+    "question": "Can inheritance be donated after receipt?",
+    "answer": "An heir may donate their inherited share after receiving it.\n\nThis is considered voluntary charity.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["donation", "charity"]
+  },
+  {
+    "id": "inheritance_038",
+    "topic": "Inheritance (Mirath)",
+    "question": "Does inheritance apply to digital assets?",
+    "answer": "Digital assets are considered property.\n\nThey are included in the estate and distributed accordingly.",
+    "source_url": "https://www.sistani.org/english/book/49/2396/",
+    "tags": ["digital_assets", "property"]
+  },
+  {
+    "id": "inheritance_039",
+    "topic": "Inheritance (Mirath)",
+    "question": "Is inheritance obligatory to accept?",
+    "answer": "Inheritance is an established right.\n\nAn heir may waive it but cannot be forced to do so.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["rights", "waiver"]
+  },
+  {
+    "id": "inheritance_040",
+    "topic": "Inheritance (Mirath)",
+    "question": "What is the ethical foundation of Islamic inheritance?",
+    "answer": "Islamic inheritance is based on justice, balance, and divine wisdom.\n\nIt prevents concentration of wealth and protects family rights.",
+    "source_url": "https://www.sistani.org/english/book/49/2395/",
+    "tags": ["ethics", "justice"]
+  },
+    {
+    "id": "endoflife_001",
+    "topic": "End-of-Life & Burial",
+    "question": "What should a Muslim do when death becomes imminent?",
+    "answer": "When death becomes imminent, it is recommended to **remind the dying person of Allah**, encourage the recitation of the shahada, and help them remain calm.\n\nFacing the dying person toward the qibla is recommended if possible, without causing discomfort.",
+    "source_url": "https://www.sistani.org/english/book/49/2567/",
+    "tags": ["death", "dying_person"]
+  },
+  {
+    "id": "endoflife_002",
+    "topic": "End-of-Life & Burial",
+    "question": "Is it obligatory to face the dying person toward the qibla?",
+    "answer": "Facing the dying person toward the qibla is an **obligatory precaution** according to many jurists.\n\nIf doing so causes harm or distress, the obligation is waived.",
+    "source_url": "https://www.sistani.org/english/book/49/2568/",
+    "tags": ["qibla", "dying"]
+  },
+  {
+    "id": "endoflife_003",
+    "topic": "End-of-Life & Burial",
+    "question": "What happens immediately after a person dies?",
+    "answer": "Once death is confirmed, the body must be treated with respect.\n\nIt is forbidden to delay burial without a valid reason, and preparations for ghusl and burial should begin promptly.",
+    "source_url": "https://www.sistani.org/english/book/49/2572/",
+    "tags": ["death", "after_death"]
+  },
+  {
+    "id": "endoflife_004",
+    "topic": "End-of-Life & Burial",
+    "question": "Is touching a dead body allowed?",
+    "answer": "Touching a dead body after it has become cold and before it is washed requires **ghusl mass al-mayyit**.\n\nTouching after washing does not require ghusl.",
+    "source_url": "https://www.sistani.org/english/book/48/1934/",
+    "tags": ["corpse", "ghusl"]
+  },
+  {
+    "id": "endoflife_005",
+    "topic": "End-of-Life & Burial",
+    "question": "What is ghusl of the deceased?",
+    "answer": "The deceased must be washed three times:\n1) With water mixed with sidr\n2) With water mixed with camphor\n3) With pure water\n\nThis is an obligatory duty upon the community.",
+    "source_url": "https://www.sistani.org/english/book/49/2581/",
+    "tags": ["ghusl_mayyit", "washing"]
+  },
+
+  {
+    "id": "endoflife_006",
+    "topic": "End-of-Life & Burial",
+    "question": "Who is permitted to wash the deceased?",
+    "answer": "A Muslim of the same gender should wash the deceased.\n\nSpouses may wash each other, and in cases of necessity, exceptions apply.",
+    "source_url": "https://www.sistani.org/english/book/49/2584/",
+    "tags": ["washing", "gender"]
+  },
+  {
+    "id": "endoflife_007",
+    "topic": "End-of-Life & Burial",
+    "question": "Is it allowed to delay burial?",
+    "answer": "Burial must not be delayed without a valid reason such as legal requirements or ensuring death is confirmed.\n\nUnnecessary delay is sinful.",
+    "source_url": "https://www.sistani.org/english/book/49/2574/",
+    "tags": ["burial", "delay"]
+  },
+  {
+    "id": "endoflife_008",
+    "topic": "End-of-Life & Burial",
+    "question": "What is the kafan (shroud) requirement?",
+    "answer": "The deceased must be shrouded in **three pieces of cloth**: a loincloth, a shirt, and a full cover.\n\nThe kafan must be pure and lawful.",
+    "source_url": "https://www.sistani.org/english/book/49/2592/",
+    "tags": ["kafan", "shroud"]
+  },
+  {
+    "id": "endoflife_009",
+    "topic": "End-of-Life & Burial",
+    "question": "Is it permissible to use expensive shrouds?",
+    "answer": "Using excessively expensive shrouds is discouraged.\n\nSimplicity and dignity are emphasized in burial rites.",
+    "source_url": "https://www.sistani.org/english/book/49/2594/",
+    "tags": ["kafan", "simplicity"]
+  },
+  {
+    "id": "endoflife_010",
+    "topic": "End-of-Life & Burial",
+    "question": "What is the ruling on embalming?",
+    "answer": "Embalming is not permissible unless required by law or necessity.\n\nIf required, it should be done with minimal violation of the body.",
+    "source_url": "https://www.sistani.org/english/book/49/2576/",
+    "tags": ["embalming", "necessity"]
+  },
+
+  {
+    "id": "endoflife_011",
+    "topic": "End-of-Life & Burial",
+    "question": "Is autopsy allowed in Islam?",
+    "answer": "Autopsy is prohibited unless legally required or necessary to protect life.\n\nEven then, it must be limited to necessity.",
+    "source_url": "https://www.sistani.org/english/book/49/2577/",
+    "tags": ["autopsy", "necessity"]
+  },
+  {
+    "id": "endoflife_012",
+    "topic": "End-of-Life & Burial",
+    "question": "What is Salat al-Mayyit?",
+    "answer": "Salat al-Mayyit is a special prayer performed for the deceased.\n\nIt consists of five takbirs and does not include ruku or sujood.",
+    "source_url": "https://www.sistani.org/english/book/49/2603/",
+    "tags": ["salat_mayyit", "funeral_prayer"]
+  },
+  {
+    "id": "endoflife_013",
+    "topic": "End-of-Life & Burial",
+    "question": "Is Salat al-Mayyit obligatory?",
+    "answer": "Salat al-Mayyit is a **communal obligation (wajib kifai)**.\n\nIf sufficient people perform it, others are absolved.",
+    "source_url": "https://www.sistani.org/english/book/49/2604/",
+    "tags": ["wajib_kifai", "prayer"]
+  },
+  {
+    "id": "endoflife_014",
+    "topic": "End-of-Life & Burial",
+    "question": "Who can lead the funeral prayer?",
+    "answer": "Any qualified Muslim may lead Salat al-Mayyit.\n\nJustice and proper recitation are recommended.",
+    "source_url": "https://www.sistani.org/english/book/49/2606/",
+    "tags": ["imam", "funeral"]
+  },
+  {
+    "id": "endoflife_015",
+    "topic": "End-of-Life & Burial",
+    "question": "How should the body be placed in the grave?",
+    "answer": "The body should be placed on its **right side facing the qibla**.\n\nThis orientation is obligatory if possible.",
+    "source_url": "https://www.sistani.org/english/book/49/2612/",
+    "tags": ["grave", "qibla"]
+  },
+
+  {
+    "id": "endoflife_016",
+    "topic": "End-of-Life & Burial",
+    "question": "Is burial in a coffin allowed?",
+    "answer": "Burial directly in the earth is preferred.\n\nUsing a coffin is allowed when required by law or necessity.",
+    "source_url": "https://www.sistani.org/english/book/49/2611/",
+    "tags": ["coffin", "burial"]
+  },
+  {
+    "id": "endoflife_017",
+    "topic": "End-of-Life & Burial",
+    "question": "Is cremation permitted in Islam?",
+    "answer": "Cremation is strictly prohibited.\n\nThe body must be buried intact with dignity.",
+    "source_url": "https://www.sistani.org/english/book/49/2573/",
+    "tags": ["cremation", "prohibited"]
+  },
+  {
+    "id": "endoflife_018",
+    "topic": "End-of-Life & Burial",
+    "question": "Is it allowed to transport a body long distances?",
+    "answer": "Transporting the body is allowed if it does not cause disrespect or delay burial unnecessarily.\n\nLocal burial is generally preferred.",
+    "source_url": "https://www.sistani.org/english/book/49/2575/",
+    "tags": ["transport", "burial"]
+  },
+  {
+    "id": "endoflife_019",
+    "topic": "End-of-Life & Burial",
+    "question": "Is mourning allowed in Islam?",
+    "answer": "Mourning is permitted but must remain within Islamic limits.\n\nSelf-harm, wailing, and tearing clothes are prohibited.",
+    "source_url": "https://www.sistani.org/english/book/49/2620/",
+    "tags": ["mourning", "grief"]
+  },
+  {
+    "id": "endoflife_020",
+    "topic": "End-of-Life & Burial",
+    "question": "How long is the mourning period?",
+    "answer": "General mourning has no fixed duration.\n\nA widow observes **iddah of four months and ten days**.",
+    "source_url": "https://www.sistani.org/english/book/49/2621/",
+    "tags": ["mourning", "iddah"]
+  },
+
+  {
+    "id": "endoflife_021",
+    "topic": "End-of-Life & Burial",
+    "question": "Is reciting Qur’an for the deceased allowed?",
+    "answer": "Reciting Qur’an and gifting its reward to the deceased is permissible and recommended.\n\nCharity on their behalf is also beneficial.",
+    "source_url": "https://www.sistani.org/english/book/49/2625/",
+    "tags": ["quran", "charity"]
+  },
+  {
+    "id": "endoflife_022",
+    "topic": "End-of-Life & Burial",
+    "question": "Can women attend funerals?",
+    "answer": "Women may attend funerals as long as modesty and Islamic conduct are maintained.\n\nAvoiding excessive lamentation is required.",
+    "source_url": "https://www.sistani.org/english/book/49/2608/",
+    "tags": ["women", "funeral"]
+  },
+  {
+    "id": "endoflife_023",
+    "topic": "End-of-Life & Burial",
+    "question": "Is professional mourning encouraged?",
+    "answer": "Hiring professional mourners or paid lamentation is discouraged and often impermissible.\n\nSincerity and restraint are emphasized.",
+    "source_url": "https://www.sistani.org/english/book/49/2622/",
+    "tags": ["mourning", "prohibited_practices"]
+  },
+  {
+    "id": "endoflife_024",
+    "topic": "End-of-Life & Burial",
+    "question": "Is visiting graves allowed?",
+    "answer": "Visiting graves is recommended for reflection and remembrance of the hereafter.\n\nSupplication for the deceased is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/49/2628/",
+    "tags": ["grave_visit", "dua"]
+  },
+  {
+    "id": "endoflife_025",
+    "topic": "End-of-Life & Burial",
+    "question": "Are elaborate grave markers allowed?",
+    "answer": "Simple grave markers are allowed.\n\nExcessive construction or extravagance is discouraged.",
+    "source_url": "https://www.sistani.org/english/book/49/2630/",
+    "tags": ["grave", "markers"]
+  },
+
+  {
+    "id": "endoflife_026",
+    "topic": "End-of-Life & Burial",
+    "question": "Is placing flowers on graves permissible?",
+    "answer": "Placing flowers is permissible if it does not involve prohibited beliefs.\n\nIt should not be considered an act of worship.",
+    "source_url": "https://www.sistani.org/english/book/49/2631/",
+    "tags": ["graves", "customs"]
+  },
+  {
+    "id": "endoflife_027",
+    "topic": "End-of-Life & Burial",
+    "question": "Can graves be reused?",
+    "answer": "Graves may only be reused after the body has fully decomposed.\n\nRespect for remains must be maintained.",
+    "source_url": "https://www.sistani.org/english/book/49/2618/",
+    "tags": ["grave", "reuse"]
+  },
+  {
+    "id": "endoflife_028",
+    "topic": "End-of-Life & Burial",
+    "question": "Is exhumation allowed?",
+    "answer": "Exhumation is prohibited unless required by law or necessity.\n\nIt must be done respectfully.",
+    "source_url": "https://www.sistani.org/english/book/49/2619/",
+    "tags": ["exhumation", "necessity"]
+  },
+  {
+    "id": "endoflife_029",
+    "topic": "End-of-Life & Burial",
+    "question": "Can the deceased’s organs be donated?",
+    "answer": "Organ donation is permitted with prior consent and if it does not violate Islamic principles.\n\nSaving life is highly valued.",
+    "source_url": "https://www.sistani.org/english/book/49/2578/",
+    "tags": ["organ_donation", "medical"]
+  },
+  {
+    "id": "endoflife_030",
+    "topic": "End-of-Life & Burial",
+    "question": "Is euthanasia permitted?",
+    "answer": "Euthanasia is prohibited.\n\nLife must not be intentionally ended, even to relieve suffering.",
+    "source_url": "https://www.sistani.org/english/book/49/2579/",
+    "tags": ["euthanasia", "prohibited"]
+  },
+
+  {
+    "id": "endoflife_031",
+    "topic": "End-of-Life & Burial",
+    "question": "Is life support allowed to be withdrawn?",
+    "answer": "Life support may be withdrawn if medical experts confirm death or irreversible brain failure.\n\nActive killing remains forbidden.",
+    "source_url": "https://www.sistani.org/english/book/49/2580/",
+    "tags": ["life_support", "medical_ethics"]
+  },
+  {
+    "id": "endoflife_032",
+    "topic": "End-of-Life & Burial",
+    "question": "Can charity be given on behalf of the deceased?",
+    "answer": "Giving charity on behalf of the deceased is highly recommended.\n\nIts reward reaches the deceased by Allah’s permission.",
+    "source_url": "https://www.sistani.org/english/book/49/2626/",
+    "tags": ["charity", "deceased"]
+  },
+  {
+    "id": "endoflife_033",
+    "topic": "End-of-Life & Burial",
+    "question": "Is reciting Talqin after burial allowed?",
+    "answer": "Talqin after burial is recommended.\n\nIt reminds the deceased of their faith.",
+    "source_url": "https://www.sistani.org/english/book/49/2615/",
+    "tags": ["talqin", "burial"]
+  },
+  {
+    "id": "endoflife_034",
+    "topic": "End-of-Life & Burial",
+    "question": "Is loud crying allowed at funerals?",
+    "answer": "Crying is permitted, but loud wailing and self-harm are prohibited.\n\nPatience and remembrance of Allah are emphasized.",
+    "source_url": "https://www.sistani.org/english/book/49/2620/",
+    "tags": ["crying", "mourning"]
+  },
+  {
+    "id": "endoflife_035",
+    "topic": "End-of-Life & Burial",
+    "question": "Is attending non-Muslim funerals allowed?",
+    "answer": "Attending non-Muslim funerals is allowed if it does not involve prohibited rituals.\n\nRespectful conduct must be maintained.",
+    "source_url": "https://www.sistani.org/english/book/49/2609/",
+    "tags": ["non_muslim", "funeral"]
+  },
+
+  {
+    "id": "endoflife_036",
+    "topic": "End-of-Life & Burial",
+    "question": "Is praying for forgiveness of non-Muslims allowed?",
+    "answer": "Seeking forgiveness for deceased non-Muslims is not permitted.\n\nHowever, general prayers for guidance of the living are allowed.",
+    "source_url": "https://www.sistani.org/english/book/49/2635/",
+    "tags": ["dua", "non_muslim"]
+  },
+  {
+    "id": "endoflife_037",
+    "topic": "End-of-Life & Burial",
+    "question": "Is burial at sea allowed?",
+    "answer": "Burial at sea is allowed only if land burial is impossible.\n\nThe body must still be prepared respectfully.",
+    "source_url": "https://www.sistani.org/english/book/49/2613/",
+    "tags": ["burial", "sea"]
+  },
+  {
+    "id": "endoflife_038",
+    "topic": "End-of-Life & Burial",
+    "question": "Can funerals be held at night?",
+    "answer": "Night burial is allowed if it does not lead to disrespect or neglect of rites.\n\nDaytime burial is generally preferred.",
+    "source_url": "https://www.sistani.org/english/book/49/2574/",
+    "tags": ["burial_time", "night"]
+  },
+  {
+    "id": "endoflife_039",
+    "topic": "End-of-Life & Burial",
+    "question": "Is it permissible to photograph the deceased?",
+    "answer": "Photography should be avoided if it disrespects the deceased or causes harm.\n\nRespect and dignity take precedence.",
+    "source_url": "https://www.sistani.org/english/book/49/2572/",
+    "tags": ["photography", "respect"]
+  },
+  {
+    "id": "endoflife_040",
+    "topic": "End-of-Life & Burial",
+    "question": "What is the spiritual purpose of Islamic burial rites?",
+    "answer": "Islamic burial rites honor human dignity, affirm belief in the afterlife, and remind the living of accountability.\n\nThey emphasize humility, equality, and return to Allah.",
+    "source_url": "https://www.sistani.org/english/book/49/2566/",
+    "tags": ["ethics", "afterlife"]
+  },
+    {
+    "id": "wasiyyah_001",
+    "topic": "Wills & Estate Planning",
+    "question": "What is a wasiyyah (Islamic will)?",
+    "answer": "A wasiyyah is a declaration made by a person regarding the distribution of part of their estate or specific instructions to be carried out after death.\n\nIt is a recommended act and an important means of fulfilling religious and moral obligations.",
+    "source_url": "https://www.sistani.org/english/book/49/2636/",
+    "tags": ["wasiyyah", "will"]
+  },
+  {
+    "id": "wasiyyah_002",
+    "topic": "Wills & Estate Planning",
+    "question": "Is making a will obligatory in Islam?",
+    "answer": "Making a will is obligatory if a person has outstanding religious duties, debts, or trusts that would otherwise be neglected.\n\nIn other cases, it is strongly recommended.",
+    "source_url": "https://www.sistani.org/english/book/49/2637/",
+    "tags": ["obligation", "debts"]
+  },
+  {
+    "id": "wasiyyah_003",
+    "topic": "Wills & Estate Planning",
+    "question": "What matters should be included in a will?",
+    "answer": "A will should include unpaid debts, religious obligations (such as missed prayers or fasts), trusts, and any permissible bequests.\n\nClarity prevents disputes among heirs.",
+    "source_url": "https://www.sistani.org/english/book/49/2638/",
+    "tags": ["contents", "debts"]
+  },
+  {
+    "id": "wasiyyah_004",
+    "topic": "Wills & Estate Planning",
+    "question": "Who can make a valid Islamic will?",
+    "answer": "Any sane, mature person who has reached the age of legal responsibility may make a will.\n\nThe person must act freely without coercion.",
+    "source_url": "https://www.sistani.org/english/book/49/2639/",
+    "tags": ["eligibility", "capacity"]
+  },
+  {
+    "id": "wasiyyah_005",
+    "topic": "Wills & Estate Planning",
+    "question": "Does a will need to be written?",
+    "answer": "A will does not have to be written; verbal wills are valid if properly witnessed.\n\nHowever, a written will is strongly recommended to avoid disputes.",
+    "source_url": "https://www.sistani.org/english/book/49/2640/",
+    "tags": ["written_will", "documentation"]
+  },
+
+  {
+    "id": "wasiyyah_006",
+    "topic": "Wills & Estate Planning",
+    "question": "How much of one’s estate can be given through a will?",
+    "answer": "A person may bequeath up to **one-third of their estate** through a will.\n\nAnything beyond one-third requires the consent of the heirs.",
+    "source_url": "https://www.sistani.org/english/book/49/2641/",
+    "tags": ["one_third", "estate"]
+  },
+  {
+    "id": "wasiyyah_007",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will override Islamic inheritance laws?",
+    "answer": "A will cannot override the fixed shares of inheritance.\n\nOnly the discretionary one-third portion may be distributed according to the will.",
+    "source_url": "https://www.sistani.org/english/book/49/2642/",
+    "tags": ["inheritance", "limits"]
+  },
+  {
+    "id": "wasiyyah_008",
+    "topic": "Wills & Estate Planning",
+    "question": "Can an heir receive a bequest through a will?",
+    "answer": "A bequest to an heir is not valid unless **all other heirs consent**.\n\nWithout consent, it has no legal effect.",
+    "source_url": "https://www.sistani.org/english/book/49/2643/",
+    "tags": ["heirs", "consent"]
+  },
+  {
+    "id": "wasiyyah_009",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will be changed or revoked?",
+    "answer": "A will may be changed or revoked at any time during the testator’s life.\n\nThe most recent valid will takes precedence.",
+    "source_url": "https://www.sistani.org/english/book/49/2644/",
+    "tags": ["revocation", "changes"]
+  },
+  {
+    "id": "wasiyyah_010",
+    "topic": "Wills & Estate Planning",
+    "question": "What is the ruling on conditional wills?",
+    "answer": "Conditional wills are valid if the condition is lawful and clear.\n\nInvalid conditions render only that condition void, not the entire will.",
+    "source_url": "https://www.sistani.org/english/book/49/2645/",
+    "tags": ["conditions", "validity"]
+  },
+
+  {
+    "id": "wasiyyah_011",
+    "topic": "Wills & Estate Planning",
+    "question": "Who executes the will?",
+    "answer": "The executor (wasi) is responsible for carrying out the instructions of the will.\n\nThe executor must be trustworthy and capable.",
+    "source_url": "https://www.sistani.org/english/book/49/2646/",
+    "tags": ["executor", "wasi"]
+  },
+  {
+    "id": "wasiyyah_012",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a non-Muslim be appointed as an executor?",
+    "answer": "A non-Muslim may be appointed as an executor if they are trustworthy and capable of fulfilling the instructions properly.",
+    "source_url": "https://www.sistani.org/english/book/49/2647/",
+    "tags": ["executor", "non_muslim"]
+  },
+  {
+    "id": "wasiyyah_013",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a minor be appointed as executor?",
+    "answer": "A minor cannot independently act as executor.\n\nHowever, they may be appointed alongside a qualified guardian.",
+    "source_url": "https://www.sistani.org/english/book/49/2648/",
+    "tags": ["executor", "minor"]
+  },
+  {
+    "id": "wasiyyah_014",
+    "topic": "Wills & Estate Planning",
+    "question": "Is the executor entitled to payment?",
+    "answer": "An executor may take reasonable compensation if stipulated in the will or agreed upon by heirs.\n\nOtherwise, the role is voluntary.",
+    "source_url": "https://www.sistani.org/english/book/49/2649/",
+    "tags": ["executor_fee", "compensation"]
+  },
+  {
+    "id": "wasiyyah_015",
+    "topic": "Wills & Estate Planning",
+    "question": "What happens if an executor dies or refuses?",
+    "answer": "If the executor dies or refuses, the court or heirs may appoint another qualified person.\n\nThe will itself remains valid.",
+    "source_url": "https://www.sistani.org/english/book/49/2650/",
+    "tags": ["executor", "replacement"]
+  },
+
+  {
+    "id": "wasiyyah_016",
+    "topic": "Wills & Estate Planning",
+    "question": "Are funeral expenses taken from the estate?",
+    "answer": "Funeral expenses are taken from the estate **before** inheritance distribution.\n\nThey take priority over bequests.",
+    "source_url": "https://www.sistani.org/english/book/49/2651/",
+    "tags": ["funeral_costs", "priority"]
+  },
+  {
+    "id": "wasiyyah_017",
+    "topic": "Wills & Estate Planning",
+    "question": "Do debts take priority over inheritance?",
+    "answer": "All debts must be paid from the estate before distributing inheritance or bequests.\n\nNeglecting debts is sinful.",
+    "source_url": "https://www.sistani.org/english/book/49/2652/",
+    "tags": ["debts", "priority"]
+  },
+  {
+    "id": "wasiyyah_018",
+    "topic": "Wills & Estate Planning",
+    "question": "Are unpaid religious duties part of the estate obligations?",
+    "answer": "Missed prayers, fasts, and other religious duties must be compensated from the estate if specified or known.",
+    "source_url": "https://www.sistani.org/english/book/49/2653/",
+    "tags": ["religious_duties", "estate"]
+  },
+  {
+    "id": "wasiyyah_019",
+    "topic": "Wills & Estate Planning",
+    "question": "Can charity be specified in a will?",
+    "answer": "Charity may be specified within the one-third bequest.\n\nIt is recommended to support religious and charitable causes.",
+    "source_url": "https://www.sistani.org/english/book/49/2654/",
+    "tags": ["charity", "bequest"]
+  },
+  {
+    "id": "wasiyyah_020",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will specify guardianship for children?",
+    "answer": "A will may specify a guardian for minor children.\n\nThe guardian must be suitable and trustworthy.",
+    "source_url": "https://www.sistani.org/english/book/49/2655/",
+    "tags": ["guardianship", "children"]
+  },
+
+  {
+    "id": "wasiyyah_021",
+    "topic": "Wills & Estate Planning",
+    "question": "What if heirs dispute the will?",
+    "answer": "Disputes should be resolved through Islamic legal principles or qualified arbitration.\n\nClear documentation reduces conflict.",
+    "source_url": "https://www.sistani.org/english/book/49/2656/",
+    "tags": ["disputes", "heirs"]
+  },
+  {
+    "id": "wasiyyah_022",
+    "topic": "Wills & Estate Planning",
+    "question": "Is witness testimony required for a will?",
+    "answer": "Witnesses strengthen the validity of a will, especially verbal ones.\n\nTwo just witnesses are recommended.",
+    "source_url": "https://www.sistani.org/english/book/49/2657/",
+    "tags": ["witnesses", "testimony"]
+  },
+  {
+    "id": "wasiyyah_023",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will include non-financial instructions?",
+    "answer": "Non-financial instructions such as burial preferences are permissible as long as they are lawful.",
+    "source_url": "https://www.sistani.org/english/book/49/2658/",
+    "tags": ["instructions", "burial"]
+  },
+  {
+    "id": "wasiyyah_024",
+    "topic": "Wills & Estate Planning",
+    "question": "Is secrecy in a will allowed?",
+    "answer": "A will may remain private during the testator’s lifetime.\n\nAfter death, it must be disclosed to execute its terms.",
+    "source_url": "https://www.sistani.org/english/book/49/2659/",
+    "tags": ["privacy", "disclosure"]
+  },
+  {
+    "id": "wasiyyah_025",
+    "topic": "Wills & Estate Planning",
+    "question": "Can someone be disinherited through a will?",
+    "answer": "Disinheriting a rightful heir is not permitted.\n\nInheritance shares are fixed by Islamic law.",
+    "source_url": "https://www.sistani.org/english/book/49/2660/",
+    "tags": ["disinheritance", "prohibited"]
+  },
+
+  {
+    "id": "wasiyyah_026",
+    "topic": "Wills & Estate Planning",
+    "question": "What is the ruling on joint wills?",
+    "answer": "Joint wills are permissible if each person’s share and instructions are clearly defined.",
+    "source_url": "https://www.sistani.org/english/book/49/2661/",
+    "tags": ["joint_will", "clarity"]
+  },
+  {
+    "id": "wasiyyah_027",
+    "topic": "Wills & Estate Planning",
+    "question": "Can digital assets be included in a will?",
+    "answer": "Digital assets may be included as part of the estate.\n\nClear identification and access instructions are recommended.",
+    "source_url": "https://www.sistani.org/english/book/49/2662/",
+    "tags": ["digital_assets", "modern_issues"]
+  },
+  {
+    "id": "wasiyyah_028",
+    "topic": "Wills & Estate Planning",
+    "question": "Is an unjust will valid?",
+    "answer": "Unjust conditions are invalid and must not be executed.\n\nThe remainder of the will remains valid.",
+    "source_url": "https://www.sistani.org/english/book/49/2663/",
+    "tags": ["justice", "invalid_conditions"]
+  },
+  {
+    "id": "wasiyyah_029",
+    "topic": "Wills & Estate Planning",
+    "question": "Can someone be forced to make a will?",
+    "answer": "A will made under coercion is invalid.\n\nFree intention is a requirement.",
+    "source_url": "https://www.sistani.org/english/book/49/2664/",
+    "tags": ["coercion", "invalid"]
+  },
+  {
+    "id": "wasiyyah_030",
+    "topic": "Wills & Estate Planning",
+    "question": "What happens if no will exists?",
+    "answer": "If no will exists, the estate is distributed strictly according to Islamic inheritance laws.\n\nOutstanding obligations must still be fulfilled.",
+    "source_url": "https://www.sistani.org/english/book/49/2665/",
+    "tags": ["no_will", "inheritance"]
+  },
+
+  {
+    "id": "wasiyyah_031",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will specify educational trusts?",
+    "answer": "Educational trusts may be specified within the one-third limit.\n\nThey must serve lawful purposes.",
+    "source_url": "https://www.sistani.org/english/book/49/2666/",
+    "tags": ["trusts", "education"]
+  },
+  {
+    "id": "wasiyyah_032",
+    "topic": "Wills & Estate Planning",
+    "question": "Is it recommended to review a will periodically?",
+    "answer": "Reviewing and updating a will as circumstances change is recommended.\n\nThis ensures accuracy and fairness.",
+    "source_url": "https://www.sistani.org/english/book/49/2667/",
+    "tags": ["review", "updates"]
+  },
+  {
+    "id": "wasiyyah_033",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will be invalidated after death?",
+    "answer": "A will may be invalidated if proven to violate Islamic law or made under coercion or incapacity.",
+    "source_url": "https://www.sistani.org/english/book/49/2668/",
+    "tags": ["invalid", "after_death"]
+  },
+  {
+    "id": "wasiyyah_034",
+    "topic": "Wills & Estate Planning",
+    "question": "Is reconciliation among heirs encouraged?",
+    "answer": "Reconciliation and mutual consent among heirs is encouraged as long as no Islamic rule is violated.",
+    "source_url": "https://www.sistani.org/english/book/49/2669/",
+    "tags": ["reconciliation", "consent"]
+  },
+  {
+    "id": "wasiyyah_035",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will specify care for parents?",
+    "answer": "A will may specify care or financial support for parents within permissible limits.\n\nFilial responsibility remains obligatory.",
+    "source_url": "https://www.sistani.org/english/book/49/2670/",
+    "tags": ["parents", "support"]
+  },
+
+  {
+    "id": "wasiyyah_036",
+    "topic": "Wills & Estate Planning",
+    "question": "Is making a will a sign of lack of trust in Allah?",
+    "answer": "Making a will does not contradict trust in Allah.\n\nIt reflects responsibility and foresight.",
+    "source_url": "https://www.sistani.org/english/book/49/2671/",
+    "tags": ["tawakkul", "planning"]
+  },
+  {
+    "id": "wasiyyah_037",
+    "topic": "Wills & Estate Planning",
+    "question": "Can a will include business succession plans?",
+    "answer": "Business succession instructions are permissible if they respect inheritance laws and justice.",
+    "source_url": "https://www.sistani.org/english/book/49/2672/",
+    "tags": ["business", "succession"]
+  },
+  {
+    "id": "wasiyyah_038",
+    "topic": "Wills & Estate Planning",
+    "question": "Is it permissible to write multiple wills?",
+    "answer": "Multiple wills may exist, but the **latest valid will** takes precedence.",
+    "source_url": "https://www.sistani.org/english/book/49/2673/",
+    "tags": ["multiple_wills", "precedence"]
+  },
+  {
+    "id": "wasiyyah_039",
+    "topic": "Wills & Estate Planning",
+    "question": "What is the ethical goal of Islamic estate planning?",
+    "answer": "Islamic estate planning aims to ensure justice, prevent disputes, fulfill obligations, and seek Allah’s pleasure.",
+    "source_url": "https://www.sistani.org/english/book/49/2674/",
+    "tags": ["ethics", "justice"]
+  },
+  {
+    "id": "wasiyyah_040",
+    "topic": "Wills & Estate Planning",
+    "question": "What is the reward for leaving a just will?",
+    "answer": "Leaving a just will brings ongoing reward and protects one from posthumous injustice.\n\nIt is considered an act of righteousness.",
+    "source_url": "https://www.sistani.org/english/book/49/2675/",
+    "tags": ["reward", "righteousness"]
+  },
+    {
+    "id": "medical_001",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "What is the Islamic view on seeking medical treatment?",
+    "answer": "Seeking medical treatment is generally permissible and recommended, especially when there is a reasonable chance of recovery.\n\nNeglecting treatment that could prevent serious harm or death may be sinful if it leads to avoidable loss of life.",
+    "source_url": "https://www.sistani.org/english/qa/01134/",
+    "tags": ["medical_treatment", "obligation"]
+  },
+  {
+    "id": "medical_002",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is it obligatory to seek treatment in all cases?",
+    "answer": "Medical treatment is obligatory when refraining from it would lead to death or serious harm.\n\nIf treatment offers little benefit or causes excessive hardship, it may be optional.",
+    "source_url": "https://www.sistani.org/english/qa/01135/",
+    "tags": ["treatment", "obligation"]
+  },
+  {
+    "id": "medical_003",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is refusing medical treatment allowed?",
+    "answer": "Refusing treatment is allowed if it does not result in definite harm or death.\n\nHowever, refusing life-saving treatment without valid reason is not permissible.",
+    "source_url": "https://www.sistani.org/english/qa/01136/",
+    "tags": ["refusal", "medical_ethics"]
+  },
+  {
+    "id": "medical_004",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is euthanasia permitted in Islam?",
+    "answer": "Euthanasia—actively causing death to relieve suffering—is strictly prohibited.\n\nLife may not be intentionally ended under any circumstances.",
+    "source_url": "https://www.sistani.org/english/qa/01137/",
+    "tags": ["euthanasia", "prohibited"]
+  },
+  {
+    "id": "medical_005",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is assisted suicide permissible?",
+    "answer": "Assisted suicide is forbidden, as it involves intentional participation in ending a human life.\n\nBoth the one requesting and the one assisting commit a prohibited act.",
+    "source_url": "https://www.sistani.org/english/qa/01138/",
+    "tags": ["assisted_suicide", "haram"]
+  },
+
+  {
+    "id": "medical_006",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Can life support be withdrawn from a terminally ill patient?",
+    "answer": "If life support only prolongs the dying process with no hope of recovery, withdrawing it is permissible.\n\nThis is not considered killing, provided death is not actively caused.",
+    "source_url": "https://www.sistani.org/english/qa/01139/",
+    "tags": ["life_support", "terminal_illness"]
+  },
+  {
+    "id": "medical_007",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is turning off a ventilator allowed?",
+    "answer": "If the patient is brain-dead or treatment is futile, turning off a ventilator is permissible.\n\nHowever, deliberate action to hasten death remains forbidden.",
+    "source_url": "https://www.sistani.org/english/qa/01140/",
+    "tags": ["ventilator", "life_support"]
+  },
+  {
+    "id": "medical_008",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "What is the ruling on brain death?",
+    "answer": "Brain death alone does not automatically equate to legal death unless confirmed by complete and irreversible cessation of life functions according to medical and Islamic criteria.",
+    "source_url": "https://www.sistani.org/english/qa/01141/",
+    "tags": ["brain_death", "definition"]
+  },
+  {
+    "id": "medical_009",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is pain relief medication allowed if it shortens life?",
+    "answer": "Pain relief is permitted even if it unintentionally shortens life, provided the intention is pain management—not causing death.",
+    "source_url": "https://www.sistani.org/english/qa/01142/",
+    "tags": ["pain_management", "intention"]
+  },
+  {
+    "id": "medical_010",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is sedation at end of life permissible?",
+    "answer": "Sedation to relieve unbearable suffering is permissible when medically justified.\n\nIt must not be used with the intention of hastening death.",
+    "source_url": "https://www.sistani.org/english/qa/01143/",
+    "tags": ["sedation", "palliative_care"]
+  },
+
+  {
+    "id": "medical_011",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Can a patient make an advance medical directive?",
+    "answer": "Advance directives are permissible if they do not request prohibited acts such as euthanasia.\n\nThey help guide lawful medical decisions.",
+    "source_url": "https://www.sistani.org/english/qa/01144/",
+    "tags": ["advance_directive", "planning"]
+  },
+  {
+    "id": "medical_012",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Who makes medical decisions if a patient is unconscious?",
+    "answer": "Decisions fall to legal guardians or close family members acting in the patient’s best interest and within Islamic law.",
+    "source_url": "https://www.sistani.org/english/qa/01145/",
+    "tags": ["guardianship", "decision_making"]
+  },
+  {
+    "id": "medical_013",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is organ donation permissible?",
+    "answer": "Organ donation is permissible if it does not cause death and consent is given.\n\nSaving another life is a noble act.",
+    "source_url": "https://www.sistani.org/english/qa/01146/",
+    "tags": ["organ_donation", "consent"]
+  },
+  {
+    "id": "medical_014",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Can organs be taken after death?",
+    "answer": "Organ removal after death is permissible if death is established and prior consent was given.\n\nRespect for the deceased must be maintained.",
+    "source_url": "https://www.sistani.org/english/qa/01147/",
+    "tags": ["organ_donation", "after_death"]
+  },
+  {
+    "id": "medical_015",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is selling organs allowed?",
+    "answer": "Selling organs is prohibited.\n\nDonation must be voluntary and not driven by financial gain.",
+    "source_url": "https://www.sistani.org/english/qa/01148/",
+    "tags": ["organ_sale", "haram"]
+  },
+
+  {
+    "id": "medical_016",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is blood transfusion allowed?",
+    "answer": "Blood transfusions are permissible and often recommended when medically necessary.\n\nThey do not violate Islamic principles.",
+    "source_url": "https://www.sistani.org/english/qa/01149/",
+    "tags": ["blood_transfusion", "medical"]
+  },
+  {
+    "id": "medical_017",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is abortion allowed to save the mother’s life?",
+    "answer": "Before ensoulment (approximately 4 months), abortion may be permitted if the mother’s life is at serious risk.\n\nAfter ensoulment, it is forbidden except in extreme necessity.",
+    "source_url": "https://www.sistani.org/english/qa/01150/",
+    "tags": ["abortion", "ensoulment"]
+  },
+  {
+    "id": "medical_018",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is fertility treatment allowed?",
+    "answer": "Fertility treatments are permissible if they involve lawful means and the spouses’ own genetic material.",
+    "source_url": "https://www.sistani.org/english/qa/01151/",
+    "tags": ["fertility", "ivf"]
+  },
+  {
+    "id": "medical_019",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is cloning permitted in Islam?",
+    "answer": "Human reproductive cloning is prohibited due to ethical and lineage concerns.\n\nTherapeutic research may be treated separately.",
+    "source_url": "https://www.sistani.org/english/qa/01152/",
+    "tags": ["cloning", "ethics"]
+  },
+  {
+    "id": "medical_020",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is cosmetic surgery allowed?",
+    "answer": "Cosmetic surgery is permissible when done to correct defects or significant harm.\n\nPure vanity procedures are discouraged.",
+    "source_url": "https://www.sistani.org/english/qa/01153/",
+    "tags": ["cosmetic_surgery", "medical"]
+  },
+
+  {
+    "id": "medical_021",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is gender reassignment surgery permitted?",
+    "answer": "Surgery to correct a genuine biological disorder may be permissible.\n\nElective gender change without medical necessity is not allowed.",
+    "source_url": "https://www.sistani.org/english/qa/01154/",
+    "tags": ["gender", "surgery"]
+  },
+  {
+    "id": "medical_022",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is mental health treatment encouraged?",
+    "answer": "Mental health treatment is encouraged and considered part of preserving life and well-being.",
+    "source_url": "https://www.sistani.org/english/qa/01155/",
+    "tags": ["mental_health", "treatment"]
+  },
+  {
+    "id": "medical_023",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Can psychiatric medication be used long-term?",
+    "answer": "Long-term psychiatric medication is permissible if prescribed and beneficial.\n\nMedical guidance should be followed.",
+    "source_url": "https://www.sistani.org/english/qa/01156/",
+    "tags": ["psychiatric", "medication"]
+  },
+  {
+    "id": "medical_024",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is artificial nutrition and hydration obligatory?",
+    "answer": "Artificial feeding is obligatory if it sustains life and does not cause harm.\n\nIf futile, it may be withdrawn.",
+    "source_url": "https://www.sistani.org/english/qa/01157/",
+    "tags": ["nutrition", "hydration"]
+  },
+  {
+    "id": "medical_025",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is experimental treatment allowed?",
+    "answer": "Experimental treatments are permissible with informed consent and reasonable expectation of benefit.",
+    "source_url": "https://www.sistani.org/english/qa/01158/",
+    "tags": ["experimental", "consent"]
+  },
+
+  {
+    "id": "medical_026",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is participation in medical research allowed?",
+    "answer": "Participation is allowed if it does not cause harm and consent is informed and voluntary.",
+    "source_url": "https://www.sistani.org/english/qa/01159/",
+    "tags": ["research", "consent"]
+  },
+  {
+    "id": "medical_027",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is DNA testing permitted?",
+    "answer": "DNA testing is permissible for lawful purposes such as medical diagnosis or identification.",
+    "source_url": "https://www.sistani.org/english/qa/01160/",
+    "tags": ["dna", "testing"]
+  },
+  {
+    "id": "medical_028",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Can medical confidentiality be broken?",
+    "answer": "Confidentiality must be preserved unless disclosure prevents serious harm or fulfills a legal obligation.",
+    "source_url": "https://www.sistani.org/english/qa/01161/",
+    "tags": ["confidentiality", "ethics"]
+  },
+  {
+    "id": "medical_029",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is artificial intelligence in medicine allowed?",
+    "answer": "AI use in medicine is permissible if it enhances care and does not replace necessary human judgment.",
+    "source_url": "https://www.sistani.org/english/qa/01162/",
+    "tags": ["ai", "medicine"]
+  },
+  {
+    "id": "medical_030",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is refusal of resuscitation allowed (DNR)?",
+    "answer": "DNR orders are permissible if resuscitation is futile or harmful.\n\nThey must not aim to hasten death.",
+    "source_url": "https://www.sistani.org/english/qa/01163/",
+    "tags": ["dnr", "resuscitation"]
+  },
+
+  {
+    "id": "medical_031",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is preserving life always mandatory?",
+    "answer": "Preserving life is a core objective of Islamic law.\n\nHowever, extraordinary measures are not obligatory when futile.",
+    "source_url": "https://www.sistani.org/english/qa/01164/",
+    "tags": ["preservation_of_life", "principles"]
+  },
+  {
+    "id": "medical_032",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is suffering a test from Allah?",
+    "answer": "Suffering may be a test or means of spiritual elevation.\n\nSeeking relief does not contradict patience.",
+    "source_url": "https://www.sistani.org/english/qa/01165/",
+    "tags": ["suffering", "patience"]
+  },
+  {
+    "id": "medical_033",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is neglecting medical care sinful?",
+    "answer": "Neglecting care that leads to serious harm or death is sinful.\n\nResponsible self-care is an obligation.",
+    "source_url": "https://www.sistani.org/english/qa/01166/",
+    "tags": ["neglect", "sin"]
+  },
+  {
+    "id": "medical_034",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is spiritual care important at end of life?",
+    "answer": "Spiritual care, remembrance of Allah, and preparation for death are highly recommended at end of life.",
+    "source_url": "https://www.sistani.org/english/qa/01167/",
+    "tags": ["spiritual_care", "end_of_life"]
+  },
+  {
+    "id": "medical_035",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Should the dying person be reminded of shahada?",
+    "answer": "Gently encouraging the shahada is recommended without causing distress.",
+    "source_url": "https://www.sistani.org/english/qa/01168/",
+    "tags": ["shahada", "dying"]
+  },
+
+  {
+    "id": "medical_036",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is it allowed to withhold information from a patient?",
+    "answer": "Truth should be conveyed with wisdom.\n\nWithholding information is allowed if disclosure would cause serious harm.",
+    "source_url": "https://www.sistani.org/english/qa/01169/",
+    "tags": ["truthfulness", "ethics"]
+  },
+  {
+    "id": "medical_037",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is prayer still obligatory for terminally ill patients?",
+    "answer": "Prayer remains obligatory as long as the person is conscious, performed in whatever way is possible.",
+    "source_url": "https://www.sistani.org/english/qa/01170/",
+    "tags": ["prayer", "terminal_illness"]
+  },
+  {
+    "id": "medical_038",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Can fasting be skipped due to illness?",
+    "answer": "Fasting may be skipped if it causes harm.\n\nMissed fasts must be compensated if recovery occurs.",
+    "source_url": "https://www.sistani.org/english/qa/01171/",
+    "tags": ["fasting", "illness"]
+  },
+  {
+    "id": "medical_039",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "Is hope encouraged even in terminal illness?",
+    "answer": "Hope in Allah’s mercy is always encouraged, regardless of prognosis.",
+    "source_url": "https://www.sistani.org/english/qa/01172/",
+    "tags": ["hope", "mercy"]
+  },
+  {
+    "id": "medical_040",
+    "topic": "Medical Ethics & End-of-Life",
+    "question": "What is the ultimate Islamic principle in medical ethics?",
+    "answer": "Islamic medical ethics aim to preserve life, dignity, faith, and justice while preventing harm and oppression.",
+    "source_url": "https://www.sistani.org/english/qa/01173/",
+    "tags": ["principles", "ethics"]
+  },
+    {
+    "id": "hajj_001",
+    "topic": "Hajj & Umrah",
+    "question": "When does Hajj become obligatory on a person?",
+    "answer": "Hajj becomes obligatory once in a lifetime when a person has financial ability, physical capability, sufficient time, and safe passage to perform the pilgrimage.",
+    "source_url": "https://www.sistani.org/english/book/47/2082/",
+    "tags": ["hajj", "obligation"]
+  },
+  {
+    "id": "hajj_002",
+    "topic": "Hajj & Umrah",
+    "question": "Is Hajj obligatory immediately once conditions are met?",
+    "answer": "Yes, Hajj becomes immediately obligatory once its conditions are fulfilled.\n\nDelaying it without a valid excuse is sinful.",
+    "source_url": "https://www.sistani.org/english/book/47/2083/",
+    "tags": ["hajj", "delay"]
+  },
+  {
+    "id": "hajj_003",
+    "topic": "Hajj & Umrah",
+    "question": "What is meant by financial ability (istita‘ah) for Hajj?",
+    "answer": "Financial ability includes having sufficient funds for the journey, expenses for dependents during absence, and return expenses without falling into hardship.",
+    "source_url": "https://www.sistani.org/english/book/47/2084/",
+    "tags": ["istitaah", "finance"]
+  },
+  {
+    "id": "hajj_004",
+    "topic": "Hajj & Umrah",
+    "question": "Does having debt affect the obligation of Hajj?",
+    "answer": "If debt repayment is due and paying it would prevent the Hajj journey, Hajj is not obligatory until the debt is settled.",
+    "source_url": "https://www.sistani.org/english/book/47/2085/",
+    "tags": ["debt", "hajj"]
+  },
+  {
+    "id": "hajj_005",
+    "topic": "Hajj & Umrah",
+    "question": "Is Hajj obligatory on elderly or sick individuals?",
+    "answer": "If illness or old age permanently prevents performing Hajj personally, a representative must be hired if financial ability exists.",
+    "source_url": "https://www.sistani.org/english/book/47/2086/",
+    "tags": ["illness", "representation"]
+  },
+
+  {
+    "id": "hajj_006",
+    "topic": "Hajj & Umrah",
+    "question": "What is Hajj al-Tamattu‘?",
+    "answer": "Hajj al-Tamattu‘ consists of Umrah performed first, followed by Hajj in the same year.\n\nIt is obligatory for those living far from Mecca.",
+    "source_url": "https://www.sistani.org/english/book/47/2090/",
+    "tags": ["tamattu", "types"]
+  },
+  {
+    "id": "hajj_007",
+    "topic": "Hajj & Umrah",
+    "question": "What are the other types of Hajj?",
+    "answer": "The other types are Hajj al-Qiran and Hajj al-Ifrad, mainly for residents of Mecca or nearby areas.",
+    "source_url": "https://www.sistani.org/english/book/47/2091/",
+    "tags": ["qiran", "ifrad"]
+  },
+  {
+    "id": "hajj_008",
+    "topic": "Hajj & Umrah",
+    "question": "What are the essential acts of Umrah al-Tamattu‘?",
+    "answer": "They include ihram, tawaf, two rak‘ahs of tawaf prayer, sa‘y, taqsir, and observing sequence.",
+    "source_url": "https://www.sistani.org/english/book/47/2092/",
+    "tags": ["umrah", "actions"]
+  },
+  {
+    "id": "hajj_009",
+    "topic": "Hajj & Umrah",
+    "question": "From where must ihram for Umrah al-Tamattu‘ be assumed?",
+    "answer": "Ihram must be assumed from one of the designated miqat locations or their equivalents.",
+    "source_url": "https://www.sistani.org/english/book/47/2093/",
+    "tags": ["ihram", "miqat"]
+  },
+  {
+    "id": "hajj_010",
+    "topic": "Hajj & Umrah",
+    "question": "Is intention required for ihram?",
+    "answer": "Yes, intention is essential.\n\nIhram is not valid without the intention to perform Umrah or Hajj seeking closeness to Allah.",
+    "source_url": "https://www.sistani.org/english/book/47/2094/",
+    "tags": ["niyyah", "ihram"]
+  },
+
+  {
+    "id": "hajj_011",
+    "topic": "Hajj & Umrah",
+    "question": "What actions are prohibited during ihram?",
+    "answer": "Prohibitions include perfume, marital relations, hunting, cutting hair or nails, and covering the head (for men).",
+    "source_url": "https://www.sistani.org/english/book/47/2095/",
+    "tags": ["ihram", "prohibitions"]
+  },
+  {
+    "id": "hajj_012",
+    "topic": "Hajj & Umrah",
+    "question": "What happens if an ihram prohibition is violated?",
+    "answer": "Violations may require expiation (kaffarah), depending on the act and circumstances.",
+    "source_url": "https://www.sistani.org/english/book/47/2096/",
+    "tags": ["kaffarah", "violations"]
+  },
+  {
+    "id": "hajj_013",
+    "topic": "Hajj & Umrah",
+    "question": "What is tawaf?",
+    "answer": "Tawaf is circling the Ka‘bah seven times counterclockwise with proper intention and ritual purity.",
+    "source_url": "https://www.sistani.org/english/book/47/2097/",
+    "tags": ["tawaf", "kaaba"]
+  },
+  {
+    "id": "hajj_014",
+    "topic": "Hajj & Umrah",
+    "question": "Is wudhu required for tawaf?",
+    "answer": "Yes, ritual purity is required for obligatory tawaf, just as it is for prayer.",
+    "source_url": "https://www.sistani.org/english/book/47/2098/",
+    "tags": ["wudhu", "tawaf"]
+  },
+  {
+    "id": "hajj_015",
+    "topic": "Hajj & Umrah",
+    "question": "What is sa‘y between Safa and Marwah?",
+    "answer": "Sa‘y consists of walking seven times between Safa and Marwah after tawaf and its prayer.",
+    "source_url": "https://www.sistani.org/english/book/47/2099/",
+    "tags": ["sai", "safa_marwah"]
+  },
+
+  {
+    "id": "hajj_016",
+    "topic": "Hajj & Umrah",
+    "question": "What is taqsir?",
+    "answer": "Taqsir is cutting a small amount of hair or nails, which completes Umrah and releases the pilgrim from ihram.",
+    "source_url": "https://www.sistani.org/english/book/47/2100/",
+    "tags": ["taqsir", "umrah"]
+  },
+  {
+    "id": "hajj_017",
+    "topic": "Hajj & Umrah",
+    "question": "When does ihram for Hajj begin?",
+    "answer": "Ihram for Hajj begins on the 8th of Dhul Hijjah from Mecca for Hajj al-Tamattu‘.",
+    "source_url": "https://www.sistani.org/english/book/47/2101/",
+    "tags": ["ihram", "dhul_hijjah"]
+  },
+  {
+    "id": "hajj_018",
+    "topic": "Hajj & Umrah",
+    "question": "What is wuquf at Arafat?",
+    "answer": "Wuquf at Arafat is standing there from noon to sunset on the 9th of Dhul Hijjah.\n\nIt is a fundamental pillar of Hajj.",
+    "source_url": "https://www.sistani.org/english/book/47/2102/",
+    "tags": ["arafat", "wuquf"]
+  },
+  {
+    "id": "hajj_019",
+    "topic": "Hajj & Umrah",
+    "question": "What happens if wuquf at Arafat is missed?",
+    "answer": "Missing obligatory wuquf invalidates Hajj, requiring it to be repeated the following year if possible.",
+    "source_url": "https://www.sistani.org/english/book/47/2103/",
+    "tags": ["arafat", "invalid_hajj"]
+  },
+  {
+    "id": "hajj_020",
+    "topic": "Hajj & Umrah",
+    "question": "What is wuquf at Muzdalifah?",
+    "answer": "Wuquf at Muzdalifah occurs after sunset on the night of Eid until dawn.\n\nIt is obligatory, though less strict than Arafat.",
+    "source_url": "https://www.sistani.org/english/book/47/2104/",
+    "tags": ["muzdalifah", "wuquf"]
+  },
+
+  {
+    "id": "hajj_021",
+    "topic": "Hajj & Umrah",
+    "question": "What is ramy al-jamarat?",
+    "answer": "Ramy al-jamarat is throwing stones at the designated pillars in Mina on specific days as prescribed.",
+    "source_url": "https://www.sistani.org/english/book/47/2105/",
+    "tags": ["jamarat", "mina"]
+  },
+  {
+    "id": "hajj_022",
+    "topic": "Hajj & Umrah",
+    "question": "Is sacrifice (qurbani) obligatory in Hajj al-Tamattu‘?",
+    "answer": "Yes, sacrificing an animal is obligatory for Hajj al-Tamattu‘.\n\nIf unable, fasting is required instead.",
+    "source_url": "https://www.sistani.org/english/book/47/2106/",
+    "tags": ["sacrifice", "tamattu"]
+  },
+  {
+    "id": "hajj_023",
+    "topic": "Hajj & Umrah",
+    "question": "When is shaving or cutting hair performed in Hajj?",
+    "answer": "It is performed after sacrifice on the day of Eid.\n\nThis partially releases the pilgrim from ihram.",
+    "source_url": "https://www.sistani.org/english/book/47/2107/",
+    "tags": ["halq", "taqsir"]
+  },
+  {
+    "id": "hajj_024",
+    "topic": "Hajj & Umrah",
+    "question": "What is Tawaf al-Ziyarah?",
+    "answer": "Tawaf al-Ziyarah is performed after returning to Mecca and is essential for completing Hajj.",
+    "source_url": "https://www.sistani.org/english/book/47/2108/",
+    "tags": ["tawaf_ziyarah", "hajj"]
+  },
+  {
+    "id": "hajj_025",
+    "topic": "Hajj & Umrah",
+    "question": "Is sa‘y repeated after Tawaf al-Ziyarah?",
+    "answer": "Yes, sa‘y must be repeated if it was not already performed for Hajj.",
+    "source_url": "https://www.sistani.org/english/book/47/2109/",
+    "tags": ["sai", "ziyarah"]
+  },
+
+  {
+    "id": "hajj_026",
+    "topic": "Hajj & Umrah",
+    "question": "What is Tawaf al-Nisa?",
+    "answer": "Tawaf al-Nisa is obligatory to make marital relations lawful again after Hajj.",
+    "source_url": "https://www.sistani.org/english/book/47/2110/",
+    "tags": ["tawaf_nisa", "marital"]
+  },
+  {
+    "id": "hajj_027",
+    "topic": "Hajj & Umrah",
+    "question": "What happens if Tawaf al-Nisa is omitted?",
+    "answer": "Marital relations remain forbidden until it is properly completed, even if Hajj is otherwise valid.",
+    "source_url": "https://www.sistani.org/english/book/47/2111/",
+    "tags": ["tawaf_nisa", "omission"]
+  },
+  {
+    "id": "hajj_028",
+    "topic": "Hajj & Umrah",
+    "question": "Is staying overnight in Mina obligatory?",
+    "answer": "Yes, staying in Mina on the nights of the 11th and 12th is obligatory for most pilgrims.",
+    "source_url": "https://www.sistani.org/english/book/47/2112/",
+    "tags": ["mina", "overnight"]
+  },
+  {
+    "id": "hajj_029",
+    "topic": "Hajj & Umrah",
+    "question": "Can women perform Hajj during menstruation?",
+    "answer": "Women may perform most rites, but tawaf requires purity.\n\nMissed tawaf must be completed later or by a representative.",
+    "source_url": "https://www.sistani.org/english/book/47/2113/",
+    "tags": ["women", "menstruation"]
+  },
+  {
+    "id": "hajj_030",
+    "topic": "Hajj & Umrah",
+    "question": "Is Hajj valid if some acts are forgotten?",
+    "answer": "Some omissions invalidate Hajj, while others can be corrected later or compensated with expiation.",
+    "source_url": "https://www.sistani.org/english/book/47/2114/",
+    "tags": ["forgetfulness", "validity"]
+  },
+
+  {
+    "id": "hajj_031",
+    "topic": "Hajj & Umrah",
+    "question": "Is Umrah obligatory?",
+    "answer": "Umrah is obligatory once in a lifetime for those who are able, similar to Hajj.",
+    "source_url": "https://www.sistani.org/english/book/47/2115/",
+    "tags": ["umrah", "obligation"]
+  },
+  {
+    "id": "hajj_032",
+    "topic": "Hajj & Umrah",
+    "question": "Can Umrah be performed on behalf of someone else?",
+    "answer": "Yes, Umrah may be performed on behalf of the deceased or those unable to perform it themselves.",
+    "source_url": "https://www.sistani.org/english/book/47/2116/",
+    "tags": ["umrah", "representation"]
+  },
+  {
+    "id": "hajj_033",
+    "topic": "Hajj & Umrah",
+    "question": "Is repeating Umrah recommended?",
+    "answer": "Repeating Umrah is recommended and meritorious if done correctly.",
+    "source_url": "https://www.sistani.org/english/book/47/2117/",
+    "tags": ["umrah", "recommended"]
+  },
+  {
+    "id": "hajj_034",
+    "topic": "Hajj & Umrah",
+    "question": "Can Hajj be performed with unlawful wealth?",
+    "answer": "Hajj performed with unlawful wealth is sinful and may not be accepted, even if the rites are outwardly valid.",
+    "source_url": "https://www.sistani.org/english/book/47/2118/",
+    "tags": ["haram_wealth", "acceptance"]
+  },
+  {
+    "id": "hajj_035",
+    "topic": "Hajj & Umrah",
+    "question": "Is intention of sincerity important in Hajj?",
+    "answer": "Sincerity is essential for acceptance.\n\nHajj performed for show or status loses spiritual reward.",
+    "source_url": "https://www.sistani.org/english/book/47/2119/",
+    "tags": ["ikhlas", "intention"]
+  },
+
+  {
+    "id": "hajj_036",
+    "topic": "Hajj & Umrah",
+    "question": "Is trading allowed during Hajj?",
+    "answer": "Trading is permissible during Hajj, provided it does not distract from obligatory rites.",
+    "source_url": "https://www.sistani.org/english/book/47/2120/",
+    "tags": ["trade", "hajj"]
+  },
+  {
+    "id": "hajj_037",
+    "topic": "Hajj & Umrah",
+    "question": "Is Hajj obligatory again if it was performed incorrectly?",
+    "answer": "If essential pillars were missed, Hajj must be repeated.\n\nMinor errors may be compensated.",
+    "source_url": "https://www.sistani.org/english/book/47/2121/",
+    "tags": ["repeat_hajj", "errors"]
+  },
+  {
+    "id": "hajj_038",
+    "topic": "Hajj & Umrah",
+    "question": "Is Hajj valid without a visa or lawful permission?",
+    "answer": "Violating laws that ensure safety and order may render the act sinful, even if rites are performed.",
+    "source_url": "https://www.sistani.org/english/book/47/2122/",
+    "tags": ["lawful_entry", "ethics"]
+  },
+  {
+    "id": "hajj_039",
+    "topic": "Hajj & Umrah",
+    "question": "What is the spiritual goal of Hajj?",
+    "answer": "Hajj aims to purify the soul, renew faith, and demonstrate submission, unity, and humility before Allah.",
+    "source_url": "https://www.sistani.org/english/book/47/2123/",
+    "tags": ["spirituality", "purpose"]
+  },
+  {
+    "id": "hajj_040",
+    "topic": "Hajj & Umrah",
+    "question": "When is Hajj considered fully complete?",
+    "answer": "Hajj is complete after all obligatory rites are fulfilled, including Tawaf al-Nisa and its prayer.",
+    "source_url": "https://www.sistani.org/english/book/47/2124/",
+    "tags": ["completion", "hajj"]
   }
 ]
