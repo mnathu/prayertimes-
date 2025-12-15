@@ -158,5 +158,2121 @@
     "answer": "Praying while holding a child is permissible if the person is still able to perform all essential actions such as ruku', sujood, and maintaining stillness. If the child’s movement disrupts the required calm, the prayer may become invalid.\n\nIt is recommended to place the child down when possible, but necessity or keeping the child safe justifies holding them during prayer.",
     "source_url": "https://www.sistani.org/english/book/48/2098/",
     "tags": ["children", "movement", "necessity"]
+  },
+{
+  "id": "salah_021",
+  "topic": "Salah",
+  "question": "Is intention (niyyah) required verbally for prayer?",
+  "answer": "Intention is obligatory for prayer, but it does not need to be pronounced verbally. It is sufficient for the intention to be present in the heart at the time of beginning the prayer.\n\nVerbalizing the intention is neither required nor recommended, and doing so incorrectly does not affect the validity of prayer as long as the correct intention exists internally.",
+  "source_url": "https://www.sistani.org/english/book/48/2071/",
+  "tags": ["niyyah", "intention", "conditions"]
+},
+{
+  "id": "salah_022",
+  "topic": "Salah",
+  "question": "Does wearing perfume affect the validity of prayer?",
+  "answer": "Wearing perfume does not invalidate prayer as long as the substance itself is pure (tahir). Pleasant fragrance is considered recommended and contributes to humility during worship.\n\nHowever, if the perfume contains alcohol that is najis, the prayer would be invalid unless the impurity does not transfer or is excused.",
+  "source_url": "https://www.sistani.org/english/book/48/2048/",
+  "tags": ["perfume", "purity", "recommended"]
+},
+{
+  "id": "salah_023",
+  "topic": "Salah",
+  "question": "What invalidates prayer through doubt?",
+  "answer": "Doubt that invalidates prayer includes uncertainty about whether essential acts were performed, such as missing ruku' or sujood. Doubts after prayer completion are ignored.\n\nIslamic law provides structured rules to prevent excessive doubt from undermining worship, encouraging certainty and continuity.",
+  "source_url": "https://www.sistani.org/english/book/48/2164/",
+  "tags": ["doubt", "certainty", "invalidators"]
+},
+{
+  "id": "salah_024",
+  "topic": "Salah",
+  "question": "Is reciting a surah after Surah al-Fatiha obligatory?",
+  "answer": "Reciting a complete surah after Surah al-Fatiha is obligatory in the first two rak'ahs of daily prayers. Leaving it intentionally invalidates the prayer.\n\nCertain short surahs are recommended, but any complete surah fulfills the obligation unless an exception applies, such as time constraint.",
+  "source_url": "https://www.sistani.org/english/book/48/2087/",
+  "tags": ["recitation", "surah", "fatiha"]
+},
+  {
+    "id": "salah_025",
+    "topic": "Salah",
+    "question": "Can one rely on another person to determine prayer time?",
+    "answer": "Yes, a person may rely on a **trustworthy and knowledgeable individual** to determine prayer time, especially when personal verification is difficult.\n\nBlind reliance without reasonable confidence is discouraged. However, if the source is reliable, the prayer is valid even if later found to be slightly mistimed.",
+    "source_url": "https://www.sistani.org/english/book/48/2071/",
+    "tags": ["timing", "trust"]
+  },
+  {
+    "id": "salah_026",
+    "topic": "Salah",
+    "question": "Is prayer valid if part of the body is uncovered unintentionally?",
+    "answer": "If the uncovering occurs unintentionally and is corrected immediately, the prayer remains valid. However, **intentional exposure of areas that must be covered invalidates the prayer**.\n\nThe obligation is to maintain proper covering throughout the prayer as best as possible.",
+    "source_url": "https://www.sistani.org/english/book/48/2024/",
+    "tags": ["clothing", "awrah"]
+  },
+  {
+    "id": "salah_027",
+    "topic": "Salah",
+    "question": "What is the ruling on repeating a prayer due to doubt?",
+    "answer": "If a doubt occurs **after completing the prayer**, it is ignored and the prayer remains valid. Doubts during prayer are addressed only if they fall under recognized categories.\n\nUnnecessary repetition should be avoided, as it may lead to obsessive behavior (waswasah).",
+    "source_url": "https://www.sistani.org/english/book/48/2162/",
+    "tags": ["doubt", "certainty"]
+  },
+  {
+    "id": "salah_028",
+    "topic": "Salah",
+    "question": "Is it allowed to pray while feeling sleepy?",
+    "answer": "Prayer is valid when performed while sleepy, but **excessive drowsiness that affects awareness or recitation is discouraged**. One should attempt to become alert if possible.\n\nIf sleepiness prevents proper performance, delaying prayer slightly within its time to regain alertness is preferable.",
+    "source_url": "https://www.sistani.org/english/book/48/2086/",
+    "tags": ["alertness", "concentration"]
+  },
+  {
+    "id": "salah_029",
+    "topic": "Salah",
+    "question": "Does crying during prayer invalidate it?",
+    "answer": "Crying **out of fear of Allah or humility does not invalidate the prayer** and may increase its reward. However, crying due to worldly matters invalidates the prayer if it involves sound.\n\nSilent tears without sound do not invalidate prayer regardless of the reason.",
+    "source_url": "https://www.sistani.org/english/book/48/2096/",
+    "tags": ["crying", "emotion"]
+  },
+  {
+    "id": "salah_030",
+    "topic": "Salah",
+    "question": "What is the ruling on turning the head during prayer?",
+    "answer": "Slight head movement does not invalidate prayer, but **turning the body away from qibla invalidates it**. Repeated or excessive turning contradicts the stillness of prayer.\n\nMaintaining focus and facing the qibla throughout is essential for validity.",
+    "source_url": "https://www.sistani.org/english/book/48/2092/",
+    "tags": ["qibla", "movement"]
+  },
+  {
+    "id": "salah_031",
+    "topic": "Salah",
+    "question": "Can a person pray while leaning on support?",
+    "answer": "Leaning is allowed only when a person is unable to stand unaided. Leaning without necessity invalidates the prayer if it compromises standing.\n\nIf fatigue or illness requires support, the prayer remains valid.",
+    "source_url": "https://www.sistani.org/english/book/48/2116/",
+    "tags": ["standing", "support"]
+  },
+  {
+    "id": "salah_032",
+    "topic": "Salah",
+    "question": "Is prayer valid if recitation is mispronounced?",
+    "answer": "Minor pronunciation errors that do not change meaning are excused, especially for those unable to pronounce correctly. **Deliberate mispronunciation that alters meaning invalidates prayer**.\n\nLearning correct recitation is obligatory to the extent possible.",
+    "source_url": "https://www.sistani.org/english/book/48/2089/",
+    "tags": ["recitation", "pronunciation"]
+  },
+  {
+    "id": "salah_033",
+    "topic": "Salah",
+    "question": "Can one pray while suppressing the need to use the restroom?",
+    "answer": "Prayer is valid but **strongly discouraged** when a person urgently needs to relieve themselves, as it severely affects concentration.\n\nRelieving oneself before prayer is recommended to ensure presence of heart.",
+    "source_url": "https://www.sistani.org/english/book/48/2085/",
+    "tags": ["etiquette", "khushu"]
+  },
+  {
+    "id": "salah_034",
+    "topic": "Salah",
+    "question": "Is it permissible to pray behind someone of a different madhhab?",
+    "answer": "According to Sistani, **congregational prayer behind a Sunni imam is valid**, provided the conditions of prayer are met.\n\nOne should ensure their own recitation and posture comply with Shia requirements.",
+    "source_url": "https://www.sistani.org/english/book/48/2129/",
+    "tags": ["congregation", "unity"]
+  },
+  {
+    "id": "salah_035",
+    "topic": "Salah",
+    "question": "What is the ruling on praying barefoot?",
+    "answer": "Praying barefoot is permissible as long as the feet and prayer area are pure. Barefoot prayer may even increase humility in certain environments.\n\nCare must be taken to ensure the ground is not najis.",
+    "source_url": "https://www.sistani.org/english/book/48/2026/",
+    "tags": ["clothing", "feet"]
+  },
+  {
+    "id": "salah_036",
+    "topic": "Salah",
+    "question": "Does forgetting a wajib part of prayer invalidate it?",
+    "answer": "If a wajib act is forgotten and remembered during prayer, it must be corrected immediately. If remembered afterward, the ruling depends on the part omitted.\n\nSome omissions require repeating the prayer, while others are remedied by sujood al-sahw.",
+    "source_url": "https://www.sistani.org/english/book/48/2148/",
+    "tags": ["forgetfulness", "wajib"]
+  },
+  {
+    "id": "salah_037",
+    "topic": "Salah",
+    "question": "Can prayer be offered in a workplace or public area?",
+    "answer": "Prayer is valid in public or workplace settings as long as the place is lawful, pure, and prayer conditions are met.\n\nOne must ensure permission is granted or reasonably assumed, and that prayer does not violate lawful regulations.",
+    "source_url": "https://www.sistani.org/english/book/48/2037/",
+    "tags": ["public", "place"]
+  },
+  {
+    "id": "salah_038",
+    "topic": "Salah",
+    "question": "Is it allowed to pray with a picture or mirror in front?",
+    "answer": "Prayer is valid, but **praying in front of distracting images or mirrors is discouraged**. Such items may reduce focus and humility.\n\nRemoving or covering them is recommended when feasible.",
+    "source_url": "https://www.sistani.org/english/book/48/2084/",
+    "tags": ["distractions", "etiquette"]
+  },
+  {
+    "id": "salah_039",
+    "topic": "Salah",
+    "question": "What is the ruling on performing prayer hastily?",
+    "answer": "Prayer performed hastily without proper pauses, recitation, or tranquility is invalid if obligatory elements are not fulfilled.\n\nMaintaining calmness (tuma'ninah) in ruku' and sujood is required for validity.",
+    "source_url": "https://www.sistani.org/english/book/48/2103/",
+    "tags": ["tranquility", "validity"]
+  },
+  {
+    "id": "salah_040",
+    "topic": "Salah",
+    "question": "Is it recommended to repeat prayer as a precaution?",
+    "answer": "Repeating prayer as a precaution is allowed but **should not become habitual**. Excessive repetition may indicate doubt and should be avoided.\n\nWhen prayer is performed correctly, trust in its validity is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/48/2163/",
+    "tags": ["precaution", "confidence"]
+  },
+    {
+    "id": "wudhu_001",
+    "topic": "Wudhu",
+    "question": "What is wudhu and when is it required?",
+    "answer": "Wudhu is a ritual purification required for acts of worship such as obligatory and recommended prayers, touching the writing of the Qur’an, and certain other devotional acts.\n\nWithout valid wudhu, these acts are not accepted. It serves both a physical and spiritual purpose, preparing a person to stand before Allah.",
+    "source_url": "https://www.sistani.org/english/book/48/2295/",
+    "tags": ["definition", "obligation"]
+  },
+  {
+    "id": "wudhu_002",
+    "topic": "Wudhu",
+    "question": "What are the obligatory acts of wudhu?",
+    "answer": "The obligatory acts of wudhu are: washing the face, washing the right arm, washing the left arm, wiping the head, and wiping the feet.\n\nThese must be performed in the correct order and manner for wudhu to be valid.",
+    "source_url": "https://www.sistani.org/english/book/48/2301/",
+    "tags": ["obligatory", "steps"]
+  },
+  {
+    "id": "wudhu_003",
+    "topic": "Wudhu",
+    "question": "Is intention (niyyah) required for wudhu?",
+    "answer": "Yes, intention is required and must be present in the heart. One must perform wudhu seeking closeness to Allah.\n\nVerbalizing the intention is not required, and sincerity is the key element.",
+    "source_url": "https://www.sistani.org/english/book/48/2297/",
+    "tags": ["niyyah", "intention"]
+  },
+  {
+    "id": "wudhu_004",
+    "topic": "Wudhu",
+    "question": "How should the face be washed in wudhu?",
+    "answer": "The face must be washed from the hairline to the chin and across the width between the thumb and middle finger.\n\nWater must reach the entire required area at least once.",
+    "source_url": "https://www.sistani.org/english/book/48/2303/",
+    "tags": ["face", "washing"]
+  },
+  {
+    "id": "wudhu_005",
+    "topic": "Wudhu",
+    "question": "How should the arms be washed during wudhu?",
+    "answer": "The arms must be washed from the elbow to the fingertips, beginning with the right arm and then the left.\n\nWashing in the opposite direction invalidates wudhu.",
+    "source_url": "https://www.sistani.org/english/book/48/2304/",
+    "tags": ["arms", "order"]
+  },
+  {
+    "id": "wudhu_006",
+    "topic": "Wudhu",
+    "question": "How is wiping (masah) of the head performed?",
+    "answer": "Wiping of the head must be done with the moisture remaining on the hand from wudhu.\n\nIt should cover a portion of the front of the head, even if small.",
+    "source_url": "https://www.sistani.org/english/book/48/2306/",
+    "tags": ["masah", "head"]
+  },
+  {
+    "id": "wudhu_007",
+    "topic": "Wudhu",
+    "question": "How is wiping of the feet performed?",
+    "answer": "The feet are wiped from the toes toward the ankle using the moisture remaining on the hand.\n\nThe right foot is wiped first, followed by the left.",
+    "source_url": "https://www.sistani.org/english/book/48/2307/",
+    "tags": ["masah", "feet"]
+  },
+  {
+    "id": "wudhu_008",
+    "topic": "Wudhu",
+    "question": "Must wudhu be performed in order?",
+    "answer": "Yes, maintaining the correct sequence is obligatory. Performing actions out of order invalidates wudhu.\n\nOrder reflects discipline and obedience in worship.",
+    "source_url": "https://www.sistani.org/english/book/48/2302/",
+    "tags": ["order", "sequence"]
+  },
+  {
+    "id": "wudhu_009",
+    "topic": "Wudhu",
+    "question": "Does wudhu require continuity?",
+    "answer": "Yes, actions must be performed continuously without long interruptions.\n\nIf the earlier washed parts dry before completing wudhu, it becomes invalid.",
+    "source_url": "https://www.sistani.org/english/book/48/2308/",
+    "tags": ["continuity", "conditions"]
+  },
+  {
+    "id": "wudhu_010",
+    "topic": "Wudhu",
+    "question": "Is it allowed to dry limbs between steps of wudhu?",
+    "answer": "Drying that breaks continuity invalidates wudhu.\n\nAccidental drying due to environment does not invalidate if continuity is preserved.",
+    "source_url": "https://www.sistani.org/english/book/48/2308/",
+    "tags": ["drying", "continuity"]
+  },
+
+  {
+    "id": "wudhu_011",
+    "topic": "Wudhu",
+    "question": "Does wiping over socks invalidate wudhu?",
+    "answer": "Wiping must be performed directly on the skin of the feet. Wiping over socks or footwear is invalid.\n\nOnly in cases of severe necessity does tayammum apply instead.",
+    "source_url": "https://www.sistani.org/english/book/48/2310/",
+    "tags": ["socks", "feet"]
+  },
+  {
+    "id": "wudhu_012",
+    "topic": "Wudhu",
+    "question": "Is using too much water disliked in wudhu?",
+    "answer": "Yes, wasting water is discouraged even when abundant.\n\nModeration reflects Islamic ethics and the practice of the Prophet and Ahlul Bayt.",
+    "source_url": "https://www.sistani.org/english/book/48/2299/",
+    "tags": ["water", "etiquette"]
+  },
+  {
+    "id": "wudhu_013",
+    "topic": "Wudhu",
+    "question": "Can wudhu be performed with impure water?",
+    "answer": "No, water used for wudhu must be pure (tahir).\n\nUsing najis water invalidates wudhu completely.",
+    "source_url": "https://www.sistani.org/english/book/48/2312/",
+    "tags": ["water", "purity"]
+  },
+  {
+    "id": "wudhu_014",
+    "topic": "Wudhu",
+    "question": "Does touching a non-mahram invalidate wudhu?",
+    "answer": "Touching a non-mahram does not invalidate wudhu according to Shia fiqh.\n\nOnly specific actions nullify wudhu.",
+    "source_url": "https://www.sistani.org/english/book/48/2320/",
+    "tags": ["nullifiers", "touch"]
+  },
+  {
+    "id": "wudhu_015",
+    "topic": "Wudhu",
+    "question": "Does sleep invalidate wudhu?",
+    "answer": "Sleep that removes awareness invalidates wudhu.\n\nLight drowsiness without loss of awareness does not.",
+    "source_url": "https://www.sistani.org/english/book/48/2321/",
+    "tags": ["sleep", "nullifiers"]
+  },
+
+  {
+    "id": "wudhu_016",
+    "topic": "Wudhu",
+    "question": "Does passing gas invalidate wudhu?",
+    "answer": "Yes, passing gas invalidates wudhu and requires renewal before prayer.\n\nThis applies regardless of sound or smell.",
+    "source_url": "https://www.sistani.org/english/book/48/2318/",
+    "tags": ["nullifiers", "gas"]
+  },
+  {
+    "id": "wudhu_017",
+    "topic": "Wudhu",
+    "question": "Does blood exiting the body invalidate wudhu?",
+    "answer": "Blood exiting the body does not invalidate wudhu unless it is from the private parts.\n\nHowever, purity must still be maintained for prayer.",
+    "source_url": "https://www.sistani.org/english/book/48/2323/",
+    "tags": ["blood", "nullifiers"]
+  },
+  {
+    "id": "wudhu_018",
+    "topic": "Wudhu",
+    "question": "Does vomiting invalidate wudhu?",
+    "answer": "Vomiting does not invalidate wudhu, though cleanliness must be restored.\n\nIf impurity contacts the body or clothing, it must be cleaned.",
+    "source_url": "https://www.sistani.org/english/book/48/2324/",
+    "tags": ["vomiting", "purity"]
+  },
+  {
+    "id": "wudhu_019",
+    "topic": "Wudhu",
+    "question": "Is wudhu invalidated by doubt?",
+    "answer": "Doubt after completing wudhu is ignored.\n\nDoubt during wudhu requires correction only if certainty is reached.",
+    "source_url": "https://www.sistani.org/english/book/48/2330/",
+    "tags": ["doubt", "certainty"]
+  },
+  {
+    "id": "wudhu_020",
+    "topic": "Wudhu",
+    "question": "Is renewing wudhu recommended?",
+    "answer": "Renewing wudhu while already in a state of purity is recommended and rewarded.\n\nIt increases spiritual readiness and mindfulness.",
+    "source_url": "https://www.sistani.org/english/book/48/2298/",
+    "tags": ["recommended", "renewal"]
+  },
+
+  {
+    "id": "wudhu_021",
+    "topic": "Wudhu",
+    "question": "Can one perform wudhu sitting?",
+    "answer": "Yes, wudhu may be performed sitting if standing is difficult or unnecessary.\n\nAll obligatory actions must still be completed correctly.",
+    "source_url": "https://www.sistani.org/english/book/48/2315/",
+    "tags": ["accessibility", "hardship"]
+  },
+  {
+    "id": "wudhu_022",
+    "topic": "Wudhu",
+    "question": "Is wudhu valid if water does not reach the skin?",
+    "answer": "Water must reach the skin. Barriers such as nail polish or paint invalidate wudhu.\n\nAnything preventing water contact must be removed beforehand.",
+    "source_url": "https://www.sistani.org/english/book/48/2311/",
+    "tags": ["barriers", "water"]
+  },
+  {
+    "id": "wudhu_023",
+    "topic": "Wudhu",
+    "question": "Does applying lotion after wudhu invalidate it?",
+    "answer": "Applying lotion after completing wudhu does not invalidate it.\n\nHowever, applying it before wudhu may prevent water from reaching the skin.",
+    "source_url": "https://www.sistani.org/english/book/48/2311/",
+    "tags": ["lotion", "barriers"]
+  },
+  {
+    "id": "wudhu_024",
+    "topic": "Wudhu",
+    "question": "Is wiping over hair dye permissible?",
+    "answer": "If hair dye does not form a physical barrier, wudhu is valid.\n\nIf it prevents moisture from reaching the skin, it must be removed.",
+    "source_url": "https://www.sistani.org/english/book/48/2311/",
+    "tags": ["hair", "barriers"]
+  },
+
+  {
+    "id": "wudhu_025",
+    "topic": "Wudhu",
+    "question": "Can a child perform wudhu?",
+    "answer": "A discerning child may perform wudhu for recommended acts.\n\nFor obligatory acts, responsibility applies only after maturity.",
+    "source_url": "https://www.sistani.org/english/book/48/2296/",
+    "tags": ["children", "responsibility"]
+  },
+  {
+    "id": "wudhu_026",
+    "topic": "Wudhu",
+    "question": "Is using warm water allowed in wudhu?",
+    "answer": "Yes, warm water is permitted.\n\nExcessive comfort-seeking, however, is discouraged when it affects humility.",
+    "source_url": "https://www.sistani.org/english/book/48/2299/",
+    "tags": ["water", "temperature"]
+  },
+  {
+    "id": "wudhu_027",
+    "topic": "Wudhu",
+    "question": "Does laughing invalidate wudhu?",
+    "answer": "Laughing does not invalidate wudhu.\n\nHowever, loud laughter invalidates prayer itself.",
+    "source_url": "https://www.sistani.org/english/book/48/2325/",
+    "tags": ["laughing", "nullifiers"]
+  },
+  {
+    "id": "wudhu_028",
+    "topic": "Wudhu",
+    "question": "Is wudhu required before touching the Qur’an?",
+    "answer": "Yes, touching the Arabic script of the Qur’an requires valid wudhu.\n\nTranslations do not carry the same ruling.",
+    "source_url": "https://www.sistani.org/english/book/48/2341/",
+    "tags": ["quran", "touching"]
+  },
+  {
+    "id": "wudhu_029",
+    "topic": "Wudhu",
+    "question": "Can someone else assist in performing wudhu?",
+    "answer": "Assistance is allowed if a person cannot perform wudhu independently.\n\nIntention must still come from the person themselves.",
+    "source_url": "https://www.sistani.org/english/book/48/2316/",
+    "tags": ["assistance", "disability"]
+  },
+  {
+    "id": "wudhu_030",
+    "topic": "Wudhu",
+    "question": "Is wudhu valid if one forgets a step?",
+    "answer": "If forgotten during wudhu, it must be corrected immediately.\n\nIf forgotten and remembered afterward, wudhu is invalid.",
+    "source_url": "https://www.sistani.org/english/book/48/2309/",
+    "tags": ["forgetfulness", "steps"]
+  },
+
+  {
+    "id": "wudhu_031",
+    "topic": "Wudhu",
+    "question": "Is wiping with new water allowed?",
+    "answer": "Wiping must be done with remaining moisture from washing.\n\nUsing new water for masah invalidates wudhu.",
+    "source_url": "https://www.sistani.org/english/book/48/2306/",
+    "tags": ["masah", "water"]
+  },
+  {
+    "id": "wudhu_032",
+    "topic": "Wudhu",
+    "question": "Does sweating invalidate wudhu?",
+    "answer": "Sweating does not invalidate wudhu.\n\nHowever, sweat mixed with impurity must be cleaned for prayer.",
+    "source_url": "https://www.sistani.org/english/book/48/2326/",
+    "tags": ["sweat", "purity"]
+  },
+  {
+    "id": "wudhu_033",
+    "topic": "Wudhu",
+    "question": "Can wudhu be performed with limited water?",
+    "answer": "Yes, minimal water may be used as long as obligatory washing and wiping are fulfilled.\n\nConservation is encouraged in Islam.",
+    "source_url": "https://www.sistani.org/english/book/48/2299/",
+    "tags": ["water", "conservation"]
+  },
+  {
+    "id": "wudhu_034",
+    "topic": "Wudhu",
+    "question": "Is intention required for each limb?",
+    "answer": "No, a single intention at the beginning of wudhu is sufficient.\n\nContinuous awareness fulfills the requirement.",
+    "source_url": "https://www.sistani.org/english/book/48/2297/",
+    "tags": ["niyyah", "intention"]
+  },
+  {
+    "id": "wudhu_035",
+    "topic": "Wudhu",
+    "question": "Is wudhu valid if water splashes unintentionally?",
+    "answer": "Unintentional splashing does not affect validity.\n\nCare should still be taken to perform actions deliberately.",
+    "source_url": "https://www.sistani.org/english/book/48/2305/",
+    "tags": ["water", "intent"]
+  },
+  {
+    "id": "wudhu_036",
+    "topic": "Wudhu",
+    "question": "Does nail trimming affect wudhu?",
+    "answer": "Nail trimming has no effect on wudhu validity.\n\nHowever, dirt beneath nails must not block water.",
+    "source_url": "https://www.sistani.org/english/book/48/2311/",
+    "tags": ["nails", "cleanliness"]
+  },
+  {
+    "id": "wudhu_037",
+    "topic": "Wudhu",
+    "question": "Is wudhu valid if performed hastily?",
+    "answer": "Wudhu is valid if all obligatory acts are fulfilled correctly.\n\nExcessive haste that compromises steps invalidates it.",
+    "source_url": "https://www.sistani.org/english/book/48/2309/",
+    "tags": ["haste", "validity"]
+  },
+  {
+    "id": "wudhu_038",
+    "topic": "Wudhu",
+    "question": "Can wudhu be performed outdoors?",
+    "answer": "Yes, wudhu may be performed anywhere permissible and pure.\n\nLocation does not affect validity.",
+    "source_url": "https://www.sistani.org/english/book/48/2314/",
+    "tags": ["location", "public"]
+  },
+  {
+    "id": "wudhu_039",
+    "topic": "Wudhu",
+    "question": "Is saying du‘a during wudhu obligatory?",
+    "answer": "Supplications during wudhu are recommended but not obligatory.\n\nSilence does not affect validity.",
+    "source_url": "https://www.sistani.org/english/book/48/2299/",
+    "tags": ["dua", "recommended"]
+  },
+  {
+    "id": "wudhu_040",
+    "topic": "Wudhu",
+    "question": "Does wudhu expire after a certain time?",
+    "answer": "Wudhu does not expire with time.\n\nIt remains valid until nullified by a specific invalidator.",
+    "source_url": "https://www.sistani.org/english/book/48/2317/",
+    "tags": ["duration", "nullifiers"]
+  },
+    {
+    "id": "ghusl_001",
+    "topic": "Ghusl",
+    "question": "What is ghusl and when is it required?",
+    "answer": "Ghusl is a full ritual bath required to remove certain states of major ritual impurity (hadath akbar). Without ghusl, acts such as obligatory prayer, fasting, and touching the Arabic text of the Qur’an are invalid.\n\nIt serves both a physical and spiritual purpose, restoring a state of purity necessary for worship.",
+    "source_url": "https://www.sistani.org/english/book/48/2367/",
+    "tags": ["definition", "obligation"]
+  },
+  {
+    "id": "ghusl_002",
+    "topic": "Ghusl",
+    "question": "What are the obligatory types of ghusl?",
+    "answer": "Obligatory ghusls include: **Ghusl Janabah**, **Ghusl Haydh**, **Ghusl Nifas**, **Ghusl Istihadha (certain cases)**, **touching a dead body**, and **ghusl for a deceased person**.\n\nEach removes a specific form of major impurity and restores eligibility for worship.",
+    "source_url": "https://www.sistani.org/english/book/48/2368/",
+    "tags": ["obligatory", "types"]
+  },
+  {
+    "id": "ghusl_003",
+    "topic": "Ghusl",
+    "question": "Is intention (niyyah) required for ghusl?",
+    "answer": "Yes, intention is obligatory and must be present in the heart at the time of performing ghusl.\n\nThe intention is to perform ghusl seeking closeness to Allah. Verbalizing the intention is not required.",
+    "source_url": "https://www.sistani.org/english/book/48/2370/",
+    "tags": ["niyyah", "intention"]
+  },
+  {
+    "id": "ghusl_004",
+    "topic": "Ghusl",
+    "question": "What are the two valid methods of performing ghusl?",
+    "answer": "There are two valid methods: **sequential (tartibi)** and **immersion (irtimasi)**.\n\nIn sequential ghusl, the head and neck are washed first, followed by the right side of the body, then the left. In immersion, the entire body is submerged in water at once with intention.",
+    "source_url": "https://www.sistani.org/english/book/48/2372/",
+    "tags": ["methods", "tartibi", "irtimasi"]
+  },
+  {
+    "id": "ghusl_005",
+    "topic": "Ghusl",
+    "question": "Is order required in sequential ghusl?",
+    "answer": "Yes, order is obligatory in sequential ghusl. The head and neck must be washed first, followed by the right side, then the left.\n\nPerforming the steps out of order invalidates the ghusl.",
+    "source_url": "https://www.sistani.org/english/book/48/2373/",
+    "tags": ["order", "sequence"]
+  },
+  {
+    "id": "ghusl_006",
+    "topic": "Ghusl",
+    "question": "Must the entire body be washed in ghusl?",
+    "answer": "Yes, water must reach every part of the body, including skin folds, hair roots, and areas normally hidden.\n\nAny area left dry invalidates the ghusl.",
+    "source_url": "https://www.sistani.org/english/book/48/2374/",
+    "tags": ["body", "washing"]
+  },
+  {
+    "id": "ghusl_007",
+    "topic": "Ghusl",
+    "question": "Does ghusl Janabah replace wudhu?",
+    "answer": "Yes, ghusl Janabah automatically replaces wudhu. A person may pray afterward without performing wudhu.\n\nOther obligatory or recommended ghusls do not replace wudhu unless explicitly stated.",
+    "source_url": "https://www.sistani.org/english/book/48/2380/",
+    "tags": ["janabah", "wudhu_replacement"]
+  },
+  {
+    "id": "ghusl_008",
+    "topic": "Ghusl",
+    "question": "Does hair dye or henna affect ghusl?",
+    "answer": "Hair dye or henna does not invalidate ghusl as long as it does not create a physical barrier preventing water from reaching the skin.\n\nIf a barrier exists, it must be removed before ghusl.",
+    "source_url": "https://www.sistani.org/english/book/48/2375/",
+    "tags": ["hair", "barriers"]
+  },
+  {
+    "id": "ghusl_009",
+    "topic": "Ghusl",
+    "question": "Does nail polish invalidate ghusl?",
+    "answer": "Yes, nail polish creates a barrier and must be removed before ghusl.\n\nWater must reach the skin and nails for ghusl to be valid.",
+    "source_url": "https://www.sistani.org/english/book/48/2375/",
+    "tags": ["nails", "barriers"]
+  },
+  {
+    "id": "ghusl_010",
+    "topic": "Ghusl",
+    "question": "Is continuity required in ghusl?",
+    "answer": "Continuity is not required in ghusl as it is in wudhu.\n\nHowever, maintaining focus and completing ghusl without unnecessary delay is recommended.",
+    "source_url": "https://www.sistani.org/english/book/48/2376/",
+    "tags": ["continuity", "conditions"]
+  },
+
+  {
+    "id": "ghusl_011",
+    "topic": "Ghusl",
+    "question": "Can ghusl be performed sitting?",
+    "answer": "Yes, ghusl may be performed sitting if standing is difficult or harmful.\n\nAll obligatory washing must still be completed correctly.",
+    "source_url": "https://www.sistani.org/english/book/48/2377/",
+    "tags": ["accessibility", "hardship"]
+  },
+  {
+    "id": "ghusl_012",
+    "topic": "Ghusl",
+    "question": "Is ghusl valid if some water splashes unintentionally?",
+    "answer": "Unintentional splashing does not affect the validity of ghusl.\n\nHowever, intentional washing of all required areas remains obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/2374/",
+    "tags": ["water", "intent"]
+  },
+  {
+    "id": "ghusl_013",
+    "topic": "Ghusl",
+    "question": "Does ghusl require pure (tahir) water?",
+    "answer": "Yes, water used for ghusl must be pure.\n\nUsing najis water invalidates the ghusl completely.",
+    "source_url": "https://www.sistani.org/english/book/48/2382/",
+    "tags": ["water", "purity"]
+  },
+  {
+    "id": "ghusl_014",
+    "topic": "Ghusl",
+    "question": "Is ghusl valid with limited water?",
+    "answer": "Yes, ghusl may be performed with limited water as long as all obligatory washing is completed.\n\nIslam encourages moderation and conservation of water.",
+    "source_url": "https://www.sistani.org/english/book/48/2369/",
+    "tags": ["water", "conservation"]
+  },
+  {
+    "id": "ghusl_015",
+    "topic": "Ghusl",
+    "question": "Can multiple intentions be combined in one ghusl?",
+    "answer": "Yes, multiple obligatory or recommended ghusls may be combined into a single ghusl with one intention.\n\nThis is valid as long as all required intentions are present.",
+    "source_url": "https://www.sistani.org/english/book/48/2371/",
+    "tags": ["multiple_intentions", "efficiency"]
+  },
+
+  {
+    "id": "ghusl_016",
+    "topic": "Ghusl",
+    "question": "Does ghusl invalidate wudhu?",
+    "answer": "Ghusl Janabah does not invalidate wudhu, as it replaces it.\n\nOther ghusls require wudhu afterward unless specified otherwise.",
+    "source_url": "https://www.sistani.org/english/book/48/2380/",
+    "tags": ["wudhu", "relationship"]
+  },
+  {
+    "id": "ghusl_017",
+    "topic": "Ghusl",
+    "question": "Is ghusl required after sexual intercourse without ejaculation?",
+    "answer": "Yes, ghusl Janabah becomes obligatory after sexual intercourse even if ejaculation does not occur.\n\nThis applies to both spouses equally.",
+    "source_url": "https://www.sistani.org/english/book/48/2391/",
+    "tags": ["janabah", "intercourse"]
+  },
+  {
+    "id": "ghusl_018",
+    "topic": "Ghusl",
+    "question": "Is ghusl required after a wet dream?",
+    "answer": "Yes, ghusl Janabah is required after a wet dream if ejaculation occurred.\n\nIf discharge occurred without sexual pleasure or certainty, ghusl may not be required.",
+    "source_url": "https://www.sistani.org/english/book/48/2390/",
+    "tags": ["wet_dream", "janabah"]
+  },
+  {
+    "id": "ghusl_019",
+    "topic": "Ghusl",
+    "question": "Is ghusl required after touching a corpse?",
+    "answer": "Touching a dead human body after it has cooled requires ghusl, unless the body has already been washed properly.\n\nThis ghusl restores ritual purity.",
+    "source_url": "https://www.sistani.org/english/book/48/2415/",
+    "tags": ["corpse", "touching"]
+  },
+  {
+    "id": "ghusl_020",
+    "topic": "Ghusl",
+    "question": "Is ghusl required after childbirth?",
+    "answer": "Yes, ghusl becomes obligatory after the completion of nifas (post-childbirth bleeding).\n\nOnce bleeding stops, ghusl is required before resuming prayer.",
+    "source_url": "https://www.sistani.org/english/book/48/2403/",
+    "tags": ["nifas", "childbirth"]
+  },
+
+  {
+    "id": "ghusl_021",
+    "topic": "Ghusl",
+    "question": "Does ghusl expire with time?",
+    "answer": "Ghusl does not expire over time.\n\nIt remains valid until invalidated by an action that requires a new ghusl or wudhu.",
+    "source_url": "https://www.sistani.org/english/book/48/2379/",
+    "tags": ["duration", "validity"]
+  },
+  {
+    "id": "ghusl_022",
+    "topic": "Ghusl",
+    "question": "Is ghusl required before fasting?",
+    "answer": "Yes, a person in a state of janabah must perform ghusl before dawn in Ramadan.\n\nDeliberate delay invalidates the fast.",
+    "source_url": "https://www.sistani.org/english/book/48/1663/",
+    "tags": ["fasting", "ramadan"]
+  },
+  {
+    "id": "ghusl_023",
+    "topic": "Ghusl",
+    "question": "Can ghusl be delayed intentionally?",
+    "answer": "Delaying ghusl without necessity is discouraged.\n\nHowever, prayer and fasting cannot be performed without completing ghusl when required.",
+    "source_url": "https://www.sistani.org/english/book/48/2378/",
+    "tags": ["delay", "obligation"]
+  },
+  {
+    "id": "ghusl_024",
+    "topic": "Ghusl",
+    "question": "Is ghusl valid if one forgets intention?",
+    "answer": "Without intention, ghusl is invalid.\n\nIf remembered during ghusl, intention must be renewed and washing repeated.",
+    "source_url": "https://www.sistani.org/english/book/48/2370/",
+    "tags": ["intention", "forgetfulness"]
+  },
+
+  {
+    "id": "ghusl_025",
+    "topic": "Ghusl",
+    "question": "Is ghusl required for touching a dead animal?",
+    "answer": "No, ghusl is only required for touching a human corpse.\n\nTouching a dead animal does not obligate ghusl.",
+    "source_url": "https://www.sistani.org/english/book/48/2417/",
+    "tags": ["animals", "corpse"]
+  },
+  {
+    "id": "ghusl_026",
+    "topic": "Ghusl",
+    "question": "Can ghusl be performed outdoors?",
+    "answer": "Yes, ghusl may be performed anywhere permissible, private, and using pure water.\n\nLocation does not affect validity.",
+    "source_url": "https://www.sistani.org/english/book/48/2377/",
+    "tags": ["location", "privacy"]
+  },
+  {
+    "id": "ghusl_027",
+    "topic": "Ghusl",
+    "question": "Is ghusl valid if water is harmful?",
+    "answer": "If water is harmful, ghusl must not be performed.\n\nTayammum becomes obligatory instead.",
+    "source_url": "https://www.sistani.org/english/book/48/2443/",
+    "tags": ["harm", "tayammum"]
+  },
+  {
+    "id": "ghusl_028",
+    "topic": "Ghusl",
+    "question": "Does sweating invalidate ghusl?",
+    "answer": "Sweating does not invalidate ghusl.\n\nHowever, purity must be maintained for prayer.",
+    "source_url": "https://www.sistani.org/english/book/48/2379/",
+    "tags": ["sweat", "purity"]
+  },
+  {
+    "id": "ghusl_029",
+    "topic": "Ghusl",
+    "question": "Can someone assist another person in ghusl?",
+    "answer": "Assistance is allowed when necessary.\n\nThe intention must still be made by the person performing ghusl.",
+    "source_url": "https://www.sistani.org/english/book/48/2377/",
+    "tags": ["assistance", "disability"]
+  },
+  {
+    "id": "ghusl_030",
+    "topic": "Ghusl",
+    "question": "Is ghusl recommended on Fridays?",
+    "answer": "Yes, performing ghusl on Friday is highly recommended.\n\nIt carries spiritual reward and cleanliness benefits.",
+    "source_url": "https://www.sistani.org/english/book/48/2385/",
+    "tags": ["recommended", "friday"]
+  },
+
+  {
+    "id": "ghusl_031",
+    "topic": "Ghusl",
+    "question": "Is ghusl recommended for Eid prayers?",
+    "answer": "Yes, ghusl is recommended before Eid al-Fitr and Eid al-Adha prayers.\n\nIt enhances spiritual preparation.",
+    "source_url": "https://www.sistani.org/english/book/48/2386/",
+    "tags": ["eid", "recommended"]
+  },
+  {
+    "id": "ghusl_032",
+    "topic": "Ghusl",
+    "question": "Is ghusl recommended after washing a dead body?",
+    "answer": "Yes, performing ghusl after washing a corpse is recommended.\n\nIt restores spiritual cleanliness.",
+    "source_url": "https://www.sistani.org/english/book/48/2422/",
+    "tags": ["corpse", "recommended"]
+  },
+  {
+    "id": "ghusl_033",
+    "topic": "Ghusl",
+    "question": "Can ghusl be performed without soap?",
+    "answer": "Yes, soap is not required.\n\nWater alone is sufficient as long as it reaches all required areas.",
+    "source_url": "https://www.sistani.org/english/book/48/2374/",
+    "tags": ["soap", "water"]
+  },
+  {
+    "id": "ghusl_034",
+    "topic": "Ghusl",
+    "question": "Is ghusl valid if hair is braided?",
+    "answer": "Yes, provided water reaches the scalp and hair roots.\n\nBraids do not need to be undone unless they block water.",
+    "source_url": "https://www.sistani.org/english/book/48/2375/",
+    "tags": ["hair", "braids"]
+  },
+  {
+    "id": "ghusl_035",
+    "topic": "Ghusl",
+    "question": "Is ghusl valid if one laughs or speaks?",
+    "answer": "Speaking or laughing does not invalidate ghusl.\n\nHowever, maintaining focus and respect is recommended.",
+    "source_url": "https://www.sistani.org/english/book/48/2376/",
+    "tags": ["speech", "etiquette"]
+  },
+  {
+    "id": "ghusl_036",
+    "topic": "Ghusl",
+    "question": "Can ghusl be performed with cold water?",
+    "answer": "Yes, cold water is permitted unless it causes harm.\n\nIf harmful, tayammum must be performed instead.",
+    "source_url": "https://www.sistani.org/english/book/48/2443/",
+    "tags": ["water", "temperature"]
+  },
+  {
+    "id": "ghusl_037",
+    "topic": "Ghusl",
+    "question": "Is ghusl required after losing consciousness?",
+    "answer": "Losing consciousness alone does not require ghusl.\n\nOnly specific causes such as janabah obligate ghusl.",
+    "source_url": "https://www.sistani.org/english/book/48/2368/",
+    "tags": ["consciousness", "requirements"]
+  },
+  {
+    "id": "ghusl_038",
+    "topic": "Ghusl",
+    "question": "Is ghusl required after medical procedures?",
+    "answer": "Medical procedures do not require ghusl unless they cause janabah.\n\nEach case depends on the nature of the procedure.",
+    "source_url": "https://www.sistani.org/english/book/48/2392/",
+    "tags": ["medical", "janabah"]
+  },
+  {
+    "id": "ghusl_039",
+    "topic": "Ghusl",
+    "question": "Does ghusl invalidate tayammum?",
+    "answer": "Yes, performing ghusl invalidates tayammum.\n\nWater-based purification always overrides dry purification.",
+    "source_url": "https://www.sistani.org/english/book/48/2447/",
+    "tags": ["tayammum", "priority"]
+  },
+  {
+    "id": "ghusl_040",
+    "topic": "Ghusl",
+    "question": "Can ghusl be performed once for multiple prayers?",
+    "answer": "Yes, a single ghusl suffices for multiple prayers as long as no invalidator occurs.\n\nPurity remains until nullified.",
+    "source_url": "https://www.sistani.org/english/book/48/2379/",
+    "tags": ["validity", "multiple_prayers"]
+  },
+    {
+    "id": "tayammum_001",
+    "topic": "Tayammum",
+    "question": "What is tayammum?",
+    "answer": "Tayammum is a dry form of ritual purification that replaces wudhu or ghusl when water is unavailable or harmful.\n\nIt allows a person to perform acts of worship when normal purification is not possible.",
+    "source_url": "https://www.sistani.org/english/book/48/2440/",
+    "tags": ["definition", "purification"]
+  },
+  {
+    "id": "tayammum_002",
+    "topic": "Tayammum",
+    "question": "When is tayammum permitted?",
+    "answer": "Tayammum is permitted when water is unavailable, insufficient, or harmful to use due to illness, injury, or severe conditions.\n\nIt is also allowed when using water would cause undue hardship.",
+    "source_url": "https://www.sistani.org/english/book/48/2441/",
+    "tags": ["conditions", "water_unavailable"]
+  },
+  {
+    "id": "tayammum_003",
+    "topic": "Tayammum",
+    "question": "Does tayammum replace wudhu or ghusl?",
+    "answer": "Yes, tayammum replaces either wudhu or ghusl depending on what was required.\n\nThe intention must specify which purification it is replacing.",
+    "source_url": "https://www.sistani.org/english/book/48/2442/",
+    "tags": ["replacement", "wudhu", "ghusl"]
+  },
+  {
+    "id": "tayammum_004",
+    "topic": "Tayammum",
+    "question": "Is intention (niyyah) required for tayammum?",
+    "answer": "Yes, intention is obligatory and must be made in the heart.\n\nVerbal expression is not required.",
+    "source_url": "https://www.sistani.org/english/book/48/2444/",
+    "tags": ["niyyah", "intention"]
+  },
+  {
+    "id": "tayammum_005",
+    "topic": "Tayammum",
+    "question": "What materials can be used for tayammum?",
+    "answer": "Tayammum must be performed using natural earth such as soil, sand, clay, stone, or dust.\n\nMan-made surfaces are not valid unless dust from earth is present.",
+    "source_url": "https://www.sistani.org/english/book/48/2448/",
+    "tags": ["materials", "earth"]
+  },
+  {
+    "id": "tayammum_006",
+    "topic": "Tayammum",
+    "question": "Can tayammum be performed on a wall?",
+    "answer": "Yes, if the wall is made of earth-based material or has natural dust on it.\n\nPainted or synthetic walls without dust are not valid.",
+    "source_url": "https://www.sistani.org/english/book/48/2449/",
+    "tags": ["wall", "materials"]
+  },
+  {
+    "id": "tayammum_007",
+    "topic": "Tayammum",
+    "question": "What are the obligatory steps of tayammum?",
+    "answer": "The steps include striking both palms on earth, wiping the forehead, then wiping the back of the right hand and then the left.\n\nAll steps must be done with intention and in order.",
+    "source_url": "https://www.sistani.org/english/book/48/2451/",
+    "tags": ["steps", "method"]
+  },
+  {
+    "id": "tayammum_008",
+    "topic": "Tayammum",
+    "question": "Is order required in tayammum?",
+    "answer": "Yes, order is obligatory.\n\nPerforming the steps out of sequence invalidates the tayammum.",
+    "source_url": "https://www.sistani.org/english/book/48/2452/",
+    "tags": ["order", "sequence"]
+  },
+  {
+    "id": "tayammum_009",
+    "topic": "Tayammum",
+    "question": "Is continuity required in tayammum?",
+    "answer": "Yes, continuity is required and long interruptions invalidate tayammum.\n\nThe actions should be done consecutively.",
+    "source_url": "https://www.sistani.org/english/book/48/2453/",
+    "tags": ["continuity", "conditions"]
+  },
+  {
+    "id": "tayammum_010",
+    "topic": "Tayammum",
+    "question": "How much of the forehead must be wiped?",
+    "answer": "The entire area from the hairline to the eyebrows and across the width of the forehead must be wiped.\n\nPartial wiping is insufficient.",
+    "source_url": "https://www.sistani.org/english/book/48/2454/",
+    "tags": ["forehead", "wiping"]
+  },
+
+  {
+    "id": "tayammum_011",
+    "topic": "Tayammum",
+    "question": "Must tayammum be done with both hands?",
+    "answer": "Yes, both hands must be used unless physically impossible.\n\nIf one hand cannot be used, special rulings apply.",
+    "source_url": "https://www.sistani.org/english/book/48/2455/",
+    "tags": ["hands", "ability"]
+  },
+  {
+    "id": "tayammum_012",
+    "topic": "Tayammum",
+    "question": "Can someone else assist with tayammum?",
+    "answer": "Yes, assistance is permitted when necessary.\n\nThe person performing tayammum must still make the intention.",
+    "source_url": "https://www.sistani.org/english/book/48/2456/",
+    "tags": ["assistance", "disability"]
+  },
+  {
+    "id": "tayammum_013",
+    "topic": "Tayammum",
+    "question": "Is tayammum valid if dust is minimal?",
+    "answer": "Yes, visible dust is not required.\n\nIt is sufficient that the surface qualifies as earth-based material.",
+    "source_url": "https://www.sistani.org/english/book/48/2450/",
+    "tags": ["dust", "validity"]
+  },
+  {
+    "id": "tayammum_014",
+    "topic": "Tayammum",
+    "question": "Can tayammum be performed before prayer time?",
+    "answer": "Yes, tayammum may be performed before prayer time if water is known to be unavailable.\n\nIt remains valid until invalidated.",
+    "source_url": "https://www.sistani.org/english/book/48/2461/",
+    "tags": ["timing", "prayer"]
+  },
+  {
+    "id": "tayammum_015",
+    "topic": "Tayammum",
+    "question": "Does tayammum allow all acts of worship?",
+    "answer": "Yes, tayammum allows all acts that require ritual purity, including prayer and touching the Qur’an.\n\nThis applies until water becomes available.",
+    "source_url": "https://www.sistani.org/english/book/48/2462/",
+    "tags": ["worship", "permission"]
+  },
+
+  {
+    "id": "tayammum_016",
+    "topic": "Tayammum",
+    "question": "When does tayammum become invalid?",
+    "answer": "Tayammum becomes invalid when water becomes available or the excuse for avoiding water ends.\n\nNormal invalidators of wudhu also apply.",
+    "source_url": "https://www.sistani.org/english/book/48/2463/",
+    "tags": ["invalidators", "water"]
+  },
+  {
+    "id": "tayammum_017",
+    "topic": "Tayammum",
+    "question": "Does tayammum expire with time?",
+    "answer": "Tayammum does not expire simply with time.\n\nIt remains valid until invalidated by a cause.",
+    "source_url": "https://www.sistani.org/english/book/48/2464/",
+    "tags": ["duration", "validity"]
+  },
+  {
+    "id": "tayammum_018",
+    "topic": "Tayammum",
+    "question": "Is tayammum allowed in cold weather?",
+    "answer": "Yes, if using water would cause harm due to extreme cold.\n\nIn such cases, tayammum becomes obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/2443/",
+    "tags": ["cold", "harm"]
+  },
+  {
+    "id": "tayammum_019",
+    "topic": "Tayammum",
+    "question": "Is tayammum allowed for minor inconvenience?",
+    "answer": "No, minor inconvenience does not permit tayammum.\n\nThere must be genuine hardship or harm.",
+    "source_url": "https://www.sistani.org/english/book/48/2441/",
+    "tags": ["hardship", "conditions"]
+  },
+  {
+    "id": "tayammum_020",
+    "topic": "Tayammum",
+    "question": "Can tayammum be used for fasting?",
+    "answer": "Yes, tayammum may replace ghusl before fasting if water is unavailable.\n\nThis allows the fast to remain valid.",
+    "source_url": "https://www.sistani.org/english/book/48/1666/",
+    "tags": ["fasting", "ramadan"]
+  },
+
+  {
+    "id": "tayammum_021",
+    "topic": "Tayammum",
+    "question": "Is tayammum valid if performed incorrectly out of ignorance?",
+    "answer": "If performed incorrectly due to ignorance, it must be repeated once the mistake is known.\n\nActs performed without valid purification must also be repeated.",
+    "source_url": "https://www.sistani.org/english/book/48/2466/",
+    "tags": ["ignorance", "mistakes"]
+  },
+  {
+    "id": "tayammum_022",
+    "topic": "Tayammum",
+    "question": "Can tayammum be performed while seated?",
+    "answer": "Yes, tayammum may be performed while seated if standing is difficult.\n\nCorrect wiping remains obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/2456/",
+    "tags": ["accessibility", "sitting"]
+  },
+  {
+    "id": "tayammum_023",
+    "topic": "Tayammum",
+    "question": "Does tayammum remove physical impurity?",
+    "answer": "No, tayammum only removes ritual impurity.\n\nPhysical najasah must still be cleaned if possible.",
+    "source_url": "https://www.sistani.org/english/book/48/2440/",
+    "tags": ["najasah", "limitations"]
+  },
+  {
+    "id": "tayammum_024",
+    "topic": "Tayammum",
+    "question": "Is tayammum required if water is available but insufficient?",
+    "answer": "Yes, tayammum is required if available water is insufficient for purification.\n\nPartial washing does not suffice.",
+    "source_url": "https://www.sistani.org/english/book/48/2442/",
+    "tags": ["water_insufficient", "conditions"]
+  },
+  {
+    "id": "tayammum_025",
+    "topic": "Tayammum",
+    "question": "Can tayammum be repeated for each prayer?",
+    "answer": "Repeating tayammum is not required unless it becomes invalidated.\n\nOne tayammum can cover multiple prayers.",
+    "source_url": "https://www.sistani.org/english/book/48/2464/",
+    "tags": ["multiple_prayers", "validity"]
+  },
+
+  {
+    "id": "tayammum_026",
+    "topic": "Tayammum",
+    "question": "Does sweating invalidate tayammum?",
+    "answer": "Sweating does not invalidate tayammum.\n\nOnly specific invalidators affect its validity.",
+    "source_url": "https://www.sistani.org/english/book/48/2463/",
+    "tags": ["sweat", "purity"]
+  },
+  {
+    "id": "tayammum_027",
+    "topic": "Tayammum",
+    "question": "Is tayammum allowed in hospitals?",
+    "answer": "Yes, tayammum is permitted in hospitals if water use is harmful or restricted.\n\nClean earth-based materials may be used.",
+    "source_url": "https://www.sistani.org/english/book/48/2441/",
+    "tags": ["hospital", "medical"]
+  },
+  {
+    "id": "tayammum_028",
+    "topic": "Tayammum",
+    "question": "Is tayammum allowed during travel?",
+    "answer": "Yes, if water is unavailable or harmful during travel.\n\nTravel alone does not permit tayammum unless conditions apply.",
+    "source_url": "https://www.sistani.org/english/book/48/2441/",
+    "tags": ["travel", "conditions"]
+  },
+  {
+    "id": "tayammum_029",
+    "topic": "Tayammum",
+    "question": "Does tayammum require clean hands?",
+    "answer": "Yes, hands must be free from physical impurity.\n\nNajis hands invalidate tayammum.",
+    "source_url": "https://www.sistani.org/english/book/48/2450/",
+    "tags": ["hands", "purity"]
+  },
+  {
+    "id": "tayammum_030",
+    "topic": "Tayammum",
+    "question": "Is tayammum valid if nails are long?",
+    "answer": "Yes, as long as wiping is properly performed.\n\nLong nails do not invalidate tayammum by themselves.",
+    "source_url": "https://www.sistani.org/english/book/48/2455/",
+    "tags": ["nails", "validity"]
+  },
+
+  {
+    "id": "tayammum_031",
+    "topic": "Tayammum",
+    "question": "Is tayammum allowed for voluntary prayers?",
+    "answer": "Yes, tayammum permits both obligatory and voluntary prayers.\n\nThe same rules of validity apply.",
+    "source_url": "https://www.sistani.org/english/book/48/2462/",
+    "tags": ["voluntary", "prayer"]
+  },
+  {
+    "id": "tayammum_032",
+    "topic": "Tayammum",
+    "question": "Can tayammum be invalidated by sleep?",
+    "answer": "Yes, sleep invalidates tayammum in the same way it invalidates wudhu.\n\nA new tayammum is required afterward.",
+    "source_url": "https://www.sistani.org/english/book/48/2463/",
+    "tags": ["sleep", "invalidators"]
+  },
+  {
+    "id": "tayammum_033",
+    "topic": "Tayammum",
+    "question": "Is tayammum required if water is extremely expensive?",
+    "answer": "Yes, if acquiring water causes unreasonable financial hardship.\n\nIn such cases, tayammum is permitted.",
+    "source_url": "https://www.sistani.org/english/book/48/2441/",
+    "tags": ["hardship", "cost"]
+  },
+  {
+    "id": "tayammum_034",
+    "topic": "Tayammum",
+    "question": "Does tayammum replace multiple missed ghusls?",
+    "answer": "Yes, one tayammum may replace multiple required ghusls if the excuse applies to all.\n\nThe intention must cover all obligations.",
+    "source_url": "https://www.sistani.org/english/book/48/2442/",
+    "tags": ["multiple_intentions", "ghusl"]
+  },
+  {
+    "id": "tayammum_035",
+    "topic": "Tayammum",
+    "question": "Is tayammum allowed if water is needed for drinking?",
+    "answer": "Yes, preserving life takes priority.\n\nIf water is needed for drinking, tayammum must be performed instead.",
+    "source_url": "https://www.sistani.org/english/book/48/2441/",
+    "tags": ["priority", "drinking"]
+  },
+  {
+    "id": "tayammum_036",
+    "topic": "Tayammum",
+    "question": "Can tayammum be done using dust on clothing?",
+    "answer": "Yes, if the dust originates from earth and is sufficient.\n\nSynthetic fibers alone are not valid.",
+    "source_url": "https://www.sistani.org/english/book/48/2449/",
+    "tags": ["dust", "clothing"]
+  },
+  {
+    "id": "tayammum_037",
+    "topic": "Tayammum",
+    "question": "Is tayammum allowed for someone in bandages?",
+    "answer": "Yes, tayammum is required if water use would harm wounds.\n\nThis protects health while maintaining worship.",
+    "source_url": "https://www.sistani.org/english/book/48/2443/",
+    "tags": ["bandages", "injury"]
+  },
+  {
+    "id": "tayammum_038",
+    "topic": "Tayammum",
+    "question": "Is tayammum valid if water becomes available mid-prayer?",
+    "answer": "If water becomes available after prayer begins, the prayer remains valid.\n\nFuture prayers require normal purification.",
+    "source_url": "https://www.sistani.org/english/book/48/2465/",
+    "tags": ["prayer", "availability"]
+  },
+  {
+    "id": "tayammum_039",
+    "topic": "Tayammum",
+    "question": "Does tayammum override ghusl Janabah?",
+    "answer": "Yes, tayammum replaces ghusl Janabah when water cannot be used.\n\nOnce water is available, ghusl becomes obligatory again.",
+    "source_url": "https://www.sistani.org/english/book/48/2442/",
+    "tags": ["janabah", "replacement"]
+  },
+  {
+    "id": "tayammum_040",
+    "topic": "Tayammum",
+    "question": "Can tayammum be performed multiple times in one day?",
+    "answer": "Yes, tayammum may be performed as many times as required.\n\nEach instance must meet the necessary conditions.",
+    "source_url": "https://www.sistani.org/english/book/48/2464/",
+    "tags": ["frequency", "validity"]
+  },
+    {
+    "id": "sawm_001",
+    "topic": "Fasting",
+    "question": "What is obligatory fasting in Islam?",
+    "answer": "Obligatory fasting primarily refers to fasting during the month of Ramadan. It is mandatory for every adult, sane Muslim who meets the conditions of obligation.\n\nFasting involves abstaining from specific acts from dawn (Fajr) until sunset (Maghrib) with the intention of worship.",
+    "source_url": "https://www.sistani.org/english/book/48/1621/",
+    "tags": ["definition", "ramadan", "obligation"]
+  },
+  {
+    "id": "sawm_002",
+    "topic": "Fasting",
+    "question": "Who is obligated to fast during Ramadan?",
+    "answer": "Fasting is obligatory for a Muslim who has reached puberty, is sane, and is not prevented by illness, travel, or harm.\n\nThose exempt may be required to make up the fast later or give fidyah depending on circumstances.",
+    "source_url": "https://www.sistani.org/english/book/48/1622/",
+    "tags": ["obligation", "conditions"]
+  },
+  {
+    "id": "sawm_003",
+    "topic": "Fasting",
+    "question": "When does fasting begin and end each day?",
+    "answer": "The fast begins at true dawn (Fajr) and ends at sunset (Maghrib).\n\nOne must refrain from invalidating acts during this entire period with the intention of fasting.",
+    "source_url": "https://www.sistani.org/english/book/48/1632/",
+    "tags": ["timing", "fajr", "maghrib"]
+  },
+  {
+    "id": "sawm_004",
+    "topic": "Fasting",
+    "question": "Is intention (niyyah) required for fasting?",
+    "answer": "Yes, intention is required and must be made consciously.\n\nIt does not need to be verbalized and may be made at night or before dawn for obligatory fasts.",
+    "source_url": "https://www.sistani.org/english/book/48/1627/",
+    "tags": ["niyyah", "intention"]
+  },
+  {
+    "id": "sawm_005",
+    "topic": "Fasting",
+    "question": "Does forgetting the intention invalidate the fast?",
+    "answer": "If one forgets to make the intention before dawn but remembers before midday and has not committed any invalidating act, the fast remains valid.\n\nIf remembered after midday, the fast must be completed but made up later.",
+    "source_url": "https://www.sistani.org/english/book/48/1628/",
+    "tags": ["intention", "forgetfulness"]
+  },
+
+  {
+    "id": "sawm_006",
+    "topic": "Fasting",
+    "question": "What actions invalidate the fast?",
+    "answer": "Actions that invalidate fasting include eating, drinking, intentional vomiting, sexual intercourse, and remaining in a state of janabah until dawn.\n\nThese acts invalidate the fast if done intentionally and knowingly.",
+    "source_url": "https://www.sistani.org/english/book/48/1643/",
+    "tags": ["invalidators", "eating", "drinking"]
+  },
+  {
+    "id": "sawm_007",
+    "topic": "Fasting",
+    "question": "Does eating or drinking forgetfully break the fast?",
+    "answer": "No, eating or drinking forgetfully does not invalidate the fast.\n\nOnce the person remembers, they must immediately stop and continue fasting.",
+    "source_url": "https://www.sistani.org/english/book/48/1645/",
+    "tags": ["forgetfulness", "invalidators"]
+  },
+  {
+    "id": "sawm_008",
+    "topic": "Fasting",
+    "question": "Does intentional vomiting break the fast?",
+    "answer": "Yes, intentional vomiting invalidates the fast.\n\nUnintentional vomiting does not invalidate it unless the vomit is swallowed again intentionally.",
+    "source_url": "https://www.sistani.org/english/book/48/1656/",
+    "tags": ["vomiting", "invalidators"]
+  },
+  {
+    "id": "sawm_009",
+    "topic": "Fasting",
+    "question": "Does swallowing saliva break the fast?",
+    "answer": "No, swallowing one's own saliva does not invalidate the fast.\n\nHowever, swallowing food remnants intentionally does invalidate it.",
+    "source_url": "https://www.sistani.org/english/book/48/1646/",
+    "tags": ["saliva", "mouth"]
+  },
+  {
+    "id": "sawm_010",
+    "topic": "Fasting",
+    "question": "Does smoking invalidate the fast?",
+    "answer": "Yes, smoking invalidates the fast as it involves intentional intake of substances into the body.\n\nThe same ruling applies to vaping and similar practices.",
+    "source_url": "https://www.sistani.org/english/book/48/1650/",
+    "tags": ["smoking", "invalidators"]
+  },
+
+  {
+    "id": "sawm_011",
+    "topic": "Fasting",
+    "question": "Does using injections invalidate the fast?",
+    "answer": "Non-nutritive injections do not invalidate the fast.\n\nHowever, injections that provide nourishment invalidate fasting based on obligatory precaution.",
+    "source_url": "https://www.sistani.org/english/book/48/1654/",
+    "tags": ["injections", "medical"]
+  },
+  {
+    "id": "sawm_012",
+    "topic": "Fasting",
+    "question": "Does using eye drops or ear drops break the fast?",
+    "answer": "Eye drops do not invalidate the fast even if taste is felt in the throat.\n\nEar drops do not invalidate the fast unless the liquid reaches the throat intentionally.",
+    "source_url": "https://www.sistani.org/english/book/48/1653/",
+    "tags": ["eye_drops", "ear_drops"]
+  },
+  {
+    "id": "sawm_013",
+    "topic": "Fasting",
+    "question": "Does brushing teeth invalidate the fast?",
+    "answer": "Brushing teeth is allowed provided nothing is swallowed.\n\nOne should avoid toothpaste if there is a risk of ingestion.",
+    "source_url": "https://www.sistani.org/english/book/48/1647/",
+    "tags": ["oral_hygiene", "teeth"]
+  },
+  {
+    "id": "sawm_014",
+    "topic": "Fasting",
+    "question": "Does bleeding break the fast?",
+    "answer": "Bleeding does not invalidate the fast.\n\nHowever, blood should not be swallowed intentionally.",
+    "source_url": "https://www.sistani.org/english/book/48/1648/",
+    "tags": ["bleeding", "medical"]
+  },
+  {
+    "id": "sawm_015",
+    "topic": "Fasting",
+    "question": "Does sleeping all day invalidate the fast?",
+    "answer": "Sleeping throughout the day does not invalidate the fast.\n\nThe intention must still have been made before dawn.",
+    "source_url": "https://www.sistani.org/english/book/48/1629/",
+    "tags": ["sleep", "intention"]
+  },
+
+  {
+    "id": "sawm_016",
+    "topic": "Fasting",
+    "question": "Is fasting required for travelers?",
+    "answer": "A traveler who meets the conditions for shortened prayers must not fast during Ramadan.\n\nThey must make up the missed fasts later.",
+    "source_url": "https://www.sistani.org/english/book/48/1638/",
+    "tags": ["travel", "exemption"]
+  },
+  {
+    "id": "sawm_017",
+    "topic": "Fasting",
+    "question": "Is fasting required for the sick?",
+    "answer": "A sick person is exempt if fasting causes harm or worsens illness.\n\nThey must make up the fasts later if recovery occurs.",
+    "source_url": "https://www.sistani.org/english/book/48/1639/",
+    "tags": ["illness", "exemption"]
+  },
+  {
+    "id": "sawm_018",
+    "topic": "Fasting",
+    "question": "Is fasting required for pregnant women?",
+    "answer": "Pregnant women are exempt if fasting harms them or the fetus.\n\nThey must make up the fasts later and may need to give fidyah.",
+    "source_url": "https://www.sistani.org/english/book/48/1640/",
+    "tags": ["pregnancy", "exemption"]
+  },
+  {
+    "id": "sawm_019",
+    "topic": "Fasting",
+    "question": "Is fasting required for breastfeeding women?",
+    "answer": "Breastfeeding women may break the fast if it harms them or the child.\n\nThey must make up the fasts later and may need to give fidyah.",
+    "source_url": "https://www.sistani.org/english/book/48/1641/",
+    "tags": ["breastfeeding", "exemption"]
+  },
+  {
+    "id": "sawm_020",
+    "topic": "Fasting",
+    "question": "What is fidyah in fasting?",
+    "answer": "Fidyah is a compensation paid when a fast cannot be made up.\n\nIt usually consists of feeding a poor person for each missed day.",
+    "source_url": "https://www.sistani.org/english/book/48/1660/",
+    "tags": ["fidyah", "compensation"]
+  },
+
+  {
+    "id": "sawm_021",
+    "topic": "Fasting",
+    "question": "What is kaffarah for breaking a fast?",
+    "answer": "Kaffarah is a major expiation required for deliberately breaking a Ramadan fast.\n\nIt involves fasting sixty days or feeding sixty poor persons.",
+    "source_url": "https://www.sistani.org/english/book/48/1661/",
+    "tags": ["kaffarah", "penalty"]
+  },
+  {
+    "id": "sawm_022",
+    "topic": "Fasting",
+    "question": "Does intentional sexual intercourse break the fast?",
+    "answer": "Yes, sexual intercourse during fasting hours invalidates the fast and requires kaffarah.\n\nBoth parties are liable if the act was consensual.",
+    "source_url": "https://www.sistani.org/english/book/48/1649/",
+    "tags": ["intercourse", "invalidators"]
+  },
+  {
+    "id": "sawm_023",
+    "topic": "Fasting",
+    "question": "Does masturbation invalidate the fast?",
+    "answer": "Yes, masturbation that leads to ejaculation invalidates the fast and requires kaffarah.\n\nAvoidance of all such acts is obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/1651/",
+    "tags": ["masturbation", "invalidators"]
+  },
+  {
+    "id": "sawm_024",
+    "topic": "Fasting",
+    "question": "Does remaining in janabah invalidate the fast?",
+    "answer": "Yes, deliberately remaining in janabah until dawn invalidates the fast.\n\nThis also applies to menstruation and nifas.",
+    "source_url": "https://www.sistani.org/english/book/48/1652/",
+    "tags": ["janabah", "ghusl"]
+  },
+  {
+    "id": "sawm_025",
+    "topic": "Fasting",
+    "question": "Does wet dreaming break the fast?",
+    "answer": "No, wet dreams do not invalidate the fast.\n\nHowever, ghusl becomes obligatory for prayer.",
+    "source_url": "https://www.sistani.org/english/book/48/1652/",
+    "tags": ["wet_dream", "janabah"]
+  },
+
+  {
+    "id": "sawm_026",
+    "topic": "Fasting",
+    "question": "Can one break the fast due to extreme hunger or thirst?",
+    "answer": "Yes, if there is fear of serious harm.\n\nThe fast must be made up later, but no kaffarah applies.",
+    "source_url": "https://www.sistani.org/english/book/48/1642/",
+    "tags": ["hardship", "harm"]
+  },
+  {
+    "id": "sawm_027",
+    "topic": "Fasting",
+    "question": "Is fasting valid if one doubts sunset?",
+    "answer": "Breaking the fast before certainty of sunset invalidates it.\n\nOne must be sure sunset has occurred.",
+    "source_url": "https://www.sistani.org/english/book/48/1633/",
+    "tags": ["sunset", "timing"]
+  },
+  {
+    "id": "sawm_028",
+    "topic": "Fasting",
+    "question": "Is fasting valid if one eats thinking it is night?",
+    "answer": "If one eats believing it is night but later discovers it was day, the fast must be made up.\n\nNo kaffarah is required if the belief was reasonable.",
+    "source_url": "https://www.sistani.org/english/book/48/1644/",
+    "tags": ["mistake", "timing"]
+  },
+  {
+    "id": "sawm_029",
+    "topic": "Fasting",
+    "question": "Is fasting valid if one eats thinking it is dawn?",
+    "answer": "If one eats thinking dawn has not yet occurred and it had, the fast is invalid.\n\nThe fast must be made up.",
+    "source_url": "https://www.sistani.org/english/book/48/1644/",
+    "tags": ["dawn", "mistake"]
+  },
+  {
+    "id": "sawm_030",
+    "topic": "Fasting",
+    "question": "Is fasting valid if one breaks the fast under compulsion?",
+    "answer": "If a person is compelled, the fast is invalid but no kaffarah applies.\n\nThe fast must be made up later.",
+    "source_url": "https://www.sistani.org/english/book/48/1658/",
+    "tags": ["compulsion", "coercion"]
+  },
+
+  {
+    "id": "sawm_031",
+    "topic": "Fasting",
+    "question": "Can children fast before puberty?",
+    "answer": "Fasting is not obligatory before puberty.\n\nHowever, encouraging children to fast partially is recommended.",
+    "source_url": "https://www.sistani.org/english/book/48/1623/",
+    "tags": ["children", "puberty"]
+  },
+  {
+    "id": "sawm_032",
+    "topic": "Fasting",
+    "question": "Is fasting allowed on Eid days?",
+    "answer": "Fasting is prohibited on Eid al-Fitr and Eid al-Adha.\n\nFasts on these days are invalid and sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/1673/",
+    "tags": ["eid", "prohibited"]
+  },
+  {
+    "id": "sawm_033",
+    "topic": "Fasting",
+    "question": "Is fasting allowed on the Day of Ashura?",
+    "answer": "Fasting on Ashura is discouraged if done with the intention of blessing.\n\nFasting without that intention is permissible but disliked.",
+    "source_url": "https://www.sistani.org/english/book/48/1675/",
+    "tags": ["ashura", "discouraged"]
+  },
+  {
+    "id": "sawm_034",
+    "topic": "Fasting",
+    "question": "Is fasting recommended outside Ramadan?",
+    "answer": "Yes, fasting on certain days such as Mondays, Thursdays, and the white days is recommended.\n\nThese fasts earn spiritual reward but are not obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/1670/",
+    "tags": ["recommended", "voluntary"]
+  },
+  {
+    "id": "sawm_035",
+    "topic": "Fasting",
+    "question": "Is fasting valid without suhoor?",
+    "answer": "Yes, suhoor is recommended but not obligatory.\n\nSkipping it does not invalidate the fast.",
+    "source_url": "https://www.sistani.org/english/book/48/1631/",
+    "tags": ["suhoor", "meal"]
+  },
+
+  {
+    "id": "sawm_036",
+    "topic": "Fasting",
+    "question": "Is fasting valid if one delays iftar intentionally?",
+    "answer": "Delaying iftar does not invalidate the fast.\n\nHowever, breaking the fast promptly is recommended.",
+    "source_url": "https://www.sistani.org/english/book/48/1634/",
+    "tags": ["iftar", "sunset"]
+  },
+  {
+    "id": "sawm_037",
+    "topic": "Fasting",
+    "question": "Is fasting valid if one tastes food?",
+    "answer": "Tasting food without swallowing does not invalidate the fast.\n\nOne must ensure nothing enters the throat.",
+    "source_url": "https://www.sistani.org/english/book/48/1647/",
+    "tags": ["tasting", "food"]
+  },
+  {
+    "id": "sawm_038",
+    "topic": "Fasting",
+    "question": "Is fasting valid if one rinses the mouth?",
+    "answer": "Rinsing the mouth is allowed.\n\nCare must be taken not to swallow water intentionally.",
+    "source_url": "https://www.sistani.org/english/book/48/1647/",
+    "tags": ["mouth", "rinsing"]
+  },
+  {
+    "id": "sawm_039",
+    "topic": "Fasting",
+    "question": "Does fasting affect prayer validity?",
+    "answer": "Fasting and prayer are separate obligations.\n\nInvalid fasting does not invalidate prayer and vice versa.",
+    "source_url": "https://www.sistani.org/english/book/48/1621/",
+    "tags": ["prayer", "independence"]
+  },
+  {
+    "id": "sawm_040",
+    "topic": "Fasting",
+    "question": "Can fasting be combined with multiple intentions?",
+    "answer": "Yes, a single fast may fulfill multiple recommended intentions.\n\nHowever, obligatory fasts require a specific intention.",
+    "source_url": "https://www.sistani.org/english/book/48/1627/",
+    "tags": ["multiple_intentions", "niyyah"]
+  },
+   {
+    "id": "zakat_001",
+    "topic": "Zakat",
+    "question": "What is zakat in Islam?",
+    "answer": "Zakat is a mandatory financial obligation imposed on specific forms of wealth when they reach a prescribed minimum (nisab) and are held for a certain period.\n\nIt serves to purify wealth, assist the poor, and promote social justice within the Muslim community.",
+    "source_url": "https://www.sistani.org/english/book/48/1685/",
+    "tags": ["definition", "obligation", "purification"]
+  },
+  {
+    "id": "zakat_002",
+    "topic": "Zakat",
+    "question": "On which items is zakat obligatory?",
+    "answer": "According to Ayatollah Sistani, zakat is obligatory on nine items: wheat, barley, dates, raisins, gold coins, silver coins, camels, cows, and sheep.\n\nZakat on other assets is recommended but not obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/1686/",
+    "tags": ["items", "obligatory_assets"]
+  },
+  {
+    "id": "zakat_003",
+    "topic": "Zakat",
+    "question": "What is nisab in zakat?",
+    "answer": "Nisab is the minimum threshold of wealth that makes zakat obligatory.\n\nEach zakatable item has its own specific nisab amount which must be met or exceeded.",
+    "source_url": "https://www.sistani.org/english/book/48/1687/",
+    "tags": ["nisab", "threshold"]
+  },
+  {
+    "id": "zakat_004",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory every year?",
+    "answer": "Zakat is obligatory annually on zakatable items if they remain in the owner's possession for one full lunar year.\n\nSome agricultural zakat is due at harvest rather than annually.",
+    "source_url": "https://www.sistani.org/english/book/48/1689/",
+    "tags": ["timing", "yearly"]
+  },
+  {
+    "id": "zakat_005",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on cash money?",
+    "answer": "Zakat is not obligatory on paper currency or savings as such.\n\nHowever, paying zakat on cash is highly recommended and rewarded.",
+    "source_url": "https://www.sistani.org/english/book/48/1690/",
+    "tags": ["cash", "currency"]
+  },
+
+  {
+    "id": "zakat_006",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on gold and silver jewelry?",
+    "answer": "Zakat is obligatory on gold and silver coins used as currency if they reach nisab.\n\nZakat is not obligatory on jewelry used for personal adornment.",
+    "source_url": "https://www.sistani.org/english/book/48/1691/",
+    "tags": ["gold", "silver", "jewelry"]
+  },
+  {
+    "id": "zakat_007",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on business inventory?",
+    "answer": "Zakat is not obligatory on business inventory according to Ayatollah Sistani.\n\nHowever, paying zakat on trade goods is recommended as an act of charity.",
+    "source_url": "https://www.sistani.org/english/book/48/1693/",
+    "tags": ["business", "inventory"]
+  },
+  {
+    "id": "zakat_008",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on agricultural produce?",
+    "answer": "Zakat is obligatory on wheat, barley, dates, and raisins when they reach nisab.\n\nIt becomes due at harvest time.",
+    "source_url": "https://www.sistani.org/english/book/48/1694/",
+    "tags": ["agriculture", "harvest"]
+  },
+  {
+    "id": "zakat_009",
+    "topic": "Zakat",
+    "question": "What rate of zakat applies to crops?",
+    "answer": "If crops are irrigated naturally, zakat is 10%. If irrigated artificially, zakat is 5%.\n\nIf both methods are used, the rate is adjusted proportionally.",
+    "source_url": "https://www.sistani.org/english/book/48/1696/",
+    "tags": ["rate", "crops"]
+  },
+  {
+    "id": "zakat_010",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on livestock?",
+    "answer": "Zakat is obligatory on camels, cows, and sheep when they reach nisab and meet grazing conditions.\n\nLivestock used for work or fed purchased fodder are exempt.",
+    "source_url": "https://www.sistani.org/english/book/48/1697/",
+    "tags": ["livestock", "animals"]
+  },
+
+  {
+    "id": "zakat_011",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on camels?",
+    "answer": "Zakat becomes obligatory on camels when they reach specific nisab levels.\n\nThe amount of zakat increases progressively with the number of camels owned.",
+    "source_url": "https://www.sistani.org/english/book/48/1698/",
+    "tags": ["camels", "nisab"]
+  },
+  {
+    "id": "zakat_012",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on cows?",
+    "answer": "Zakat is obligatory on cows once they reach the minimum nisab.\n\nThe required zakat is given in the form of livestock of a certain age.",
+    "source_url": "https://www.sistani.org/english/book/48/1699/",
+    "tags": ["cows", "livestock"]
+  },
+  {
+    "id": "zakat_013",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on sheep and goats?",
+    "answer": "Zakat is obligatory on sheep and goats when they reach the minimum nisab and are grazed freely for most of the year.\n\nPurchased feed exempts them from zakat.",
+    "source_url": "https://www.sistani.org/english/book/48/1700/",
+    "tags": ["sheep", "goats"]
+  },
+  {
+    "id": "zakat_014",
+    "topic": "Zakat",
+    "question": "Who is eligible to receive zakat?",
+    "answer": "Zakat may be given to eight categories including the poor, the needy, zakat collectors, and those burdened with debt.\n\nRecipients must be believers and not dependents of the giver.",
+    "source_url": "https://www.sistani.org/english/book/48/1702/",
+    "tags": ["recipients", "eligibility"]
+  },
+  {
+    "id": "zakat_015",
+    "topic": "Zakat",
+    "question": "Can zakat be given to non-Muslims?",
+    "answer": "Zakat cannot be given to non-Muslims.\n\nHowever, voluntary charity (sadaqah) may be given to them.",
+    "source_url": "https://www.sistani.org/english/book/48/1703/",
+    "tags": ["recipients", "non_muslims"]
+  },
+
+  {
+    "id": "zakat_016",
+    "topic": "Zakat",
+    "question": "Can zakat be given to one's relatives?",
+    "answer": "Zakat may be given to relatives who are eligible and not financially dependent on the giver.\n\nGiving to relatives is often more rewarding.",
+    "source_url": "https://www.sistani.org/english/book/48/1704/",
+    "tags": ["relatives", "family"]
+  },
+  {
+    "id": "zakat_017",
+    "topic": "Zakat",
+    "question": "Can zakat be used for building mosques?",
+    "answer": "Zakat cannot be used for building mosques or public infrastructure.\n\nSuch projects should be funded through other charitable donations.",
+    "source_url": "https://www.sistani.org/english/book/48/1706/",
+    "tags": ["mosque", "usage"]
+  },
+  {
+    "id": "zakat_018",
+    "topic": "Zakat",
+    "question": "Is intention required when paying zakat?",
+    "answer": "Yes, intention is required at the time of payment.\n\nIt must be given specifically as zakat and not general charity.",
+    "source_url": "https://www.sistani.org/english/book/48/1707/",
+    "tags": ["intention", "niyyah"]
+  },
+  {
+    "id": "zakat_019",
+    "topic": "Zakat",
+    "question": "Can zakat be paid in advance?",
+    "answer": "Yes, zakat may be paid in advance before it becomes due.\n\nIt will count toward the obligation when the time arrives.",
+    "source_url": "https://www.sistani.org/english/book/48/1709/",
+    "tags": ["advance_payment", "timing"]
+  },
+  {
+    "id": "zakat_020",
+    "topic": "Zakat",
+    "question": "Can zakat be delayed after it becomes due?",
+    "answer": "Delaying zakat without valid reason is not permitted.\n\nIf delay occurs, one remains liable until payment is completed.",
+    "source_url": "https://www.sistani.org/english/book/48/1710/",
+    "tags": ["delay", "liability"]
+  },
+
+  {
+    "id": "zakat_021",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on minors?",
+    "answer": "Zakat is not obligatory on minors.\n\nHowever, if a guardian manages zakatable assets, zakat must be paid from those assets.",
+    "source_url": "https://www.sistani.org/english/book/48/1712/",
+    "tags": ["minors", "guardianship"]
+  },
+  {
+    "id": "zakat_022",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on the insane?",
+    "answer": "Zakat is not obligatory on someone who is permanently insane.\n\nIf sanity returns, zakat becomes obligatory thereafter.",
+    "source_url": "https://www.sistani.org/english/book/48/1713/",
+    "tags": ["insanity", "exemption"]
+  },
+  {
+    "id": "zakat_023",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on borrowed wealth?",
+    "answer": "Zakat is not obligatory on borrowed wealth.\n\nThe lender is responsible for zakat once the debt is repaid.",
+    "source_url": "https://www.sistani.org/english/book/48/1715/",
+    "tags": ["debt", "borrowed"]
+  },
+  {
+    "id": "zakat_024",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on jointly owned property?",
+    "answer": "Zakat applies to each owner's share individually.\n\nIf an individual's share reaches nisab, zakat becomes obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/1716/",
+    "tags": ["joint_ownership", "shares"]
+  },
+  {
+    "id": "zakat_025",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on lost or inaccessible wealth?",
+    "answer": "Zakat is not obligatory on wealth that is lost or inaccessible.\n\nOnce recovered, zakat becomes obligatory if conditions are met.",
+    "source_url": "https://www.sistani.org/english/book/48/1717/",
+    "tags": ["lost_wealth", "access"]
+  },
+
+  {
+    "id": "zakat_026",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on savings kept for future needs?",
+    "answer": "Zakat is not obligatory on savings unless they fall under zakatable items.\n\nPaying zakat on savings is recommended.",
+    "source_url": "https://www.sistani.org/english/book/48/1690/",
+    "tags": ["savings", "future"]
+  },
+  {
+    "id": "zakat_027",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on rental income?",
+    "answer": "Zakat is not obligatory on rental income itself.\n\nHowever, zakat applies if the income is converted into zakatable items.",
+    "source_url": "https://www.sistani.org/english/book/48/1693/",
+    "tags": ["rental_income", "property"]
+  },
+  {
+    "id": "zakat_028",
+    "topic": "Zakat",
+    "question": "Can zakat be paid in kind instead of cash?",
+    "answer": "Zakat should be paid from the same type of asset on which it is due.\n\nIn some cases, equivalent value may be given with the recipient’s consent.",
+    "source_url": "https://www.sistani.org/english/book/48/1708/",
+    "tags": ["payment_method", "in_kind"]
+  },
+  {
+    "id": "zakat_029",
+    "topic": "Zakat",
+    "question": "Can zakat be given secretly?",
+    "answer": "Yes, giving zakat secretly is permissible and often preferable to avoid showing off.\n\nPublic payment is allowed if it encourages others.",
+    "source_url": "https://www.sistani.org/english/book/48/1707/",
+    "tags": ["privacy", "intention"]
+  },
+  {
+    "id": "zakat_030",
+    "topic": "Zakat",
+    "question": "Is zakat transferable between cities?",
+    "answer": "Zakat should ideally be distributed locally.\n\nTransferring it elsewhere is allowed if local need is met or necessity exists.",
+    "source_url": "https://www.sistani.org/english/book/48/1711/",
+    "tags": ["distribution", "location"]
+  },
+
+  {
+    "id": "zakat_031",
+    "topic": "Zakat",
+    "question": "Can zakat be given to someone able to work?",
+    "answer": "Zakat may be given if the person is genuinely poor even if physically able to work.\n\nHowever, habitual dependency is discouraged.",
+    "source_url": "https://www.sistani.org/english/book/48/1702/",
+    "tags": ["poor", "work"]
+  },
+  {
+    "id": "zakat_032",
+    "topic": "Zakat",
+    "question": "Can zakat be used to repay someone’s debt?",
+    "answer": "Yes, zakat may be used to repay the debt of an eligible debtor.\n\nThis is among the valid categories of zakat recipients.",
+    "source_url": "https://www.sistani.org/english/book/48/1702/",
+    "tags": ["debt", "repayment"]
+  },
+  {
+    "id": "zakat_033",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on inheritance immediately?",
+    "answer": "Zakat is not immediately obligatory upon receiving inheritance.\n\nIt becomes obligatory only after conditions such as nisab and time are met.",
+    "source_url": "https://www.sistani.org/english/book/48/1714/",
+    "tags": ["inheritance", "timing"]
+  },
+  {
+    "id": "zakat_034",
+    "topic": "Zakat",
+    "question": "Can zakat be given to students of religious knowledge?",
+    "answer": "Yes, zakat may be given to eligible students if they are poor and meet conditions.\n\nSupporting religious education is highly meritorious.",
+    "source_url": "https://www.sistani.org/english/book/48/1702/",
+    "tags": ["students", "education"]
+  },
+  {
+    "id": "zakat_035",
+    "topic": "Zakat",
+    "question": "Is zakat valid if paid without specifying it?",
+    "answer": "Zakat must be given with intention.\n\nIf given without specifying, it does not fulfill the obligation unless intention was present internally.",
+    "source_url": "https://www.sistani.org/english/book/48/1707/",
+    "tags": ["intention", "validity"]
+  },
+
+  {
+    "id": "zakat_036",
+    "topic": "Zakat",
+    "question": "Can zakat be revoked after giving?",
+    "answer": "Once zakat is validly given, it cannot be taken back.\n\nIt becomes the property of the recipient.",
+    "source_url": "https://www.sistani.org/english/book/48/1718/",
+    "tags": ["revocation", "ownership"]
+  },
+  {
+    "id": "zakat_037",
+    "topic": "Zakat",
+    "question": "Is zakat obligatory on mixed halal and haram wealth?",
+    "answer": "Zakat is obligatory on the halal portion if identifiable.\n\nIf not, khums rules may apply instead.",
+    "source_url": "https://www.sistani.org/english/book/48/1719/",
+    "tags": ["mixed_wealth", "halal"]
+  },
+  {
+    "id": "zakat_038",
+    "topic": "Zakat",
+    "question": "Is zakat valid if paid to someone who becomes wealthy later?",
+    "answer": "Yes, zakat remains valid if the recipient was eligible at the time of receipt.\n\nSubsequent wealth does not invalidate it.",
+    "source_url": "https://www.sistani.org/english/book/48/1705/",
+    "tags": ["validity", "recipient_status"]
+  },
+  {
+    "id": "zakat_039",
+    "topic": "Zakat",
+    "question": "Can zakat be distributed by an agent?",
+    "answer": "Yes, one may appoint an agent to distribute zakat on their behalf.\n\nThe agent must be trustworthy and follow proper guidelines.",
+    "source_url": "https://www.sistani.org/english/book/48/1710/",
+    "tags": ["agent", "representation"]
+  },
+  {
+    "id": "zakat_040",
+    "topic": "Zakat",
+    "question": "What is the difference between zakat and sadaqah?",
+    "answer": "Zakat is obligatory and restricted in usage, while sadaqah is voluntary and flexible.\n\nBoth are acts of charity, but zakat fulfills a legal obligation.",
+    "source_url": "https://www.sistani.org/english/book/48/1685/",
+    "tags": ["zakat_vs_sadaqah", "comparison"]
+  },
+    {
+    "id": "khums_001",
+    "topic": "Khums",
+    "question": "What is khums in Islam?",
+    "answer": "Khums is a mandatory Islamic levy equal to one-fifth (20%) of certain types of wealth.\n\nIt is an obligation in Shi‘a jurisprudence and is distinct from zakat.",
+    "source_url": "https://www.sistani.org/english/book/48/1719/",
+    "tags": ["definition", "obligation"]
+  },
+  {
+    "id": "khums_002",
+    "topic": "Khums",
+    "question": "On what types of wealth is khums obligatory?",
+    "answer": "Khums is obligatory on profits and gains, including surplus income, minerals, treasure troves, lawful wealth mixed with unlawful wealth, and certain other items.\n\nThe most common form is khums on yearly savings.",
+    "source_url": "https://www.sistani.org/english/book/48/1720/",
+    "tags": ["obligatory_items", "income"]
+  },
+  {
+    "id": "khums_003",
+    "topic": "Khums",
+    "question": "What is meant by surplus income for khums?",
+    "answer": "Surplus income is what remains from a person’s earnings after covering reasonable yearly living expenses.\n\nAny remaining amount at the end of the khums year is subject to khums.",
+    "source_url": "https://www.sistani.org/english/book/48/1721/",
+    "tags": ["surplus", "income"]
+  },
+  {
+    "id": "khums_004",
+    "topic": "Khums",
+    "question": "What is a khums year?",
+    "answer": "A khums year is a one-year period starting from when a person begins earning.\n\nAt the end of this year, surplus wealth is calculated and khums is paid.",
+    "source_url": "https://www.sistani.org/english/book/48/1722/",
+    "tags": ["khums_year", "timing"]
+  },
+  {
+    "id": "khums_005",
+    "topic": "Khums",
+    "question": "Is khums obligatory on salaries and wages?",
+    "answer": "Yes, khums is obligatory on salaries and wages if any amount remains unused after necessary yearly expenses.\n\nOnly the surplus is subject to khums.",
+    "source_url": "https://www.sistani.org/english/book/48/1723/",
+    "tags": ["salary", "wages"]
+  },
+
+  {
+    "id": "khums_006",
+    "topic": "Khums",
+    "question": "Is khums obligatory on gifts received?",
+    "answer": "Khums is obligatory on gifts if they remain unused at the end of the khums year.\n\nIf used during the year for reasonable needs, khums is not due.",
+    "source_url": "https://www.sistani.org/english/book/48/1724/",
+    "tags": ["gifts", "income"]
+  },
+  {
+    "id": "khums_007",
+    "topic": "Khums",
+    "question": "Is khums obligatory on inheritance?",
+    "answer": "Khums is generally not obligatory on inheritance.\n\nHowever, if inheritance includes unlawful wealth or profits accrued after receipt, khums rules may apply.",
+    "source_url": "https://www.sistani.org/english/book/48/1725/",
+    "tags": ["inheritance", "exemption"]
+  },
+  {
+    "id": "khums_008",
+    "topic": "Khums",
+    "question": "Is khums obligatory on business profits?",
+    "answer": "Yes, khums is obligatory on net business profits remaining after deducting legitimate business and living expenses.\n\nThis is calculated at the end of the khums year.",
+    "source_url": "https://www.sistani.org/english/book/48/1726/",
+    "tags": ["business", "profits"]
+  },
+  {
+    "id": "khums_009",
+    "topic": "Khums",
+    "question": "Is khums obligatory on savings?",
+    "answer": "Khums is obligatory on savings that remain unused at the end of the khums year.\n\nNecessary savings spent during the year are exempt.",
+    "source_url": "https://www.sistani.org/english/book/48/1721/",
+    "tags": ["savings", "surplus"]
+  },
+  {
+    "id": "khums_010",
+    "topic": "Khums",
+    "question": "Is khums obligatory on household items?",
+    "answer": "Khums is not obligatory on household items that are needed and used.\n\nExcess or unused items at the end of the year may be subject to khums.",
+    "source_url": "https://www.sistani.org/english/book/48/1727/",
+    "tags": ["household", "exemption"]
+  },
+
+  {
+    "id": "khums_011",
+    "topic": "Khums",
+    "question": "Is khums obligatory on land or property?",
+    "answer": "Khums is obligatory on profit gained from selling land or property.\n\nThe original value used for living needs is exempt.",
+    "source_url": "https://www.sistani.org/english/book/48/1728/",
+    "tags": ["property", "real_estate"]
+  },
+  {
+    "id": "khums_012",
+    "topic": "Khums",
+    "question": "Is khums obligatory on minerals?",
+    "answer": "Yes, khums is obligatory on extracted minerals if their value reaches the prescribed threshold.\n\nThis is due immediately upon extraction.",
+    "source_url": "https://www.sistani.org/english/book/48/1730/",
+    "tags": ["minerals", "resources"]
+  },
+  {
+    "id": "khums_013",
+    "topic": "Khums",
+    "question": "What is khums on treasure troves?",
+    "answer": "Khums is obligatory on discovered treasure if it is not owned by anyone.\n\nOne-fifth is paid immediately, and the rest belongs to the finder.",
+    "source_url": "https://www.sistani.org/english/book/48/1731/",
+    "tags": ["treasure", "found_property"]
+  },
+  {
+    "id": "khums_014",
+    "topic": "Khums",
+    "question": "What is meant by lawful wealth mixed with unlawful wealth?",
+    "answer": "This refers to wealth in which halal and haram portions are mixed and cannot be separated.\n\nPaying khums purifies the remaining wealth.",
+    "source_url": "https://www.sistani.org/english/book/48/1732/",
+    "tags": ["mixed_wealth", "purification"]
+  },
+  {
+    "id": "khums_015",
+    "topic": "Khums",
+    "question": "How is khums divided?",
+    "answer": "Khums is divided into two equal parts: Sahm al-Imam and Sahm al-Sadat.\n\nEach portion has specific rules for distribution.",
+    "source_url": "https://www.sistani.org/english/book/48/1733/",
+    "tags": ["distribution", "shares"]
+  },
+
+  {
+    "id": "khums_016",
+    "topic": "Khums",
+    "question": "What is Sahm al-Imam?",
+    "answer": "Sahm al-Imam is the portion of khums designated for the Imam.\n\nDuring occultation, it must be given with the permission of a qualified marjaʿ.",
+    "source_url": "https://www.sistani.org/english/book/48/1734/",
+    "tags": ["sahm_al_imam", "authority"]
+  },
+  {
+    "id": "khums_017",
+    "topic": "Khums",
+    "question": "What is Sahm al-Sadat?",
+    "answer": "Sahm al-Sadat is the portion of khums designated for needy descendants of the Prophet (Sayyids).\n\nIt must be given to eligible recipients only.",
+    "source_url": "https://www.sistani.org/english/book/48/1735/",
+    "tags": ["sahm_al_sadat", "sayyids"]
+  },
+  {
+    "id": "khums_018",
+    "topic": "Khums",
+    "question": "Can khums be paid in advance?",
+    "answer": "Yes, khums may be paid in advance during the khums year.\n\nIt will be credited toward the obligation at year end.",
+    "source_url": "https://www.sistani.org/english/book/48/1736/",
+    "tags": ["advance_payment", "timing"]
+  },
+  {
+    "id": "khums_019",
+    "topic": "Khums",
+    "question": "Can khums be delayed?",
+    "answer": "Delaying khums without a valid excuse is not permitted.\n\nThe obligation remains until it is paid.",
+    "source_url": "https://www.sistani.org/english/book/48/1737/",
+    "tags": ["delay", "liability"]
+  },
+  {
+    "id": "khums_020",
+    "topic": "Khums",
+    "question": "Is intention required when paying khums?",
+    "answer": "Yes, intention (niyyah) is required at the time of payment.\n\nIt must be given specifically as khums.",
+    "source_url": "https://www.sistani.org/english/book/48/1738/",
+    "tags": ["intention", "niyyah"]
+  },
+
+  {
+    "id": "khums_021",
+    "topic": "Khums",
+    "question": "Is khums obligatory on minors?",
+    "answer": "Khums is not obligatory on minors personally.\n\nHowever, guardians must pay khums on surplus wealth belonging to them.",
+    "source_url": "https://www.sistani.org/english/book/48/1739/",
+    "tags": ["minors", "guardianship"]
+  },
+  {
+    "id": "khums_022",
+    "topic": "Khums",
+    "question": "Is khums obligatory on borrowed money?",
+    "answer": "Khums is not obligatory on borrowed money.\n\nHowever, if borrowed funds generate profit, khums may apply to that profit.",
+    "source_url": "https://www.sistani.org/english/book/48/1740/",
+    "tags": ["debt", "borrowed"]
+  },
+  {
+    "id": "khums_023",
+    "topic": "Khums",
+    "question": "Is khums obligatory on dowry (mahr)?",
+    "answer": "Khums is not obligatory on mahr if it is used for necessary expenses.\n\nIf it remains unused at year end, khums becomes obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/1741/",
+    "tags": ["mahr", "marriage"]
+  },
+  {
+    "id": "khums_024",
+    "topic": "Khums",
+    "question": "Is khums obligatory on compensation or insurance payouts?",
+    "answer": "Khums is obligatory on compensation or insurance payouts if surplus remains at the end of the khums year.\n\nNecessary expenses are exempt.",
+    "source_url": "https://www.sistani.org/english/book/48/1742/",
+    "tags": ["insurance", "compensation"]
+  },
+  {
+    "id": "khums_025",
+    "topic": "Khums",
+    "question": "Can khums be given to non-Sayyids?",
+    "answer": "Sahm al-Sadat may only be given to eligible Sayyids.\n\nSahm al-Imam is distributed according to marjaʿ guidance.",
+    "source_url": "https://www.sistani.org/english/book/48/1735/",
+    "tags": ["eligibility", "recipients"]
+  },
+
+  {
+    "id": "khums_026",
+    "topic": "Khums",
+    "question": "Can khums be paid through an agent?",
+    "answer": "Yes, khums may be paid through an authorized agent of the marjaʿ.\n\nThe agent must be trustworthy.",
+    "source_url": "https://www.sistani.org/english/book/48/1743/",
+    "tags": ["agent", "representation"]
+  },
+  {
+    "id": "khums_027",
+    "topic": "Khums",
+    "question": "Is khums obligatory on lottery winnings?",
+    "answer": "If lottery winnings are lawful and surplus remains at year end, khums is obligatory.\n\nUnlawful winnings must be disposed of differently.",
+    "source_url": "https://www.sistani.org/english/book/48/1744/",
+    "tags": ["lottery", "winnings"]
+  },
+  {
+    "id": "khums_028",
+    "topic": "Khums",
+    "question": "Is khums obligatory on interest income?",
+    "answer": "Interest income is unlawful.\n\nSuch wealth must not be used and requires specific religious disposal, not khums.",
+    "source_url": "https://www.sistani.org/english/book/48/1745/",
+    "tags": ["interest", "haram"]
+  },
+  {
+    "id": "khums_029",
+    "topic": "Khums",
+    "question": "Is khums obligatory on stolen property?",
+    "answer": "Stolen property must be returned to its owner.\n\nKhums does not apply to unlawfully acquired wealth.",
+    "source_url": "https://www.sistani.org/english/book/48/1746/",
+    "tags": ["stolen", "unlawful"]
+  },
+  {
+    "id": "khums_030",
+    "topic": "Khums",
+    "question": "Can khums be used for mosque construction?",
+    "answer": "Sahm al-Imam may be used for religious causes with marjaʿ permission.\n\nSahm al-Sadat cannot be used for mosque construction.",
+    "source_url": "https://www.sistani.org/english/book/48/1734/",
+    "tags": ["mosque", "usage"]
+  },
+
+  {
+    "id": "khums_031",
+    "topic": "Khums",
+    "question": "Is khums obligatory on tools of trade?",
+    "answer": "Khums is not obligatory on tools used for earning a livelihood.\n\nExcess or unused tools may be subject to khums.",
+    "source_url": "https://www.sistani.org/english/book/48/1727/",
+    "tags": ["tools", "exemption"]
+  },
+  {
+    "id": "khums_032",
+    "topic": "Khums",
+    "question": "Is khums obligatory on savings for marriage?",
+    "answer": "Savings set aside for marriage are exempt if used within a reasonable time.\n\nIf unused beyond that, khums applies.",
+    "source_url": "https://www.sistani.org/english/book/48/1721/",
+    "tags": ["marriage", "savings"]
+  },
+  {
+    "id": "khums_033",
+    "topic": "Khums",
+    "question": "Is khums obligatory on educational savings?",
+    "answer": "Educational savings used for necessary education are exempt.\n\nUnused surplus at year end is subject to khums.",
+    "source_url": "https://www.sistani.org/english/book/48/1721/",
+    "tags": ["education", "savings"]
+  },
+  {
+    "id": "khums_034",
+    "topic": "Khums",
+    "question": "Can khums be given anonymously?",
+    "answer": "Yes, khums may be given anonymously.\n\nSincerity and intention are what matter most.",
+    "source_url": "https://www.sistani.org/english/book/48/1738/",
+    "tags": ["anonymity", "intention"]
+  },
+  {
+    "id": "khums_035",
+    "topic": "Khums",
+    "question": "Does inflation affect khums calculation?",
+    "answer": "Khums is calculated on actual surplus wealth.\n\nInflation does not remove the obligation if surplus exists.",
+    "source_url": "https://www.sistani.org/english/book/48/1721/",
+    "tags": ["inflation", "calculation"]
+  },
+
+  {
+    "id": "khums_036",
+    "topic": "Khums",
+    "question": "Is khums obligatory on cryptocurrency?",
+    "answer": "If cryptocurrency is lawfully owned and considered surplus at year end, khums is obligatory.\n\nIts value is calculated at the time of payment.",
+    "source_url": "https://www.sistani.org/english/book/48/1721/",
+    "tags": ["cryptocurrency", "digital_assets"]
+  },
+  {
+    "id": "khums_037",
+    "topic": "Khums",
+    "question": "Is khums obligatory on stocks and investments?",
+    "answer": "Khums is obligatory on profits from stocks and investments if surplus remains at year end.\n\nThe principal used for living needs may be exempt.",
+    "source_url": "https://www.sistani.org/english/book/48/1726/",
+    "tags": ["stocks", "investments"]
+  },
+  {
+    "id": "khums_038",
+    "topic": "Khums",
+    "question": "Can khums be paid in installments?",
+    "answer": "Yes, khums may be paid in installments with permission if immediate payment causes hardship.\n\nThe obligation remains until fully paid.",
+    "source_url": "https://www.sistani.org/english/book/48/1737/",
+    "tags": ["installments", "hardship"]
+  },
+  {
+    "id": "khums_039",
+    "topic": "Khums",
+    "question": "What happens if someone dies owing khums?",
+    "answer": "Outstanding khums must be paid from the estate before inheritance distribution.\n\nIt takes priority over heirs’ shares.",
+    "source_url": "https://www.sistani.org/english/book/48/1747/",
+    "tags": ["death", "estate"]
+  },
+  {
+    "id": "khums_040",
+    "topic": "Khums",
+    "question": "What is the difference between khums and zakat?",
+    "answer": "Khums applies mainly to surplus income and certain items, while zakat applies to specific assets.\n\nBoth are obligatory but governed by different rules.",
+    "source_url": "https://www.sistani.org/english/book/48/1685/",
+    "tags": ["khums_vs_zakat", "comparison"]
   }
 ]
