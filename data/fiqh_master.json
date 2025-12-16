@@ -5544,5 +5544,3230 @@
     "answer": "Hajj is complete after all obligatory rites are fulfilled, including Tawaf al-Nisa and its prayer.",
     "source_url": "https://www.sistani.org/english/book/47/2124/",
     "tags": ["completion", "hajj"]
+  },
+    {
+    "id": "hijab_001",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab obligatory for women in Islam?",
+    "answer": "Yes, hijab is obligatory for adult Muslim women.\n\nThey must cover their entire body except the face and hands, provided there is no intention of attraction or fear of falling into sin.",
+    "source_url": "https://www.sistani.org/english/book/46/2072/",
+    "tags": ["hijab", "obligation"]
+  },
+  {
+    "id": "hijab_002",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "At what age does hijab become obligatory?",
+    "answer": "Hijab becomes obligatory when a girl reaches the age of religious maturity (bulugh), which is typically upon completing nine lunar years or earlier signs of maturity.",
+    "source_url": "https://www.sistani.org/english/book/46/2073/",
+    "tags": ["bulugh", "maturity"]
+  },
+  {
+    "id": "hijab_003",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is covering the face obligatory for women?",
+    "answer": "Covering the face is not obligatory unless there is fear of temptation or attracting unlawful attention, in which case covering becomes obligatory.",
+    "source_url": "https://www.sistani.org/english/book/46/2074/",
+    "tags": ["niqab", "face"]
+  },
+  {
+    "id": "hijab_004",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Are hands and feet part of the obligatory hijab?",
+    "answer": "The hands up to the wrists are excluded from obligatory covering.\n\nFeet should be covered according to obligatory precaution when in the presence of non-mahram men.",
+    "source_url": "https://www.sistani.org/english/book/46/2075/",
+    "tags": ["hands", "feet"]
+  },
+  {
+    "id": "hijab_005",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Must clothing be loose to fulfill hijab?",
+    "answer": "Yes, clothing must not reveal the shape of the body in a way that attracts attention.\n\nTight clothing that outlines the body does not fulfill the purpose of hijab.",
+    "source_url": "https://www.sistani.org/english/book/46/2076/",
+    "tags": ["clothing", "modesty"]
+  },
+
+  {
+    "id": "hijab_006",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab obligatory in front of non-Muslim men?",
+    "answer": "Yes, hijab is obligatory in front of any non-mahram man, regardless of his religion.",
+    "source_url": "https://www.sistani.org/english/book/46/2077/",
+    "tags": ["non_mahram", "interfaith"]
+  },
+  {
+    "id": "hijab_007",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab required in front of close male relatives?",
+    "answer": "Hijab is not required in front of mahram relatives such as father, brother, son, or paternal and maternal uncles.",
+    "source_url": "https://www.sistani.org/english/book/46/2078/",
+    "tags": ["mahram", "family"]
+  },
+  {
+    "id": "hijab_008",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is modest dress obligatory for men?",
+    "answer": "Yes, men must cover from the navel to the knees at minimum and avoid clothing that is revealing or promotes indecency.",
+    "source_url": "https://www.sistani.org/english/book/46/2079/",
+    "tags": ["men", "modesty"]
+  },
+  {
+    "id": "hijab_009",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible for men to wear clothing that resembles women’s dress?",
+    "answer": "It is prohibited for men to wear clothing that is customarily considered women’s attire, and vice versa.",
+    "source_url": "https://www.sistani.org/english/book/46/2080/",
+    "tags": ["gender_distinction", "clothing"]
+  },
+  {
+    "id": "hijab_010",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is wearing perfume allowed for women in public?",
+    "answer": "If perfume attracts non-mahram men or leads to temptation, it is prohibited.\n\nIf no such effect exists, it is permissible.",
+    "source_url": "https://www.sistani.org/english/book/46/2081/",
+    "tags": ["perfume", "attraction"]
+  },
+
+  {
+    "id": "hijab_011",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is free mixing of men and women permissible?",
+    "answer": "Unrestricted mixing that leads to temptation, inappropriate interaction, or moral corruption is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2082/",
+    "tags": ["mixing", "interaction"]
+  },
+  {
+    "id": "hijab_012",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Can men and women speak to each other when necessary?",
+    "answer": "Permissible interaction is allowed when necessary, provided speech is respectful, limited, and free from flirtation.",
+    "source_url": "https://www.sistani.org/english/book/46/2083/",
+    "tags": ["speech", "necessity"]
+  },
+  {
+    "id": "hijab_013",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is shaking hands with the opposite gender allowed?",
+    "answer": "Physical contact with non-mahram members of the opposite gender is prohibited, including handshakes.",
+    "source_url": "https://www.sistani.org/english/book/46/2084/",
+    "tags": ["handshake", "contact"]
+  },
+  {
+    "id": "hijab_014",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is eye contact with non-mahram permissible?",
+    "answer": "Brief, non-deliberate eye contact is permissible.\n\nProlonged or lustful looking is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2085/",
+    "tags": ["gaze", "lowering_gaze"]
+  },
+  {
+    "id": "hijab_015",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is lowering the gaze obligatory for men and women?",
+    "answer": "Yes, both men and women are obligated to lower their gaze from non-mahram individuals when there is fear of temptation.",
+    "source_url": "https://www.sistani.org/english/book/46/2086/",
+    "tags": ["gaze", "obligation"]
+  },
+
+  {
+    "id": "hijab_016",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible to be alone with a non-mahram?",
+    "answer": "Being alone (khalwah) with a non-mahram is prohibited if it creates the possibility of sin.",
+    "source_url": "https://www.sistani.org/english/book/46/2087/",
+    "tags": ["khalwah", "privacy"]
+  },
+  {
+    "id": "hijab_017",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab required during online video calls?",
+    "answer": "If a non-mahram can see the woman in real time, hijab rules apply just as they would in physical presence.",
+    "source_url": "https://www.sistani.org/english/book/46/2088/",
+    "tags": ["online", "video"]
+  },
+  {
+    "id": "hijab_018",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Are photos and videos subject to hijab rules?",
+    "answer": "If images are shared with non-mahram men and could cause temptation, hijab observance is required.",
+    "source_url": "https://www.sistani.org/english/book/46/2089/",
+    "tags": ["photos", "media"]
+  },
+  {
+    "id": "hijab_019",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible for women to beautify themselves in public?",
+    "answer": "Beautification intended to attract non-mahram men is prohibited.\n\nNeutral grooming without attraction is permissible.",
+    "source_url": "https://www.sistani.org/english/book/46/2090/",
+    "tags": ["beautification", "zina"]
+  },
+  {
+    "id": "hijab_020",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible to remove hijab in front of elderly men?",
+    "answer": "If the man is non-mahram, hijab remains obligatory regardless of age unless there is certainty of no temptation.",
+    "source_url": "https://www.sistani.org/english/book/46/2091/",
+    "tags": ["elderly", "non_mahram"]
+  },
+
+  {
+    "id": "hijab_021",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible to study or work in mixed environments?",
+    "answer": "It is permissible if hijab is observed, interactions remain professional, and there is no fear of falling into sin.",
+    "source_url": "https://www.sistani.org/english/book/46/2092/",
+    "tags": ["workplace", "education"]
+  },
+  {
+    "id": "hijab_022",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Are women allowed to speak softly or jokingly with non-mahram men?",
+    "answer": "Speech that is soft, flirtatious, or joking in a suggestive manner is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2093/",
+    "tags": ["speech", "flirtation"]
+  },
+  {
+    "id": "hijab_023",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is wearing makeup permissible outside the home?",
+    "answer": "Makeup that draws attention from non-mahram men is prohibited.\n\nMinimal or non-attractive use may be permissible.",
+    "source_url": "https://www.sistani.org/english/book/46/2094/",
+    "tags": ["makeup", "attraction"]
+  },
+  {
+    "id": "hijab_024",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab required in front of young boys?",
+    "answer": "Hijab is not required in front of boys who have not reached an age of discernment or sexual awareness.",
+    "source_url": "https://www.sistani.org/english/book/46/2095/",
+    "tags": ["children", "boys"]
+  },
+  {
+    "id": "hijab_025",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab obligatory during prayer for women?",
+    "answer": "Yes, women must observe hijab during prayer, even if praying alone and unseen by others.",
+    "source_url": "https://www.sistani.org/english/book/46/2096/",
+    "tags": ["prayer", "hijab"]
+  },
+
+  {
+    "id": "hijab_026",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible for women to remove hijab in women-only gatherings?",
+    "answer": "Yes, hijab is not required in gatherings exclusively attended by women, provided no non-mahram men are present.",
+    "source_url": "https://www.sistani.org/english/book/46/2097/",
+    "tags": ["women_only", "gatherings"]
+  },
+  {
+    "id": "hijab_027",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab required in front of non-Muslim women?",
+    "answer": "Hijab is not obligatory in front of non-Muslim women unless there is fear they will describe the woman to non-mahram men.",
+    "source_url": "https://www.sistani.org/english/book/46/2098/",
+    "tags": ["non_muslim_women", "description"]
+  },
+  {
+    "id": "hijab_028",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible for women to participate in sports publicly?",
+    "answer": "Participation is permissible if hijab is observed and no prohibited exposure or interaction occurs.",
+    "source_url": "https://www.sistani.org/english/book/46/2099/",
+    "tags": ["sports", "public"]
+  },
+  {
+    "id": "hijab_029",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is modesty obligatory beyond clothing?",
+    "answer": "Yes, modesty includes behavior, speech, movement, and intention, not clothing alone.",
+    "source_url": "https://www.sistani.org/english/book/46/2100/",
+    "tags": ["modesty", "behavior"]
+  },
+  {
+    "id": "hijab_030",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is imitation of immodest cultural norms permissible?",
+    "answer": "Imitating customs that promote immorality or contradict Islamic modesty is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2101/",
+    "tags": ["culture", "imitation"]
+  },
+
+  {
+    "id": "hijab_031",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible to post personal photos on social media?",
+    "answer": "If photos expose awrah or attract non-mahram attention, posting them is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2102/",
+    "tags": ["social_media", "photos"]
+  },
+  {
+    "id": "hijab_032",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is voice considered awrah for women?",
+    "answer": "A woman’s voice is not awrah, but speaking in a manner that attracts attention is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2103/",
+    "tags": ["voice", "speech"]
+  },
+  {
+    "id": "hijab_033",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab required in front of step-relatives?",
+    "answer": "Hijab is required unless the relationship qualifies as mahram through marriage or breastfeeding.",
+    "source_url": "https://www.sistani.org/english/book/46/2104/",
+    "tags": ["step_family", "mahram"]
+  },
+  {
+    "id": "hijab_034",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is joking between genders allowed?",
+    "answer": "Joking that involves flirtation, intimacy, or leads to temptation is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2105/",
+    "tags": ["joking", "interaction"]
+  },
+  {
+    "id": "hijab_035",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is modesty obligatory within marriage?",
+    "answer": "While spouses may relax hijab rules, modesty in behavior and mutual respect remains recommended.",
+    "source_url": "https://www.sistani.org/english/book/46/2106/",
+    "tags": ["marriage", "modesty"]
+  },
+
+  {
+    "id": "hijab_036",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is it permissible to intentionally attract attention through dress?",
+    "answer": "Intentionally attracting attention through dress or behavior is prohibited for both men and women.",
+    "source_url": "https://www.sistani.org/english/book/46/2107/",
+    "tags": ["attraction", "intention"]
+  },
+  {
+    "id": "hijab_037",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is hijab obligatory for elderly women?",
+    "answer": "Hijab remains obligatory unless the woman reaches an age where attraction is no longer present, subject to conditions.",
+    "source_url": "https://www.sistani.org/english/book/46/2108/",
+    "tags": ["elderly_women", "hijab"]
+  },
+  {
+    "id": "hijab_038",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is wearing transparent clothing permissible?",
+    "answer": "Transparent clothing that reveals skin or body shape does not fulfill hijab requirements and is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/2109/",
+    "tags": ["transparent", "clothing"]
+  },
+  {
+    "id": "hijab_039",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "Is modesty considered an act of worship?",
+    "answer": "Yes, observing modesty with intention of obedience is an act of worship and obedience to Allah.",
+    "source_url": "https://www.sistani.org/english/book/46/2110/",
+    "tags": ["worship", "modesty"]
+  },
+  {
+    "id": "hijab_040",
+    "topic": "Hijab, Modesty & Gender Interaction",
+    "question": "What is the overall objective of hijab and modesty laws?",
+    "answer": "The objective is to preserve dignity, protect society from moral harm, and promote purity, respect, and spiritual well-being.",
+    "source_url": "https://www.sistani.org/english/book/46/2111/",
+    "tags": ["objectives", "sharia"]
+  },
+    {
+    "id": "judiciary_001",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is establishing justice an obligation in Islam?",
+    "answer": "Yes, establishing justice is a fundamental obligation in Islam and one of the core objectives of Islamic law.\n\nJudges, witnesses, and all participants in legal matters must act with fairness, honesty, and impartiality.",
+    "source_url": "https://www.sistani.org/english/book/48/2401/",
+    "tags": ["justice", "obligation"]
+  },
+  {
+    "id": "judiciary_002",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Who is qualified to serve as an Islamic judge (qadi)?",
+    "answer": "A qualified judge must be a just, knowledgeable jurist (mujtahid or appointed by one), mentally sound, and free from major sins.\n\nJudgment by unqualified individuals is invalid.",
+    "source_url": "https://www.sistani.org/english/book/48/2402/",
+    "tags": ["judge", "qualification"]
+  },
+  {
+    "id": "judiciary_003",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is it permissible to seek judgment from a non-Islamic court?",
+    "answer": "If access to an Islamic court is not available, it is permissible to seek one's rightful claim through non-Islamic courts, provided no injustice or falsehood is involved.",
+    "source_url": "https://www.sistani.org/english/book/48/2403/",
+    "tags": ["courts", "necessity"]
+  },
+  {
+    "id": "judiciary_004",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is accepting a judicial position for personal gain allowed?",
+    "answer": "Accepting judicial authority for wealth, status, or personal benefit is prohibited.\n\nJudgment must be exercised solely for establishing truth and justice.",
+    "source_url": "https://www.sistani.org/english/book/48/2404/",
+    "tags": ["corruption", "authority"]
+  },
+  {
+    "id": "judiciary_005",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Must a judge treat both parties equally?",
+    "answer": "Yes, a judge must treat all parties equally in speech, attention, seating, and demeanor to avoid bias or perceived injustice.",
+    "source_url": "https://www.sistani.org/english/book/48/2405/",
+    "tags": ["equality", "impartiality"]
+  },
+
+  {
+    "id": "judiciary_006",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is judging while angry or emotionally distressed permissible?",
+    "answer": "Judging while angry, extremely tired, hungry, or emotionally disturbed is prohibited because it compromises fairness and clarity of judgment.",
+    "source_url": "https://www.sistani.org/english/book/48/2406/",
+    "tags": ["anger", "judgment"]
+  },
+  {
+    "id": "judiciary_007",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is testimony considered a religious duty?",
+    "answer": "Yes, giving truthful testimony when called upon is a religious obligation.\n\nConcealing testimony without valid excuse is sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2407/",
+    "tags": ["testimony", "duty"]
+  },
+  {
+    "id": "judiciary_008",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Who is eligible to give legal testimony?",
+    "answer": "A witness must be sane, mature, just, truthful, and free from major sins.\n\nTestimony from unreliable or openly sinful individuals is invalid.",
+    "source_url": "https://www.sistani.org/english/book/48/2408/",
+    "tags": ["witness", "eligibility"]
+  },
+  {
+    "id": "judiciary_009",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is false testimony considered a major sin?",
+    "answer": "Yes, bearing false witness is among the major sins and leads to severe punishment in this life and the hereafter.",
+    "source_url": "https://www.sistani.org/english/book/48/2409/",
+    "tags": ["false_testimony", "major_sin"]
+  },
+  {
+    "id": "judiciary_010",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Can testimony be given based on suspicion or assumption?",
+    "answer": "Testimony must be based on certainty and direct knowledge.\n\nTestifying based on suspicion, assumption, or hearsay is invalid and sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2410/",
+    "tags": ["certainty", "evidence"]
+  },
+
+  {
+    "id": "judiciary_011",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is testimony from close relatives acceptable?",
+    "answer": "Testimony from close relatives is generally not accepted in cases where bias is expected, particularly when testifying in their favor.",
+    "source_url": "https://www.sistani.org/english/book/48/2411/",
+    "tags": ["relatives", "bias"]
+  },
+  {
+    "id": "judiciary_012",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Can women give testimony in Islamic law?",
+    "answer": "Yes, women may give testimony. However, in certain legal matters, two women may be required in place of one man depending on the case type.",
+    "source_url": "https://www.sistani.org/english/book/48/2412/",
+    "tags": ["women", "testimony"]
+  },
+  {
+    "id": "judiciary_013",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is testimony accepted in financial transactions?",
+    "answer": "Yes, testimony is valid in financial cases when given by qualified witnesses according to Islamic evidentiary rules.",
+    "source_url": "https://www.sistani.org/english/book/48/2413/",
+    "tags": ["finance", "contracts"]
+  },
+  {
+    "id": "judiciary_014",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is concealing evidence considered sinful?",
+    "answer": "Yes, concealing evidence that leads to injustice is sinful and prohibited, especially if it results in harm to others.",
+    "source_url": "https://www.sistani.org/english/book/48/2414/",
+    "tags": ["evidence", "concealment"]
+  },
+  {
+    "id": "judiciary_015",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is bribery in judicial matters permissible?",
+    "answer": "Bribery is strictly prohibited for both the giver and receiver, especially in judicial matters, as it corrupts justice.",
+    "source_url": "https://www.sistani.org/english/book/48/2415/",
+    "tags": ["bribery", "corruption"]
+  },
+
+  {
+    "id": "judiciary_016",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "What is the ruling on taking an oath in Islam?",
+    "answer": "Taking an oath using the name of Allah is serious and must only be done truthfully and when necessary.",
+    "source_url": "https://www.sistani.org/english/book/48/2416/",
+    "tags": ["oath", "truthfulness"]
+  },
+  {
+    "id": "judiciary_017",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is it permissible to swear falsely?",
+    "answer": "False oaths are a major sin and invalidate legal claims.\n\nThey bring severe spiritual consequences.",
+    "source_url": "https://www.sistani.org/english/book/48/2417/",
+    "tags": ["false_oath", "major_sin"]
+  },
+  {
+    "id": "judiciary_018",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Can an oath replace testimony?",
+    "answer": "In some cases, a legally valid oath may be accepted when testimony is unavailable, subject to judicial discretion.",
+    "source_url": "https://www.sistani.org/english/book/48/2418/",
+    "tags": ["oath", "evidence"]
+  },
+  {
+    "id": "judiciary_019",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is swearing by anything other than Allah valid?",
+    "answer": "Oaths must be sworn by Allah or His attributes. Swearing by other entities is invalid and discouraged.",
+    "source_url": "https://www.sistani.org/english/book/48/2419/",
+    "tags": ["swearing", "Allah"]
+  },
+  {
+    "id": "judiciary_020",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is breaking a valid oath sinful?",
+    "answer": "Yes, breaking a valid oath is sinful and requires expiation (kaffarah) depending on the circumstances.",
+    "source_url": "https://www.sistani.org/english/book/48/2420/",
+    "tags": ["kaffarah", "oath"]
+  },
+
+  {
+    "id": "judiciary_021",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "What is the expiation for breaking an oath?",
+    "answer": "Expiation includes feeding ten poor people, clothing them, or freeing a slave. If unable, fasting three days is required.",
+    "source_url": "https://www.sistani.org/english/book/48/2421/",
+    "tags": ["expiation", "kaffarah"]
+  },
+  {
+    "id": "judiciary_022",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is it permissible to take an oath under compulsion?",
+    "answer": "An oath taken under coercion does not carry legal or religious consequence.",
+    "source_url": "https://www.sistani.org/english/book/48/2422/",
+    "tags": ["coercion", "oath"]
+  },
+  {
+    "id": "judiciary_023",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is retracting testimony allowed?",
+    "answer": "If testimony was given mistakenly or falsely, retracting it is obligatory to prevent injustice.",
+    "source_url": "https://www.sistani.org/english/book/48/2423/",
+    "tags": ["retraction", "testimony"]
+  },
+  {
+    "id": "judiciary_024",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is it permissible to testify against oneself?",
+    "answer": "A person may testify against themselves truthfully if it establishes justice and rights of others.",
+    "source_url": "https://www.sistani.org/english/book/48/2424/",
+    "tags": ["self_testimony", "truth"]
+  },
+  {
+    "id": "judiciary_025",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Can testimony be accepted in digital or written form?",
+    "answer": "Written or digital evidence may support a case, but formal testimony must meet Islamic evidentiary standards.",
+    "source_url": "https://www.sistani.org/english/book/48/2425/",
+    "tags": ["digital", "documents"]
+  },
+
+  {
+    "id": "judiciary_026",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is testimony from a sinner accepted?",
+    "answer": "Testimony from someone known to commit major sins openly is not accepted unless repentance is established.",
+    "source_url": "https://www.sistani.org/english/book/48/2426/",
+    "tags": ["sin", "witness"]
+  },
+  {
+    "id": "judiciary_027",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is testimony accepted in family disputes?",
+    "answer": "Yes, testimony is accepted in family disputes, provided witnesses meet the legal criteria of justice and reliability.",
+    "source_url": "https://www.sistani.org/english/book/48/2427/",
+    "tags": ["family", "disputes"]
+  },
+  {
+    "id": "judiciary_028",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is it permissible to delay giving testimony?",
+    "answer": "Unjustified delay in giving testimony that leads to harm or injustice is sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2428/",
+    "tags": ["delay", "justice"]
+  },
+  {
+    "id": "judiciary_029",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Can a judge rule based on personal knowledge?",
+    "answer": "A judge must rule based on evidence and testimony, not personal knowledge alone.",
+    "source_url": "https://www.sistani.org/english/book/48/2429/",
+    "tags": ["evidence", "judgment"]
+  },
+  {
+    "id": "judiciary_030",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is judicial secrecy obligatory?",
+    "answer": "Confidentiality must be maintained when disclosure would lead to harm or injustice.",
+    "source_url": "https://www.sistani.org/english/book/48/2430/",
+    "tags": ["confidentiality", "ethics"]
+  },
+
+  {
+    "id": "judiciary_031",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is mediation preferred over litigation?",
+    "answer": "Peaceful reconciliation is encouraged when possible, provided it does not compromise justice or rights.",
+    "source_url": "https://www.sistani.org/english/book/48/2431/",
+    "tags": ["mediation", "reconciliation"]
+  },
+  {
+    "id": "judiciary_032",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is revenge permitted through the legal system?",
+    "answer": "Legal claims must seek justice, not revenge or personal vendetta.",
+    "source_url": "https://www.sistani.org/english/book/48/2432/",
+    "tags": ["revenge", "justice"]
+  },
+  {
+    "id": "judiciary_033",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is deception allowed to win a legal case?",
+    "answer": "Any form of deception in legal proceedings is prohibited and invalidates claims.",
+    "source_url": "https://www.sistani.org/english/book/48/2433/",
+    "tags": ["deception", "falsehood"]
+  },
+  {
+    "id": "judiciary_034",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is accepting gifts related to legal cases allowed?",
+    "answer": "Accepting gifts connected to legal influence is prohibited and considered bribery.",
+    "source_url": "https://www.sistani.org/english/book/48/2434/",
+    "tags": ["gifts", "bribery"]
+  },
+  {
+    "id": "judiciary_035",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is justice valid if the outcome benefits a wrongdoer?",
+    "answer": "True justice is determined by adherence to law and truth, not by who benefits from the outcome.",
+    "source_url": "https://www.sistani.org/english/book/48/2435/",
+    "tags": ["justice", "outcome"]
+  },
+
+  {
+    "id": "judiciary_036",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is it permissible to testify in non-Muslim courts?",
+    "answer": "Testifying truthfully in non-Muslim courts is permissible when it prevents injustice or upholds rights.",
+    "source_url": "https://www.sistani.org/english/book/48/2436/",
+    "tags": ["non_muslim_courts", "testimony"]
+  },
+  {
+    "id": "judiciary_037",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is silence allowed when testimony would cause personal harm?",
+    "answer": "Silence may be allowed when testimony would result in severe personal harm and no greater injustice occurs.",
+    "source_url": "https://www.sistani.org/english/book/48/2437/",
+    "tags": ["harm", "silence"]
+  },
+  {
+    "id": "judiciary_038",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is the intention behind testimony important?",
+    "answer": "Yes, testimony must be given sincerely for the sake of truth and justice, not personal motives.",
+    "source_url": "https://www.sistani.org/english/book/48/2438/",
+    "tags": ["intention", "sincerity"]
+  },
+  {
+    "id": "judiciary_039",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "Is misuse of legal loopholes permissible?",
+    "answer": "Exploiting legal loopholes to achieve injustice is prohibited even if technically legal.",
+    "source_url": "https://www.sistani.org/english/book/48/2439/",
+    "tags": ["loopholes", "ethics"]
+  },
+  {
+    "id": "judiciary_040",
+    "topic": "Judiciary, Testimony & Oaths",
+    "question": "What is the ultimate goal of Islamic judiciary?",
+    "answer": "The ultimate goal is to establish truth, uphold justice, protect rights, and prevent oppression in society.",
+    "source_url": "https://www.sistani.org/english/book/48/2440/",
+    "tags": ["objectives", "judiciary"]
+  },
+    {
+    "id": "ethics_001",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is good character considered an obligation in Islam?",
+    "answer": "Yes, possessing good character is a fundamental obligation in Islam and an essential aspect of faith.\n\nActs such as honesty, patience, humility, and kindness are religious duties, not optional virtues.",
+    "source_url": "https://www.sistani.org/english/book/48/2501/",
+    "tags": ["character", "obligation"]
+  },
+  {
+    "id": "ethics_002",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "What is the ruling on lying?",
+    "answer": "Lying is prohibited and considered a major sin in most circumstances.\n\nOnly in rare cases, such as reconciling people or preventing serious harm, may limited untruth be tolerated.",
+    "source_url": "https://www.sistani.org/english/book/48/2502/",
+    "tags": ["lying", "truthfulness"]
+  },
+  {
+    "id": "ethics_003",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is backbiting (ghibah) permissible?",
+    "answer": "Backbiting is prohibited and constitutes a major sin.\n\nIt involves mentioning something true about a person that they would dislike being said in their absence.",
+    "source_url": "https://www.sistani.org/english/book/48/2503/",
+    "tags": ["backbiting", "major_sin"]
+  },
+  {
+    "id": "ethics_004",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is slander (buhtan) worse than backbiting?",
+    "answer": "Yes, slander—attributing false statements or actions to others—is worse than backbiting and is a grave sin.",
+    "source_url": "https://www.sistani.org/english/book/48/2504/",
+    "tags": ["slander", "falsehood"]
+  },
+  {
+    "id": "ethics_005",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is arrogance considered sinful?",
+    "answer": "Yes, arrogance is sinful and spiritually destructive.\n\nIt involves considering oneself superior to others and rejecting truth due to pride.",
+    "source_url": "https://www.sistani.org/english/book/48/2505/",
+    "tags": ["arrogance", "pride"]
+  },
+
+  {
+    "id": "ethics_006",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "What is the ruling on humility?",
+    "answer": "Humility is highly encouraged and beloved by Allah.\n\nIt involves recognizing one's dependence on Allah and treating others with respect.",
+    "source_url": "https://www.sistani.org/english/book/48/2506/",
+    "tags": ["humility", "virtue"]
+  },
+  {
+    "id": "ethics_007",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is patience (sabr) obligatory?",
+    "answer": "Patience is obligatory in avoiding sin and fulfilling obligations.\n\nIt is also strongly recommended in hardships and trials.",
+    "source_url": "https://www.sistani.org/english/book/48/2507/",
+    "tags": ["patience", "hardship"]
+  },
+  {
+    "id": "ethics_008",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is anger itself sinful?",
+    "answer": "Anger itself is not sinful, but acting unjustly or sinfully due to anger is prohibited.\n\nControlling anger is strongly encouraged.",
+    "source_url": "https://www.sistani.org/english/book/48/2508/",
+    "tags": ["anger", "self_control"]
+  },
+  {
+    "id": "ethics_009",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is forgiving others encouraged in Islam?",
+    "answer": "Yes, forgiveness is highly encouraged, especially when one has the ability to retaliate.\n\nHowever, forgiveness must not enable injustice.",
+    "source_url": "https://www.sistani.org/english/book/48/2509/",
+    "tags": ["forgiveness", "mercy"]
+  },
+  {
+    "id": "ethics_010",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is holding grudges permissible?",
+    "answer": "Persistently holding grudges without justification is discouraged and spiritually harmful.\n\nReconciliation is preferred when possible.",
+    "source_url": "https://www.sistani.org/english/book/48/2510/",
+    "tags": ["grudges", "reconciliation"]
+  },
+
+  {
+    "id": "ethics_011",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is jealousy (hasad) sinful?",
+    "answer": "Jealousy that wishes harm or loss of blessings for others is sinful.\n\nFeeling envy without acting upon it is discouraged but not sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2511/",
+    "tags": ["jealousy", "envy"]
+  },
+  {
+    "id": "ethics_012",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is suspicion of others allowed?",
+    "answer": "Negative suspicion without evidence is prohibited, especially towards fellow believers.",
+    "source_url": "https://www.sistani.org/english/book/48/2512/",
+    "tags": ["suspicion", "assumptions"]
+  },
+  {
+    "id": "ethics_013",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is mockery or ridicule permissible?",
+    "answer": "Mocking or ridiculing others is prohibited, as it humiliates and harms their dignity.",
+    "source_url": "https://www.sistani.org/english/book/48/2513/",
+    "tags": ["mockery", "respect"]
+  },
+  {
+    "id": "ethics_014",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is spreading rumors sinful?",
+    "answer": "Yes, spreading rumors—especially unverified ones—is sinful and can cause significant harm to individuals and society.",
+    "source_url": "https://www.sistani.org/english/book/48/2514/",
+    "tags": ["rumors", "harm"]
+  },
+  {
+    "id": "ethics_015",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is honesty required even when harmful?",
+    "answer": "Honesty is generally obligatory, but in rare cases where truth causes serious harm, discretion may be exercised according to Islamic principles.",
+    "source_url": "https://www.sistani.org/english/book/48/2515/",
+    "tags": ["honesty", "harm"]
+  },
+
+  {
+    "id": "ethics_016",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is fulfilling promises obligatory?",
+    "answer": "Yes, fulfilling promises and commitments is obligatory.\n\nBreaking promises without valid excuse is sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2516/",
+    "tags": ["promises", "trust"]
+  },
+  {
+    "id": "ethics_017",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is betrayal (khiyanah) prohibited?",
+    "answer": "Yes, betrayal of trust is prohibited and considered a major sin.",
+    "source_url": "https://www.sistani.org/english/book/48/2517/",
+    "tags": ["betrayal", "trust"]
+  },
+  {
+    "id": "ethics_018",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is kindness to non-Muslims encouraged?",
+    "answer": "Yes, kindness, fairness, and good conduct toward non-Muslims is encouraged as long as it does not support injustice.",
+    "source_url": "https://www.sistani.org/english/book/48/2518/",
+    "tags": ["non_muslims", "kindness"]
+  },
+  {
+    "id": "ethics_019",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is maintaining family ties obligatory?",
+    "answer": "Maintaining family ties is obligatory, and severing them without justification is sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2519/",
+    "tags": ["family", "relations"]
+  },
+  {
+    "id": "ethics_020",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is cutting off relatives allowed due to disputes?",
+    "answer": "Cutting off relatives is not permitted due to disputes alone.\n\nEfforts toward reconciliation must be made.",
+    "source_url": "https://www.sistani.org/english/book/48/2520/",
+    "tags": ["relatives", "conflict"]
+  },
+
+  {
+    "id": "ethics_021",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is respecting elders obligatory?",
+    "answer": "Respecting elders is strongly emphasized and considered part of Islamic etiquette and morality.",
+    "source_url": "https://www.sistani.org/english/book/48/2521/",
+    "tags": ["elders", "respect"]
+  },
+  {
+    "id": "ethics_022",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is kindness to children emphasized?",
+    "answer": "Yes, kindness, compassion, and fairness toward children are emphasized and rewarded in Islam.",
+    "source_url": "https://www.sistani.org/english/book/48/2522/",
+    "tags": ["children", "compassion"]
+  },
+  {
+    "id": "ethics_023",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is modest speech required?",
+    "answer": "Yes, modesty in speech is required.\n\nHarsh, vulgar, or offensive language is discouraged or prohibited depending on context.",
+    "source_url": "https://www.sistani.org/english/book/48/2523/",
+    "tags": ["speech", "modesty"]
+  },
+  {
+    "id": "ethics_024",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is excessive joking discouraged?",
+    "answer": "Yes, excessive joking that leads to loss of dignity, lies, or harm is discouraged.",
+    "source_url": "https://www.sistani.org/english/book/48/2524/",
+    "tags": ["joking", "dignity"]
+  },
+  {
+    "id": "ethics_025",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is spying on others permissible?",
+    "answer": "Spying on others without justification is prohibited, as it violates privacy and dignity.",
+    "source_url": "https://www.sistani.org/english/book/48/2525/",
+    "tags": ["privacy", "spying"]
+  },
+
+  {
+    "id": "ethics_026",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is respecting privacy obligatory?",
+    "answer": "Yes, respecting the privacy of others is obligatory unless there is a legitimate reason otherwise.",
+    "source_url": "https://www.sistani.org/english/book/48/2526/",
+    "tags": ["privacy", "rights"]
+  },
+  {
+    "id": "ethics_027",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is good neighborly conduct required?",
+    "answer": "Good conduct toward neighbors is strongly emphasized regardless of their religion or background.",
+    "source_url": "https://www.sistani.org/english/book/48/2527/",
+    "tags": ["neighbors", "community"]
+  },
+  {
+    "id": "ethics_028",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is causing emotional harm sinful?",
+    "answer": "Yes, intentionally causing emotional or psychological harm to others is sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2528/",
+    "tags": ["emotional_harm", "ethics"]
+  },
+  {
+    "id": "ethics_029",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is fairness required in social dealings?",
+    "answer": "Yes, fairness and justice are required in all social dealings, not only legal matters.",
+    "source_url": "https://www.sistani.org/english/book/48/2529/",
+    "tags": ["fairness", "justice"]
+  },
+  {
+    "id": "ethics_030",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is showing gratitude obligatory?",
+    "answer": "Showing gratitude to Allah is obligatory, and expressing gratitude to people is strongly encouraged.",
+    "source_url": "https://www.sistani.org/english/book/48/2530/",
+    "tags": ["gratitude", "thankfulness"]
+  },
+
+  {
+    "id": "ethics_031",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is generosity encouraged?",
+    "answer": "Yes, generosity is highly encouraged, especially toward the needy, relatives, and guests.",
+    "source_url": "https://www.sistani.org/english/book/48/2531/",
+    "tags": ["generosity", "charity"]
+  },
+  {
+    "id": "ethics_032",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is miserliness discouraged?",
+    "answer": "Yes, miserliness is discouraged and may become sinful when it leads to neglect of obligations.",
+    "source_url": "https://www.sistani.org/english/book/48/2532/",
+    "tags": ["miserliness", "stinginess"]
+  },
+  {
+    "id": "ethics_033",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is social harmony a religious objective?",
+    "answer": "Yes, preserving social harmony and preventing discord are among the objectives of Islamic ethics.",
+    "source_url": "https://www.sistani.org/english/book/48/2533/",
+    "tags": ["harmony", "society"]
+  },
+  {
+    "id": "ethics_034",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is advising others permissible?",
+    "answer": "Advising others is encouraged when done sincerely, respectfully, and without humiliation.",
+    "source_url": "https://www.sistani.org/english/book/48/2534/",
+    "tags": ["advice", "sincerity"]
+  },
+  {
+    "id": "ethics_035",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is harsh criticism allowed?",
+    "answer": "Harsh criticism that humiliates or degrades others is prohibited.\n\nConstructive and respectful advice is preferred.",
+    "source_url": "https://www.sistani.org/english/book/48/2535/",
+    "tags": ["criticism", "respect"]
+  },
+
+  {
+    "id": "ethics_036",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is sincerity (ikhlas) required in actions?",
+    "answer": "Yes, sincerity for the sake of Allah is required for actions to be spiritually valid and rewarded.",
+    "source_url": "https://www.sistani.org/english/book/48/2536/",
+    "tags": ["sincerity", "intention"]
+  },
+  {
+    "id": "ethics_037",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is showing off (riya) sinful?",
+    "answer": "Yes, showing off in acts of worship or good deeds invalidates reward and is sinful.",
+    "source_url": "https://www.sistani.org/english/book/48/2537/",
+    "tags": ["riya", "showing_off"]
+  },
+  {
+    "id": "ethics_038",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is balance between worldly life and worship encouraged?",
+    "answer": "Yes, Islam encourages balance between worship, work, family, and social responsibilities.",
+    "source_url": "https://www.sistani.org/english/book/48/2538/",
+    "tags": ["balance", "life"]
+  },
+  {
+    "id": "ethics_039",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "Is maintaining dignity important?",
+    "answer": "Yes, preserving one's dignity and the dignity of others is a key ethical principle in Islam.",
+    "source_url": "https://www.sistani.org/english/book/48/2539/",
+    "tags": ["dignity", "self_respect"]
+  },
+  {
+    "id": "ethics_040",
+    "topic": "Ethics, Character & Social Conduct",
+    "question": "What is the foundation of Islamic social ethics?",
+    "answer": "The foundation of Islamic social ethics is God-consciousness (taqwa), justice, compassion, and respect for human dignity.",
+    "source_url": "https://www.sistani.org/english/book/48/2540/",
+    "tags": ["taqwa", "ethics"]
+  },
+    {
+    "id": "amr_001",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "What is enjoining good and forbidding evil in Islam?",
+    "answer": "Enjoining good and forbidding evil is a religious duty that involves encouraging others to perform obligatory or recommended acts and discouraging them from prohibited actions.\n\nIt aims to preserve moral order and promote righteousness in society.",
+    "source_url": "https://www.sistani.org/english/book/48/2601/",
+    "tags": ["definition", "duty"]
+  },
+  {
+    "id": "amr_002",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is enjoining good and forbidding evil obligatory?",
+    "answer": "Yes, it is obligatory when specific conditions are met.\n\nIf those conditions are not met, the obligation is lifted.",
+    "source_url": "https://www.sistani.org/english/book/48/2602/",
+    "tags": ["obligation", "conditions"]
+  },
+  {
+    "id": "amr_003",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "What are the conditions for this obligation to apply?",
+    "answer": "The main conditions include: knowledge that the act is religiously wrong, a reasonable chance of effectiveness, persistence of the wrongdoer, and absence of serious harm.\n\nIf any condition is missing, the obligation does not apply.",
+    "source_url": "https://www.sistani.org/english/book/48/2603/",
+    "tags": ["conditions", "requirements"]
+  },
+  {
+    "id": "amr_004",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is knowledge required before forbidding an action?",
+    "answer": "Yes, one must be certain that the act is prohibited or obligatory.\n\nIf there is doubt or legitimate scholarly disagreement, one must refrain.",
+    "source_url": "https://www.sistani.org/english/book/48/2604/",
+    "tags": ["knowledge", "certainty"]
+  },
+  {
+    "id": "amr_005",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Does the wrongdoer have to persist in the sin?",
+    "answer": "Yes, if the person has already stopped or intends to stop, forbidding is no longer obligatory.",
+    "source_url": "https://www.sistani.org/english/book/48/2605/",
+    "tags": ["persistence", "sin"]
+  },
+
+  {
+    "id": "amr_006",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is there a requirement that forbidding evil be effective?",
+    "answer": "Yes, there must be a reasonable probability that the action will have an effect.\n\nIf it is known to be ineffective, the obligation is lifted.",
+    "source_url": "https://www.sistani.org/english/book/48/2606/",
+    "tags": ["effectiveness", "impact"]
+  },
+  {
+    "id": "amr_007",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Does potential harm remove the obligation?",
+    "answer": "Yes, if enjoining good or forbidding evil causes serious harm to oneself or others, the obligation no longer applies.",
+    "source_url": "https://www.sistani.org/english/book/48/2607/",
+    "tags": ["harm", "safety"]
+  },
+  {
+    "id": "amr_008",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is minor discomfort considered valid harm?",
+    "answer": "No, minor discomfort or social awkwardness does not remove the obligation.\n\nOnly significant harm is considered.",
+    "source_url": "https://www.sistani.org/english/book/48/2608/",
+    "tags": ["discomfort", "harm_threshold"]
+  },
+  {
+    "id": "amr_009",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "What is the first level of forbidding evil?",
+    "answer": "The first level is expressing disapproval in one’s heart and avoiding the sinful act or environment.",
+    "source_url": "https://www.sistani.org/english/book/48/2609/",
+    "tags": ["levels", "heart"]
+  },
+  {
+    "id": "amr_010",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "What is the second level of forbidding evil?",
+    "answer": "The second level is verbal advice or warning, delivered gently and respectfully.",
+    "source_url": "https://www.sistani.org/english/book/48/2610/",
+    "tags": ["levels", "speech"]
+  },
+
+  {
+    "id": "amr_011",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "What is the third level of forbidding evil?",
+    "answer": "The third level involves practical action to stop the wrongdoing, within legal and religious limits.\n\nThis level often requires authority or permission.",
+    "source_url": "https://www.sistani.org/english/book/48/2611/",
+    "tags": ["levels", "action"]
+  },
+  {
+    "id": "amr_012",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Can physical force be used by individuals?",
+    "answer": "No, physical force is not permitted without legitimate authority and legal permission.",
+    "source_url": "https://www.sistani.org/english/book/48/2612/",
+    "tags": ["force", "authority"]
+  },
+  {
+    "id": "amr_013",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is gentleness required when advising?",
+    "answer": "Yes, gentleness and wisdom are required, especially in verbal advice.\n\nHarshness often defeats the purpose.",
+    "source_url": "https://www.sistani.org/english/book/48/2613/",
+    "tags": ["gentleness", "wisdom"]
+  },
+  {
+    "id": "amr_014",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is humiliating someone permissible?",
+    "answer": "No, humiliating or embarrassing someone while forbidding evil is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/48/2614/",
+    "tags": ["humiliation", "ethics"]
+  },
+  {
+    "id": "amr_015",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is public correction allowed?",
+    "answer": "Public correction is discouraged unless the sin is public and private advice is ineffective.",
+    "source_url": "https://www.sistani.org/english/book/48/2615/",
+    "tags": ["public", "private_advice"]
+  },
+
+  {
+    "id": "amr_016",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is it obligatory toward family members?",
+    "answer": "Yes, enjoining good and forbidding evil applies to family members under the same conditions.",
+    "source_url": "https://www.sistani.org/english/book/48/2616/",
+    "tags": ["family", "responsibility"]
+  },
+  {
+    "id": "amr_017",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Does this duty apply to non-Muslims?",
+    "answer": "It does not apply in the same way.\n\nMuslims should uphold good conduct and avoid coercion.",
+    "source_url": "https://www.sistani.org/english/book/48/2617/",
+    "tags": ["non_muslims", "conduct"]
+  },
+  {
+    "id": "amr_018",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is forbidding evil required when the person is ignorant?",
+    "answer": "If ignorance is likely, education and clarification should come before reprimand.",
+    "source_url": "https://www.sistani.org/english/book/48/2618/",
+    "tags": ["ignorance", "education"]
+  },
+  {
+    "id": "amr_019",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is intention important in this duty?",
+    "answer": "Yes, the intention must be sincere and for the sake of Allah, not personal anger or pride.",
+    "source_url": "https://www.sistani.org/english/book/48/2619/",
+    "tags": ["intention", "sincerity"]
+  },
+  {
+    "id": "amr_020",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Can this duty be performed collectively?",
+    "answer": "Yes, collective efforts through community structures can fulfill this duty more effectively.",
+    "source_url": "https://www.sistani.org/english/book/48/2620/",
+    "tags": ["community", "collective"]
+  },
+
+  {
+    "id": "amr_021",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is remaining silent about wrongdoing sinful?",
+    "answer": "Silence may be sinful if the obligation applies and one refrains without justification.",
+    "source_url": "https://www.sistani.org/english/book/48/2621/",
+    "tags": ["silence", "responsibility"]
+  },
+  {
+    "id": "amr_022",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is this duty lifted if others are fulfilling it?",
+    "answer": "Yes, it is a collective obligation (wajib kifa’i).\n\nIf enough people fulfill it, others are absolved.",
+    "source_url": "https://www.sistani.org/english/book/48/2622/",
+    "tags": ["collective_obligation", "wajib_kifai"]
+  },
+  {
+    "id": "amr_023",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Does social status affect this duty?",
+    "answer": "No, the obligation applies regardless of social status, though method may vary.",
+    "source_url": "https://www.sistani.org/english/book/48/2623/",
+    "tags": ["status", "equality"]
+  },
+  {
+    "id": "amr_024",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is advising leaders subject to conditions?",
+    "answer": "Yes, advising leaders requires caution, wisdom, and avoidance of greater harm.",
+    "source_url": "https://www.sistani.org/english/book/48/2624/",
+    "tags": ["leaders", "wisdom"]
+  },
+  {
+    "id": "amr_025",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is hypocrisy a concern in this duty?",
+    "answer": "Yes, one should strive to correct oneself before correcting others, though hypocrisy does not nullify the obligation.",
+    "source_url": "https://www.sistani.org/english/book/48/2625/",
+    "tags": ["hypocrisy", "self_reform"]
+  },
+  {
+    "id": "amr_026",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is repetition of advice required?",
+    "answer": "Repeated advice is required only if there is renewed hope of effectiveness.",
+    "source_url": "https://www.sistani.org/english/book/48/2626/",
+    "tags": ["repetition", "effectiveness"]
+  },
+  {
+    "id": "amr_027",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Can this duty be fulfilled through writing or media?",
+    "answer": "Yes, modern means such as writing or digital media may fulfill this duty if effective and ethical.",
+    "source_url": "https://www.sistani.org/english/book/48/2627/",
+    "tags": ["media", "modern_methods"]
+  },
+  {
+    "id": "amr_028",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is sarcasm allowed when advising?",
+    "answer": "No, sarcasm and mockery undermine the purpose and are discouraged or prohibited.",
+    "source_url": "https://www.sistani.org/english/book/48/2628/",
+    "tags": ["sarcasm", "respect"]
+  },
+  {
+    "id": "amr_029",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Does this duty apply in private settings?",
+    "answer": "Yes, it applies in both private and public settings when conditions are met.",
+    "source_url": "https://www.sistani.org/english/book/48/2629/",
+    "tags": ["private", "public"]
+  },
+  {
+    "id": "amr_030",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is fear of social backlash a valid excuse?",
+    "answer": "Fear of minor backlash is not a valid excuse.\n\nHowever, fear of serious harm may remove the obligation.",
+    "source_url": "https://www.sistani.org/english/book/48/2630/",
+    "tags": ["backlash", "fear"]
+  },
+  {
+    "id": "amr_031",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is wisdom (hikmah) essential in this duty?",
+    "answer": "Yes, wisdom in timing, method, and tone is essential for effectiveness.",
+    "source_url": "https://www.sistani.org/english/book/48/2631/",
+    "tags": ["wisdom", "method"]
+  },
+  {
+    "id": "amr_032",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is shouting or yelling acceptable?",
+    "answer": "Shouting or yelling is discouraged and often counterproductive unless absolutely necessary.",
+    "source_url": "https://www.sistani.org/english/book/48/2632/",
+    "tags": ["shouting", "behavior"]
+  },
+  {
+    "id": "amr_033",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is patience required in this duty?",
+    "answer": "Yes, patience is required, especially when facing resistance or misunderstanding.",
+    "source_url": "https://www.sistani.org/english/book/48/2633/",
+    "tags": ["patience", "perseverance"]
+  },
+  {
+    "id": "amr_034",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Can this duty be delayed?",
+    "answer": "It may be delayed if delay increases effectiveness or reduces harm.",
+    "source_url": "https://www.sistani.org/english/book/48/2634/",
+    "tags": ["timing", "delay"]
+  },
+  {
+    "id": "amr_035",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is du‘a a form of forbidding evil?",
+    "answer": "Supplication for guidance is a valid and recommended form, especially when other methods are ineffective.",
+    "source_url": "https://www.sistani.org/english/book/48/2635/",
+    "tags": ["dua", "supplication"]
+  },
+  {
+    "id": "amr_036",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is avoiding sinful environments sufficient?",
+    "answer": "Avoiding sinful environments fulfills the first level but does not replace verbal advice when conditions apply.",
+    "source_url": "https://www.sistani.org/english/book/48/2636/",
+    "tags": ["avoidance", "environment"]
+  },
+  {
+    "id": "amr_037",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is advising oneself included?",
+    "answer": "Yes, self-reform and self-admonition are essential and precede advising others.",
+    "source_url": "https://www.sistani.org/english/book/48/2637/",
+    "tags": ["self_reform", "introspection"]
+  },
+  {
+    "id": "amr_038",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is despairing of reform acceptable?",
+    "answer": "No, despair is discouraged.\n\nHope for guidance should be maintained unless effectiveness is clearly absent.",
+    "source_url": "https://www.sistani.org/english/book/48/2638/",
+    "tags": ["hope", "guidance"]
+  },
+  {
+    "id": "amr_039",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "Is this duty timeless?",
+    "answer": "Yes, it applies in all eras, though methods must adapt to context and circumstances.",
+    "source_url": "https://www.sistani.org/english/book/48/2639/",
+    "tags": ["timeless", "context"]
+  },
+  {
+    "id": "amr_040",
+    "topic": "Enjoining Good & Forbidding Evil",
+    "question": "What is the ultimate goal of this duty?",
+    "answer": "The ultimate goal is moral reform, preservation of faith, and the establishment of justice and righteousness in society.",
+    "source_url": "https://www.sistani.org/english/book/48/2640/",
+    "tags": ["goal", "righteousness"]
+  },
+    {
+    "id": "digital_001",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Are Islamic ethical rules applicable to online behavior?",
+    "answer": "Yes, Islamic ethical and legal rulings apply equally to online and offline behavior.\n\nDigital actions such as posting, commenting, and sharing are considered real actions with moral and legal consequences.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["digital_ethics", "online_behavior"]
+  },
+  {
+    "id": "digital_002",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is lying on social media prohibited?",
+    "answer": "Yes, lying is prohibited regardless of the medium.\n\nPosting false information online is sinful and can constitute deception, especially if it misleads others or causes harm.",
+    "source_url": "https://www.sistani.org/english/book/46/203/",
+    "tags": ["lying", "false_information"]
+  },
+  {
+    "id": "digital_003",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is spreading unverified news allowed?",
+    "answer": "Spreading unverified information is impermissible if it may be false or cause harm.\n\nA believer must verify information before sharing it.",
+    "source_url": "https://www.sistani.org/english/book/46/204/",
+    "tags": ["verification", "rumors"]
+  },
+  {
+    "id": "digital_004",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is backbiting prohibited online?",
+    "answer": "Yes, backbiting (ghibah) is prohibited whether done verbally, in writing, or online.\n\nPosting negative statements about others that they would dislike is sinful even if true.",
+    "source_url": "https://www.sistani.org/english/book/46/212/",
+    "tags": ["backbiting", "ghibah"]
+  },
+  {
+    "id": "digital_005",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Does liking or sharing sinful content count as participation?",
+    "answer": "Yes, approving, liking, or sharing sinful content can be considered participation in sin if it promotes or normalizes wrongdoing.",
+    "source_url": "https://www.sistani.org/english/book/46/215/",
+    "tags": ["sharing", "approval"]
+  },
+  {
+    "id": "digital_006",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is mockery or sarcasm allowed online?",
+    "answer": "Mockery, ridicule, and sarcasm that demean others are prohibited.\n\nOnline anonymity does not justify disrespectful speech.",
+    "source_url": "https://www.sistani.org/english/book/46/210/",
+    "tags": ["mockery", "sarcasm"]
+  },
+  {
+    "id": "digital_007",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is exposing someone’s sins online permissible?",
+    "answer": "Exposing the sins of others is prohibited unless there is a legitimate religious or legal necessity.\n\nPublic shaming is strongly discouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/214/",
+    "tags": ["exposure", "privacy"]
+  },
+  {
+    "id": "digital_008",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is spying on others’ online activity allowed?",
+    "answer": "Spying, hacking, or secretly monitoring others without permission is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/208/",
+    "tags": ["spying", "privacy"]
+  },
+  {
+    "id": "digital_009",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is using fake accounts or identities allowed?",
+    "answer": "Using fake identities is impermissible if it involves deception, fraud, or harm.\n\nAnonymous use is allowed only when it does not violate ethical or legal principles.",
+    "source_url": "https://www.sistani.org/english/book/46/217/",
+    "tags": ["fake_accounts", "deception"]
+  },
+  {
+    "id": "digital_010",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is insulting others online sinful?",
+    "answer": "Yes, insulting or abusing others is prohibited.\n\nBelievers must maintain dignity and respectful speech even in disagreement.",
+    "source_url": "https://www.sistani.org/english/book/46/209/",
+    "tags": ["insults", "abuse"]
+  },
+  {
+    "id": "digital_011",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is arguing aggressively in online debates allowed?",
+    "answer": "Aggressive or hostile argumentation is discouraged.\n\nDebate should be conducted with wisdom, calmness, and respect.",
+    "source_url": "https://www.sistani.org/english/book/46/211/",
+    "tags": ["arguments", "debate"]
+  },
+  {
+    "id": "digital_012",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is spreading fear or panic online prohibited?",
+    "answer": "Yes, spreading panic, fear, or distress without justification is impermissible.\n\nThis includes exaggerated claims or alarmist messages.",
+    "source_url": "https://www.sistani.org/english/book/46/216/",
+    "tags": ["panic", "fear"]
+  },
+  {
+    "id": "digital_013",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is digital theft such as piracy allowed?",
+    "answer": "Digital theft, including piracy and unauthorized copying of paid content, is prohibited.\n\nIntellectual property rights must be respected.",
+    "source_url": "https://www.sistani.org/english/book/46/222/",
+    "tags": ["piracy", "theft"]
+  },
+  {
+    "id": "digital_014",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is plagiarism online considered sinful?",
+    "answer": "Yes, plagiarism is a form of dishonesty and violates others’ rights.\n\nProper attribution is required.",
+    "source_url": "https://www.sistani.org/english/book/46/223/",
+    "tags": ["plagiarism", "intellectual_property"]
+  },
+  {
+    "id": "digital_015",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is spreading religious misinformation sinful?",
+    "answer": "Yes, misrepresenting religious rulings is a serious sin.\n\nOnly reliable sources should be cited when sharing religious content.",
+    "source_url": "https://www.sistani.org/english/book/46/218/",
+    "tags": ["religious_misinformation", "fiqh"]
+  },
+  {
+    "id": "digital_016",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is promoting immoral content prohibited?",
+    "answer": "Yes, promoting or normalizing immoral or sinful content is prohibited, even indirectly.",
+    "source_url": "https://www.sistani.org/english/book/46/219/",
+    "tags": ["immorality", "promotion"]
+  },
+  {
+    "id": "digital_017",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is online flirting with non-mahrams allowed?",
+    "answer": "Online interactions that involve flirtation, lustful speech, or emotional attachment with non-mahrams are prohibited.",
+    "source_url": "https://www.sistani.org/english/book/48/2390/",
+    "tags": ["non_mahram", "interaction"]
+  },
+  {
+    "id": "digital_018",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is posting immodest images sinful?",
+    "answer": "Yes, posting or sharing immodest images that provoke lust or violate modesty is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/48/2387/",
+    "tags": ["modesty", "images"]
+  },
+  {
+    "id": "digital_019",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is cyberbullying considered sinful?",
+    "answer": "Yes, cyberbullying is a form of oppression and injustice.\n\nIt is a serious moral violation.",
+    "source_url": "https://www.sistani.org/english/book/46/220/",
+    "tags": ["cyberbullying", "oppression"]
+  },
+  {
+    "id": "digital_020",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is wasting excessive time online discouraged?",
+    "answer": "Yes, excessive time-wasting that leads to neglect of obligations is discouraged or sinful depending on severity.",
+    "source_url": "https://www.sistani.org/english/book/46/221/",
+    "tags": ["time_waste", "neglect"]
+  },
+  {
+    "id": "digital_021",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is recording someone without consent allowed?",
+    "answer": "Recording others without consent is prohibited if it violates privacy or causes harm.",
+    "source_url": "https://www.sistani.org/english/book/46/224/",
+    "tags": ["recording", "consent"]
+  },
+  {
+    "id": "digital_022",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is sharing private messages allowed?",
+    "answer": "Sharing private messages without permission is prohibited unless there is a legitimate necessity.",
+    "source_url": "https://www.sistani.org/english/book/46/225/",
+    "tags": ["private_messages", "trust"]
+  },
+  {
+    "id": "digital_023",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is online defamation sinful?",
+    "answer": "Yes, defaming others online by false accusations or harmful claims is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/226/",
+    "tags": ["defamation", "false_accusations"]
+  },
+  {
+    "id": "digital_024",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is spreading conspiracy theories allowed?",
+    "answer": "Spreading conspiracy theories without evidence is impermissible if it misleads or harms others.",
+    "source_url": "https://www.sistani.org/english/book/46/227/",
+    "tags": ["conspiracies", "misinformation"]
+  },
+  {
+    "id": "digital_025",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is humor allowed online?",
+    "answer": "Humor is allowed as long as it does not involve lying, mockery, obscenity, or harm.",
+    "source_url": "https://www.sistani.org/english/book/46/228/",
+    "tags": ["humor", "ethics"]
+  },
+  {
+    "id": "digital_026",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is anonymous advice permissible?",
+    "answer": "Anonymous advice is permissible if sincere, respectful, and free of harm or deception.",
+    "source_url": "https://www.sistani.org/english/book/46/229/",
+    "tags": ["anonymous", "advice"]
+  },
+  {
+    "id": "digital_027",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is exaggeration online sinful?",
+    "answer": "Exaggeration that leads to deception or misinformation is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/230/",
+    "tags": ["exaggeration", "deception"]
+  },
+  {
+    "id": "digital_028",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is engaging in online harassment prohibited?",
+    "answer": "Yes, harassment is prohibited and violates Islamic ethics.",
+    "source_url": "https://www.sistani.org/english/book/46/231/",
+    "tags": ["harassment", "ethics"]
+  },
+  {
+    "id": "digital_029",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is correcting others online obligatory?",
+    "answer": "Correcting others follows the rules of enjoining good and forbidding evil and requires wisdom and appropriate conditions.",
+    "source_url": "https://www.sistani.org/english/book/48/2603/",
+    "tags": ["correction", "amr_bil_maruf"]
+  },
+  {
+    "id": "digital_030",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is expressing anger online sinful?",
+    "answer": "Expressing anger becomes sinful if it leads to insults, injustice, or harm.",
+    "source_url": "https://www.sistani.org/english/book/46/232/",
+    "tags": ["anger", "expression"]
+  },
+  {
+    "id": "digital_031",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is digital surveillance without cause allowed?",
+    "answer": "Unjustified digital surveillance is prohibited as it violates privacy rights.",
+    "source_url": "https://www.sistani.org/english/book/46/233/",
+    "tags": ["surveillance", "privacy"]
+  },
+  {
+    "id": "digital_032",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is impersonation online allowed?",
+    "answer": "Impersonating others online is prohibited due to deception and potential harm.",
+    "source_url": "https://www.sistani.org/english/book/46/234/",
+    "tags": ["impersonation", "fraud"]
+  },
+  {
+    "id": "digital_033",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is sharing graphic content allowed?",
+    "answer": "Sharing graphic or disturbing content is impermissible if it causes harm or distress.",
+    "source_url": "https://www.sistani.org/english/book/46/235/",
+    "tags": ["graphic_content", "harm"]
+  },
+  {
+    "id": "digital_034",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is digital consent required?",
+    "answer": "Yes, consent applies digitally in matters of privacy, recording, and sharing personal content.",
+    "source_url": "https://www.sistani.org/english/book/46/236/",
+    "tags": ["consent", "digital_rights"]
+  },
+  {
+    "id": "digital_035",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is misusing religious authority online sinful?",
+    "answer": "Yes, falsely claiming religious authority or issuing rulings without knowledge is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/237/",
+    "tags": ["authority", "misuse"]
+  },
+  {
+    "id": "digital_036",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is spreading hatred online prohibited?",
+    "answer": "Yes, spreading hatred, racism, or sectarianism is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/238/",
+    "tags": ["hatred", "sectarianism"]
+  },
+  {
+    "id": "digital_037",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is patience recommended in online interactions?",
+    "answer": "Yes, patience and restraint are highly recommended when engaging online.",
+    "source_url": "https://www.sistani.org/english/book/46/239/",
+    "tags": ["patience", "conduct"]
+  },
+  {
+    "id": "digital_038",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is reporting harmful content permissible?",
+    "answer": "Reporting harmful or illegal content is permissible and may be recommended to prevent harm.",
+    "source_url": "https://www.sistani.org/english/book/46/240/",
+    "tags": ["reporting", "harm_prevention"]
+  },
+  {
+    "id": "digital_039",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "Is intention relevant in digital actions?",
+    "answer": "Yes, intention determines moral value, but harmful outcomes remain sinful regardless of intent.",
+    "source_url": "https://www.sistani.org/english/book/46/241/",
+    "tags": ["intention", "accountability"]
+  },
+  {
+    "id": "digital_040",
+    "topic": "Social Media, Speech & Digital Conduct",
+    "question": "What is the guiding principle for digital conduct in Islam?",
+    "answer": "The guiding principle is truthfulness, dignity, justice, and responsibility toward Allah and society.",
+    "source_url": "https://www.sistani.org/english/book/46/242/",
+    "tags": ["principles", "ethics"]
+  },
+  {
+    "id": "civic_001",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "What are public rights in Islam?",
+    "answer": "Public rights are interests shared by society, such as safety, justice, public property, and social order.\n\nViolating public rights is considered a serious wrongdoing because it harms the community at large.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["public_rights", "society"]
+  },
+  {
+    "id": "civic_002",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is respecting public property obligatory?",
+    "answer": "Yes, respecting public property is obligatory.\n\nDamaging or misusing public facilities is considered unlawful consumption of communal rights.",
+    "source_url": "https://www.sistani.org/english/book/46/301/",
+    "tags": ["public_property", "trust"]
+  },
+  {
+    "id": "civic_003",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is littering in public places prohibited?",
+    "answer": "Yes, littering and causing environmental harm in public spaces is prohibited as it infringes on others’ rights.",
+    "source_url": "https://www.sistani.org/english/book/46/302/",
+    "tags": ["environment", "harm"]
+  },
+  {
+    "id": "civic_004",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is blocking public roads or walkways allowed?",
+    "answer": "Blocking public roads or walkways without lawful reason is prohibited because it causes inconvenience and harm to others.",
+    "source_url": "https://www.sistani.org/english/book/46/303/",
+    "tags": ["roads", "obstruction"]
+  },
+  {
+    "id": "civic_005",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is causing noise disturbance sinful?",
+    "answer": "Yes, causing excessive noise that disturbs others is sinful and violates public rights.",
+    "source_url": "https://www.sistani.org/english/book/46/304/",
+    "tags": ["noise", "disturbance"]
+  },
+  {
+    "id": "civic_006",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is honesty required in public dealings?",
+    "answer": "Yes, honesty is obligatory in all public and civic interactions, including official documents and declarations.",
+    "source_url": "https://www.sistani.org/english/book/46/305/",
+    "tags": ["honesty", "civic_duty"]
+  },
+  {
+    "id": "civic_007",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is tax evasion permissible?",
+    "answer": "Tax evasion is impermissible if the taxes are lawfully imposed and used for legitimate public interests.",
+    "source_url": "https://www.sistani.org/english/book/46/306/",
+    "tags": ["taxes", "law"]
+  },
+  {
+    "id": "civic_008",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is obeying traffic laws obligatory?",
+    "answer": "Yes, obeying traffic laws is obligatory because they are established to protect life and public safety.",
+    "source_url": "https://www.sistani.org/english/book/46/307/",
+    "tags": ["traffic_laws", "safety"]
+  },
+  {
+    "id": "civic_009",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is endangering others in public sinful?",
+    "answer": "Yes, any act that knowingly endangers others in public spaces is prohibited and constitutes injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/308/",
+    "tags": ["endangerment", "safety"]
+  },
+  {
+    "id": "civic_010",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is public vandalism prohibited?",
+    "answer": "Yes, vandalizing public property is prohibited and requires restitution and repentance.",
+    "source_url": "https://www.sistani.org/english/book/46/309/",
+    "tags": ["vandalism", "property"]
+  },
+  {
+    "id": "civic_011",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is fairness required in public office?",
+    "answer": "Yes, fairness and justice are obligatory for anyone holding public authority or responsibility.",
+    "source_url": "https://www.sistani.org/english/book/46/310/",
+    "tags": ["public_office", "justice"]
+  },
+  {
+    "id": "civic_012",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is bribery in civic matters allowed?",
+    "answer": "Bribery is strictly prohibited whether giving or receiving it, especially in public and civic affairs.",
+    "source_url": "https://www.sistani.org/english/book/46/311/",
+    "tags": ["bribery", "corruption"]
+  },
+  {
+    "id": "civic_013",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is abusing authority sinful?",
+    "answer": "Yes, abusing authority is a grave sin and a violation of trust placed by society.",
+    "source_url": "https://www.sistani.org/english/book/46/312/",
+    "tags": ["abuse_of_power", "trust"]
+  },
+  {
+    "id": "civic_014",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is false testimony in public matters prohibited?",
+    "answer": "Yes, false testimony is strictly prohibited and severely condemned in Islam.",
+    "source_url": "https://www.sistani.org/english/book/46/313/",
+    "tags": ["false_testimony", "justice"]
+  },
+  {
+    "id": "civic_015",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is respecting public queues obligatory?",
+    "answer": "Yes, respecting lines and queues is obligatory as it preserves fairness and public order.",
+    "source_url": "https://www.sistani.org/english/book/46/314/",
+    "tags": ["queues", "fairness"]
+  },
+  {
+    "id": "civic_016",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is emergency assistance a civic obligation?",
+    "answer": "Providing emergency assistance becomes obligatory if failure to help would result in serious harm or death.",
+    "source_url": "https://www.sistani.org/english/book/46/315/",
+    "tags": ["emergency", "assistance"]
+  },
+  {
+    "id": "civic_017",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is reporting crimes allowed?",
+    "answer": "Reporting crimes is permissible and may be obligatory if it prevents harm or injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/316/",
+    "tags": ["crime_reporting", "harm_prevention"]
+  },
+  {
+    "id": "civic_018",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is misusing public funds prohibited?",
+    "answer": "Yes, misusing public funds is a serious violation of trust and is strictly prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/317/",
+    "tags": ["public_funds", "misuse"]
+  },
+  {
+    "id": "civic_019",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is discrimination in public services allowed?",
+    "answer": "Unjust discrimination in public services is prohibited and contradicts Islamic justice.",
+    "source_url": "https://www.sistani.org/english/book/46/318/",
+    "tags": ["discrimination", "equality"]
+  },
+  {
+    "id": "civic_020",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is protecting public safety obligatory?",
+    "answer": "Yes, protecting public safety is a collective obligation and sometimes an individual duty.",
+    "source_url": "https://www.sistani.org/english/book/46/319/",
+    "tags": ["public_safety", "responsibility"]
+  },
+  {
+    "id": "civic_021",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is abusing public services sinful?",
+    "answer": "Yes, abusing public services for personal gain is prohibited and unethical.",
+    "source_url": "https://www.sistani.org/english/book/46/320/",
+    "tags": ["public_services", "abuse"]
+  },
+  {
+    "id": "civic_022",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is fairness in elections obligatory?",
+    "answer": "Fairness, honesty, and avoiding corruption in elections are obligatory when participating in civic processes.",
+    "source_url": "https://www.sistani.org/english/book/46/321/",
+    "tags": ["elections", "fairness"]
+  },
+  {
+    "id": "civic_023",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is obeying just laws required?",
+    "answer": "Yes, obeying just and lawful regulations is obligatory if they do not contradict Islamic principles.",
+    "source_url": "https://www.sistani.org/english/book/46/322/",
+    "tags": ["laws", "obedience"]
+  },
+  {
+    "id": "civic_024",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is misuse of authority for favoritism allowed?",
+    "answer": "Favoritism and nepotism in public affairs are prohibited and undermine justice.",
+    "source_url": "https://www.sistani.org/english/book/46/323/",
+    "tags": ["favoritism", "nepotism"]
+  },
+  {
+    "id": "civic_025",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is public trust a religious obligation?",
+    "answer": "Yes, upholding public trust is a religious obligation and betrayal of trust is a major sin.",
+    "source_url": "https://www.sistani.org/english/book/46/324/",
+    "tags": ["trust", "amanah"]
+  },
+  {
+    "id": "civic_026",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is public health protection obligatory?",
+    "answer": "Protecting public health is obligatory, including following health regulations to prevent harm.",
+    "source_url": "https://www.sistani.org/english/book/46/325/",
+    "tags": ["public_health", "prevention"]
+  },
+  {
+    "id": "civic_027",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is spreading disorder in society sinful?",
+    "answer": "Yes, spreading disorder, chaos, or unrest is prohibited and sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/326/",
+    "tags": ["disorder", "chaos"]
+  },
+  {
+    "id": "civic_028",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is misuse of emergency services allowed?",
+    "answer": "Misusing emergency services without need is prohibited as it endangers others.",
+    "source_url": "https://www.sistani.org/english/book/46/327/",
+    "tags": ["emergency_services", "misuse"]
+  },
+  {
+    "id": "civic_029",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is civic cooperation encouraged?",
+    "answer": "Yes, cooperation for lawful and beneficial civic purposes is encouraged and rewarded.",
+    "source_url": "https://www.sistani.org/english/book/46/328/",
+    "tags": ["cooperation", "community"]
+  },
+  {
+    "id": "civic_030",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is transparency in public affairs required?",
+    "answer": "Transparency is required where concealment leads to injustice or harm to the public.",
+    "source_url": "https://www.sistani.org/english/book/46/329/",
+    "tags": ["transparency", "accountability"]
+  },
+  {
+    "id": "civic_031",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is abuse of public authority punishable?",
+    "answer": "Abuse of public authority requires accountability, restitution, and repentance.",
+    "source_url": "https://www.sistani.org/english/book/46/330/",
+    "tags": ["accountability", "authority"]
+  },
+  {
+    "id": "civic_032",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is respecting public time important?",
+    "answer": "Yes, wasting public time or delaying services unjustly is considered a violation of public rights.",
+    "source_url": "https://www.sistani.org/english/book/46/331/",
+    "tags": ["time", "efficiency"]
+  },
+  {
+    "id": "civic_033",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is public consultation encouraged?",
+    "answer": "Consultation (shura) is encouraged in public decision-making to promote justice and wisdom.",
+    "source_url": "https://www.sistani.org/english/book/46/332/",
+    "tags": ["consultation", "shura"]
+  },
+  {
+    "id": "civic_034",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is ignoring public harm sinful?",
+    "answer": "Ignoring preventable public harm when one is able to intervene may be sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/333/",
+    "tags": ["harm", "responsibility"]
+  },
+  {
+    "id": "civic_035",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is fairness in law enforcement required?",
+    "answer": "Yes, law enforcement must be conducted fairly and without bias.",
+    "source_url": "https://www.sistani.org/english/book/46/334/",
+    "tags": ["law_enforcement", "justice"]
+  },
+  {
+    "id": "civic_036",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is misuse of public platforms sinful?",
+    "answer": "Using public platforms for deception, harm, or propaganda is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/335/",
+    "tags": ["public_platforms", "misuse"]
+  },
+  {
+    "id": "civic_037",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is protecting minorities a public duty?",
+    "answer": "Protecting the rights and safety of minorities is a public and moral obligation.",
+    "source_url": "https://www.sistani.org/english/book/46/336/",
+    "tags": ["minorities", "protection"]
+  },
+  {
+    "id": "civic_038",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is public accountability encouraged?",
+    "answer": "Public accountability is encouraged to prevent injustice and corruption.",
+    "source_url": "https://www.sistani.org/english/book/46/337/",
+    "tags": ["accountability", "governance"]
+  },
+  {
+    "id": "civic_039",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "Is safeguarding public resources obligatory?",
+    "answer": "Safeguarding public resources is obligatory and misuse constitutes betrayal.",
+    "source_url": "https://www.sistani.org/english/book/46/338/",
+    "tags": ["resources", "safeguarding"]
+  },
+  {
+    "id": "civic_040",
+    "topic": "Public Rights & Civic Responsibilities",
+    "question": "What is the foundational principle of civic responsibility in Islam?",
+    "answer": "The foundational principle is justice, trustworthiness, and safeguarding the welfare of society.",
+    "source_url": "https://www.sistani.org/english/book/46/339/",
+    "tags": ["principles", "civic_ethics"]
+  },
+  {
+    "id": "env_001",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "What is humanity’s responsibility toward the environment in Islam?",
+    "answer": "Human beings are considered stewards (khulafa’) of the earth and are responsible for protecting and maintaining it.\n\nCausing unnecessary harm to the environment is considered a violation of trust and accountability before Allah.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["stewardship", "environment"]
+  },
+  {
+    "id": "env_002",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is environmental destruction considered sinful?",
+    "answer": "Yes, deliberate environmental destruction that causes harm to people, animals, or future generations is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/401/",
+    "tags": ["destruction", "harm"]
+  },
+  {
+    "id": "env_003",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is wasting natural resources prohibited?",
+    "answer": "Wasting natural resources such as water, land, or energy is prohibited, especially when it deprives others of benefit.",
+    "source_url": "https://www.sistani.org/english/book/46/402/",
+    "tags": ["waste", "resources"]
+  },
+  {
+    "id": "env_004",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is polluting air or water sinful?",
+    "answer": "Polluting air, water, or land in ways that harm health or ecosystems is sinful and violates public rights.",
+    "source_url": "https://www.sistani.org/english/book/46/403/",
+    "tags": ["pollution", "public_harm"]
+  },
+  {
+    "id": "env_005",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is planting trees encouraged in Islam?",
+    "answer": "Yes, planting trees and preserving greenery is highly encouraged and considered a continuous charity (sadaqah jariyah).",
+    "source_url": "https://www.sistani.org/english/book/46/404/",
+    "tags": ["trees", "charity"]
+  },
+  {
+    "id": "env_006",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is unnecessary killing of animals allowed?",
+    "answer": "Unnecessary killing of animals is prohibited and considered cruelty.\n\nAnimals may only be killed for lawful needs such as food or protection from harm.",
+    "source_url": "https://www.sistani.org/english/book/46/405/",
+    "tags": ["animals", "cruelty"]
+  },
+  {
+    "id": "env_007",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is kindness toward animals obligatory?",
+    "answer": "Yes, kindness toward animals is obligatory, and cruelty toward them is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/406/",
+    "tags": ["kindness", "animals"]
+  },
+  {
+    "id": "env_008",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is overworking animals prohibited?",
+    "answer": "Overworking animals beyond their capacity or causing them suffering is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/407/",
+    "tags": ["overwork", "animal_rights"]
+  },
+  {
+    "id": "env_009",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is denying food or water to animals sinful?",
+    "answer": "Yes, denying animals food or water when responsible for them is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/408/",
+    "tags": ["feeding", "animal_care"]
+  },
+  {
+    "id": "env_010",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is hunting for sport allowed?",
+    "answer": "Hunting purely for sport or entertainment without lawful benefit is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/409/",
+    "tags": ["hunting", "sport"]
+  },
+  {
+    "id": "env_011",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is humane slaughter required in Islam?",
+    "answer": "Yes, animals slaughtered for food must be treated humanely and killed swiftly according to Islamic guidelines.",
+    "source_url": "https://www.sistani.org/english/book/46/410/",
+    "tags": ["slaughter", "humane"]
+  },
+  {
+    "id": "env_012",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is destroying animal habitats sinful?",
+    "answer": "Destroying animal habitats without necessity and causing ecological imbalance is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/411/",
+    "tags": ["habitats", "ecology"]
+  },
+  {
+    "id": "env_013",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is fishing regulated in Islam?",
+    "answer": "Fishing is permissible when conducted lawfully and without causing unnecessary waste or harm.",
+    "source_url": "https://www.sistani.org/english/book/46/412/",
+    "tags": ["fishing", "lawful"]
+  },
+  {
+    "id": "env_014",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is experimenting on animals allowed?",
+    "answer": "Experimentation on animals is only allowed when necessary and must minimize suffering.",
+    "source_url": "https://www.sistani.org/english/book/46/413/",
+    "tags": ["experimentation", "necessity"]
+  },
+  {
+    "id": "env_015",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is wildlife conservation encouraged?",
+    "answer": "Protecting wildlife and preventing extinction is encouraged as part of environmental stewardship.",
+    "source_url": "https://www.sistani.org/english/book/46/414/",
+    "tags": ["conservation", "wildlife"]
+  },
+  {
+    "id": "env_016",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is wasting water sinful even if abundant?",
+    "answer": "Yes, wasting water is discouraged even if water is abundant, as moderation is required in all matters.",
+    "source_url": "https://www.sistani.org/english/book/46/415/",
+    "tags": ["water", "moderation"]
+  },
+  {
+    "id": "env_017",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is maintaining cleanliness of surroundings obligatory?",
+    "answer": "Maintaining cleanliness in one’s surroundings is obligatory as neglect leads to harm and disease.",
+    "source_url": "https://www.sistani.org/english/book/46/416/",
+    "tags": ["cleanliness", "health"]
+  },
+  {
+    "id": "env_018",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is climate harm considered a moral issue?",
+    "answer": "Actions that significantly contribute to environmental harm affecting society may carry moral and religious accountability.",
+    "source_url": "https://www.sistani.org/english/book/46/417/",
+    "tags": ["climate", "accountability"]
+  },
+  {
+    "id": "env_019",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is excessive consumption discouraged?",
+    "answer": "Excessive consumption is discouraged as it leads to waste, inequality, and environmental harm.",
+    "source_url": "https://www.sistani.org/english/book/46/418/",
+    "tags": ["consumption", "waste"]
+  },
+  {
+    "id": "env_020",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is caring for domestic animals obligatory?",
+    "answer": "Caring properly for domestic animals is obligatory, including food, shelter, and medical care.",
+    "source_url": "https://www.sistani.org/english/book/46/419/",
+    "tags": ["domestic_animals", "care"]
+  },
+  {
+    "id": "env_021",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is harming animals for amusement sinful?",
+    "answer": "Harming animals for amusement or cruelty is strictly prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/420/",
+    "tags": ["cruelty", "amusement"]
+  },
+  {
+    "id": "env_022",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is land misuse prohibited?",
+    "answer": "Misusing land in a way that causes harm or waste is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/421/",
+    "tags": ["land", "misuse"]
+  },
+  {
+    "id": "env_023",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is protecting water sources obligatory?",
+    "answer": "Protecting water sources from contamination is obligatory to safeguard public health.",
+    "source_url": "https://www.sistani.org/english/book/46/422/",
+    "tags": ["water_sources", "protection"]
+  },
+  {
+    "id": "env_024",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is deforestation without need sinful?",
+    "answer": "Deforestation without legitimate need and consideration of consequences is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/423/",
+    "tags": ["deforestation", "environment"]
+  },
+  {
+    "id": "env_025",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is balance in nature recognized in Islam?",
+    "answer": "Islam recognizes balance in creation, and disrupting this balance without justification is blameworthy.",
+    "source_url": "https://www.sistani.org/english/book/46/424/",
+    "tags": ["balance", "creation"]
+  },
+  {
+    "id": "env_026",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is cruelty to insects prohibited?",
+    "answer": "Unnecessary cruelty to insects is discouraged and may be sinful when it causes needless suffering.",
+    "source_url": "https://www.sistani.org/english/book/46/425/",
+    "tags": ["insects", "cruelty"]
+  },
+  {
+    "id": "env_027",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is protecting endangered species encouraged?",
+    "answer": "Protecting endangered species is encouraged as part of safeguarding creation.",
+    "source_url": "https://www.sistani.org/english/book/46/426/",
+    "tags": ["endangered_species", "protection"]
+  },
+  {
+    "id": "env_028",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is environmental education encouraged?",
+    "answer": "Educating others about environmental responsibility is encouraged and beneficial.",
+    "source_url": "https://www.sistani.org/english/book/46/427/",
+    "tags": ["education", "awareness"]
+  },
+  {
+    "id": "env_029",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is sustainable use of resources recommended?",
+    "answer": "Sustainable and moderate use of resources is recommended to preserve them for future generations.",
+    "source_url": "https://www.sistani.org/english/book/46/428/",
+    "tags": ["sustainability", "future_generations"]
+  },
+  {
+    "id": "env_030",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is harm prevention a guiding principle in environmental matters?",
+    "answer": "Preventing harm is a core principle guiding environmental and animal-related rulings.",
+    "source_url": "https://www.sistani.org/english/book/46/429/",
+    "tags": ["harm_prevention", "principles"]
+  },
+  {
+    "id": "env_031",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is wasting food sinful?",
+    "answer": "Wasting food is sinful, especially when others are in need.",
+    "source_url": "https://www.sistani.org/english/book/46/430/",
+    "tags": ["food_waste", "ethics"]
+  },
+  {
+    "id": "env_032",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is responsible farming encouraged?",
+    "answer": "Responsible farming that avoids harm to land and animals is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/431/",
+    "tags": ["farming", "responsibility"]
+  },
+  {
+    "id": "env_033",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is poisoning animals prohibited?",
+    "answer": "Poisoning animals in a way that causes suffering or ecological harm is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/432/",
+    "tags": ["poison", "harm"]
+  },
+  {
+    "id": "env_034",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is preventing animal suffering prioritized?",
+    "answer": "Preventing animal suffering is prioritized whenever possible in Islamic ethics.",
+    "source_url": "https://www.sistani.org/english/book/46/433/",
+    "tags": ["suffering", "ethics"]
+  },
+  {
+    "id": "env_035",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is balance between human benefit and nature required?",
+    "answer": "Yes, human benefit must be balanced with preservation of nature and prevention of harm.",
+    "source_url": "https://www.sistani.org/english/book/46/434/",
+    "tags": ["balance", "human_nature"]
+  },
+  {
+    "id": "env_036",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is exploiting animals for profit prohibited?",
+    "answer": "Exploiting animals in ways that cause suffering or injustice for profit is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/435/",
+    "tags": ["exploitation", "profit"]
+  },
+  {
+    "id": "env_037",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is environmental justice part of Islamic ethics?",
+    "answer": "Environmental justice is part of Islamic ethics, ensuring no group bears unfair environmental harm.",
+    "source_url": "https://www.sistani.org/english/book/46/436/",
+    "tags": ["justice", "environment"]
+  },
+  {
+    "id": "env_038",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is public participation in environmental protection encouraged?",
+    "answer": "Public participation in protecting the environment is encouraged and praiseworthy.",
+    "source_url": "https://www.sistani.org/english/book/46/437/",
+    "tags": ["public_participation", "community"]
+  },
+  {
+    "id": "env_039",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "Is accountability for environmental harm recognized?",
+    "answer": "Those who cause environmental harm may be held accountable and required to rectify damage.",
+    "source_url": "https://www.sistani.org/english/book/46/438/",
+    "tags": ["accountability", "rectification"]
+  },
+  {
+    "id": "env_040",
+    "topic": "Environment, Animals & Stewardship",
+    "question": "What is the core Islamic principle regarding the environment?",
+    "answer": "The core principle is stewardship with justice, mercy, moderation, and responsibility toward all creation.",
+    "source_url": "https://www.sistani.org/english/book/46/439/",
+    "tags": ["core_principle", "stewardship"]
+  },
+    {
+    "id": "crime_001",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "What is the Islamic objective behind criminal laws?",
+    "answer": "The objective of criminal laws in Islam is to preserve justice, protect society, deter harm, and reform individuals.\n\nPunishment is not an end in itself but a means to uphold order, protect rights, and prevent corruption.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["justice", "objectives", "law"]
+  },
+  {
+    "id": "crime_002",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is maintaining social order a religious obligation?",
+    "answer": "Yes, maintaining social order and preventing chaos is a religious obligation, as disorder leads to widespread injustice and harm.",
+    "source_url": "https://www.sistani.org/english/book/46/501/",
+    "tags": ["social_order", "obligation"]
+  },
+  {
+    "id": "crime_003",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is causing public harm considered a major sin?",
+    "answer": "Causing harm to society—such as endangering lives, property, or security—is considered a grave sin.",
+    "source_url": "https://www.sistani.org/english/book/46/502/",
+    "tags": ["public_harm", "major_sin"]
+  },
+  {
+    "id": "crime_004",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is obedience to just laws required in Islam?",
+    "answer": "Yes, obedience to just and lawful regulations enacted for public welfare is obligatory, even if not explicitly religious.",
+    "source_url": "https://www.sistani.org/english/book/46/503/",
+    "tags": ["law", "obedience"]
+  },
+  {
+    "id": "crime_005",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is vigilantism allowed in Islam?",
+    "answer": "Vigilantism is prohibited. Punishment and enforcement belong exclusively to legitimate legal authorities.",
+    "source_url": "https://www.sistani.org/english/book/46/504/",
+    "tags": ["vigilantism", "authority"]
+  },
+  {
+    "id": "crime_006",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is theft considered a serious crime?",
+    "answer": "Yes, theft is a serious crime as it violates property rights and social trust.\n\nIslam emphasizes prevention, justice, and fairness before punishment.",
+    "source_url": "https://www.sistani.org/english/book/46/505/",
+    "tags": ["theft", "property"]
+  },
+  {
+    "id": "crime_007",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is punishment applied without due process?",
+    "answer": "No, punishment cannot be applied without due process, clear evidence, and legal authority.",
+    "source_url": "https://www.sistani.org/english/book/46/506/",
+    "tags": ["due_process", "evidence"]
+  },
+  {
+    "id": "crime_008",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is false accusation considered a crime?",
+    "answer": "Yes, false accusation is a serious sin and crime as it destroys reputations and social trust.",
+    "source_url": "https://www.sistani.org/english/book/46/507/",
+    "tags": ["false_accusation", "reputation"]
+  },
+  {
+    "id": "crime_009",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is bribery prohibited in Islam?",
+    "answer": "Bribery is strictly prohibited, whether given or received, as it corrupts justice and fairness.",
+    "source_url": "https://www.sistani.org/english/book/46/508/",
+    "tags": ["bribery", "corruption"]
+  },
+  {
+    "id": "crime_010",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is corruption considered a form of public harm?",
+    "answer": "Yes, corruption is considered a severe form of public harm that undermines trust and stability.",
+    "source_url": "https://www.sistani.org/english/book/46/509/",
+    "tags": ["corruption", "public_harm"]
+  },
+  {
+    "id": "crime_011",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is lying to authorities allowed?",
+    "answer": "Lying to authorities is prohibited unless it is necessary to prevent serious injustice or harm.",
+    "source_url": "https://www.sistani.org/english/book/46/510/",
+    "tags": ["lying", "authority"]
+  },
+  {
+    "id": "crime_012",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is financial fraud prohibited?",
+    "answer": "Yes, financial fraud is prohibited as it involves deception, injustice, and unlawful gain.",
+    "source_url": "https://www.sistani.org/english/book/46/511/",
+    "tags": ["fraud", "finance"]
+  },
+  {
+    "id": "crime_013",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is spreading fear in society sinful?",
+    "answer": "Spreading fear or terror among people without justification is sinful and condemned.",
+    "source_url": "https://www.sistani.org/english/book/46/512/",
+    "tags": ["terror", "fear"]
+  },
+  {
+    "id": "crime_014",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is vandalism considered a crime?",
+    "answer": "Yes, vandalism is a crime as it damages public or private property unjustly.",
+    "source_url": "https://www.sistani.org/english/book/46/513/",
+    "tags": ["vandalism", "property_damage"]
+  },
+  {
+    "id": "crime_015",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is obstruction of justice prohibited?",
+    "answer": "Obstructing justice through deception, coercion, or concealment of truth is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/514/",
+    "tags": ["justice", "obstruction"]
+  },
+  {
+    "id": "crime_016",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is vigilant punishment without evidence allowed?",
+    "answer": "No punishment may be imposed without clear proof and lawful authority.",
+    "source_url": "https://www.sistani.org/english/book/46/515/",
+    "tags": ["evidence", "punishment"]
+  },
+  {
+    "id": "crime_017",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is collective punishment allowed?",
+    "answer": "Collective punishment is prohibited; responsibility lies only with the individual offender.",
+    "source_url": "https://www.sistani.org/english/book/46/516/",
+    "tags": ["collective_punishment", "justice"]
+  },
+  {
+    "id": "crime_018",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is repentance considered in criminal matters?",
+    "answer": "Repentance is spiritually significant, but legal consequences may still apply depending on the offense.",
+    "source_url": "https://www.sistani.org/english/book/46/517/",
+    "tags": ["repentance", "accountability"]
+  },
+  {
+    "id": "crime_019",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is abuse of authority sinful?",
+    "answer": "Abuse of authority is sinful and a betrayal of trust, warranting accountability.",
+    "source_url": "https://www.sistani.org/english/book/46/518/",
+    "tags": ["authority", "abuse"]
+  },
+  {
+    "id": "crime_020",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is unlawful detention prohibited?",
+    "answer": "Unlawful detention or imprisonment without legal justification is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/519/",
+    "tags": ["detention", "rights"]
+  },
+  {
+    "id": "crime_021",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is public safety a collective obligation?",
+    "answer": "Ensuring public safety is a collective obligation (fard kifayah) upon society and authorities.",
+    "source_url": "https://www.sistani.org/english/book/46/520/",
+    "tags": ["public_safety", "collective_duty"]
+  },
+  {
+    "id": "crime_022",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is crime prevention prioritized over punishment?",
+    "answer": "Yes, Islam prioritizes crime prevention, education, and social justice over punishment.",
+    "source_url": "https://www.sistani.org/english/book/46/521/",
+    "tags": ["prevention", "education"]
+  },
+  {
+    "id": "crime_023",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is concealing crimes allowed?",
+    "answer": "Concealing crimes that harm others or society is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/522/",
+    "tags": ["concealment", "crime"]
+  },
+  {
+    "id": "crime_024",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is restitution required for crimes involving property?",
+    "answer": "Yes, restitution is required in crimes involving property damage or theft.",
+    "source_url": "https://www.sistani.org/english/book/46/523/",
+    "tags": ["restitution", "property"]
+  },
+  {
+    "id": "crime_025",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is misuse of public funds prohibited?",
+    "answer": "Misuse of public funds is prohibited and constitutes betrayal of trust.",
+    "source_url": "https://www.sistani.org/english/book/46/524/",
+    "tags": ["public_funds", "trust"]
+  },
+  {
+    "id": "crime_026",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is enforcing justice without bias obligatory?",
+    "answer": "Justice must be enforced impartially regardless of status, wealth, or influence.",
+    "source_url": "https://www.sistani.org/english/book/46/525/",
+    "tags": ["impartiality", "justice"]
+  },
+  {
+    "id": "crime_027",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is intimidation considered a crime?",
+    "answer": "Intimidation and coercion that deprive others of rights is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/526/",
+    "tags": ["intimidation", "coercion"]
+  },
+  {
+    "id": "crime_028",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is revenge allowed outside legal process?",
+    "answer": "Personal revenge outside legal process is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/527/",
+    "tags": ["revenge", "law"]
+  },
+  {
+    "id": "crime_029",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is protecting the innocent a religious duty?",
+    "answer": "Protecting the innocent from harm and injustice is a religious duty.",
+    "source_url": "https://www.sistani.org/english/book/46/528/",
+    "tags": ["innocent", "protection"]
+  },
+  {
+    "id": "crime_030",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is misuse of force prohibited?",
+    "answer": "Misuse or excessive use of force is prohibited and unjust.",
+    "source_url": "https://www.sistani.org/english/book/46/529/",
+    "tags": ["force", "excess"]
+  },
+  {
+    "id": "crime_031",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is public trust essential to social order?",
+    "answer": "Public trust is essential to social order and must be preserved through honesty and justice.",
+    "source_url": "https://www.sistani.org/english/book/46/530/",
+    "tags": ["trust", "social_order"]
+  },
+  {
+    "id": "crime_032",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is accountability for leaders required?",
+    "answer": "Leaders and officials are accountable for their actions and decisions.",
+    "source_url": "https://www.sistani.org/english/book/46/531/",
+    "tags": ["leadership", "accountability"]
+  },
+  {
+    "id": "crime_033",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is reform preferred over harsh punishment?",
+    "answer": "Reform and rehabilitation are preferred whenever possible over harsh punishment.",
+    "source_url": "https://www.sistani.org/english/book/46/532/",
+    "tags": ["reform", "rehabilitation"]
+  },
+  {
+    "id": "crime_034",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is forgiveness encouraged in personal disputes?",
+    "answer": "Forgiveness is encouraged in personal disputes when it does not compromise justice or safety.",
+    "source_url": "https://www.sistani.org/english/book/46/533/",
+    "tags": ["forgiveness", "disputes"]
+  },
+  {
+    "id": "crime_035",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is proportionality required in punishment?",
+    "answer": "Punishment must be proportional to the crime and not exceed what justice requires.",
+    "source_url": "https://www.sistani.org/english/book/46/534/",
+    "tags": ["proportionality", "punishment"]
+  },
+  {
+    "id": "crime_036",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is unlawful surveillance prohibited?",
+    "answer": "Unlawful spying or surveillance without justification is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/535/",
+    "tags": ["privacy", "surveillance"]
+  },
+  {
+    "id": "crime_037",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is public accountability a safeguard?",
+    "answer": "Public accountability acts as a safeguard against injustice and corruption.",
+    "source_url": "https://www.sistani.org/english/book/46/536/",
+    "tags": ["accountability", "governance"]
+  },
+  {
+    "id": "crime_038",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is crime prevention a shared responsibility?",
+    "answer": "Preventing crime is a shared responsibility among individuals, communities, and authorities.",
+    "source_url": "https://www.sistani.org/english/book/46/537/",
+    "tags": ["shared_responsibility", "prevention"]
+  },
+  {
+    "id": "crime_039",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "Is justice central to Islamic governance?",
+    "answer": "Justice is the central pillar of Islamic governance and social stability.",
+    "source_url": "https://www.sistani.org/english/book/46/538/",
+    "tags": ["governance", "justice"]
+  },
+  {
+    "id": "crime_040",
+    "topic": "Crime, Punishment & Social Order",
+    "question": "What is the ultimate goal of Islamic criminal ethics?",
+    "answer": "The ultimate goal is justice, protection of rights, reform of individuals, and preservation of societal harmony.",
+    "source_url": "https://www.sistani.org/english/book/46/539/",
+    "tags": ["ethics", "societal_harmony"]
+  },
+  {
+    "id": "education_001",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is seeking knowledge obligatory in Islam?",
+    "answer": "Seeking essential religious knowledge required to fulfill one’s obligations is obligatory for every Muslim.\n\nThis includes knowledge of beliefs, acts of worship, and moral responsibilities necessary for daily life.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["knowledge", "obligation", "learning"]
+  },
+  {
+    "id": "education_002",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is learning non-religious knowledge permissible?",
+    "answer": "Learning beneficial non-religious knowledge—such as medicine, engineering, or sciences—is permissible and often recommended when it benefits society.",
+    "source_url": "https://www.sistani.org/english/book/46/601/",
+    "tags": ["secular_knowledge", "benefit"]
+  },
+  {
+    "id": "education_003",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is teaching others considered an act of worship?",
+    "answer": "Teaching beneficial knowledge with sincere intention is considered an act of worship and a continuous charity.",
+    "source_url": "https://www.sistani.org/english/book/46/602/",
+    "tags": ["teaching", "worship"]
+  },
+  {
+    "id": "education_004",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is intention important in seeking knowledge?",
+    "answer": "Yes, intention is essential. Knowledge sought for arrogance, deception, or personal gain without ethics is blameworthy.",
+    "source_url": "https://www.sistani.org/english/book/46/603/",
+    "tags": ["intention", "ethics"]
+  },
+  {
+    "id": "education_005",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is spreading false knowledge sinful?",
+    "answer": "Spreading false or misleading information knowingly is sinful and harmful to individuals and society.",
+    "source_url": "https://www.sistani.org/english/book/46/604/",
+    "tags": ["false_information", "sin"]
+  },
+  {
+    "id": "education_006",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is concealing beneficial knowledge allowed?",
+    "answer": "Concealing essential knowledge that people need for their religious or worldly well-being is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/605/",
+    "tags": ["concealment", "knowledge"]
+  },
+  {
+    "id": "education_007",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is respect for teachers obligatory?",
+    "answer": "Respecting teachers and scholars is strongly emphasized, as they are conduits of knowledge and guidance.",
+    "source_url": "https://www.sistani.org/english/book/46/606/",
+    "tags": ["teachers", "respect"]
+  },
+  {
+    "id": "education_008",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is humility required when learning?",
+    "answer": "Humility is a key ethical requirement in learning; arrogance blocks understanding and spiritual growth.",
+    "source_url": "https://www.sistani.org/english/book/46/607/",
+    "tags": ["humility", "learning"]
+  },
+  {
+    "id": "education_009",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is debate allowed in educational settings?",
+    "answer": "Debate is permissible and beneficial when conducted respectfully and with the goal of discovering truth, not winning arguments.",
+    "source_url": "https://www.sistani.org/english/book/46/608/",
+    "tags": ["debate", "ethics"]
+  },
+  {
+    "id": "education_010",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is mocking ignorance sinful?",
+    "answer": "Mocking or belittling others for ignorance is sinful and contradicts the ethics of knowledge.",
+    "source_url": "https://www.sistani.org/english/book/46/609/",
+    "tags": ["mockery", "ignorance"]
+  },
+  {
+    "id": "education_011",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is teaching without proper knowledge allowed?",
+    "answer": "Teaching matters one is unqualified in—especially religious rulings—is prohibited and dangerous.",
+    "source_url": "https://www.sistani.org/english/book/46/610/",
+    "tags": ["qualification", "teaching"]
+  },
+  {
+    "id": "education_012",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is asking questions encouraged in learning?",
+    "answer": "Asking sincere questions is encouraged and is a key path to acquiring correct understanding.",
+    "source_url": "https://www.sistani.org/english/book/46/611/",
+    "tags": ["questions", "learning"]
+  },
+  {
+    "id": "education_013",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is memorization sufficient without understanding?",
+    "answer": "Memorization alone is insufficient; understanding and application are essential components of true knowledge.",
+    "source_url": "https://www.sistani.org/english/book/46/612/",
+    "tags": ["understanding", "memorization"]
+  },
+  {
+    "id": "education_014",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is plagiarism prohibited in Islam?",
+    "answer": "Plagiarism is prohibited as it involves dishonesty and violation of intellectual trust.",
+    "source_url": "https://www.sistani.org/english/book/46/613/",
+    "tags": ["plagiarism", "honesty"]
+  },
+  {
+    "id": "education_015",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is fairness required when evaluating students?",
+    "answer": "Fairness and impartiality are obligatory when evaluating students’ performance or knowledge.",
+    "source_url": "https://www.sistani.org/english/book/46/614/",
+    "tags": ["fairness", "evaluation"]
+  },
+  {
+    "id": "education_016",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is withholding grades unjustly sinful?",
+    "answer": "Unjustly withholding grades or recognition is sinful and a form of oppression.",
+    "source_url": "https://www.sistani.org/english/book/46/615/",
+    "tags": ["oppression", "education"]
+  },
+  {
+    "id": "education_017",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is continuous learning encouraged?",
+    "answer": "Continuous learning throughout one’s life is encouraged and praised in Islam.",
+    "source_url": "https://www.sistani.org/english/book/46/616/",
+    "tags": ["lifelong_learning", "growth"]
+  },
+  {
+    "id": "education_018",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is teaching children a parental duty?",
+    "answer": "Teaching children religious values, morals, and basic knowledge is a parental obligation.",
+    "source_url": "https://www.sistani.org/english/book/46/617/",
+    "tags": ["children", "parental_duty"]
+  },
+  {
+    "id": "education_019",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is charging for teaching religious knowledge allowed?",
+    "answer": "Receiving compensation for teaching religious knowledge is permissible if it does not exploit learners or restrict access.",
+    "source_url": "https://www.sistani.org/english/book/46/618/",
+    "tags": ["teaching_fees", "religious_education"]
+  },
+  {
+    "id": "education_020",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is favoritism in education prohibited?",
+    "answer": "Favoritism based on wealth, status, or relationships is prohibited and unjust.",
+    "source_url": "https://www.sistani.org/english/book/46/619/",
+    "tags": ["favoritism", "justice"]
+  },
+  {
+    "id": "education_021",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is academic dishonesty sinful?",
+    "answer": "Cheating, falsifying credentials, or dishonest academic behavior is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/620/",
+    "tags": ["cheating", "dishonesty"]
+  },
+  {
+    "id": "education_022",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is using knowledge for harm prohibited?",
+    "answer": "Using knowledge to harm individuals or society is prohibited and a grave misuse of learning.",
+    "source_url": "https://www.sistani.org/english/book/46/621/",
+    "tags": ["harm", "misuse"]
+  },
+  {
+    "id": "education_023",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is acknowledging sources ethically required?",
+    "answer": "Acknowledging sources and teachers is ethically required and reflects honesty and gratitude.",
+    "source_url": "https://www.sistani.org/english/book/46/622/",
+    "tags": ["sources", "gratitude"]
+  },
+  {
+    "id": "education_024",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is discouraging others from learning sinful?",
+    "answer": "Discouraging others from beneficial learning without justification is sinful.",
+    "source_url": "https://www.sistani.org/english/book/46/623/",
+    "tags": ["discouragement", "learning"]
+  },
+  {
+    "id": "education_025",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is discipline allowed in teaching?",
+    "answer": "Discipline is allowed when it is just, proportionate, and free from harm or humiliation.",
+    "source_url": "https://www.sistani.org/english/book/46/624/",
+    "tags": ["discipline", "ethics"]
+  },
+  {
+    "id": "education_026",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is respecting differing scholarly opinions necessary?",
+    "answer": "Respecting legitimate scholarly differences is necessary and reflects intellectual maturity.",
+    "source_url": "https://www.sistani.org/english/book/46/625/",
+    "tags": ["scholarly_difference", "respect"]
+  },
+  {
+    "id": "education_027",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is arrogance due to knowledge sinful?",
+    "answer": "Arrogance resulting from knowledge is sinful and nullifies its spiritual benefit.",
+    "source_url": "https://www.sistani.org/english/book/46/626/",
+    "tags": ["arrogance", "knowledge"]
+  },
+  {
+    "id": "education_028",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is verifying information before teaching required?",
+    "answer": "Verifying information before teaching or transmitting it is obligatory to prevent misinformation.",
+    "source_url": "https://www.sistani.org/english/book/46/627/",
+    "tags": ["verification", "accuracy"]
+  },
+  {
+    "id": "education_029",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is education a means of social reform?",
+    "answer": "Education is a powerful means of reforming individuals and improving society.",
+    "source_url": "https://www.sistani.org/english/book/46/628/",
+    "tags": ["social_reform", "education"]
+  },
+  {
+    "id": "education_030",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is patience required in teaching?",
+    "answer": "Patience is essential in teaching, especially when dealing with varying abilities and understanding.",
+    "source_url": "https://www.sistani.org/english/book/46/629/",
+    "tags": ["patience", "teaching"]
+  },
+  {
+    "id": "education_031",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is encouraging critical thinking allowed?",
+    "answer": "Encouraging critical thinking is allowed and beneficial when guided by ethics and respect.",
+    "source_url": "https://www.sistani.org/english/book/46/630/",
+    "tags": ["critical_thinking", "education"]
+  },
+  {
+    "id": "education_032",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is withholding opportunities from learners unjust?",
+    "answer": "Unjustly denying learners access to opportunities is a form of oppression.",
+    "source_url": "https://www.sistani.org/english/book/46/631/",
+    "tags": ["opportunity", "justice"]
+  },
+  {
+    "id": "education_033",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is sharing beneficial knowledge encouraged?",
+    "answer": "Sharing beneficial knowledge is encouraged and rewarded continuously.",
+    "source_url": "https://www.sistani.org/english/book/46/632/",
+    "tags": ["sharing", "benefit"]
+  },
+  {
+    "id": "education_034",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is neglecting education harmful?",
+    "answer": "Neglecting education leads to ignorance, social decline, and moral weakness.",
+    "source_url": "https://www.sistani.org/english/book/46/633/",
+    "tags": ["ignorance", "harm"]
+  },
+  {
+    "id": "education_035",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is ethical conduct part of true knowledge?",
+    "answer": "Ethical conduct is inseparable from true knowledge; knowledge without ethics is incomplete.",
+    "source_url": "https://www.sistani.org/english/book/46/634/",
+    "tags": ["ethics", "knowledge"]
+  },
+  {
+    "id": "education_036",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is accountability required for educators?",
+    "answer": "Educators are accountable for what they teach and how they influence learners.",
+    "source_url": "https://www.sistani.org/english/book/46/635/",
+    "tags": ["accountability", "educators"]
+  },
+  {
+    "id": "education_037",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is protecting students from harm obligatory?",
+    "answer": "Protecting students from physical, emotional, and intellectual harm is obligatory.",
+    "source_url": "https://www.sistani.org/english/book/46/636/",
+    "tags": ["student_safety", "protection"]
+  },
+  {
+    "id": "education_038",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is sincerity essential in teaching?",
+    "answer": "Sincerity is essential; teaching for fame or manipulation undermines its value.",
+    "source_url": "https://www.sistani.org/english/book/46/637/",
+    "tags": ["sincerity", "intention"]
+  },
+  {
+    "id": "education_039",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "Is knowledge a trust from Allah?",
+    "answer": "Knowledge is a trust from Allah and must be used responsibly and ethically.",
+    "source_url": "https://www.sistani.org/english/book/46/638/",
+    "tags": ["trust", "responsibility"]
+  },
+  {
+    "id": "education_040",
+    "topic": "Education, Knowledge & Teaching Ethics",
+    "question": "What is the ultimate goal of education in Islam?",
+    "answer": "The ultimate goal of education is to cultivate righteous, knowledgeable individuals who benefit society and seek closeness to Allah.",
+    "source_url": "https://www.sistani.org/english/book/46/639/",
+    "tags": ["education_goal", "righteousness"]
+  },
+  {
+    "id": "tech_001",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is the use of modern technology permissible in Islam?",
+    "answer": "The use of modern technology is permissible in principle. Its ruling depends on how it is used and whether it leads to lawful benefit or prohibited harm.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["technology", "permissibility"]
+  },
+  {
+    "id": "tech_002",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Does technology have an inherent moral ruling?",
+    "answer": "Technology itself is morally neutral. Ethical judgment applies to the intention, application, and consequences of its use.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["neutrality", "intention"]
+  },
+  {
+    "id": "tech_003",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is artificial intelligence permissible to use?",
+    "answer": "Using artificial intelligence is permissible as long as it does not facilitate injustice, deception, harm, or violation of religious or moral principles.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["ai", "permissible_use"]
+  },
+  {
+    "id": "tech_004",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is reliance on AI for decision-making allowed?",
+    "answer": "Reliance on AI tools is allowed for assistance and efficiency, but final moral and legal responsibility remains with the human user.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["ai_decisions", "responsibility"]
+  },
+  {
+    "id": "tech_005",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is using AI to deceive others prohibited?",
+    "answer": "Using AI or digital tools for deception, impersonation, or fraud is prohibited and constitutes dishonesty and injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["deception", "fraud"]
+  },
+  {
+    "id": "tech_006",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is violating privacy through technology sinful?",
+    "answer": "Violating privacy through surveillance, hacking, or unauthorized data access is sinful and forbidden.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["privacy", "data"]
+  },
+  {
+    "id": "tech_007",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is consent required when collecting personal data?",
+    "answer": "Consent is required when collecting, storing, or using personal data unless legally and ethically justified.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["consent", "data_ethics"]
+  },
+  {
+    "id": "tech_008",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is cyberbullying prohibited in Islam?",
+    "answer": "Cyberbullying, harassment, or online abuse is prohibited as it constitutes harm, oppression, and violation of dignity.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["cyberbullying", "harm"]
+  },
+  {
+    "id": "tech_009",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is spreading misinformation online sinful?",
+    "answer": "Knowingly spreading false or misleading information online is sinful and morally blameworthy.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["misinformation", "truthfulness"]
+  },
+  {
+    "id": "tech_010",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is hacking or unauthorized system access allowed?",
+    "answer": "Unauthorized access to systems, accounts, or networks is prohibited and considered a violation of rights.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["hacking", "unauthorized_access"]
+  },
+  {
+    "id": "tech_011",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is digital piracy prohibited?",
+    "answer": "Digital piracy and illegal copying of protected content are prohibited as violations of property rights.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["piracy", "intellectual_property"]
+  },
+  {
+    "id": "tech_012",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is intellectual property recognized in Islam?",
+    "answer": "Intellectual property rights are recognized and must be respected according to common legal and ethical standards.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["ip", "rights"]
+  },
+  {
+    "id": "tech_013",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is automation that causes job loss sinful?",
+    "answer": "Automation itself is not sinful, but causing unjust harm, exploitation, or neglect of social responsibility is blameworthy.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["automation", "employment"]
+  },
+  {
+    "id": "tech_014",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is AI-generated content permissible?",
+    "answer": "AI-generated content is permissible if it does not involve deception, immorality, or false attribution.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["ai_content", "authenticity"]
+  },
+  {
+    "id": "tech_015",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is deepfake technology prohibited?",
+    "answer": "Deepfake technology is prohibited when used for deception, defamation, or violation of personal dignity.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["deepfake", "deception"]
+  },
+  {
+    "id": "tech_016",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is online anonymity permissible?",
+    "answer": "Online anonymity is permissible when used for protection or privacy, but not for wrongdoing or evading accountability.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["anonymity", "accountability"]
+  },
+  {
+    "id": "tech_017",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is excessive screen use harmful?",
+    "answer": "Excessive technology use that leads to neglect of obligations, health, or family is blameworthy and discouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["screen_time", "balance"]
+  },
+  {
+    "id": "tech_018",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is AI surveillance morally acceptable?",
+    "answer": "AI surveillance is only acceptable when legally justified, proportionate, and protective of public welfare without abuse.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["surveillance", "public_welfare"]
+  },
+  {
+    "id": "tech_019",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is data selling without disclosure allowed?",
+    "answer": "Selling or sharing personal data without disclosure and consent is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["data_sales", "consent"]
+  },
+  {
+    "id": "tech_020",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is algorithmic bias ethically problematic?",
+    "answer": "Algorithmic bias that results in injustice or discrimination is ethically problematic and must be corrected.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["bias", "justice"]
+  },
+  {
+    "id": "tech_021",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is AI allowed in religious education?",
+    "answer": "AI may assist religious education but cannot replace qualified scholars or issue independent religious rulings.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["religious_education", "authority"]
+  },
+  {
+    "id": "tech_022",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is trusting AI fatwas permissible?",
+    "answer": "AI-generated responses may be educational but are not substitutes for qualified marjaʿ authority.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["fatwa", "authority"]
+  },
+  {
+    "id": "tech_023",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is biometric data collection allowed?",
+    "answer": "Biometric data collection is allowed only with informed consent and secure handling.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["biometrics", "privacy"]
+  },
+  {
+    "id": "tech_024",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is online gambling prohibited?",
+    "answer": "Online gambling is prohibited just as physical gambling is, regardless of platform.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["gambling", "online"]
+  },
+  {
+    "id": "tech_025",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is using bots to manipulate markets allowed?",
+    "answer": "Using bots or algorithms to manipulate markets or deceive others is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["market_manipulation", "bots"]
+  },
+  {
+    "id": "tech_026",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is digital addiction blameworthy?",
+    "answer": "Digital addiction that causes harm or neglect of obligations is blameworthy and must be addressed.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["addiction", "technology"]
+  },
+  {
+    "id": "tech_027",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is virtual reality use permissible?",
+    "answer": "Virtual reality use is permissible unless it promotes immorality, deception, or psychological harm.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["virtual_reality", "permissible_use"]
+  },
+  {
+    "id": "tech_028",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is online impersonation sinful?",
+    "answer": "Online impersonation is sinful as it involves deception and violation of trust.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["impersonation", "deception"]
+  },
+  {
+    "id": "tech_029",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is content moderation ethically required?",
+    "answer": "Content moderation is ethically required to prevent harm, abuse, and spread of immorality.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["moderation", "harm_prevention"]
+  },
+  {
+    "id": "tech_030",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is using technology to spy on others allowed?",
+    "answer": "Spying through technological means without justification is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["spying", "privacy"]
+  },
+  {
+    "id": "tech_031",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is AI development ethically accountable?",
+    "answer": "Developers are ethically accountable for foreseeable harms caused by AI systems they create.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["developers", "accountability"]
+  },
+  {
+    "id": "tech_032",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is technology a means of enjoining good?",
+    "answer": "Technology may be used to enjoin good and spread beneficial knowledge when done ethically.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["enjoining_good", "technology"]
+  },
+  {
+    "id": "tech_033",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is digital transparency required?",
+    "answer": "Transparency is required when lack of disclosure causes harm or deception.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["transparency", "ethics"]
+  },
+  {
+    "id": "tech_034",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is replacing human judgment with AI problematic?",
+    "answer": "Replacing moral human judgment entirely with AI is problematic and discouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["judgment", "ai_limits"]
+  },
+  {
+    "id": "tech_035",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is accountability lost when AI is involved?",
+    "answer": "Accountability is never removed by AI use; responsibility always rests with humans.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["accountability", "responsibility"]
+  },
+  {
+    "id": "tech_036",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is tech innovation encouraged in Islam?",
+    "answer": "Innovation that benefits humanity and avoids harm is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["innovation", "benefit"]
+  },
+  {
+    "id": "tech_037",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is ethical regulation of AI necessary?",
+    "answer": "Ethical regulation of AI is necessary to prevent injustice and societal harm.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["regulation", "ethics"]
+  },
+  {
+    "id": "tech_038",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is technology a test of moral character?",
+    "answer": "Technology is a test of moral character, revealing intention, restraint, and accountability.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["character", "test"]
+  },
+  {
+    "id": "tech_039",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "Is moderation in technology use required?",
+    "answer": "Moderation is required; excess leads to harm while balance leads to benefit.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["moderation", "balance"]
+  },
+  {
+    "id": "tech_040",
+    "topic": "Technology, AI & Modern Ethical Issues",
+    "question": "What is the guiding Islamic principle for technology?",
+    "answer": "The guiding principle is justice, harm prevention, benefit maximization, and accountability before Allah.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["principles", "ethics"]
   }
 ]
