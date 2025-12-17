@@ -8769,5 +8769,985 @@
     "answer": "The guiding principle is justice, harm prevention, benefit maximization, and accountability before Allah.",
     "source_url": "https://www.sistani.org/english/book/46/",
     "tags": ["principles", "ethics"]
+  },
+    {
+    "id": "econ_001",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "What is the Islamic view on wealth?",
+    "answer": "Wealth is a trust from Allah. Humans are custodians, not absolute owners, and must use wealth lawfully and responsibly.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["wealth", "trust"]
+  },
+  {
+    "id": "econ_002",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is earning wealth encouraged in Islam?",
+    "answer": "Earning wealth through lawful means is encouraged, especially when it enables self-sufficiency and helping others.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["earning", "lawful_income"]
+  },
+  {
+    "id": "econ_003",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is poverty considered virtuous in itself?",
+    "answer": "Poverty itself is not a virtue. Islam encourages dignity, lawful earning, and societal responsibility to alleviate poverty.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["poverty", "dignity"]
+  },
+  {
+    "id": "econ_004",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is extreme wealth accumulation discouraged?",
+    "answer": "Extreme accumulation that leads to neglect of obligations or societal harm is discouraged and morally blameworthy.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["accumulation", "ethics"]
+  },
+  {
+    "id": "econ_005",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "What is the obligation of the wealthy toward the poor?",
+    "answer": "The wealthy are obligated to pay zakat, khums, and provide assistance to the needy when required.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["obligation", "poor"]
+  },
+
+  {
+    "id": "econ_006",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is hoarding wealth prohibited?",
+    "answer": "Hoarding wealth without fulfilling financial obligations and social duties is morally blameworthy.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["hoarding", "wealth"]
+  },
+  {
+    "id": "econ_007",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is economic inequality inherently unjust?",
+    "answer": "Economic inequality is not inherently unjust, but injustice arises when inequality results from oppression or exploitation.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["inequality", "justice"]
+  },
+  {
+    "id": "econ_008",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is providing employment better than charity?",
+    "answer": "Providing dignified employment is often superior to charity, as it preserves independence and self-respect.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["employment", "charity"]
+  },
+  {
+    "id": "econ_009",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is begging permissible?",
+    "answer": "Begging is discouraged except in cases of genuine necessity or extreme hardship.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["begging", "necessity"]
+  },
+  {
+    "id": "econ_010",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is exploiting workers prohibited?",
+    "answer": "Exploiting workers through unjust wages, unsafe conditions, or delayed payment is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["workers", "exploitation"]
+  },
+
+  {
+    "id": "econ_011",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is fair wage a religious obligation?",
+    "answer": "Paying a fair wage for fair work is a religious and moral obligation.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["wages", "fairness"]
+  },
+  {
+    "id": "econ_012",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is delaying wages sinful?",
+    "answer": "Delaying wages without valid reason is sinful and violates the worker’s rights.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["wages", "delay"]
+  },
+  {
+    "id": "econ_013",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is public wealth subject to special responsibility?",
+    "answer": "Public wealth must be protected and used solely for public benefit without misuse or corruption.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["public_wealth", "trust"]
+  },
+  {
+    "id": "econ_014",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is corruption in economic systems prohibited?",
+    "answer": "All forms of corruption, bribery, and misuse of funds are strictly prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["corruption", "bribery"]
+  },
+  {
+    "id": "econ_015",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is interest-based exploitation unjust?",
+    "answer": "Any financial practice that exploits the vulnerable or causes injustice is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["exploitation", "finance"]
+  },
+
+  {
+    "id": "econ_016",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is saving money encouraged?",
+    "answer": "Saving money responsibly is encouraged, provided obligations toward others are fulfilled.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["saving", "responsibility"]
+  },
+  {
+    "id": "econ_017",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is wastefulness sinful?",
+    "answer": "Wastefulness and extravagance are sinful and condemned.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["waste", "extravagance"]
+  },
+  {
+    "id": "econ_018",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is moderation in spending required?",
+    "answer": "Moderation in spending is required; excess and miserliness are both discouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["moderation", "spending"]
+  },
+  {
+    "id": "econ_019",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is debt discouraged?",
+    "answer": "Debt is discouraged unless necessary, and repayment obligations must be taken seriously.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["debt", "repayment"]
+  },
+  {
+    "id": "econ_020",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is forgiving debt virtuous?",
+    "answer": "Forgiving debt for those genuinely unable to repay is highly virtuous and rewarded.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["debt", "forgiveness"]
+  },
+
+  {
+    "id": "econ_021",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is charity mandatory beyond zakat?",
+    "answer": "Charity becomes obligatory when a person can prevent serious harm or hardship to others.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["charity", "obligation"]
+  },
+  {
+    "id": "econ_022",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is secrecy in charity preferred?",
+    "answer": "Secret charity is preferred when it preserves dignity and sincerity, though public charity may encourage others.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["charity", "intention"]
+  },
+  {
+    "id": "econ_023",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is economic justice a religious goal?",
+    "answer": "Economic justice is a fundamental religious goal tied to social stability and moral accountability.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["justice", "economics"]
+  },
+  {
+    "id": "econ_024",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is monopolization of essential goods allowed?",
+    "answer": "Monopolization that harms the public or inflates prices unjustly is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["monopoly", "public_harm"]
+  },
+  {
+    "id": "econ_025",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is price manipulation prohibited?",
+    "answer": "Artificial price manipulation that causes injustice or exploitation is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["prices", "manipulation"]
+  },
+
+  {
+    "id": "econ_026",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is financial transparency required?",
+    "answer": "Financial transparency is required when lack of disclosure leads to deception or injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["transparency", "finance"]
+  },
+  {
+    "id": "econ_027",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is inheritance a means of wealth distribution?",
+    "answer": "Inheritance laws serve as a divinely mandated system of wealth distribution and justice.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["inheritance", "distribution"]
+  },
+  {
+    "id": "econ_028",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is economic oppression sinful?",
+    "answer": "Economic oppression in any form is sinful and condemned.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["oppression", "sin"]
+  },
+  {
+    "id": "econ_029",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is supporting the poor a communal duty?",
+    "answer": "Supporting the poor is a communal duty that becomes individual when others fail.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["communal_duty", "poor"]
+  },
+  {
+    "id": "econ_030",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is public welfare prioritized over private gain?",
+    "answer": "Public welfare takes precedence over private gain when the two conflict.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["public_welfare", "priority"]
+  },
+
+  {
+    "id": "econ_031",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is wealth a test from Allah?",
+    "answer": "Wealth is a test of gratitude, restraint, and responsibility toward others.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["test", "wealth"]
+  },
+  {
+    "id": "econ_032",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is envy of wealth sinful?",
+    "answer": "Envy of others’ wealth is sinful, but aspiring for lawful success is permitted.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["envy", "ethics"]
+  },
+  {
+    "id": "econ_033",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is gratitude for wealth obligatory?",
+    "answer": "Gratitude is obligatory and expressed through lawful use and helping others.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["gratitude", "obligation"]
+  },
+  {
+    "id": "econ_034",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is poverty alleviation a moral priority?",
+    "answer": "Alleviating poverty is a moral priority tied to social justice and compassion.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["poverty_alleviation", "priority"]
+  },
+  {
+    "id": "econ_035",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is generosity encouraged even with little wealth?",
+    "answer": "Generosity is encouraged even with limited means, according to one's capacity.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["generosity", "capacity"]
+  },
+
+  {
+    "id": "econ_036",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is unjust taxation prohibited?",
+    "answer": "Unjust or oppressive taxation is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["taxation", "justice"]
+  },
+  {
+    "id": "econ_037",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is economic cooperation encouraged?",
+    "answer": "Economic cooperation that benefits society and avoids harm is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["cooperation", "economy"]
+  },
+  {
+    "id": "econ_038",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is reliance on charity discouraged when capable of work?",
+    "answer": "Reliance on charity is discouraged when one is capable of lawful work.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["self_reliance", "charity"]
+  },
+  {
+    "id": "econ_039",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "Is equitable opportunity important in Islam?",
+    "answer": "Providing equitable opportunity aligns with justice and societal harmony.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["opportunity", "equity"]
+  },
+  {
+    "id": "econ_040",
+    "topic": "Economics, Wealth Distribution & Poverty",
+    "question": "What is the overarching economic principle in Islam?",
+    "answer": "The overarching principle is justice, compassion, and balance between individual rights and societal welfare.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["principles", "economics"]
+  },
+    {
+    "id": "war_001",
+    "topic": "War, Peace & International Relations",
+    "question": "What is the general Islamic stance on war?",
+    "answer": "War is fundamentally undesirable in Islam and permitted only as a last resort under strict moral and legal conditions.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["war", "principles"]
+  },
+  {
+    "id": "war_002",
+    "topic": "War, Peace & International Relations",
+    "question": "Is peace preferred over war?",
+    "answer": "Peace is always preferred when it preserves justice, security, and human dignity.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["peace", "preference"]
+  },
+  {
+    "id": "war_003",
+    "topic": "War, Peace & International Relations",
+    "question": "When is armed conflict permissible?",
+    "answer": "Armed conflict is permissible only in self-defense or to repel aggression when no peaceful alternatives remain.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["self_defense", "conflict"]
+  },
+  {
+    "id": "war_004",
+    "topic": "War, Peace & International Relations",
+    "question": "Is initiating aggression allowed?",
+    "answer": "Initiating aggression or unjust warfare is strictly prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["aggression", "prohibition"]
+  },
+  {
+    "id": "war_005",
+    "topic": "War, Peace & International Relations",
+    "question": "Who has authority to declare legitimate armed struggle?",
+    "answer": "Legitimate armed struggle requires lawful authority and cannot be declared by individuals or unauthorized groups.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["authority", "legitimacy"]
+  },
+
+  {
+    "id": "war_006",
+    "topic": "War, Peace & International Relations",
+    "question": "Are civilians protected during war?",
+    "answer": "Civilians, including women, children, the elderly, and non-combatants, are strictly protected and may not be targeted.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["civilians", "protection"]
+  },
+  {
+    "id": "war_007",
+    "topic": "War, Peace & International Relations",
+    "question": "Is destruction of civilian property allowed?",
+    "answer": "Unnecessary destruction of homes, crops, and infrastructure is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["property", "destruction"]
+  },
+  {
+    "id": "war_008",
+    "topic": "War, Peace & International Relations",
+    "question": "Is harming prisoners of war allowed?",
+    "answer": "Harming, torturing, or humiliating prisoners of war is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["prisoners", "human_rights"]
+  },
+  {
+    "id": "war_009",
+    "topic": "War, Peace & International Relations",
+    "question": "Must prisoners of war be treated humanely?",
+    "answer": "Prisoners must be treated humanely, provided food, shelter, and protection from abuse.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["prisoners", "humane_treatment"]
+  },
+  {
+    "id": "war_010",
+    "topic": "War, Peace & International Relations",
+    "question": "Is torture ever permissible in war?",
+    "answer": "Torture is absolutely prohibited under all circumstances.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["torture", "prohibition"]
+  },
+
+  {
+    "id": "war_011",
+    "topic": "War, Peace & International Relations",
+    "question": "Is betrayal or treachery allowed during conflict?",
+    "answer": "Betrayal, treachery, and breaking covenants are prohibited even during war.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["treachery", "covenants"]
+  },
+  {
+    "id": "war_012",
+    "topic": "War, Peace & International Relations",
+    "question": "Are treaties binding in Islam?",
+    "answer": "Treaties and agreements are binding and must be honored unless the other party violates them first.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["treaties", "agreements"]
+  },
+  {
+    "id": "war_013",
+    "topic": "War, Peace & International Relations",
+    "question": "Is deception in warfare allowed?",
+    "answer": "Strategic concealment is permitted, but treachery and violation of agreements are not.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["strategy", "ethics"]
+  },
+  {
+    "id": "war_014",
+    "topic": "War, Peace & International Relations",
+    "question": "Is collective punishment allowed?",
+    "answer": "Collective punishment against civilians is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["collective_punishment", "justice"]
+  },
+  {
+    "id": "war_015",
+    "topic": "War, Peace & International Relations",
+    "question": "Is targeting places of worship allowed?",
+    "answer": "Targeting mosques, churches, synagogues, and other places of worship is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["places_of_worship", "protection"]
+  },
+
+  {
+    "id": "war_016",
+    "topic": "War, Peace & International Relations",
+    "question": "Is forced displacement of civilians allowed?",
+    "answer": "Forced displacement without necessity or just cause is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["displacement", "civilians"]
+  },
+  {
+    "id": "war_017",
+    "topic": "War, Peace & International Relations",
+    "question": "Is environmental destruction during war allowed?",
+    "answer": "Deliberate environmental destruction that causes unnecessary harm is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["environment", "warfare"]
+  },
+  {
+    "id": "war_018",
+    "topic": "War, Peace & International Relations",
+    "question": "Is proportionality required in warfare?",
+    "answer": "Any use of force must be proportional and limited to what is necessary for defense.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["proportionality", "force"]
+  },
+  {
+    "id": "war_019",
+    "topic": "War, Peace & International Relations",
+    "question": "Is indiscriminate violence allowed?",
+    "answer": "Indiscriminate violence that fails to distinguish combatants from civilians is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["indiscriminate_violence", "prohibition"]
+  },
+  {
+    "id": "war_020",
+    "topic": "War, Peace & International Relations",
+    "question": "Is martyrdom tied to just cause?",
+    "answer": "Martyrdom is recognized only when death occurs in a just cause under legitimate conditions.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["martyrdom", "justice"]
+  },
+
+  {
+    "id": "war_021",
+    "topic": "War, Peace & International Relations",
+    "question": "Is vigilantism allowed in the name of jihad?",
+    "answer": "Vigilantism and unauthorized violence are prohibited and not considered jihad.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["vigilantism", "jihad"]
+  },
+  {
+    "id": "war_022",
+    "topic": "War, Peace & International Relations",
+    "question": "Is reconciliation encouraged after conflict?",
+    "answer": "Reconciliation and forgiveness are strongly encouraged when they lead to lasting peace and justice.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["reconciliation", "peace"]
+  },
+  {
+    "id": "war_023",
+    "topic": "War, Peace & International Relations",
+    "question": "Is diplomacy encouraged?",
+    "answer": "Diplomacy and dialogue are encouraged to prevent conflict and resolve disputes.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["diplomacy", "dialogue"]
+  },
+  {
+    "id": "war_024",
+    "topic": "War, Peace & International Relations",
+    "question": "Is cooperation with non-Muslim nations allowed?",
+    "answer": "Cooperation with non-Muslim nations is allowed when it serves justice, peace, and mutual benefit.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["cooperation", "international_relations"]
+  },
+  {
+    "id": "war_025",
+    "topic": "War, Peace & International Relations",
+    "question": "Is unjust alliance prohibited?",
+    "answer": "Alliances that support oppression or injustice are prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["alliances", "injustice"]
+  },
+
+  {
+    "id": "war_026",
+    "topic": "War, Peace & International Relations",
+    "question": "Is seeking asylum permissible?",
+    "answer": "Seeking asylum to protect life, religion, or dignity is permissible.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["asylum", "refugees"]
+  },
+  {
+    "id": "war_027",
+    "topic": "War, Peace & International Relations",
+    "question": "Must refugees be treated with dignity?",
+    "answer": "Refugees must be treated with dignity, compassion, and justice.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["refugees", "dignity"]
+  },
+  {
+    "id": "war_028",
+    "topic": "War, Peace & International Relations",
+    "question": "Is collective security permissible?",
+    "answer": "Collective security arrangements are permissible if they deter aggression and uphold justice.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["security", "collective"]
+  },
+  {
+    "id": "war_029",
+    "topic": "War, Peace & International Relations",
+    "question": "Is nuclear or mass destruction weapons use allowed?",
+    "answer": "Weapons of mass destruction that cause indiscriminate harm are prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["weapons", "mass_destruction"]
+  },
+  {
+    "id": "war_030",
+    "topic": "War, Peace & International Relations",
+    "question": "Is ending war promptly encouraged?",
+    "answer": "Ending war promptly when objectives of defense are achieved is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["ending_war", "peace"]
+  },
+
+  {
+    "id": "war_031",
+    "topic": "War, Peace & International Relations",
+    "question": "Is reconciliation superior to revenge?",
+    "answer": "Reconciliation is superior to revenge when it prevents further injustice.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["reconciliation", "ethics"]
+  },
+  {
+    "id": "war_032",
+    "topic": "War, Peace & International Relations",
+    "question": "Is international law respected in Islam?",
+    "answer": "International law is respected when it aligns with justice and does not mandate oppression.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["international_law", "justice"]
+  },
+  {
+    "id": "war_033",
+    "topic": "War, Peace & International Relations",
+    "question": "Is spreading fear among civilians allowed?",
+    "answer": "Spreading fear and terror among civilians is prohibited.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["terror", "civilians"]
+  },
+  {
+    "id": "war_034",
+    "topic": "War, Peace & International Relations",
+    "question": "Is humanitarian aid during war obligatory?",
+    "answer": "Providing humanitarian aid during war is obligatory when one has the capacity to do so.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["humanitarian_aid", "obligation"]
+  },
+  {
+    "id": "war_035",
+    "topic": "War, Peace & International Relations",
+    "question": "Is silence in face of injustice acceptable?",
+    "answer": "Remaining silent in the face of grave injustice is morally blameworthy when one can act lawfully to prevent it.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["injustice", "responsibility"]
+  },
+
+  {
+    "id": "war_036",
+    "topic": "War, Peace & International Relations",
+    "question": "Is coexistence with other nations encouraged?",
+    "answer": "Peaceful coexistence based on mutual respect is encouraged.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["coexistence", "nations"]
+  },
+  {
+    "id": "war_037",
+    "topic": "War, Peace & International Relations",
+    "question": "Is dialogue preferred over violence?",
+    "answer": "Dialogue is always preferred over violence whenever it can achieve justice and peace.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["dialogue", "peace"]
+  },
+  {
+    "id": "war_038",
+    "topic": "War, Peace & International Relations",
+    "question": "Is moral accountability present even in war?",
+    "answer": "Moral accountability applies fully during war; ends do not justify prohibited means.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["accountability", "ethics"]
+  },
+  {
+    "id": "war_039",
+    "topic": "War, Peace & International Relations",
+    "question": "Is victory without justice meaningful?",
+    "answer": "Victory without justice is hollow and spiritually damaging.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["victory", "justice"]
+  },
+  {
+    "id": "war_040",
+    "topic": "War, Peace & International Relations",
+    "question": "What is the overarching principle governing war and peace in Islam?",
+    "answer": "The overarching principle is preservation of life, justice, dignity, and the pursuit of peace whenever possible.",
+    "source_url": "https://www.sistani.org/english/book/46/",
+    "tags": ["principles", "war_and_peace"]
+  },
+    {
+    "id": "minorities_001",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "What is the Islamic principle regarding coexistence with religious minorities?",
+    "answer": "Islam emphasizes peaceful coexistence, justice, and respect for the rights of religious minorities living within society.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["coexistence", "minorities", "justice"]
+  },
+  {
+    "id": "minorities_002",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Are non-Muslims entitled to protection under Islamic law?",
+    "answer": "Non-Muslims are entitled to full protection of life, property, honor, and religious practice when living peacefully within society.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["non_muslims", "protection", "rights"]
+  },
+  {
+    "id": "minorities_003",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is discrimination against religious minorities permitted?",
+    "answer": "Discrimination, oppression, or denial of lawful rights based on religion is prohibited.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["discrimination", "prohibition", "equality"]
+  },
+  {
+    "id": "minorities_004",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Do religious minorities have freedom of worship?",
+    "answer": "Religious minorities are entitled to practice their faith freely so long as it does not involve harm or public disorder.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["freedom_of_worship", "religion"]
+  },
+  {
+    "id": "minorities_005",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is forced conversion allowed in Islam?",
+    "answer": "Forced conversion is strictly prohibited; faith must be embraced freely and sincerely.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["forced_conversion", "faith"]
+  },
+
+  {
+    "id": "minorities_006",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Are minorities allowed to manage their personal religious affairs?",
+    "answer": "Minorities may manage personal matters such as marriage, worship, and internal religious affairs according to their own beliefs.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["religious_autonomy", "personal_law"]
+  },
+  {
+    "id": "minorities_007",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is insulting other religions permissible?",
+    "answer": "Insulting, mocking, or degrading other religions or beliefs is prohibited and contradicts Islamic ethics.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["insults", "ethics", "speech"]
+  },
+  {
+    "id": "minorities_008",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is cooperation with non-Muslims allowed?",
+    "answer": "Cooperation with non-Muslims is permissible and encouraged when it serves justice, welfare, and peaceful coexistence.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["cooperation", "interfaith"]
+  },
+  {
+    "id": "minorities_009",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Are minority places of worship protected?",
+    "answer": "Places of worship belonging to religious minorities are protected and must not be harmed or desecrated.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["places_of_worship", "protection"]
+  },
+  {
+    "id": "minorities_010",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Can minorities seek justice in courts?",
+    "answer": "Minorities have the right to seek justice, legal protection, and fair treatment through lawful means.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["justice", "courts", "rights"]
+  },
+
+  {
+    "id": "minorities_011",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is citizenship compatible with Islamic law?",
+    "answer": "Citizenship in a pluralistic society is compatible with Islamic law when it involves lawful participation and respect for justice.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["citizenship", "pluralism"]
+  },
+  {
+    "id": "minorities_012",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Are Muslims required to uphold contracts with non-Muslims?",
+    "answer": "Contracts and agreements with non-Muslims must be honored faithfully.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["contracts", "agreements"]
+  },
+  {
+    "id": "minorities_013",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is collective punishment of minorities allowed?",
+    "answer": "Collective punishment based on religious or ethnic identity is prohibited.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["collective_punishment", "justice"]
+  },
+  {
+    "id": "minorities_014",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Are minorities allowed to express their identity publicly?",
+    "answer": "Minorities may express their identity publicly as long as it does not incite hatred or violence.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["identity", "expression"]
+  },
+  {
+    "id": "minorities_015",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is protecting minority dignity obligatory?",
+    "answer": "Protecting the dignity and honor of minorities is an Islamic obligation.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["dignity", "honor"]
+  },
+
+  {
+    "id": "minorities_016",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Can Muslims live peacefully under non-Muslim governance?",
+    "answer": "Muslims may live under non-Muslim governance if they can practice their faith and are not compelled to commit prohibited acts.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["governance", "peaceful_living"]
+  },
+  {
+    "id": "minorities_017",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is loyalty to one’s country allowed?",
+    "answer": "Loyalty to one’s country is permissible when it does not conflict with religious obligations.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["loyalty", "citizenship"]
+  },
+  {
+    "id": "minorities_018",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is participation in civic life allowed?",
+    "answer": "Participation in civic life, including voting and public service, is allowed when it promotes justice and public welfare.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["civic_participation", "public_life"]
+  },
+  {
+    "id": "minorities_019",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is hatred toward minorities acceptable?",
+    "answer": "Hatred, incitement, or hostility toward minorities is prohibited.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["hatred", "prohibition"]
+  },
+  {
+    "id": "minorities_020",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Are minorities entitled to economic rights?",
+    "answer": "Minorities are entitled to lawful economic rights, employment, and fair treatment.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["economic_rights", "fairness"]
+  },
+
+  {
+    "id": "minorities_021",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is interfaith dialogue encouraged?",
+    "answer": "Interfaith dialogue is encouraged when conducted respectfully and truthfully.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["interfaith", "dialogue"]
+  },
+  {
+    "id": "minorities_022",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is helping minorities in hardship obligatory?",
+    "answer": "Helping minorities in hardship is encouraged and may become obligatory when life or dignity is at risk.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["aid", "hardship"]
+  },
+  {
+    "id": "minorities_023",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is justice required even against one’s own group?",
+    "answer": "Justice must be upheld even if it goes against one’s own religious or ethnic group.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["justice", "impartiality"]
+  },
+  {
+    "id": "minorities_024",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is exploitation of minorities allowed?",
+    "answer": "Exploitation of minorities in any form is prohibited.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["exploitation", "prohibition"]
+  },
+  {
+    "id": "minorities_025",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is peaceful protest by minorities allowed?",
+    "answer": "Peaceful protest is allowed as long as it remains lawful and nonviolent.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["protest", "nonviolence"]
+  },
+
+  {
+    "id": "minorities_026",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Are minority languages and cultures respected?",
+    "answer": "Languages and cultures of minorities should be respected and preserved.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["culture", "language"]
+  },
+  {
+    "id": "minorities_027",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is mockery of minority customs allowed?",
+    "answer": "Mockery or belittling of minority customs is unethical and prohibited.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["mockery", "customs"]
+  },
+  {
+    "id": "minorities_028",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is mutual respect required in shared societies?",
+    "answer": "Mutual respect is essential for stable coexistence in shared societies.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["mutual_respect", "society"]
+  },
+  {
+    "id": "minorities_029",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is religious pluralism acknowledged?",
+    "answer": "Islam acknowledges the existence of religious pluralism while maintaining its own theological beliefs.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["pluralism", "religion"]
+  },
+  {
+    "id": "minorities_030",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is social harmony a religious goal?",
+    "answer": "Promoting social harmony and preventing sectarian conflict is a religious objective.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["social_harmony", "peace"]
+  },
+
+  {
+    "id": "minorities_031",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is safeguarding minority lives obligatory?",
+    "answer": "Safeguarding the lives of minorities is obligatory and a matter of moral responsibility.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["life", "protection"]
+  },
+  {
+    "id": "minorities_032",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is forced displacement of minorities allowed?",
+    "answer": "Forced displacement of minorities without just cause is prohibited.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["displacement", "prohibition"]
+  },
+  {
+    "id": "minorities_033",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is equal application of law required?",
+    "answer": "The law must be applied equally to all citizens regardless of religious or ethnic identity.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["equality", "law"]
+  },
+  {
+    "id": "minorities_034",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is sectarian incitement prohibited?",
+    "answer": "Sectarian incitement and hatred are strictly prohibited.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["sectarianism", "incitement"]
+  },
+  {
+    "id": "minorities_035",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is shared citizenship compatible with Islamic ethics?",
+    "answer": "Shared citizenship is compatible with Islamic ethics when grounded in justice and mutual respect.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["shared_citizenship", "ethics"]
+  },
+  {
+    "id": "minorities_036",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is protecting minority property obligatory?",
+    "answer": "Protecting minority property is obligatory and any violation is sinful.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["property", "protection"]
+  },
+  {
+    "id": "minorities_037",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is coexistence a form of worship?",
+    "answer": "Peaceful coexistence grounded in justice and compassion is a form of obedience to God.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["coexistence", "worship"]
+  },
+  {
+    "id": "minorities_038",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is preventing communal violence obligatory?",
+    "answer": "Preventing communal violence is obligatory when one has the ability to do so lawfully.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["violence_prevention", "obligation"]
+  },
+  {
+    "id": "minorities_039",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "Is upholding justice toward minorities a religious duty?",
+    "answer": "Upholding justice toward minorities is a clear religious duty and moral obligation.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["justice", "duty"]
+  },
+  {
+    "id": "minorities_040",
+    "topic": "Minorities, Citizenship & Coexistence",
+    "question": "What is the overarching principle regarding minorities in Islam?",
+    "answer": "The overarching principle is justice, dignity, peaceful coexistence, and protection of rights for all people.",
+    "source_url": "https://www.sistani.org/english/",
+    "tags": ["principles", "minorities"]
   }
 ]
