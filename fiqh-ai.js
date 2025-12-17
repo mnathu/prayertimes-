@@ -1,37 +1,44 @@
 /**************************************************
  * FiqhAI — Client-Side Islamic Rulings Assistant
- * Works with local JSON (GitHub Pages compatible)
+ * Lazy-loads local JSON (GitHub Pages compatible)
  **************************************************/
 
-let FIQH_DATA = [];
-let DATA_READY = false;
+let FIQH_DATA = null;
+let DATA_LOADING = false;
 
 /* ===============================================
-   1️⃣ LOAD FIQH DATA
+   1️⃣ LAZY LOAD FIQH DATA (ONLY WHEN NEEDED)
    =============================================== */
 
-fetch('./data/fiqh_master.json')
-  .then(response => {
+async function loadFiqhData() {
+  if (FIQH_DATA) return FIQH_DATA;
+  if (DATA_LOADING) return null;
+
+  DATA_LOADING = true;
+
+  try {
+    const response = await fetch('./data/fiqh_master.json');
     if (!response.ok) {
-      throw new Error("Failed to load fiqh data");
+      throw new Error('Failed to load fiqh data');
     }
-    return response.json();
-  })
-  .then(data => {
-    FIQH_DATA = data;
-    DATA_READY = true;
+
+    FIQH_DATA = await response.json();
     console.log(`FiqhAI loaded ${FIQH_DATA.length} rulings`);
-  })
-  .catch(err => {
-    console.error("FiqhAI error:", err);
-  });
+    return FIQH_DATA;
+  } catch (err) {
+    console.error('FiqhAI error:', err);
+    return null;
+  } finally {
+    DATA_LOADING = false;
+  }
+}
 
 /* ===============================================
    2️⃣ TEXT NORMALIZATION
    =============================================== */
 
 function normalizeText(text) {
-  return text
+  return (text || '')
     .toLowerCase()
     .replace(/[^\w\s]/g, '')
     .replace(/\s+/g, ' ')
@@ -45,9 +52,9 @@ function normalizeText(text) {
 function scoreEntry(entry, queryWords) {
   let score = 0;
 
-  const topic = normalizeText(entry.topic || '');
-  const question = normalizeText(entry.question || '');
-  const answer = normalizeText(entry.answer || '');
+  const topic = normalizeText(entry.topic);
+  const question = normalizeText(entry.question);
+  const answer = normalizeText(entry.answer);
   const tags = (entry.tags || []).map(t => normalizeText(t));
 
   queryWords.forEach(word => {
@@ -65,21 +72,23 @@ function scoreEntry(entry, queryWords) {
    =============================================== */
 
 function searchFiqh(query) {
-  if (!DATA_READY) return [];
+  if (!FIQH_DATA) return [];
 
-  const normalizedQuery = normalizeText(query);
-  const queryWords = normalizedQuery.split(' ').filter(w => w.length > 2);
+  const queryWords = normalizeText(query)
+    .split(' ')
+    .filter(w => w.length > 2);
 
   if (!queryWords.length) return [];
 
-  const scoredResults = FIQH_DATA.map(entry => ({
-    entry,
-    score: scoreEntry(entry, queryWords)
-  }))
+  return FIQH_DATA
+    .map(entry => ({
+      entry,
+      score: scoreEntry(entry, queryWords)
+    }))
     .filter(r => r.score > 0)
-    .sort((a, b) => b.score - a.score);
-
-  return scoredResults.slice(0, 7).map(r => r.entry);
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 7)
+    .map(r => r.entry);
 }
 
 /* ===============================================
@@ -95,7 +104,7 @@ function renderResults(results, query) {
       <div class="fiqh-empty">
         <p>No direct ruling found for:</p>
         <strong>${query}</strong>
-        <p>Please rephrase or try a related term.</p>
+        <p>Please try rephrasing or using a related term.</p>
       </div>
     `;
     return;
@@ -112,9 +121,9 @@ function renderResults(results, query) {
         <strong>Q:</strong> ${r.question}
       </p>
 
-      <p class="fiqh-response">
+      <div class="fiqh-response">
         ${r.answer}
-      </p>
+      </div>
 
       ${r.source_url ? `
         <p class="fiqh-source">
@@ -130,23 +139,30 @@ function renderResults(results, query) {
 }
 
 /* ===============================================
-   6️⃣ FORM HANDLER
+   6️⃣ FORM HANDLER (LOAD DATA ON FIRST QUERY)
    =============================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('fiqh-form');
   const input = document.getElementById('fiqh-input');
+  const container = document.getElementById('fiqh-results');
 
-  if (!form || !input) {
-    console.warn("FiqhAI: Missing form or input element");
+  if (!form || !input || !container) {
+    console.warn('FiqhAI: Missing required elements');
     return;
   }
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const query = input.value.trim();
     if (!query) return;
+
+    container.innerHTML = `<p class="fiqh-loading">Searching rulings…</p>`;
+
+    if (!FIQH_DATA) {
+      await loadFiqhData();
+    }
 
     const results = searchFiqh(query);
     renderResults(results, query);
