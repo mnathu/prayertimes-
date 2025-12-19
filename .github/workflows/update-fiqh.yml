@@ -1,34 +1,72 @@
-name: Update Fiqh Rulings
+name: Auto Update Fiqh Rulings
 
 on:
+  # Run automatically once per month
   schedule:
-    - cron: '0 3 * * *'  # Runs daily at 3 AM UTC
+    # At 03:00 UTC on the 1st day of every month
+    - cron: "0 3 1 * *"
+
+  # Allow manual runs from GitHub UI
   workflow_dispatch:
 
+# REQUIRED for push access
+permissions:
+  contents: write
+
 jobs:
-  scrape:
+  update-fiqh:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      # -------------------------------------------------
+      # 1️⃣ Checkout repository
+      # -------------------------------------------------
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
-      - name: Set up Node
+      # -------------------------------------------------
+      # 2️⃣ Setup Node.js
+      # -------------------------------------------------
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "20"
 
+      # -------------------------------------------------
+      # 3️⃣ Install dependencies (if any)
+      # -------------------------------------------------
+      # If your scraper uses packages, keep this
+      # If not, this step is harmless
       - name: Install dependencies
-        run: |
-          npm install node-fetch jsdom
+        run: npm install
+        continue-on-error: true
 
-      - name: Run scraper
-        run: node scripts/scrape_fiqh.js
+      # -------------------------------------------------
+      # 4️⃣ Run scraper / updater
+      # -------------------------------------------------
+      - name: Run Fiqh scraper
+        run: node scripts/update-fiqh.js
 
-      - name: Commit changes
+      # -------------------------------------------------
+      # 5️⃣ Commit and push changes (ONLY if changed)
+      # -------------------------------------------------
+      - name: Commit updated fiqh data
         run: |
           git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.email "github-actions@github.com"
+
+          git status
+
           git add data/fiqh_master.json
-          git commit -m "Auto-update fiqh rulings" || exit 0
+
+          # Exit cleanly if nothing changed
+          if git diff --cached --quiet; then
+            echo "No fiqh updates detected"
+            exit 0
+          fi
+
+          git commit -m "Auto-update fiqh rulings (monthly)"
           git push
