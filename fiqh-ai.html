@@ -4,211 +4,627 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>FiqhAI — Islamic Rulings Assistant</title>
+  <title>FiqhAI — Islamic Rulings Assistant (Sistani)</title>
 
-  <!-- SEO -->
-  <meta name="description" content="FiqhAI provides reliable Islamic rulings based on verified sources from Sayyid Sistani. No opinions, only authenticated fiqh references." />
-  <meta name="keywords" content="fiqh, islamic rulings, sistani, halal, salah, zakat, khums, fiqh ai" />
+  <meta name="description" content="FiqhAI is an Islamic rulings assistant based on Sayyid Sistani's published rulings. Search topics like Salah, Wudhu, Ghusl, Fasting, Business, Marriage, Hajj, and more." />
+  <meta name="keywords" content="Fiqh, Sistani, Islamic rulings, Salah, Wudhu, Ghusl, Zakat, Khums, Fasting, Halal, Haram, Marriage, Divorce, Hajj, Umrah" />
   <meta name="author" content="MN Athee" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="FiqhAI — Islamic Rulings Assistant" />
-  <meta property="og:description" content="Ask fiqh questions and get verified answers sourced directly from Sistani.org" />
-  <meta property="og:type" content="website" />
-
-  <!-- Minimal Styling -->
   <style>
-    :root {
-      --primary: #0A166C;
-      --secondary: #1f2ea1;
-      --bg: #f5f7fa;
-      --card: #ffffff;
-      --text: #1c1c1c;
-      --muted: #666;
-      --border: #ddd;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f3f5f9;
+      color: #111;
     }
 
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 16px;
+    nav {
+      background: #0A166C;
+      color: white;
+      padding: 12px;
       text-align: center;
+      font-weight: bold;
+      font-size: 16px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: normal;
     }
 
-    header p {
-      margin: 6px 0 0;
-      font-size: 0.95rem;
-      opacity: 0.9;
+    nav a:hover {
+      text-decoration: underline;
     }
 
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 30px 16px;
-    }
-
-    .fiqh-container {
-      width: 100%;
-      max-width: 720px;
-    }
-
-    form {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-
-    #fiqh-input {
-      flex: 1;
-      padding: 14px 16px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    #fiqh-input:focus {
-      outline: none;
-      border-color: var(--secondary);
-    }
-
-    button {
-      padding: 14px 20px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      background: var(--primary);
-      color: #fff;
-    }
-
-    button:hover {
-      background: var(--secondary);
-    }
-
-    .fiqh-answer {
-      background: var(--card);
-      border-radius: 10px;
+    .page {
+      max-width: 950px;
+      margin: auto;
       padding: 18px;
-      margin-bottom: 16px;
-      border: 1px solid var(--border);
     }
 
-    .fiqh-answer h3 {
-      margin: 0 0 8px;
-      color: var(--primary);
-    }
-
-    .fiqh-question {
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .fiqh-response {
-      line-height: 1.6;
+    .header-box {
+      text-align: center;
+      margin-top: 18px;
       margin-bottom: 12px;
     }
 
-    .fiqh-source a {
-      color: var(--secondary);
-      font-size: 0.9rem;
-      text-decoration: none;
+    .header-box h1 {
+      margin: 0;
+      font-size: 34px;
+      color: #0A166C;
+      letter-spacing: 0.5px;
     }
 
-    .fiqh-source a:hover {
+    .header-box p {
+      margin-top: 8px;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .status-bar {
+      text-align: center;
+      font-size: 13px;
+      padding: 8px;
+      background: #fff7e6;
+      border: 1px solid #ffe2a8;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      color: #7a4f00;
+    }
+
+    /* Chat Window */
+    .chat-window {
+      background: white;
+      border-radius: 14px;
+      border: 1px solid #d9dbe3;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      height: 68vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .messages {
+      padding: 18px;
+      overflow-y: auto;
+      flex-grow: 1;
+      scroll-behavior: smooth;
+      background: linear-gradient(to bottom, #ffffff, #fbfcff);
+    }
+
+    .message {
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      max-width: 82%;
+    }
+
+    .message.user {
+      margin-left: auto;
+      align-items: flex-end;
+    }
+
+    .message.ai {
+      margin-right: auto;
+      align-items: flex-start;
+    }
+
+    .bubble {
+      padding: 12px 14px;
+      border-radius: 14px;
+      line-height: 1.55;
+      font-size: 15px;
+      white-space: pre-wrap;
+    }
+
+    .message.user .bubble {
+      background: #0A166C;
+      color: white;
+      border-bottom-right-radius: 6px;
+    }
+
+    .message.ai .bubble {
+      background: #f1f3f8;
+      color: #111;
+      border-bottom-left-radius: 6px;
+    }
+
+    .bubble small {
+      color: #555;
+    }
+
+    .meta {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .meta a {
+      color: #0A166C;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .meta a:hover {
       text-decoration: underline;
     }
 
-    .fiqh-empty {
-      text-align: center;
-      color: var(--muted);
-      margin-top: 40px;
+    .pill {
+      display: inline-block;
+      background: #e7eaf6;
+      color: #0A166C;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 16px;
+      margin-right: 6px;
+      margin-top: 6px;
+      border: 1px solid #ccd1e0;
     }
 
-    footer {
-      text-align: center;
+    .confidence {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .confidence.high { color: #0b5a0b; }
+    .confidence.medium { color: #7a4f00; }
+    .confidence.low { color: #8b0000; }
+
+    /* Typing indicator */
+    .typing {
+      display: inline-flex;
+      gap: 4px;
+      padding: 8px 12px;
+      background: #f1f3f8;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #777;
+      animation: bounce 1.2s infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* Suggestions bar */
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       padding: 14px;
-      font-size: 0.85rem;
-      color: var(--muted);
+      border-top: 1px solid #e2e4ec;
+      background: #fafbff;
     }
 
-    footer a {
-      color: var(--secondary);
-      text-decoration: none;
+    .suggestions button {
+      border: 1px solid #ccd1e0;
+      background: white;
+      color: #0A166C;
+      border-radius: 18px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.2s;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .suggestions button:hover {
+      background: #0A166C;
+      color: white;
     }
 
-    @media (max-width: 600px) {
-      form {
-        flex-direction: column;
-      }
+    /* Input area */
+    .input-area {
+      border-top: 1px solid #e2e4ec;
+      padding: 12px;
+      background: white;
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
 
-      button {
-        width: 100%;
-      }
+    textarea {
+      flex-grow: 1;
+      resize: none;
+      border-radius: 12px;
+      border: 1px solid #ccd1e0;
+      padding: 10px;
+      font-size: 15px;
+      outline: none;
+      min-height: 46px;
+      max-height: 140px;
+      line-height: 1.45;
+    }
+
+    button.send-btn {
+      background: #0A166C;
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    button.send-btn:hover {
+      opacity: 0.9;
+    }
+
+    button.send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    button.clear-btn {
+      background: #fff;
+      border: 1px solid #ccd1e0;
+      color: #0A166C;
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    button.clear-btn:hover {
+      background: #0A166C;
+      color: white;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .footer-note strong {
+      color: #0A166C;
+    }
+
+    .action-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccd1e0;
+      cursor: pointer;
+      background: white;
+      color: #0A166C;
+      font-weight: bold;
+    }
+
+    .action-btn:hover {
+      background: #0A166C;
+      color: white;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>FiqhAI</h1>
-    <p>Verified Islamic rulings based on Sayyid Sistani</p>
-  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="annual.html">Annual Timetable</a>
+    <a href="qibla.html">Qibla Locator</a>
+    <a href="halal.html">Halal Guide</a>
+    <a href="fiqh-ai.html" style="text-decoration: underline;">FiqhAI</a>
+  </nav>
 
-  <main>
-    <div class="fiqh-container">
+  <div class="page">
 
-      <form id="fiqh-form" autocomplete="off">
-        <input
-          type="text"
-          id="fiqh-input"
-          placeholder="Ask a fiqh question (e.g. Does bleeding break wudhu?)"
-        />
-        <button type="submit">Ask</button>
-      </form>
+    <div class="header-box">
+      <h1>FiqhAI</h1>
+      <p>
+        Ask Islamic rulings questions and get answers based on the published rulings of
+        <strong>Sayyid Ali al-Sistani</strong>.
+        <br>
+        Supports Salah, Wudhu, Ghusl, Fasting, Business, Marriage, Hajj, Umrah, Inheritance, Burial, and more.
+      </p>
+    </div>
 
-      <div id="fiqh-results"></div>
+    <div id="status" class="status-bar">
+      Loading fiqh rulings dataset...
+    </div>
+
+    <div class="chat-window">
+
+      <div id="messages" class="messages"></div>
+
+      <div class="suggestions" id="suggestionsBar">
+        <button onclick="quickAsk('How do I perform wudhu correctly?')">How to do wudhu?</button>
+        <button onclick="quickAsk('What invalidates salah?')">What breaks salah?</button>
+        <button onclick="quickAsk('What breaks fasting in Ramadan?')">What breaks fasting?</button>
+        <button onclick="quickAsk('Is interest (riba) haram?')">Interest (riba)</button>
+        <button onclick="quickAsk('Is stock trading halal?')">Stock trading</button>
+        <button onclick="quickAsk('What is khums and how is it calculated?')">Khums</button>
+        <button onclick="quickAsk('How is inheritance divided in Islam?')">Inheritance</button>
+        <button onclick="quickAsk('What are the rules of ghusl janabah?')">Ghusl Janabah</button>
+      </div>
+
+      <div class="input-area">
+        <textarea id="userInput" placeholder="Ask a fiqh question... (Enter to send, Shift+Enter for new line)"></textarea>
+        <button id="clearBtn" class="clear-btn">Clear</button>
+        <button id="sendBtn" class="send-btn">Send</button>
+      </div>
 
     </div>
-  </main>
 
-  <footer>
-    <p>
-      Answers are sourced from
-      <a href="https://www.sistani.org" target="_blank" rel="noopener">
-        Sistani.org
-      </a>
-      • This is not a fatwa
-    </p>
-  </footer>
+    <div class="footer-note">
+      <p>
+        <strong>Disclaimer:</strong> This tool is for educational use only.
+        Always consult a scholar or your Marjaʿ for personal cases.
+        Dataset references are linked to <strong>Sistani.org</strong>.
+      </p>
+    </div>
 
-  <!-- Load AI logic -->
-  <script src="fiqh-ai.js"></script>
+  </div>
+
+  <!-- Load your search engine -->
+  <script src="./fiqh-ai.js"></script>
+
+  <script>
+    const messagesDiv = document.getElementById("messages");
+    const userInput = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const statusBar = document.getElementById("status");
+
+    function scrollToBottom() {
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function addMessage(text, sender = "ai", metaHTML = "") {
+      const wrapper = document.createElement("div");
+      wrapper.className = "message " + sender;
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.innerHTML = text;
+
+      wrapper.appendChild(bubble);
+
+      if (metaHTML) {
+        const meta = document.createElement("div");
+        meta.className = "meta";
+        meta.innerHTML = metaHTML;
+        wrapper.appendChild(meta);
+      }
+
+      messagesDiv.appendChild(wrapper);
+      scrollToBottom();
+
+      return bubble;
+    }
+
+    function showTyping() {
+      const wrapper = document.createElement("div");
+      wrapper.className = "message ai";
+      wrapper.id = "typingIndicator";
+
+      const typing = document.createElement("div");
+      typing.className = "typing";
+      typing.innerHTML = `
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      `;
+
+      wrapper.appendChild(typing);
+      messagesDiv.appendChild(wrapper);
+      scrollToBottom();
+    }
+
+    function hideTyping() {
+      const typingIndicator = document.getElementById("typingIndicator");
+      if (typingIndicator) typingIndicator.remove();
+    }
+
+    function estimateConfidence(score) {
+      if (score >= 30) return { label: "High", cls: "high" };
+      if (score >= 18) return { label: "Medium", cls: "medium" };
+      return { label: "Low", cls: "low" };
+    }
+
+    function buildCitations(results) {
+      let html = "<strong>References:</strong><br>";
+
+      results.slice(0, 3).forEach((r, i) => {
+        if (r.source_url) {
+          html += `${i + 1}. <a href="${r.source_url}" target="_blank" rel="noopener">Sistani.org</a><br>`;
+        }
+      });
+
+      return html;
+    }
+
+    function buildRelatedSuggestions(results) {
+      let suggestions = [];
+
+      results.forEach(r => {
+        if (r.tags && Array.isArray(r.tags)) {
+          r.tags.forEach(tag => {
+            if (tag.length > 2) suggestions.push(tag);
+          });
+        }
+      });
+
+      suggestions = [...new Set(suggestions)].slice(0, 6);
+
+      if (!suggestions.length) return "";
+
+      let html = "<br><strong>Related topics:</strong><br>";
+      suggestions.forEach(tag => {
+        html += `• ${tag}<br>`;
+      });
+
+      return html;
+    }
+
+    async function streamTextIntoBubble(bubble, fullHTML) {
+      bubble.innerHTML = "";
+      const parts = fullHTML.split(" ");
+      let current = "";
+
+      for (let i = 0; i < parts.length; i++) {
+        current += parts[i] + " ";
+        bubble.innerHTML = current;
+        scrollToBottom();
+        await new Promise(res => setTimeout(res, 15));
+      }
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;",
+          "'": "&#039;"
+        })[m];
+      });
+    }
+
+    function handleUserQuery(query) {
+      if (!query.trim()) return;
+
+      addMessage(escapeHTML(query), "user");
+      userInput.value = "";
+      showTyping();
+
+      setTimeout(async () => {
+        hideTyping();
+
+        if (!window.searchFiqhEnhanced) {
+          addMessage("⚠️ FiqhAI engine not loaded. Make sure fiqh-ai.js exports window.searchFiqhEnhanced()", "ai");
+          return;
+        }
+
+        const results = window.searchFiqhEnhanced(query);
+
+        if (!results || results.length === 0) {
+          addMessage(
+            `<strong>No direct ruling found.</strong><br><br>
+            Try rephrasing your question or using keywords like:
+            <br>• Salah
+            <br>• Wudhu
+            <br>• Ghusl
+            <br>• Halal / Haram
+            <br>• Business / Interest
+            <br>• Marriage / Divorce
+            <br>• Fasting / Zakat / Khums`,
+            "ai"
+          );
+          return;
+        }
+
+        const top = results[0];
+        const conf = estimateConfidence(top._score || 0);
+
+        const tagsHTML = (top.tags || []).slice(0, 6).map(t => `<span class="pill">${t}</span>`).join("");
+
+        let answerHTML = `
+          <strong>${escapeHTML(top.topic || "Fiqh Ruling")}</strong><br><br>
+          <strong>Q:</strong> ${escapeHTML(top.question || query)}<br><br>
+          ${top.answer ? top.answer.replace(/\n/g, "<br>") : "(No answer available)"}<br><br>
+
+          <div class="confidence ${conf.cls}">
+            Confidence: ${conf.label}
+          </div>
+
+          <div style="margin-top:10px;">
+            ${tagsHTML}
+          </div>
+
+          <br>
+          ${buildCitations(results)}
+          ${buildRelatedSuggestions(results)}
+
+          <button class="action-btn" onclick="copyLatestAnswer()">Copy Answer</button>
+        `;
+
+        const bubble = addMessage("", "ai");
+        await streamTextIntoBubble(bubble, answerHTML);
+
+      }, 650);
+    }
+
+    function quickAsk(text) {
+      userInput.value = text;
+      handleUserQuery(text);
+    }
+
+    function copyLatestAnswer() {
+      const allBubbles = document.querySelectorAll(".message.ai .bubble");
+      if (!allBubbles.length) return;
+
+      const last = allBubbles[allBubbles.length - 1];
+      const temp = document.createElement("div");
+      temp.innerHTML = last.innerHTML;
+
+      const text = temp.innerText;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied!");
+      });
+    }
+
+    sendBtn.addEventListener("click", () => {
+      handleUserQuery(userInput.value);
+    });
+
+    clearBtn.addEventListener("click", () => {
+      messagesDiv.innerHTML = "";
+      addMessage(
+        "👋 <strong>Assalamu Alaikum!</strong><br><br>I am <strong>FiqhAI</strong>. Ask me any question about Islamic rulings (Salah, Wudhu, Ghusl, Fasting, Business, Marriage, etc.).<br><br>Type your question below or tap a suggestion.",
+        "ai"
+      );
+    });
+
+    userInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        handleUserQuery(userInput.value);
+      }
+    });
+
+    // Welcome message
+    addMessage(
+      "👋 <strong>Assalamu Alaikum!</strong><br><br>I am <strong>FiqhAI</strong>. Ask me any question about Islamic rulings (Salah, Wudhu, Ghusl, Fasting, Business, Marriage, etc.).<br><br>Type your question below or tap a suggestion.",
+      "ai"
+    );
+
+    // Dataset readiness checker
+    const datasetCheck = setInterval(() => {
+      if (typeof window.DATA_READY !== "undefined" && window.DATA_READY === true) {
+        statusBar.innerHTML = `✅ Loaded <strong>${window.FIQH_DATA.length}</strong> rulings successfully.`;
+        statusBar.style.background = "#eaffea";
+        statusBar.style.border = "1px solid #b6f0b6";
+        statusBar.style.color = "#0b5a0b";
+        clearInterval(datasetCheck);
+      }
+    }, 250);
+  </script>
 
 </body>
 </html>
