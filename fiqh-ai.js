@@ -5,33 +5,14 @@
  * Level 1: Synonym Expansion
  * Level 2: Intent Detection + Scoring Boost
  * Level 3: Taxonomy Boosting (domain/category/subcategory)
+ * Performance Upgrade: Precomputed Search Blob per entry
  **************************************************/
 
 let FIQH_DATA = [];
 let DATA_READY = false;
 
 /* ===============================================
-   1️⃣ LOAD FIQH DATA (Only runs on fiqh-ai.html)
-   =============================================== */
-
-fetch('./data/fiqh_master.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Failed to load fiqh data");
-    }
-    return response.json();
-  })
-  .then(data => {
-    FIQH_DATA = data;
-    DATA_READY = true;
-    console.log(`✅ FiqhAI loaded ${FIQH_DATA.length} rulings`);
-  })
-  .catch(err => {
-    console.error("❌ FiqhAI data load error:", err);
-  });
-
-/* ===============================================
-   2️⃣ TEXT NORMALIZATION
+   1️⃣ TEXT NORMALIZATION
    =============================================== */
 
 function normalizeText(text) {
@@ -43,7 +24,7 @@ function normalizeText(text) {
 }
 
 /* ===============================================
-   3️⃣ NLP SYNONYM ENGINE (LEVEL 1)
+   2️⃣ NLP SYNONYM ENGINE (LEVEL 1)
    =============================================== */
 
 const NLP_SYNONYMS = {
@@ -93,7 +74,7 @@ function expandQueryWords(words) {
 }
 
 /* ===============================================
-   4️⃣ INTENT DETECTION (LEVEL 2)
+   3️⃣ INTENT DETECTION (LEVEL 2)
    =============================================== */
 
 const INTENTS = {
@@ -158,7 +139,7 @@ function detectIntent(query) {
 }
 
 /* ===============================================
-   5️⃣ TOPIC TAXONOMY HELPERS (LEVEL 3)
+   4️⃣ TAXONOMY HELPERS (LEVEL 3)
    =============================================== */
 
 function getTaxonomyText(entry) {
@@ -172,7 +153,55 @@ function getTaxonomyText(entry) {
 }
 
 /* ===============================================
-   6️⃣ RELEVANCE SCORING ENGINE (NLP RANKER)
+   5️⃣ PRECOMPUTE SEARCH BLOB (PERFORMANCE BOOST)
+   =============================================== */
+
+function buildSearchBlob(entry) {
+  const topic = normalizeText(entry.topic || "");
+  const question = normalizeText(entry.question || "");
+  const answer = normalizeText(entry.answer || "");
+
+  const tags = Array.isArray(entry.tags)
+    ? entry.tags.map(t => normalizeText(t)).join(" ")
+    : "";
+
+  const taxonomyText = getTaxonomyText(entry);
+
+  // This is the precomputed searchable content
+  return normalizeText(`${topic} ${taxonomyText} ${tags} ${question} ${answer}`);
+}
+
+function preprocessData(data) {
+  return data.map(entry => {
+    entry.__search_blob = buildSearchBlob(entry);
+    return entry;
+  });
+}
+
+/* ===============================================
+   6️⃣ LOAD FIQH DATA (Runs only on fiqh-ai.html)
+   =============================================== */
+
+fetch("./data/fiqh_master.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Failed to load fiqh data");
+    }
+    return response.json();
+  })
+  .then(data => {
+    FIQH_DATA = preprocessData(data);
+    DATA_READY = true;
+
+    console.log(`✅ FiqhAI loaded ${FIQH_DATA.length} rulings`);
+    console.log("⚡ Precomputed search blobs added to each entry");
+  })
+  .catch(err => {
+    console.error("❌ FiqhAI data load error:", err);
+  });
+
+/* ===============================================
+   7️⃣ SCORING ENGINE (Uses Precomputed Blob)
    =============================================== */
 
 function scoreEntry(entry, queryWords, intent) {
@@ -180,56 +209,46 @@ function scoreEntry(entry, queryWords, intent) {
 
   const topic = normalizeText(entry.topic || "");
   const question = normalizeText(entry.question || "");
-  const answer = normalizeText(entry.answer || "");
-  const taxonomyText = getTaxonomyText(entry);
-
   const tags = Array.isArray(entry.tags)
     ? entry.tags.map(t => normalizeText(t))
     : [];
 
-  // Intent tag match
+  const taxonomyText = getTaxonomyText(entry);
+
+  // If blob is missing for any reason, rebuild quickly
+  const blob = entry.__search_blob || buildSearchBlob(entry);
+
+  // Intent tag match boost
   if (tags.includes(intent)) {
     score += 15;
   }
 
-  // Topic-specific boost
   queryWords.forEach(word => {
     if (!word || word.length < 2) return;
 
-    // Strong matches
+    // Highest priority matches
     if (topic.includes(word)) score += 10;
     if (taxonomyText.includes(word)) score += 9;
     if (question.includes(word)) score += 6;
 
-    // Medium matches
+    // Tag boost
     if (tags.some(tag => tag.includes(word))) score += 5;
 
-    // Weak matches
-    if (answer.includes(word)) score += 1;
+    // Blob match (fast full search)
+    if (blob.includes(word)) score += 2;
 
-    // Fuzzy partial match (helps with plurals/typos)
+    // Fuzzy partial match
     if (word.length > 4) {
       const partial = word.slice(0, 4);
-      if (topic.includes(partial)) score += 2;
-      if (taxonomyText.includes(partial)) score += 2;
-      if (question.includes(partial)) score += 1;
+      if (blob.includes(partial)) score += 1;
     }
   });
-
-  // Extra boost if the entry matches multiple zones
-  const zonesMatched =
-    (topic ? 1 : 0) +
-    (taxonomyText ? 1 : 0) +
-    (question ? 1 : 0) +
-    (tags.length ? 1 : 0);
-
-  score += zonesMatched;
 
   return score;
 }
 
 /* ===============================================
-   7️⃣ SEARCH FUNCTION (NLP SEARCH ENGINE)
+   8️⃣ SEARCH ENGINE (FAST)
    =============================================== */
 
 function searchFiqh(query) {
@@ -244,13 +263,12 @@ function searchFiqh(query) {
   // Extract query words
   let queryWords = normalizedQuery.split(" ").filter(w => w.length > 2);
 
-  // Expand synonyms (Level 1 NLP)
+  // Expand synonyms
   queryWords = expandQueryWords(queryWords);
 
   // Remove duplicates
   queryWords = [...new Set(queryWords)];
 
-  // If no meaningful words
   if (!queryWords.length) return [];
 
   const scoredResults = FIQH_DATA.map(entry => ({
@@ -260,7 +278,6 @@ function searchFiqh(query) {
     .filter(r => r.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  // Debugging (optional but helpful)
   console.log("🔍 Query:", query);
   console.log("🧠 Intent:", intent);
   console.log("🧩 Expanded Keywords:", queryWords);
@@ -270,7 +287,7 @@ function searchFiqh(query) {
 }
 
 /* ===============================================
-   8️⃣ UI RESPONSE FORMATTING
+   9️⃣ RENDER RESULTS
    =============================================== */
 
 function renderResults(results, query) {
@@ -298,7 +315,6 @@ function renderResults(results, query) {
     const div = document.createElement("div");
     div.className = "fiqh-answer";
 
-    // Taxonomy display (optional)
     let taxonomyHTML = "";
     if (r.taxonomy) {
       taxonomyHTML = `
@@ -338,7 +354,7 @@ function renderResults(results, query) {
 }
 
 /* ===============================================
-   9️⃣ FORM HANDLER
+   🔟 FORM HANDLER
    =============================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -360,5 +376,5 @@ document.addEventListener("DOMContentLoaded", () => {
     renderResults(results, query);
   });
 
-  console.log("✅ FiqhAI NLP Engine Ready");
+  console.log("✅ FiqhAI NLP Engine Ready (Precomputed Search Enabled)");
 });
