@@ -226,7 +226,14 @@ fetch("./data/fiqh_master.json")
     if (!Array.isArray(data)) {
       throw new Error("fiqh_master.json must be an array of objects");
     }
+FIQH_DATA = data;
+DATA_READY = true;
 
+window.FIQH_DATA = FIQH_DATA;
+window.DATA_READY = DATA_READY;
+
+console.log(`✅ FiqhAI loaded ${FIQH_DATA.length} rulings`);
+     
     // Precompute blob once
     data.forEach(entry => {
       entry._search_blob = buildSearchBlob(entry);
