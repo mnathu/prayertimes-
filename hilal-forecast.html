@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilal Forecast – PrayerTimes</title>
+
+<!-- Astronomy Engine -->
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.min.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        color: #222;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    th {
+        background: #f2f2f2;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background: #0a7cff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .verdict-good { color: green; font-weight: bold; }
+    .verdict-mid { color: orange; font-weight: bold; }
+    .verdict-bad { color: red; font-weight: bold; }
+
+    .small {
+        font-size: 0.9em;
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌙 Hilal Forecast</h1>
+<p class="small" id="locationDisplay">Detecting location...</p>
+
+<div class="card">
+    <h2>Your Location Forecast</h2>
+    <div id="userForecast">Calculating...</div>
+</div>
+
+<div class="card">
+    <h2>Major North American Cities</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Yallop</th>
+                <th>Odeh</th>
+            </tr>
+        </thead>
+        <tbody id="cityTable"></tbody>
+    </table>
+</div>
+
+</div>
+
+<script>
+/* =========================
+   Major North American Cities
+========================= */
+const NA_CITIES = [
+  { name: "New York, NY", lat: 40.7128, lon: -74.0060 },
+  { name: "Chicago, IL", lat: 41.8781, lon: -87.6298 },
+  { name: "Houston, TX", lat: 29.7604, lon: -95.3698 },
+  { name: "Phoenix, AZ", lat: 33.4484, lon: -112.0740 },
+  { name: "Los Angeles, CA", lat: 34.0522, lon: -118.2437 },
+  { name: "Minneapolis, MN", lat: 44.9778, lon: -93.2650 },
+  { name: "Seattle, WA", lat: 47.6062, lon: -122.3321 },
+  { name: "Denver, CO", lat: 39.7392, lon: -104.9903 },
+  { name: "Toronto, ON", lat: 43.6532, lon: -79.3832 },
+  { name: "Calgary, AB", lat: 51.0447, lon: -114.0719 },
+  { name: "Miami, FL", lat: 25.7617, lon: -80.1918 },
+  { name: "Dallas, TX", lat: 32.7767, lon: -96.7970 },
+  { name: "San Francisco, CA", lat: 37.7749, lon: -122.4194 },
+  { name: "Washington, DC", lat: 38.9072, lon: -77.0369 }
+];
+
+/* =========================
+   Hilal Core Computation
+========================= */
+
+function getNextConjunction() {
+    return Astronomy.SearchMoonPhase(0, new Date(), 40);
+}
+
+function computeHilal(date, lat, lon) {
+    const observer = { latitude: lat, longitude: lon };
+
+    const sunset = Astronomy.SearchRiseSet("Sun", observer, -1, date, 1);
+    const moonset = Astronomy.SearchRiseSet("Moon", observer, -1, date, 1);
+
+    const sunEqu = Astronomy.Equator("Sun", sunset.date, observer, true, true);
+    const moonEqu = Astronomy.Equator("Moon", sunset.date, observer, true, true);
+
+    const sunHor = Astronomy.Horizon(sunset.date, observer, sunEqu.ra, sunEqu.dec, "normal");
+    const moonHor = Astronomy.Horizon(sunset.date, observer, moonEqu.ra, moonEqu.dec, "normal");
+
+    const elongation = Astronomy.AngleBetween(
+        Astronomy.GeoVector("Sun", sunset.date),
+        Astronomy.GeoVector("Moon", sunset.date)
+    );
+
+    const moonDist = Astronomy.MoonDistance(sunset.date);
+    const crescentWidth = 11950 * Math.sin(elongation * Math.PI/180) / moonDist;
+
+    const ARCV = moonHor.altitude - sunHor.altitude;
+
+    const lag = (moonset.date - sunset.date) / 60000;
+
+    return { sunset, moonset, elongation, ARCV, crescentWidth, lag };
+}
+
+function yallopQ(ARCV, W) {
+    const fW = -0.1018 * W**3 + 0.7319 * W**2 - 6.3226 * W + 7.1651;
+    return ARCV - fW;
+}
+
+function classifyYallop(q) {
+    if (q > 0.216) return ["Easily Visible", "verdict-good"];
+    if (q > -0.014) return ["Visible", "verdict-good"];
+    if (q > -0.160) return ["Optical Aid Only", "verdict-mid"];
+    if (q > -0.232) return ["May Need Optical Aid", "verdict-mid"];
+    return ["Not Visible", "verdict-bad"];
+}
+
+function classifyOdeh(ARCL, ARCV) {
+    if (ARCL >= 10 && ARCV >= 5) return "Naked Eye Possible";
+    if (ARCL >= 8 && ARCV >= 4) return "Optical Aid";
+    return "Not Visible";
+}
+
+/* =========================
+   Run Forecast
+========================= */
+
+function runForecast(lat, lon, locationName) {
+
+    document.getElementById("locationDisplay").innerText =
+        "Location: " + locationName;
+
+    const conj = getNextConjunction();
+    const hilalData = computeHilal(conj.date, lat, lon);
+
+    const q = yallopQ(hilalData.ARCV, hilalData.crescentWidth);
+    const yClass = classifyYallop(q);
+    const oClass = classifyOdeh(hilalData.elongation, hilalData.ARCV);
+
+    document.getElementById("userForecast").innerHTML = `
+        <p><strong>Elongation:</strong> ${hilalData.elongation.toFixed(2)}°</p>
+        <p><strong>ARCV:</strong> ${hilalData.ARCV.toFixed(2)}°</p>
+        <p><strong>Lag Time:</strong> ${hilalData.lag.toFixed(0)} minutes</p>
+        <p><strong>Yallop:</strong> <span class="${yClass[1]}">${yClass[0]}</span></p>
+        <p><strong>Odeh:</strong> ${oClass}</p>
+    `;
+
+    const table = document.getElementById("cityTable");
+    table.innerHTML = "";
+
+    NA_CITIES.forEach(city => {
+        const data = computeHilal(conj.date, city.lat, city.lon);
+        const qCity = yallopQ(data.ARCV, data.crescentWidth);
+        const yCity = classifyYallop(qCity);
+        const oCity = classifyOdeh(data.elongation, data.ARCV);
+
+        table.innerHTML += `
+            <tr>
+                <td>${city.name}</td>
+                <td class="${yCity[1]}">${yCity[0]}</td>
+                <td>${oCity}</td>
+            </tr>
+        `;
+    });
+}
+
+/* =========================
+   Geolocation
+========================= */
+
+navigator.geolocation.getCurrentPosition(
+    pos => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        runForecast(lat, lon, "Your Current Location");
+    },
+    () => {
+        runForecast(44.9778, -93.2650, "Minneapolis, MN (Default)");
+    }
+);
+
+</script>
+
+</body>
+</html>
