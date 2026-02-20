@@ -22,29 +22,47 @@ function computeVisibility(date,lat,lon){
 function initMap(){
 
  const conj = trueConjunction();
- const hijri = predictHijriMonth(conj);
-
- document.getElementById("summaryCard").innerHTML =
- `<h2>Next Islamic Month: ${hijri}</h2>
-  <p>Conjunction (UTC): ${conj.toUTCString()}</p>`;
-
  const map = L.map('map').setView([39,-98],4);
 
  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
    attribution:'© OpenStreetMap'
  }).addTo(map);
 
+ let globalVisible = false;
+ let firstVisibleDate = null;
+
  NA_CITIES.forEach(city=>{
-   const vis = computeVisibility(conj,city.lat,city.lon);
+
+   const sunset29 = firstSunsetAfter(conj, city.lat, city.lon);
+   let vis29 = computeVisibility(sunset29, city.lat, city.lon);
+
+   let finalSunset = sunset29;
+   let finalVis = vis29;
+
+   if(vis29.class === "Not Visible"){
+       const nextDay = new Date(sunset29);
+       nextDay.setDate(nextDay.getDate()+1);
+       finalSunset = SunCalc.getTimes(nextDay, city.lat, city.lon).sunset;
+       finalVis = computeVisibility(finalSunset, city.lat, city.lon);
+   }
+
+   if(finalVis.class !== "Not Visible" && !globalVisible){
+       globalVisible = true;
+       firstVisibleDate = finalSunset;
+   }
 
    L.circleMarker([city.lat,city.lon],{
      radius:8,
-     color:vis.color,
+     color:finalVis.color,
      fillOpacity:0.8
    })
    .addTo(map)
-   .bindPopup(`<strong>${city.name}</strong><br>${vis.class}`);
+   .bindPopup(`<strong>${city.name}</strong>
+   <br>${finalVis.class}
+   <br>Evaluated: ${finalSunset.toDateString()}`);
  });
+
+ determineMonthStart(conj, globalVisible, firstVisibleDate);
 }
 
 document.addEventListener("DOMContentLoaded",initMap);
