@@ -30,39 +30,44 @@ function initMap(){
 
  let globalVisible = false;
  let firstVisibleDate = null;
+ let visibilityResults = [];
 
- NA_CITIES.forEach(city=>{
+NA_CITIES.forEach(city=>{
 
    const sunset29 = firstSunsetAfter(conj, city.lat, city.lon);
    let vis29 = computeVisibility(sunset29, city.lat, city.lon);
 
    let finalSunset = sunset29;
-   let finalVis = vis29;
+   let finalVisible = vis29.class !== "Not Visible";
 
-   if(vis29.class === "Not Visible"){
+   if(!finalVisible){
        const nextDay = new Date(sunset29);
        nextDay.setDate(nextDay.getDate()+1);
        finalSunset = SunCalc.getTimes(nextDay, city.lat, city.lon).sunset;
-       finalVis = computeVisibility(finalSunset, city.lat, city.lon);
+       const vis30 = computeVisibility(finalSunset, city.lat, city.lon);
+       finalVisible = vis30.class !== "Not Visible";
    }
 
-   if(finalVis.class !== "Not Visible" && !globalVisible){
-       globalVisible = true;
-       firstVisibleDate = finalSunset;
-   }
+   visibilityResults.push({
+       name: city.name,
+       lat: city.lat,
+       lon: city.lon,
+       visible: finalVisible,
+       sunset: finalSunset
+   });
+
+   const markerColor = finalVisible ? "green" : "red";
 
    L.circleMarker([city.lat,city.lon],{
      radius:8,
-     color:finalVis.color,
+     color:markerColor,
      fillOpacity:0.8
    })
    .addTo(map)
    .bindPopup(`<strong>${city.name}</strong>
-   <br>${finalVis.class}
-   <br>Evaluated: ${finalSunset.toDateString()}`);
- });
+   <br>${finalVisible ? "Visible" : "Not Visible"}
+   <br>${finalSunset.toDateString()}`);
+});
 
- determineMonthStart(conj, globalVisible, firstVisibleDate);
-}
+determineMonthStart(conj, visibilityResults);
 
-document.addEventListener("DOMContentLoaded",initMap);
