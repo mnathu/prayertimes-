@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hilal Forecast – PrayerTimes</title>
 
-<!-- Astronomy Engine -->
-<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.min.js"></script>
+<!-- SunCalc (CSP SAFE) -->
+<script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
 
 <style>
     body {
@@ -51,16 +51,6 @@
         background: #f2f2f2;
     }
 
-    .btn {
-        display: inline-block;
-        padding: 10px 15px;
-        background: #0a7cff;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 15px;
-    }
-
     .verdict-good { color: green; font-weight: bold; }
     .verdict-mid { color: orange; font-weight: bold; }
     .verdict-bad { color: red; font-weight: bold; }
@@ -101,9 +91,11 @@
 </div>
 
 <script>
+
 /* =========================
    Major North American Cities
 ========================= */
+
 const NA_CITIES = [
   { name: "New York, NY", lat: 40.7128, lon: -74.0060 },
   { name: "Chicago, IL", lat: 41.8781, lon: -87.6298 },
@@ -122,39 +114,52 @@ const NA_CITIES = [
 ];
 
 /* =========================
-   Hilal Core Computation
+   Find Next New Moon (Approx)
 ========================= */
 
-function getNextConjunction() {
-    return Astronomy.SearchMoonPhase(0, new Date(), 40);
+function getNextNewMoon() {
+    const now = new Date();
+    for (let i = 0; i < 35; i++) {
+        const testDate = new Date(now.getTime() + i * 24*60*60*1000);
+        const illum = SunCalc.getMoonIllumination(testDate);
+        if (illum.phase < 0.02) {
+            return testDate;
+        }
+    }
+    return now;
 }
+
+/* =========================
+   Compute Hilal Parameters
+========================= */
 
 function computeHilal(date, lat, lon) {
-    const observer = { latitude: lat, longitude: lon };
 
-    const sunset = Astronomy.SearchRiseSet("Sun", observer, -1, date, 1);
-    const moonset = Astronomy.SearchRiseSet("Moon", observer, -1, date, 1);
+    const times = SunCalc.getTimes(date, lat, lon);
+    const sunset = times.sunset;
 
-    const sunEqu = Astronomy.Equator("Sun", sunset.date, observer, true, true);
-    const moonEqu = Astronomy.Equator("Moon", sunset.date, observer, true, true);
+    const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
+    const sunPos = SunCalc.getPosition(sunset, lat, lon);
+    const illum = SunCalc.getMoonIllumination(sunset);
 
-    const sunHor = Astronomy.Horizon(sunset.date, observer, sunEqu.ra, sunEqu.dec, "normal");
-    const moonHor = Astronomy.Horizon(sunset.date, observer, moonEqu.ra, moonEqu.dec, "normal");
+    const moonAlt = moonPos.altitude * (180/Math.PI);
+    const sunAlt = sunPos.altitude * (180/Math.PI);
 
-    const elongation = Astronomy.AngleBetween(
-        Astronomy.GeoVector("Sun", sunset.date),
-        Astronomy.GeoVector("Moon", sunset.date)
-    );
+    const elongation = illum.phaseAngle * (180/Math.PI);
 
-    const moonDist = Astronomy.MoonDistance(sunset.date);
-    const crescentWidth = 11950 * Math.sin(elongation * Math.PI/180) / moonDist;
+    const ARCV = moonAlt - sunAlt;
 
-    const ARCV = moonHor.altitude - sunHor.altitude;
+    const moonset = SunCalc.getTimes(date, lat, lon).moonset;
+    const lag = moonset ? (moonset - sunset)/60000 : 0;
 
-    const lag = (moonset.date - sunset.date) / 60000;
+    const crescentWidth = illum.fraction * 60;
 
-    return { sunset, moonset, elongation, ARCV, crescentWidth, lag };
+    return { elongation, ARCV, crescentWidth, lag };
 }
+
+/* =========================
+   Yallop Model
+========================= */
 
 function yallopQ(ARCV, W) {
     const fW = -0.1018 * W**3 + 0.7319 * W**2 - 6.3226 * W + 7.1651;
@@ -168,6 +173,10 @@ function classifyYallop(q) {
     if (q > -0.232) return ["May Need Optical Aid", "verdict-mid"];
     return ["Not Visible", "verdict-bad"];
 }
+
+/* =========================
+   Odeh Model
+========================= */
 
 function classifyOdeh(ARCL, ARCV) {
     if (ARCL >= 10 && ARCV >= 5) return "Naked Eye Possible";
@@ -184,17 +193,17 @@ function runForecast(lat, lon, locationName) {
     document.getElementById("locationDisplay").innerText =
         "Location: " + locationName;
 
-    const conj = getNextConjunction();
-    const hilalData = computeHilal(conj.date, lat, lon);
+    const newMoon = getNextNewMoon();
 
-    const q = yallopQ(hilalData.ARCV, hilalData.crescentWidth);
+    const data = computeHilal(newMoon, lat, lon);
+    const q = yallopQ(data.ARCV, data.crescentWidth);
     const yClass = classifyYallop(q);
-    const oClass = classifyOdeh(hilalData.elongation, hilalData.ARCV);
+    const oClass = classifyOdeh(data.elongation, data.ARCV);
 
     document.getElementById("userForecast").innerHTML = `
-        <p><strong>Elongation:</strong> ${hilalData.elongation.toFixed(2)}°</p>
-        <p><strong>ARCV:</strong> ${hilalData.ARCV.toFixed(2)}°</p>
-        <p><strong>Lag Time:</strong> ${hilalData.lag.toFixed(0)} minutes</p>
+        <p><strong>Elongation:</strong> ${data.elongation.toFixed(2)}°</p>
+        <p><strong>ARCV:</strong> ${data.ARCV.toFixed(2)}°</p>
+        <p><strong>Lag Time:</strong> ${data.lag.toFixed(0)} minutes</p>
         <p><strong>Yallop:</strong> <span class="${yClass[1]}">${yClass[0]}</span></p>
         <p><strong>Odeh:</strong> ${oClass}</p>
     `;
@@ -203,10 +212,10 @@ function runForecast(lat, lon, locationName) {
     table.innerHTML = "";
 
     NA_CITIES.forEach(city => {
-        const data = computeHilal(conj.date, city.lat, city.lon);
-        const qCity = yallopQ(data.ARCV, data.crescentWidth);
+        const cityData = computeHilal(newMoon, city.lat, city.lon);
+        const qCity = yallopQ(cityData.ARCV, cityData.crescentWidth);
         const yCity = classifyYallop(qCity);
-        const oCity = classifyOdeh(data.elongation, data.ARCV);
+        const oCity = classifyOdeh(cityData.elongation, cityData.ARCV);
 
         table.innerHTML += `
             <tr>
@@ -224,9 +233,7 @@ function runForecast(lat, lon, locationName) {
 
 navigator.geolocation.getCurrentPosition(
     pos => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        runForecast(lat, lon, "Your Current Location");
+        runForecast(pos.coords.latitude, pos.coords.longitude, "Your Current Location");
     },
     () => {
         runForecast(44.9778, -93.2650, "Minneapolis, MN (Default)");
