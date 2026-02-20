@@ -27,6 +27,14 @@ body { margin:0; font-family:Arial; background:#f9f9f9; }
 <div class="container">
 
 <h1>🌙 Hilal Forecast</h1>
+  <div class="card">
+<label>Select Fiqh Mode:</label>
+<select id="fiqhMode" onchange="location.reload()">
+  <option value="global">Global Sighting</option>
+  <option value="sistani">Sistani (Shared Horizon)</option>
+</select>
+</div>
+
 <div class="card" id="summaryCard">Calculating...</div>
 <div id="map"></div>
 
@@ -36,6 +44,6 @@ body { margin:0; font-family:Arial; background:#f9f9f9; }
 <script src="js/hilal-core.js"></script>
 <script src="js/hijri-calendar.js"></script>
 <script src="js/hilal-visibility.js"></script>
-
+<script src="js/fiqh-logic.js"></script>
 </body>
 </html>
