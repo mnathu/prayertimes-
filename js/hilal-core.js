@@ -13,3 +13,21 @@ function trueConjunction(){
  const k = Math.round((nowJD - refJD)/synodicMonth);
  return dateFromJulian(refJD + k*synodicMonth);
 }
+
+function firstSunsetAfter(dateUTC, lat, lon){
+    let testDate = new Date(dateUTC);
+
+    // move forward hour by hour until sunset is after conjunction
+    for(let i=0;i<48;i++){
+        const times = SunCalc.getTimes(testDate, lat, lon);
+        const sunset = times.sunset;
+
+        if(sunset && sunset > dateUTC){
+            return sunset;
+        }
+
+        testDate.setHours(testDate.getHours()+1);
+    }
+
+    return null;
+}
