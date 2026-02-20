@@ -1,33 +1,70 @@
-function determineMonthStart(conjunction, globalVisible, firstVisibleDate){
+function sharesHorizon(baseCity, testCity, sunsetDate){
+
+    const baseMoon = SunCalc.getMoonPosition(sunsetDate, baseCity.lat, baseCity.lon);
+    const testMoon = SunCalc.getMoonPosition(sunsetDate, testCity.lat, testCity.lon);
+
+    const baseAlt = baseMoon.altitude * 180/Math.PI;
+    const testAlt = testMoon.altitude * 180/Math.PI;
+
+    const longDiff = Math.abs(baseCity.lon - testCity.lon);
+    const altDiff = Math.abs(baseAlt - testAlt);
+
+    const moonsetBase = SunCalc.getTimes(sunsetDate, baseCity.lat, baseCity.lon).moonset;
+    const moonsetTest = SunCalc.getTimes(sunsetDate, testCity.lat, testCity.lon).moonset;
+
+    const moonAfterSunBase = moonsetBase && moonsetBase > sunsetDate;
+    const moonAfterSunTest = moonsetTest && moonsetTest > sunsetDate;
+
+    if(longDiff <= 15 && altDiff <= 2 && moonAfterSunBase && moonAfterSunTest){
+        return true;
+    }
+
+    return false;
+}
+
+function determineMonthStart(conjunction, visibilityResults){
 
  const hijriMonth = predictHijriMonth(conjunction);
+ const fiqhMode = document.getElementById("fiqhMode")?.value || "global";
 
- let startDate;
- let fiqhMode = document.getElementById("fiqhMode")?.value || "global";
+ let startDate = null;
 
  if(fiqhMode === "global"){
 
-     if(globalVisible){
-         startDate = new Date(firstVisibleDate);
+     const firstVisible = visibilityResults.find(v => v.visible);
+
+     if(firstVisible){
+         startDate = new Date(firstVisible.sunset);
          startDate.setDate(startDate.getDate()+1);
      }else{
-         startDate = new Date(firstVisibleDate);
+         const fallback = visibilityResults[0].sunset;
+         startDate = new Date(fallback);
          startDate.setDate(startDate.getDate()+2);
      }
 
- }else if(fiqhMode === "sistani"){
+ }
 
-     // Sistani requires:
-     // - Naked eye possibility
-     // - Shared horizon
-     // For North America model:
-     // Visible anywhere NA with same night qualifies
+ if(fiqhMode === "sistani"){
 
-     if(globalVisible){
-         startDate = new Date(firstVisibleDate);
-         startDate.setDate(startDate.getDate()+1);
-     }else{
-         startDate = new Date(firstVisibleDate);
+     const visibleCities = visibilityResults.filter(v => v.visible);
+
+     if(visibleCities.length > 0){
+
+         const baseCity = visibleCities[0];
+
+         const sharedCities = visibilityResults.filter(v =>
+             sharesHorizon(baseCity, v, baseCity.sunset)
+         );
+
+         if(sharedCities.length > 0){
+             startDate = new Date(baseCity.sunset);
+             startDate.setDate(startDate.getDate()+1);
+         }
+     }
+
+     if(!startDate){
+         const fallback = visibilityResults[0].sunset;
+         startDate = new Date(fallback);
          startDate.setDate(startDate.getDate()+2);
      }
  }
@@ -39,4 +76,3 @@ function determineMonthStart(conjunction, globalVisible, firstVisibleDate){
    <p><strong>Predicted Start:</strong> ${startDate.toDateString()}</p>
  `;
 }
-
