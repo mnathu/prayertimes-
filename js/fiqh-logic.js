@@ -9,13 +9,7 @@ function sharesHorizon(baseCity, testCity, sunsetDate){
     const longDiff = Math.abs(baseCity.lon - testCity.lon);
     const altDiff = Math.abs(baseAlt - testAlt);
 
-    const moonsetBase = SunCalc.getTimes(sunsetDate, baseCity.lat, baseCity.lon).moonset;
-    const moonsetTest = SunCalc.getTimes(sunsetDate, testCity.lat, testCity.lon).moonset;
-
-    const moonAfterSunBase = moonsetBase && moonsetBase > sunsetDate;
-    const moonAfterSunTest = moonsetTest && moonsetTest > sunsetDate;
-
-    if(longDiff <= 15 && altDiff <= 2 && moonAfterSunBase && moonAfterSunTest){
+    if(longDiff <= 15 && altDiff <= 2){
         return true;
     }
 
