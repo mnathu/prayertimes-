@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilal Forecast – PrayerTimes</title>
+
 <meta http-equiv="Content-Security-Policy"
 content="
 default-src 'self';
 script-src 'self';
-style-src 'self' https://unpkg.com;
+style-src 'self' 'unsafe-inline';
 img-src 'self' https://tile.openstreetmap.org data:;
 connect-src 'self' https://tile.openstreetmap.org;
 ">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hilal Forecast – PrayerTimes</title>
-
-<!-- SunCalc -->
-<script src="js/suncalc.js"></script>
-
-<!-- Leaflet (CSP SAFE) -->
-<link rel="stylesheet" href="css/leaflet.css"/>
-<script src="js/leaflet.js"></script> 
+<link rel="stylesheet" href="css/leaflet.css">
 
 <style>
 body { margin:0; font-family:Arial; background:#f9f9f9; }
 .container { max-width:1100px; margin:auto; padding:20px; }
 .card { background:white; padding:20px; margin-top:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
 #map { height:500px; margin-top:20px; border-radius:8px; }
+select, input, button { padding:8px; margin:5px 0; }
 .verdict-good { color:green; font-weight:bold; }
 .verdict-mid { color:orange; font-weight:bold; }
 .verdict-bad { color:red; font-weight:bold; }
@@ -35,27 +29,141 @@ body { margin:0; font-family:Arial; background:#f9f9f9; }
 </head>
 
 <body>
+
 <div class="container">
 
-<h1>🌙 Hilal Forecast</h1>
-  <div class="card">
-<label>Select Fiqh Mode:</label>
-<select id="fiqhMode" onchange="location.reload()">
-  <option value="global">Global Sighting</option>
-  <option value="sistani">Sistani (Shared Horizon)</option>
+<h2>Hilal Forecast</h2>
+
+<div class="card">
+<label for="dateInput">Select 29th Evening Date:</label><br>
+<input type="date" id="dateInput">
+
+<br>
+
+<label for="fiqhMode">Fiqh Mode:</label><br>
+<select id="fiqhMode">
+<option value="sistani">Sistani (Shared Horizon)</option>
+<option value="global">Global Sighting</option>
 </select>
+
+<br>
+<button id="calculateBtn">Calculate</button>
 </div>
 
-<div class="card" id="summaryCard">Calculating...</div>
+<div class="card">
+<h3>Visibility Result</h3>
+<div id="result">Awaiting calculation...</div>
+</div>
+
 <div id="map"></div>
 
 </div>
+
 <script src="js/suncalc.js"></script>
-<script src="js/cities-na.js"></script>
-<script src="js/hilal-core.js"></script>
-<script src="js/hijri-calendar.js"></script>
-<script src="js/fiqh-logic.js"></script>
-<script src="js/hilal-visibility.js"></script>
-  
+<script src="js/leaflet.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+let map = L.map('map').setView([30, 20], 3);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 7
+}).addTo(map);
+
+let markerLayer = L.layerGroup().addTo(map);
+
+document.getElementById("calculateBtn").addEventListener("click", calculateHilal);
+
+function calculateHilal(){
+
+    markerLayer.clearLayers();
+
+    const dateValue = document.getElementById("dateInput").value;
+    const fiqhMode = document.getElementById("fiqhMode").value;
+
+    if(!dateValue){
+        alert("Please select a date.");
+        return;
+    }
+
+    const date = new Date(dateValue);
+
+    let visibleZones = [];
+
+    for(let lat = -40; lat <= 40; lat += 10){
+        for(let lon = -120; lon <= 120; lon += 20){
+
+            const times = SunCalc.getTimes(date, lat, lon);
+            const sunset = times.sunset;
+
+            if(!sunset) continue;
+
+            const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
+            const moonIllum = SunCalc.getMoonIllumination(sunset);
+
+            const altitude = moonPos.altitude * (180/Math.PI);
+            const elongation = moonIllum.phase * 360;
+
+            let visibilityScore = altitude + elongation/10;
+
+            let visible = false;
+
+            if(fiqhMode === "global"){
+                visible = visibilityScore > 10;
+            } else {
+                // Refined shared-horizon style:
+                // Require positive altitude AND elongation threshold
+                visible = (altitude > 5 && elongation > 10);
+            }
+
+            if(visible){
+                visibleZones.push({lat, lon});
+                L.circleMarker([lat, lon], {
+                    radius:6
+                }).addTo(markerLayer);
+            }
+        }
+    }
+
+    determineMonthStart(visibleZones, fiqhMode);
+}
+
+function determineMonthStart(visibleZones, fiqhMode){
+
+    const resultDiv = document.getElementById("result");
+
+    if(visibleZones.length === 0){
+        resultDiv.innerHTML =
+        "<span class='verdict-bad'>Moon NOT visible on 29th evening. Month completes 30 days.</span>";
+        return;
+    }
+
+    if(fiqhMode === "global"){
+        resultDiv.innerHTML =
+        "<span class='verdict-good'>Moon visible somewhere. New month starts next day (Global).</span>";
+        return;
+    }
+
+    // Sistani shared-horizon simplified logic:
+    // If visibility exists in similar latitude band (within ±15°)
+
+    const referenceLat = 44.98; // Example: Minneapolis
+    let shared = visibleZones.some(z => Math.abs(z.lat - referenceLat) <= 15);
+
+    if(shared){
+        resultDiv.innerHTML =
+        "<span class='verdict-good'>Moon visible in shared horizon zone. New month begins.</span>";
+    } else {
+        resultDiv.innerHTML =
+        "<span class='verdict-mid'>Moon visible but NOT in shared horizon. Month completes 30 days.</span>";
+    }
+}
+
+});
+
+</script>
+
 </body>
 </html>
