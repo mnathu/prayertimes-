@@ -24,7 +24,7 @@ function initMap(){
  const conj = trueConjunction();
  const map = L.map('map').setView([39,-98],4);
 
- L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
    attribution:'© OpenStreetMap'
  }).addTo(map);
 
