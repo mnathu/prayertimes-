@@ -66,12 +66,18 @@ select, input, button { padding:8px; margin:5px 0; }
 
 document.addEventListener("DOMContentLoaded", function(){
 
-let map = L.map('map').setView([30, 20], 3);
+let map = L.map('map', {
+    center: [30, 20],
+    zoom: 3
+});
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 7
 }).addTo(map);
 
+window.addEventListener("load", function(){
+    map.invalidateSize();
+});
 let markerLayer = L.layerGroup().addTo(map);
 
 document.getElementById("calculateBtn").addEventListener("click", calculateHilal);
