@@ -112,24 +112,39 @@ function calculateHilal(){
             const altitude = moonPos.altitude * (180/Math.PI);
             const elongation = moonIllum.phase * 360;
 
-            let visibilityScore = altitude + elongation/10;
+let visibilityScore = altitude + elongation/10;
 
-            let visible = false;
+let zoneType = "bad"; // default red
 
-            if(fiqhMode === "global"){
-                visible = visibilityScore > 10;
-            } else {
-                // Refined shared-horizon style:
-                // Require positive altitude AND elongation threshold
-                visible = (altitude > 5 && elongation > 10);
-            }
+if (visibilityScore > 15) {
+    zoneType = "good"; // strong visibility
+} else if (visibilityScore > 8) {
+    zoneType = "mid"; // marginal visibility
+}
 
-            if(visible){
-                visibleZones.push({lat, lon});
-                L.circleMarker([lat, lon], {
-                    radius:6
-                }).addTo(markerLayer);
-            }
+let color;
+
+if (zoneType === "good") {
+    color = "green";
+} else if (zoneType === "mid") {
+    color = "orange";
+} else {
+    color = "red";
+}
+
+if (zoneType !== "bad") {
+    visibleZones.push({lat, lon});
+}
+
+L.circle([lat, lon], {
+    radius: 250000, // 250km zone
+    color: color,
+    fillColor: color,
+    fillOpacity: 0.25,
+    weight: 1
+}).addTo(markerLayer);
+
+
         }
     }
 
