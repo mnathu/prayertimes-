@@ -14,7 +14,7 @@ img-src 'self' https://tile.openstreetmap.org https://*.tile.openstreetmap.org d
 connect-src 'self' https://tile.openstreetmap.org https://*.tile.openstreetmap.org;
 ">
 
-<link rel="stylesheet" href="https://mnathu.github.io/prayertimes-/css/leaflet.css">
+<link rel="stylesheet" href="css/leaflet.css">
 
 <style>
 body { margin:0; font-family:Arial; background:#f9f9f9; }
@@ -45,42 +45,100 @@ select, input, button { padding:8px; margin:5px 0; }
 <option value="sistani">Sistani (Shared Horizon)</option>
 <option value="global">Global Sighting</option>
 </select>
-
-<br>
-<button id="calculateBtn">Calculate</button>
 </div>
 
 <div class="card">
 <h3>Visibility Result</h3>
-<div id="result">Awaiting calculation...</div>
+<div id="result">Calculating...</div>
 </div>
 
 <div id="map"></div>
 
 </div>
 
-<script src="https://mnathu.github.io/prayertimes-/js/suncalc.js"></script>
-<script src="https://mnathu.github.io/prayertimes-/js/leaflet.js"></script>
+<script src="js/suncalc.js"></script>
+<script src="js/leaflet.js"></script>
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function(){
 
-let map = L.map('map', {
-    center: [30, 20],
-    zoom: 3
-});
+let map = L.map('map').setView([30, 20], 3);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 7
 }).addTo(map);
 
-window.addEventListener("load", function(){
-    map.invalidateSize();
-});
 let markerLayer = L.layerGroup().addTo(map);
 
-document.getElementById("calculateBtn").addEventListener("click", calculateHilal);
+/* ===============================
+   AUTO-SET NEXT HIJRI 29TH
+================================= */
+
+function setNextHijri29th() {
+
+    const today = new Date();
+
+    const formatter = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric'
+    });
+
+    const parts = formatter.formatToParts(today);
+
+    let hDay, hMonth, hYear;
+
+    parts.forEach(p => {
+        if (p.type === 'day') hDay = parseInt(p.value);
+        if (p.type === 'month') hMonth = parseInt(p.value);
+        if (p.type === 'year') hYear = parseInt(p.value);
+    });
+
+    if (hDay > 29) {
+        hMonth += 1;
+        if (hMonth > 12) {
+            hMonth = 1;
+            hYear += 1;
+        }
+    }
+
+    let candidate = new Date(today);
+    candidate.setHours(0,0,0,0);
+
+    for (let i = 0; i < 60; i++) {
+
+        const testParts = formatter.formatToParts(candidate);
+
+        let testDay, testMonth, testYear;
+
+        testParts.forEach(p => {
+            if (p.type === 'day') testDay = parseInt(p.value);
+            if (p.type === 'month') testMonth = parseInt(p.value);
+            if (p.type === 'year') testYear = parseInt(p.value);
+        });
+
+        if (testDay === 29 && testMonth === hMonth && testYear === hYear) {
+            const formatted = candidate.toISOString().split("T")[0];
+            document.getElementById("dateInput").value = formatted;
+            calculateHilal();
+            return;
+        }
+
+        candidate.setDate(candidate.getDate() + 1);
+    }
+}
+
+/* ===============================
+   AUTO-RUN EVENTS
+================================= */
+
+document.getElementById("dateInput").addEventListener("change", calculateHilal);
+document.getElementById("fiqhMode").addEventListener("change", calculateHilal);
+
+/* ===============================
+   HILAL CALCULATION ENGINE
+================================= */
 
 function calculateHilal(){
 
@@ -89,13 +147,9 @@ function calculateHilal(){
     const dateValue = document.getElementById("dateInput").value;
     const fiqhMode = document.getElementById("fiqhMode").value;
 
-    if(!dateValue){
-        alert("Please select a date.");
-        return;
-    }
+    if(!dateValue) return;
 
     const date = new Date(dateValue);
-
     let visibleZones = [];
 
     for(let lat = -40; lat <= 40; lat += 10){
@@ -103,7 +157,6 @@ function calculateHilal(){
 
             const times = SunCalc.getTimes(date, lat, lon);
             const sunset = times.sunset;
-
             if(!sunset) continue;
 
             const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
@@ -112,44 +165,39 @@ function calculateHilal(){
             const altitude = moonPos.altitude * (180/Math.PI);
             const elongation = moonIllum.phase * 360;
 
-let visibilityScore = altitude + elongation/10;
+            let visibilityScore = altitude + elongation/10;
 
-let zoneType = "bad"; // default red
+            let zoneType = "bad";
 
-if (visibilityScore > 15) {
-    zoneType = "good"; // strong visibility
-} else if (visibilityScore > 8) {
-    zoneType = "mid"; // marginal visibility
-}
+            if (visibilityScore > 15) {
+                zoneType = "good";
+            } else if (visibilityScore > 8) {
+                zoneType = "mid";
+            }
 
-let color;
+            let color = zoneType === "good" ? "green" :
+                        zoneType === "mid" ? "orange" : "red";
 
-if (zoneType === "good") {
-    color = "green";
-} else if (zoneType === "mid") {
-    color = "orange";
-} else {
-    color = "red";
-}
+            if (zoneType !== "bad") {
+                visibleZones.push({lat, lon});
+            }
 
-if (zoneType !== "bad") {
-    visibleZones.push({lat, lon});
-}
-
-L.circle([lat, lon], {
-    radius: 250000, // 250km zone
-    color: color,
-    fillColor: color,
-    fillOpacity: 0.25,
-    weight: 1
-}).addTo(markerLayer);
-
-
+            L.circle([lat, lon], {
+                radius: 250000,
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.25,
+                weight: 1
+            }).addTo(markerLayer);
         }
     }
 
     determineMonthStart(visibleZones, fiqhMode);
 }
+
+/* ===============================
+   MONTH START LOGIC
+================================= */
 
 function determineMonthStart(visibleZones, fiqhMode){
 
@@ -167,10 +215,7 @@ function determineMonthStart(visibleZones, fiqhMode){
         return;
     }
 
-    // Sistani shared-horizon simplified logic:
-    // If visibility exists in similar latitude band (within ±15°)
-
-    const referenceLat = 44.98; // Example: Minneapolis
+    const referenceLat = 44.98;
     let shared = visibleZones.some(z => Math.abs(z.lat - referenceLat) <= 15);
 
     if(shared){
@@ -181,6 +226,12 @@ function determineMonthStart(visibleZones, fiqhMode){
         "<span class='verdict-mid'>Moon visible but NOT in shared horizon. Month completes 30 days.</span>";
     }
 }
+
+/* ===============================
+   INITIALIZE
+================================= */
+
+setNextHijri29th();
 
 });
 
