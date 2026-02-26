@@ -48,6 +48,11 @@ select, input, button { padding:8px; margin:5px 0; }
 </div>
 
 <div class="card">
+<h3>Date Information</h3>
+<div id="dateDisplay"></div>
+</div>
+
+<div class="card">
 <h3>Visibility Result</h3>
 <div id="result">Calculating...</div>
 </div>
@@ -139,7 +144,33 @@ document.getElementById("fiqhMode").addEventListener("change", calculateHilal);
 /* ===============================
    HILAL CALCULATION ENGINE
 ================================= */
+function updateHijriDisplay(dateValue){
 
+    if(!dateValue) return;
+
+    const date = new Date(dateValue);
+
+    const hijriFormatter = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    const gregorianFormatter = new Intl.DateTimeFormat('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    const hijriDate = hijriFormatter.format(date);
+    const gregorianDate = gregorianFormatter.format(date);
+
+    document.getElementById("dateDisplay").innerHTML =
+        "<strong>Gregorian:</strong> " + gregorianDate +
+        "<br><strong>Hijri:</strong> " + hijriDate + " AH";
+}
+    
 function calculateHilal(){
 
     markerLayer.clearLayers();
@@ -147,6 +178,7 @@ function calculateHilal(){
     const dateValue = document.getElementById("dateInput").value;
     const fiqhMode = document.getElementById("fiqhMode").value;
 
+    updateHijriDisplay(dateValue);
     if(!dateValue) return;
 
     const date = new Date(dateValue);
