@@ -3,301 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hilal Forecast – PrayerTimes</title>
+<title>Hilal Forecast Map</title>
 
-<meta http-equiv="Content-Security-Policy"
-content="
-default-src 'self';
-script-src 'self' 'unsafe-inline';
-style-src 'self' 'unsafe-inline';
-img-src 'self' https://tile.openstreetmap.org https://*.tile.openstreetmap.org data:;
-connect-src 'self' https://tile.openstreetmap.org https://*.tile.openstreetmap.org;
-">
-
-<link rel="stylesheet" href="css/leaflet.css">
+<script src="https://unpkg.com/suncalc@1.9.0/suncalc.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
-body { margin:0; font-family:Arial; background:#f9f9f9; }
-.container { max-width:1100px; margin:auto; padding:20px; }
-.card { background:white; padding:20px; margin-top:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
-#map { height:500px; width:100%; border-radius:8px; }
-select, input { padding:8px; margin:5px 0; }
-.verdict-good { color:green; font-weight:bold; }
-.verdict-mid { color:orange; font-weight:bold; }
-.verdict-bad { color:red; font-weight:bold; }
-
-.nav-button {
-  display:inline-block;
-  padding:10px 18px;
-  background:#0b5ed7;
-  color:white;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
-}
-.nav-button:hover {
-  background:#084298;
-}
+body { margin:0; font-family: Arial; background:#f4f4f4; }
+h2 { text-align:center; margin:15px 0; }
+#map { height:80vh; width:100%; }
+.controls { text-align:center; margin:10px; }
+.legend { text-align:center; margin-top:10px; font-weight:bold; }
+a { text-decoration:none; color:#0066cc; }
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<h2>Hilal Visibility Forecast (Unified Engine)</h2>
 
-<h2>Hilal Forecast</h2>
-
-<!-- Date & Settings -->
-<div class="card">
-
-<label for="dateInput"><strong>Select 29th Evening Date:</strong></label><br>
-<input type="date" id="dateInput"><br>
-
-<label for="fiqhMode"><strong>Fiqh Mode:</strong></label><br>
-<select id="fiqhMode">
-  <option value="sistani">Shared Horizon</option>
-  <option value="global">Global Sighting</option>
-</select>
-
+<div class="controls">
+<input type="date" id="datePicker">
+<br><br>
+<a href="hilal-cities.html">View Cities Table →</a>
 </div>
 
-<!-- Date Display -->
-<div class="card">
-<h3>Date Information</h3>
-<div id="dateDisplay"></div>
-</div>
-
-<!-- Result -->
-<div class="card">
-<h3>Visibility Result</h3>
-<div id="result">Calculating...</div>
-</div>
-
-<!-- Map -->
-<div class="card">
-<h3>Global Visibility Map</h3>
 <div id="map"></div>
-</div>
 
-<!-- Navigation -->
-<div class="card" style="text-align:center;">
-  <a href="hilal-cities.html" class="nav-button">
-    View North America City Visibility Table →
-  </a>
+<div class="legend">
+🟢 Easily Visible &nbsp; | &nbsp;
+🟡 Optical Aid Likely &nbsp; | &nbsp;
+🔴 Not Visible
 </div>
-
-</div>
-
-<script src="js/suncalc.js"></script>
-<script src="js/leaflet.js"></script>
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function(){
+// Default date = next 29th Hijri approximation
+const today = new Date();
+today.setDate(today.getDate()+29);
+document.getElementById("datePicker").valueAsDate = today;
 
-let map = L.map('map').setView([30, 20], 3);
+const map = L.map('map').setView([39,-98],4);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 7
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+maxZoom:18
 }).addTo(map);
 
-let markerLayer = L.layerGroup().addTo(map);
+// ===== TRUE ELONGATION =====
+function getElongation(date, lat, lon){
 
-/* ===============================
-   AUTO-SET NEXT HIJRI 29TH
-================================= */
+    const sunPos = SunCalc.getPosition(date, lat, lon);
+    const moonPos = SunCalc.getMoonPosition(date, lat, lon);
 
-function setNextHijri29th() {
+    const cosE =
+        Math.sin(sunPos.altitude)*Math.sin(moonPos.altitude) +
+        Math.cos(sunPos.altitude)*Math.cos(moonPos.altitude)*
+        Math.cos(sunPos.azimuth - moonPos.azimuth);
 
-    const today = new Date();
+    return Math.acos(cosE) * (180/Math.PI);
+}
 
-    const formatter = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
-        day: 'numeric',
-        month: 'numeric',
-        year: 'numeric'
+// ===== UNIFIED VISIBILITY ENGINE =====
+function classifyVisibility(date, lat, lon){
+
+    const times = SunCalc.getTimes(date, lat, lon);
+    const sunset = times.sunset;
+    if(!sunset) return null;
+
+    const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
+    const altitude = moonPos.altitude * 180/Math.PI;
+
+    const elongation = getElongation(sunset, lat, lon);
+
+    const q = altitude - (11 + 0.5 * elongation);
+
+    if(q > 0.216){
+        return { zone:"good", color:"green" };
+    }
+    else if(q > -0.160){
+        return { zone:"mid", color:"orange" };
+    }
+    else{
+        return { zone:"bad", color:"red" };
+    }
+}
+
+// ===== DRAW MAP =====
+function updateMap(){
+
+    map.eachLayer(layer=>{
+        if(layer instanceof L.CircleMarker) map.removeLayer(layer);
     });
 
-    const parts = formatter.formatToParts(today);
+    const date = new Date(document.getElementById("datePicker").value);
 
-    let hDay, hMonth, hYear;
+    for(let lat=25; lat<=55; lat+=3){
+        for(let lon=-130; lon<=-60; lon+=3){
 
-    parts.forEach(p => {
-        if (p.type === 'day') hDay = parseInt(p.value);
-        if (p.type === 'month') hMonth = parseInt(p.value);
-        if (p.type === 'year') hYear = parseInt(p.value);
-    });
+            const vis = classifyVisibility(date, lat, lon);
+            if(!vis) continue;
 
-    if (hDay > 29) {
-        hMonth += 1;
-        if (hMonth > 12) {
-            hMonth = 1;
-            hYear += 1;
+            L.circleMarker([lat,lon],{
+                radius:6,
+                color:vis.color,
+                fillOpacity:0.7
+            }).addTo(map);
         }
     }
-
-    let candidate = new Date(today);
-    candidate.setHours(0,0,0,0);
-
-    for (let i = 0; i < 60; i++) {
-
-        const testParts = formatter.formatToParts(candidate);
-
-        let testDay, testMonth, testYear;
-
-        testParts.forEach(p => {
-            if (p.type === 'day') testDay = parseInt(p.value);
-            if (p.type === 'month') testMonth = parseInt(p.value);
-            if (p.type === 'year') testYear = parseInt(p.value);
-        });
-
-        if (testDay === 29 && testMonth === hMonth && testYear === hYear) {
-            const formatted = candidate.toISOString().split("T")[0];
-            document.getElementById("dateInput").value = formatted;
-            calculateHilal();
-            return;
-        }
-
-        candidate.setDate(candidate.getDate() + 1);
-    }
 }
 
-/* ===============================
-   EVENTS
-================================= */
-
-document.getElementById("dateInput").addEventListener("change", calculateHilal);
-document.getElementById("fiqhMode").addEventListener("change", calculateHilal);
-
-/* ===============================
-   DATE DISPLAY
-================================= */
-
-function updateHijriDisplay(dateValue){
-
-    if(!dateValue) return;
-
-    const date = new Date(dateValue);
-
-    const hijriFormatter = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-    });
-
-    const gregorianFormatter = new Intl.DateTimeFormat('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-
-    const hijriDate = hijriFormatter.format(date);
-    const gregorianDate = gregorianFormatter.format(date);
-
-    document.getElementById("dateDisplay").innerHTML =
-        "<strong>Gregorian:</strong> " + gregorianDate +
-        "<br><strong>Hijri:</strong> " + hijriDate + " AH";
-}
-
-/* ===============================
-   HILAL ENGINE
-================================= */
-
-function calculateHilal(){
-
-    markerLayer.clearLayers();
-
-    const dateValue = document.getElementById("dateInput").value;
-    const fiqhMode = document.getElementById("fiqhMode").value;
-
-    updateHijriDisplay(dateValue);
-    if(!dateValue) return;
-
-    const date = new Date(dateValue);
-    let visibleZones = [];
-
-    for(let lat = -40; lat <= 40; lat += 10){
-        for(let lon = -120; lon <= 120; lon += 20){
-
-            const times = SunCalc.getTimes(date, lat, lon);
-            const sunset = times.sunset;
-            if(!sunset) continue;
-
-            const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
-            const moonIllum = SunCalc.getMoonIllumination(sunset);
-
-            const altitude = moonPos.altitude * (180/Math.PI);
-            const elongation = moonIllum.phase * 360;
-
-            let visibilityScore = altitude + elongation/10;
-
-            let zoneType = "bad";
-
-            if (visibilityScore > 15) {
-                zoneType = "good";
-            } else if (visibilityScore > 8) {
-                zoneType = "mid";
-            }
-
-            let color = zoneType === "good" ? "green" :
-                        zoneType === "mid" ? "orange" : "red";
-
-            if (zoneType !== "bad") {
-                visibleZones.push({lat, lon});
-            }
-
-            L.circle([lat, lon], {
-                radius: 250000,
-                color: color,
-                fillColor: color,
-                fillOpacity: 0.25,
-                weight: 1
-            }).addTo(markerLayer);
-        }
-    }
-
-    determineMonthStart(visibleZones, fiqhMode);
-}
-
-/* ===============================
-   MONTH START LOGIC
-================================= */
-
-function determineMonthStart(visibleZones, fiqhMode){
-
-    const resultDiv = document.getElementById("result");
-
-    if(visibleZones.length === 0){
-        resultDiv.innerHTML =
-        "<span class='verdict-bad'>Moon NOT visible on 29th evening. Month completes 30 days.</span>";
-        return;
-    }
-
-    if(fiqhMode === "global"){
-        resultDiv.innerHTML =
-        "<span class='verdict-good'>Moon visible somewhere. New month starts next day (Global).</span>";
-        return;
-    }
-
-    const referenceLat = 44.98;
-    let shared = visibleZones.some(z => Math.abs(z.lat - referenceLat) <= 15);
-
-    if(shared){
-        resultDiv.innerHTML =
-        "<span class='verdict-good'>Moon visible in shared horizon zone. New month begins.</span>";
-    } else {
-        resultDiv.innerHTML =
-        "<span class='verdict-mid'>Moon visible but NOT in shared horizon. Month completes 30 days.</span>";
-    }
-}
-
-/* ===============================
-   INIT
-================================= */
-
-setNextHijri29th();
-
-});
+document.getElementById("datePicker").addEventListener("change",updateMap);
+updateMap();
 
 </script>
 
