@@ -1,289 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hilal Visibility – North America Cities</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.js"></script>
+<title>Hilal Cities Visibility</title>
+<script src="https://unpkg.com/suncalc@1.9.0/suncalc.js"></script>
 
 <style>
-body{
-  font-family:Arial, sans-serif;
-  margin:0;
-  background:#f5f5f5;
+body { font-family: Arial; background:#f4f4f4; padding:20px; }
+h2 { text-align:center; }
+table {
+width:100%;
+border-collapse:collapse;
+background:white;
 }
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
+th, td {
+padding:10px;
+border:1px solid #ccc;
+text-align:center;
 }
-.card{
-  background:white;
-  padding:20px;
-  border-radius:8px;
-  margin-bottom:20px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
-}
-h1,h2,h3{
-  margin-top:0;
-}
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-th,td{
-  padding:10px;
-  text-align:center;
-  border-bottom:1px solid #ddd;
-}
-.green{background:#d4edda;}
-.yellow{background:#fff3cd;}
-.red{background:#f8d7da;}
-.nav-button{
-  display:inline-block;
-  padding:10px 18px;
-  background:#0b5ed7;
-  color:white;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
-}
-.nav-button:hover{background:#084298;}
-.badge{
-  padding:6px 10px;
-  border-radius:6px;
-  font-weight:600;
-}
+th { background:#222; color:white; }
+.good { color:green; font-weight:bold; }
+.mid { color:orange; font-weight:bold; }
+.bad { color:red; font-weight:bold; }
+a { text-decoration:none; color:#0066cc; }
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<h2>Major North American Cities</h2>
 
-<h1>North America Hilal Visibility Table</h1>
+<input type="date" id="datePicker">
+<br><br>
 
-<div class="card">
-  <label>Select Date (Gregorian): </label>
-  <input type="date" id="dateInput">
-  <p><strong>Hijri Date:</strong> <span id="hijriDisplay"></span></p>
-</div>
+<a href="hilal-forecast.html">← Back to Map</a>
 
-<div class="card">
-  <h2>Major Cities</h2>
-  <table id="cityTable">
-    <thead>
-      <tr>
-        <th>City</th>
-        <th>Yallop</th>
-        <th>Odeh</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
+<br><br>
 
-<div class="card">
-  <h2>Your Location Visibility</h2>
-  <div id="userVisibility"></div>
-</div>
-
-<div class="card">
-  <h2>Based on your horizon...</h2>
-  <div id="sistaniBox"></div>
-</div>
-
-<div style="text-align:center;">
-  <a href="hilal-forecast.html" class="nav-button">
-    ← Back to Global Forecast Map
-  </a>
-</div>
-
-</div>
+<table>
+<thead>
+<tr>
+<th>City</th>
+<th>Visibility</th>
+</tr>
+</thead>
+<tbody id="cityTable"></tbody>
+</table>
 
 <script>
 
-// ===== Major Cities Dataset =====
+// Default date same as map
+const today = new Date();
+today.setDate(today.getDate()+29);
+document.getElementById("datePicker").valueAsDate = today;
+
+// ===== TRUE ELONGATION =====
+function getElongation(date, lat, lon){
+
+    const sunPos = SunCalc.getPosition(date, lat, lon);
+    const moonPos = SunCalc.getMoonPosition(date, lat, lon);
+
+    const cosE =
+        Math.sin(sunPos.altitude)*Math.sin(moonPos.altitude) +
+        Math.cos(sunPos.altitude)*Math.cos(moonPos.altitude)*
+        Math.cos(sunPos.azimuth - moonPos.azimuth);
+
+    return Math.acos(cosE) * (180/Math.PI);
+}
+
+// ===== SAME ENGINE =====
+function classifyVisibility(date, lat, lon){
+
+    const times = SunCalc.getTimes(date, lat, lon);
+    const sunset = times.sunset;
+    if(!sunset) return null;
+
+    const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
+    const altitude = moonPos.altitude * 180/Math.PI;
+
+    const elongation = getElongation(sunset, lat, lon);
+
+    const q = altitude - (11 + 0.5 * elongation);
+
+    if(q > 0.216){
+        return { zone:"good", text:"🟢 Easily Visible" };
+    }
+    else if(q > -0.160){
+        return { zone:"mid", text:"🟡 Optical Aid Likely" };
+    }
+    else{
+        return { zone:"bad", text:"🔴 Not Visible" };
+    }
+}
+
 const cities = [
-  {name:"New York", lat:40.7128, lon:-74.0060},
-  {name:"Chicago", lat:41.8781, lon:-87.6298},
-  {name:"Houston", lat:29.7604, lon:-95.3698},
-  {name:"Los Angeles", lat:34.0522, lon:-118.2437},
-  {name:"Minneapolis",lat:44.9778,lon:-93.2650},
-  {name:"Toronto", lat:43.6532, lon:-79.3832},
-  {name:"Vancouver", lat:49.2827, lon:-123.1207},
-  {name:"Calgary",lat:51.0447,lon:-114.0719},
-  {name:"Miami",lat:25.7617,lon:-80.1918},
-  {name:"Mexico City", lat:19.4326, lon:-99.1332}
+{ name:"New York", lat:40.71, lon:-74.00 },
+{ name:"Chicago", lat:41.88, lon:-87.63 },
+{ name:"Houston", lat:29.76, lon:-95.37 },
+{ name:"Los Angeles", lat:34.05, lon:-118.24 },
+{ name:"Toronto", lat:43.65, lon:-79.38 },
+{ name:"Vancouver", lat:49.28, lon:-123.12 },
+{ name:"Mexico City", lat:19.43, lon:-99.13 }
 ];
 
-// ===== Auto Default to Next 29th Hijri =====
-function getNext29thHijri() {
-  const today = new Date();
-  const hijri = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
-    day:'numeric', month:'numeric', year:'numeric'
-  }).formatToParts(today);
+function updateTable(){
 
-  const day = parseInt(hijri.find(p=>p.type==="day").value);
+    const date = new Date(document.getElementById("datePicker").value);
+    const table = document.getElementById("cityTable");
+    table.innerHTML = "";
 
-  if(day <= 29){
-    const diff = 29 - day;
-    today.setDate(today.getDate() + diff);
-  }else{
-    today.setMonth(today.getMonth()+1);
-  }
+    cities.forEach(city=>{
+        const vis = classifyVisibility(date, city.lat, city.lon);
+        if(!vis) return;
 
-  return today;
+        const row = `<tr>
+            <td>${city.name}</td>
+            <td class="${vis.zone}">${vis.text}</td>
+        </tr>`;
+
+        table.innerHTML += row;
+    });
 }
 
-const dateInput = document.getElementById("dateInput");
-const defaultDate = getNext29thHijri();
-dateInput.valueAsDate = defaultDate;
-
-updateHijriDisplay(defaultDate);
-runCalculations(defaultDate);
-
-// Auto run on change
-dateInput.addEventListener("change",()=>{
-  const selected = new Date(dateInput.value);
-  updateHijriDisplay(selected);
-  runCalculations(selected);
-});
-
-// ===== Hijri Display =====
-function updateHijriDisplay(date){
-  const hijri = new Intl.DateTimeFormat('en-TN-u-ca-islamic',{
-    day:'numeric', month:'long', year:'numeric'
-  }).format(date);
-  document.getElementById("hijriDisplay").innerText = hijri;
-}
-
-// ======Helper ======
-function getElongation(date, lat, lon) {
-  const sunPos = SunCalc.getPosition(date, lat, lon);
-  const moonPos = SunCalc.getMoonPosition(date, lat, lon);
-
-  const sunAz = sunPos.azimuth;
-  const sunAlt = sunPos.altitude;
-  const moonAz = moonPos.azimuth;
-  const moonAlt = moonPos.altitude;
-
-  const cosE = 
-    Math.sin(sunAlt)*Math.sin(moonAlt) +
-    Math.cos(sunAlt)*Math.cos(moonAlt)*Math.cos(sunAz - moonAz);
-
-  return Math.acos(cosE) * 180/Math.PI;
-}
-
-// ===== Yallop Model =====
-function yallopVisibility(date, lat, lon){
-
-  const sunset = SunCalc.getTimes(date, lat, lon).sunset;
-
-  const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
-  const altitude = moonPos.altitude * 180/Math.PI;
-
-  const elongation = getElongation(sunset, lat, lon);
-
-  const q = altitude - (11 + 0.5 * elongation);
-
-  if(q > 0.216) return {text:"Easily Visible", class:"green"};
-  if(q > -0.014) return {text:"Visible under perfect conditions", class:"green"};
-  if(q > -0.160) return {text:"Optical Aid Needed", class:"yellow"};
-  if(q > -0.232) return {text:"Will Need Telescope", class:"yellow"};
-  return {text:"Not Visible", class:"red"};
-}
-  
-// ===== Odeh Model =====
-function odehVisibility(date, lat, lon){
-
-  const sunset = SunCalc.getTimes(date, lat, lon).sunset;
-
-  const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
-  const altitude = moonPos.altitude * 180/Math.PI;
-
-  const elongation = getElongation(sunset, lat, lon);
-
-  const arcv = altitude;
-  const arcl = elongation;
-
-  const v = arcv - (-0.1018 + 0.7319*arcl - 0.1018*Math.pow(arcl,2));
-
-  if(v > 0.5) return {text:"Naked Eye Likely", class:"green"};
-  if(v > -0.1) return {text:"Possible with Optical Aid", class:"yellow"};
-  return {text:"Not Visible", class:"red"};
-}
-
-// ===== Main Calculation =====
-function runCalculations(date){
-
-  const tbody = document.querySelector("#cityTable tbody");
-  tbody.innerHTML = "";
-
-  let greenCount=0, yellowCount=0, redCount=0;
-
-  cities.forEach(city=>{
-    const y = yallopVisibility(date, city.lat, city.lon);
-    const o = odehVisibility(date, city.lat, city.lon);
-
-    const tr = document.createElement("tr");
-
-    const worstClass = (y.class==="red"||o.class==="red")?"red":
-                       (y.class==="yellow"||o.class==="yellow")?"yellow":"green";
-
-    tr.className = worstClass;
-
-    tr.innerHTML = `
-      <td>${city.name}</td>
-      <td>${y.text}</td>
-      <td>${o.text}</td>
-    `;
-    tbody.appendChild(tr);
-
-    if(worstClass==="green") greenCount++;
-    if(worstClass==="yellow") yellowCount++;
-    if(worstClass==="red") redCount++;
-  });
-
-  generateSistaniComment(greenCount, yellowCount, redCount, date);
-
-  // User location
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const y = yallopVisibility(date, pos.coords.latitude, pos.coords.longitude);
-    const o = odehVisibility(date, pos.coords.latitude, pos.coords.longitude);
-
-    document.getElementById("userVisibility").innerHTML =
-      `<div class="badge ${y.class}">
-         Yallop: ${y.text} <br>
-         Odeh: ${o.text}
-       </div>`;
-  });
-
-}
-
-// ===== Sistani Interpretation =====
-function generateSistaniComment(green,yellow,red,date){
-
-  let verdict="";
-  let color="";
-
-  if(green >= 3){
-    verdict="Crescent likely visible within shared horizon zone.";
-    color="green";
-  }else if(yellow >= 3){
-    verdict="Crescent marginal. Visibility may require optical aid.";
-    color="yellow";
-  }else{
-    verdict="Crescent unlikely visible across most of North America.";
-    color="red";
-  }
-
-  document.getElementById("sistaniBox").innerHTML =
-    `<div class="badge ${color}">
-       ${verdict}
-     </div>`;
-}
+document.getElementById("datePicker").addEventListener("change",updateTable);
+updateTable();
 
 </script>
 
