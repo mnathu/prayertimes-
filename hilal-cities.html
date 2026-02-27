@@ -159,14 +159,32 @@ function updateHijriDisplay(date){
   document.getElementById("hijriDisplay").innerText = hijri;
 }
 
+// ======Helper ======
+function getElongation(date, lat, lon) {
+  const sunPos = SunCalc.getPosition(date, lat, lon);
+  const moonPos = SunCalc.getMoonPosition(date, lat, lon);
+
+  const sunAz = sunPos.azimuth;
+  const sunAlt = sunPos.altitude;
+  const moonAz = moonPos.azimuth;
+  const moonAlt = moonPos.altitude;
+
+  const cosE = 
+    Math.sin(sunAlt)*Math.sin(moonAlt) +
+    Math.cos(sunAlt)*Math.cos(moonAlt)*Math.cos(sunAz - moonAz);
+
+  return Math.acos(cosE) * 180/Math.PI;
+}
+
 // ===== Yallop Model =====
 function yallopVisibility(date, lat, lon){
-  const sunset = SunCalc.getTimes(date, lat, lon).sunset;
-  const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
-  const moonIllum = SunCalc.getMoonIllumination(date);
 
+  const sunset = SunCalc.getTimes(date, lat, lon).sunset;
+
+  const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
   const altitude = moonPos.altitude * 180/Math.PI;
-  const elongation = moonIllum.phase * 360;
+
+  const elongation = getElongation(sunset, lat, lon);
 
   const q = altitude - (11 + 0.5 * elongation);
 
@@ -176,16 +194,24 @@ function yallopVisibility(date, lat, lon){
   if(q > -0.232) return {text:"Will Need Telescope", class:"yellow"};
   return {text:"Not Visible", class:"red"};
 }
-
+  
 // ===== Odeh Model =====
 function odehVisibility(date, lat, lon){
-  const sunset = SunCalc.getTimes(date, lat, lon).sunset;
-  const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
 
+  const sunset = SunCalc.getTimes(date, lat, lon).sunset;
+
+  const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
   const altitude = moonPos.altitude * 180/Math.PI;
 
-  if(altitude > 8) return {text:"Naked Eye Possible", class:"green"};
-  if(altitude > 5) return {text:"Possible with Optical Aid", class:"yellow"};
+  const elongation = getElongation(sunset, lat, lon);
+
+  const arcv = altitude;
+  const arcl = elongation;
+
+  const v = arcv - (-0.1018 + 0.7319*arcl - 0.1018*Math.pow(arcl,2));
+
+  if(v > 0.5) return {text:"Naked Eye Likely", class:"green"};
+  if(v > -0.1) return {text:"Possible with Optical Aid", class:"yellow"};
   return {text:"Not Visible", class:"red"};
 }
 
