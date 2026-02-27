@@ -71,25 +71,31 @@ function getElongation(date, lat, lon){
 function classifyVisibility(date, lat, lon){
 
     const times = SunCalc.getTimes(date, lat, lon);
-    const sunset = times.sunset;
-    if(!sunset) return null;
+    const sunset = new Date(times.sunset.getTime() + 5*60000);
 
+    const sunPos = SunCalc.getPosition(sunset, lat, lon);
     const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
-    const altitude = moonPos.altitude * 180/Math.PI;
 
-    const elongation = getElongation(sunset, lat, lon);
+    const moonAlt = moonPos.altitude * 180/Math.PI;
+    const sunAlt  = sunPos.altitude * 180/Math.PI;
 
-    const q = altitude - (11 + 0.5 * elongation);
+    const elong = getElongation(sunset, lat, lon);
 
-    if(q > 0.216){
-        return { zone:"good", text:"🟢 Easily Visible" };
-    }
-    else if(q > -0.160){
-        return { zone:"mid", text:"🟡 Optical Aid Likely" };
-    }
-    else{
-        return { zone:"bad", text:"🔴 Not Visible" };
-    }
+    const arcv = moonAlt - sunAlt;
+    const arcl = elong;
+
+    const q = arcv - (0.1018*arcl*arcl - 1.162*arcl + 6.322);
+
+    if(q > 0.216)
+        return {zone:"A", color:"green", text:"🟢 Easily Visible"};
+    else if(q > -0.014)
+        return {zone:"B", color:"lightgreen", text:"🟢 Visible under perfect conditions"};
+    else if(q > -0.160)
+        return {zone:"C", color:"orange", text:"🟡 Optical aid required"};
+    else if(q > -0.232)
+        return {zone:"D", color:"darkorange", text:"🟠 Very difficult"};
+    else
+        return {zone:"E", color:"red", text:"🔴 Not Visible"};
 }
 
 const cities = [
