@@ -20,11 +20,12 @@ connect-src 'self' https://tile.openstreetmap.org https://*.tile.openstreetmap.o
 body { margin:0; font-family:Arial; background:#f9f9f9; }
 .container { max-width:1100px; margin:auto; padding:20px; }
 .card { background:white; padding:20px; margin-top:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
-#map { height:500px; width:100%; margin-top:20px; border-radius:8px; }
-select, input, button { padding:8px; margin:5px 0; }
+#map { height:500px; width:100%; border-radius:8px; }
+select, input { padding:8px; margin:5px 0; }
 .verdict-good { color:green; font-weight:bold; }
 .verdict-mid { color:orange; font-weight:bold; }
 .verdict-bad { color:red; font-weight:bold; }
+
 .nav-button {
   display:inline-block;
   padding:10px 18px;
@@ -45,37 +46,45 @@ select, input, button { padding:8px; margin:5px 0; }
 <div class="container">
 
 <h2>Hilal Forecast</h2>
-  
+
+<!-- Date & Settings -->
 <div class="card">
-<label for="dateInput">Select 29th Evening Date:</label><br>
-<input type="date" id="dateInput">
 
-<div id="dateDisplay">
+<label for="dateInput"><strong>Select 29th Evening Date:</strong></label><br>
+<input type="date" id="dateInput"><br>
 
-
-
-<label for="fiqhMode">Fiqh Mode:</label><br>
+<label for="fiqhMode"><strong>Fiqh Mode:</strong></label><br>
 <select id="fiqhMode">
-<option value="sistani">Shared Horizon</option>
-<option value="global">Global Sighting</option>
+  <option value="sistani">Shared Horizon</option>
+  <option value="global">Global Sighting</option>
 </select>
+
 </div>
-  
+
+<!-- Date Display -->
 <div class="card">
 <h3>Date Information</h3>
 <div id="dateDisplay"></div>
 </div>
-  
+
+<!-- Result -->
 <div class="card">
 <h3>Visibility Result</h3>
 <div id="result">Calculating...</div>
 </div>
-<div style="text-align:center; margin-top:20px;">
+
+<!-- Map -->
+<div class="card">
+<h3>Global Visibility Map</h3>
+<div id="map"></div>
+</div>
+
+<!-- Navigation -->
+<div class="card" style="text-align:center;">
   <a href="hilal-cities.html" class="nav-button">
     View North America City Visibility Table →
   </a>
 </div>
-<div id="map"></div>
 
 </div>
 
@@ -153,15 +162,16 @@ function setNextHijri29th() {
 }
 
 /* ===============================
-   AUTO-RUN EVENTS
+   EVENTS
 ================================= */
 
 document.getElementById("dateInput").addEventListener("change", calculateHilal);
 document.getElementById("fiqhMode").addEventListener("change", calculateHilal);
 
 /* ===============================
-   HILAL CALCULATION ENGINE
+   DATE DISPLAY
 ================================= */
+
 function updateHijriDisplay(dateValue){
 
     if(!dateValue) return;
@@ -188,7 +198,11 @@ function updateHijriDisplay(dateValue){
         "<strong>Gregorian:</strong> " + gregorianDate +
         "<br><strong>Hijri:</strong> " + hijriDate + " AH";
 }
-    
+
+/* ===============================
+   HILAL ENGINE
+================================= */
+
 function calculateHilal(){
 
     markerLayer.clearLayers();
@@ -278,7 +292,7 @@ function determineMonthStart(visibleZones, fiqhMode){
 }
 
 /* ===============================
-   INITIALIZE
+   INIT
 ================================= */
 
 setNextHijri29th();
