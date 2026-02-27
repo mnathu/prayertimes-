@@ -49,10 +49,10 @@ select, input, button { padding:8px; margin:5px 0; }
 <div class="card">
 <label for="dateInput">Select 29th Evening Date:</label><br>
 <input type="date" id="dateInput">
-<br>
+
 <div id="dateDisplay">
 
-<br>
+
 
 <label for="fiqhMode">Fiqh Mode:</label><br>
 <select id="fiqhMode">
@@ -60,7 +60,12 @@ select, input, button { padding:8px; margin:5px 0; }
 <option value="global">Global Sighting</option>
 </select>
 </div>
-
+  
+<div class="card">
+<h3>Date Information</h3>
+<div id="dateDisplay"></div>
+</div>
+  
 <div class="card">
 <h3>Visibility Result</h3>
 <div id="result">Calculating...</div>
