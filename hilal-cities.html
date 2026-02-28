@@ -2,131 +2,74 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hilal Cities</title>
-<script src="https://unpkg.com/suncalc@1.9.0/suncalc.js"></script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilal Cities | PrayerTimes</title>
+<script src="js/hilal-engine.js"></script>
 <style>
-body { font-family:Arial; background:#f9f9f9; padding:20px; }
-h2 { text-align:center; }
-table {
-width:100%;
-border-collapse:collapse;
-background:white;
-}
-th, td {
-padding:10px;
-border:1px solid #ddd;
-text-align:center;
-}
-th { background:#222; color:white; }
-a { color:#0066cc; text-decoration:none; }
+body{font-family:Arial;background:#f8f9fb;margin:0;padding:20px;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{padding:10px;text-align:center;border-bottom:1px solid #ddd;}
+th{background:#f0f0f0;}
+.badge{padding:4px 8px;border-radius:12px;font-size:12px;}
+.A{background:#2f855a;color:white;}
+.B{background:#3c965a;color:white;}
+.C{background:#dcb446;color:white;}
+.D{background:#b43c3c;color:white;}
 </style>
 </head>
 <body>
 
 <h2>Major North American Cities</h2>
-
-<input type="date" id="datePicker">
-<div id="hijriDate"></div>
-<br>
-<a href="hilal-forecast.html">← Back to Map</a>
-<br><br>
+<input type="date" id="dateInput">
 
 <table>
 <thead>
 <tr>
 <th>City</th>
+<th>Odeh Category</th>
 <th>Visibility</th>
 </tr>
 </thead>
-<tbody id="cityTable"></tbody>
+<tbody id="tableBody"></tbody>
 </table>
 
 <script>
-
-// Same 29th Hijri logic
-function getNext29Hijri() {
-    const today = new Date();
-    for(let i=0;i<60;i++){
-        let test = new Date();
-        test.setDate(today.getDate()+i);
-        const hijri = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
-            day:'numeric'
-        }).format(test);
-        if(hijri==="29") return test;
-    }
-    return today;
-}
-
-const defaultDate = getNext29Hijri();
-document.getElementById("datePicker").valueAsDate = defaultDate;
-
-// Same math functions copied
-function getElongation(date, lat, lon){
-    const sunPos = SunCalc.getPosition(date, lat, lon);
-    const moonPos = SunCalc.getMoonPosition(date, lat, lon);
-
-    const cosE =
-        Math.sin(sunPos.altitude)*Math.sin(moonPos.altitude) +
-        Math.cos(sunPos.altitude)*Math.cos(moonPos.altitude)*
-        Math.cos(sunPos.azimuth - moonPos.azimuth);
-
-    return Math.acos(cosE) * (180/Math.PI);
-}
-
-function classifyVisibility(date, lat, lon){
-
-    const times = SunCalc.getTimes(date, lat, lon);
-    const sunset = new Date(times.sunset.getTime()+5*60000);
-
-    const sunPos = SunCalc.getPosition(sunset, lat, lon);
-    const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
-
-    const moonAlt = moonPos.altitude * 180/Math.PI;
-    const sunAlt = sunPos.altitude * 180/Math.PI;
-    const elong = getElongation(sunset, lat, lon);
-
-    const arcv = moonAlt - sunAlt;
-    const q = arcv - (0.1018*elong*elong - 1.162*elong + 6.322);
-
-    if(q > 0.216) return "🟢 Easily Visible (A)";
-    if(q > -0.014) return "🟢 Perfect Conditions (B)";
-    if(q > -0.160) return "🟡 Optical Aid (C)";
-    if(q > -0.232) return "🟠 Very Difficult (D)";
-    return "🔴 Not Visible (E)";
-}
-
-const cities = [
-{ name:"New York", lat:40.71, lon:-74.00 },
-{ name:"Chicago", lat:41.88, lon:-87.63 },
-{ name:"Houston", lat:29.76, lon:-95.37 },
-{ name:"Los Angeles", lat:34.05, lon:-118.24 },
-{ name:"Toronto", lat:43.65, lon:-79.38 },
-{ name:"Vancouver", lat:49.28, lon:-123.12 }
+const cities=[
+{name:"Chicago",lat:41.88,lon:-87.63},
+{name:"Houston",lat:29.76,lon:-95.36},
+{name:"Los Angeles",lat:34.05,lon:-118.24},
+{name:"Toronto",lat:43.65,lon:-79.38},
+{name:"New York",lat:40.71,lon:-74.00}
 ];
 
-function updateTable(){
-
-    const date = new Date(document.getElementById("datePicker").value);
-
-    const hijri = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
-        day:'numeric', month:'long', year:'numeric'
-    }).format(date);
-
-    document.getElementById("hijriDate").innerHTML = hijri;
-
-    const table = document.getElementById("cityTable");
-    table.innerHTML = "";
-
-    cities.forEach(city=>{
-        const result = classifyVisibility(date, city.lat, city.lon);
-        table.innerHTML += `<tr><td>${city.name}</td><td>${result}</td></tr>`;
-    });
+function label(cat){
+ if(cat===3) return["A","Easily visible"];
+ if(cat===2) return["B","Possible naked eye"];
+ if(cat===1) return["C","Optical aid only"];
+ return["D","Not visible"];
 }
 
-document.getElementById("datePicker").addEventListener("change",updateTable);
-updateTable();
+function update(){
+ const date=new Date(dateInput.value);
+ tableBody.innerHTML="";
 
+ cities.forEach(c=>{
+  const cat=odehCategory(date,c.lat,c.lon);
+  const l=label(cat);
+
+  tableBody.innerHTML+=`
+  <tr>
+   <td>${c.name}</td>
+   <td><span class="badge ${l[0]}">${l[0]}</span></td>
+   <td>${l[1]}</td>
+  </tr>`;
+ });
+}
+
+dateInput.addEventListener("change",update);
+
+dateInput.value=new Date().toISOString().split('T')[0];
+update();
 </script>
 
 </body>
