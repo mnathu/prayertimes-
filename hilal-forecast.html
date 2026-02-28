@@ -97,7 +97,12 @@ function renderHeat(){
  for(let lat=10;lat<=60;lat+=3){
   for(let lon=-130;lon<=-60;lon+=3){
    const cat=odehCategory(date,lat,lon);
-   heatData.push([lat,lon,cat/3]);
+   const intensity = cat === 0 ? 0.05 :
+                  cat === 1 ? 0.4 :
+                  cat === 2 ? 0.7 :
+                  1.0;
+
+heatData.push([lat, lon, intensity]);
   }
  }
 
