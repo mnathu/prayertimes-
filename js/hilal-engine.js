@@ -115,6 +115,8 @@ function elongation(sunRA, sunDec, moonRA, moonDec) {
 
 /* ---- Odeh Classification ---- */
 
+/* ---- Odeh Classification (A/B/C/D) ---- */
+
 function odehCategory(date, lat, lon) {
 
   const sunset = sunsetTime(date, lat, lon);
@@ -126,10 +128,20 @@ function odehCategory(date, lat, lon) {
 
   const elong = elongation(sun.RA, sun.Dec, moon.RA, moon.Dec);
 
-  if (elong > 12 && alt > 6) return 2;   // Green
-  if (elong > 9 && alt > 3) return 1;    // Yellow
-  return 0;                              // Red
+  // Category A – Naked eye easily visible
+  if (elong > 14 && alt > 8) return 3;
+
+  // Category B – Visible with optical aid, possible naked eye
+  if (elong > 11 && alt > 5) return 2;
+
+  // Category C – Optical aid only
+  if (elong > 8 && alt > 2) return 1;
+
+  // Category D – Not visible
+  return 0;
 }
+
+window.odehCategory = odehCategory;
 
 /* Export for pages */
 window.odehCategory = odehCategory;
