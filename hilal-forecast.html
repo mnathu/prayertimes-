@@ -1,285 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hilal Forecast | PrayerTimes</title>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+<script src="js/hilal-engine.js"></script>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f8f9fb;
-  color: #333;
-}
+body { margin:0; font-family:Arial,sans-serif; background:#f8f9fb; }
+.container { max-width:1000px; margin:auto; padding:20px; }
+h1 { text-align:center; font-weight:500; }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.controls {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-input[type="date"] {
-  padding: 8px 12px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-#hijri-display {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 8px;
-  color: #666;
-}
-
-#map-wrapper {
-  transition: opacity 0.4s ease;
-}
-
-#map {
-  height: 480px;
-  border-radius: 12px;
-  margin-top: 15px;
-}
-
-.fade-out {
-  opacity: 0.3;
-}
-
-/* Soft Legend */
-.hilal-legend {
-  margin-top: 16px;
-  text-align: center;
-  font-size: 13px;
-  color: #555;
-}
-
+#map { height:480px; border-radius:12px; margin-top:15px; }
+.fade { transition:opacity .4s ease; }
 .legend-bar {
-  height: 10px;
-  border-radius: 20px;
-  background: linear-gradient(
-    to right,
-    rgba(180, 60, 60, 0.6),
-    rgba(220, 180, 70, 0.6),
-    rgba(60, 150, 90, 0.6)
-  );
-  margin-bottom: 6px;
-}
-
-.legend-labels {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  #map {
-    height: 380px;
-  }
+ height:10px;
+ border-radius:20px;
+ background:linear-gradient(to right,
+ rgba(180,60,60,.6),
+ rgba(220,180,70,.6),
+ rgba(60,150,90,.6));
+ margin-top:10px;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Hilal Visibility Forecast</h1>
+<h1>Hilal Visibility Forecast</h1>
 
-  <div class="controls">
-    <input type="date" id="dateInput">
-  </div>
+<input type="date" id="dateInput">
+<div id="hijri"></div>
+<div id="interpretation" style="margin-top:8px;font-size:14px;color:#555;"></div>
 
-  <div id="hijri-display"></div>
+<div id="map" class="fade"></div>
 
-  <div id="map-wrapper">
-    <div id="map"></div>
-  </div>
-
-  <div class="hilal-legend">
-    <div class="legend-bar"></div>
-    <div class="legend-labels">
-      <span>Not Visible</span>
-      <span>Marginal</span>
-      <span>Visible</span>
-    </div>
-  </div>
+<div class="legend-bar"></div>
 </div>
 
 <script>
-/* =========================
-   Map Init
-========================= */
+const map = L.map('map').setView([39,-98],4);
 
-const map = L.map('map').setView([39, -98], 4);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+ attribution:'© OpenStreetMap'
 }).addTo(map);
 
 let heatLayer;
 let userCircle;
 
-/* =========================
-   Kuwaiti Hijri Algorithm
-========================= */
-
-function gregorianToHijri(date) {
-  const jd = Math.floor((date - new Date(1970,0,1)) / 86400000) + 2440588;
-  const l = jd - 1948440 + 10632;
-  const n = Math.floor((l - 1) / 10631);
-  let r = l - 10631 * n + 354;
-  const j = (Math.floor((10985 - r) / 5316)) *
-            (Math.floor((50 * r) / 17719)) +
-            (Math.floor(r / 5670)) *
-            (Math.floor((43 * r) / 15238));
-  r = r - (Math.floor((30 - j) / 15)) *
-      (Math.floor((17719 * j) / 50)) -
-      (Math.floor(j / 16)) *
-      (Math.floor((15238 * j) / 43)) + 29;
-
-  const month = Math.floor((24 * r) / 709);
-  const day = r - Math.floor((709 * month) / 24);
-  const year = 30 * n + j - 30;
-
-  return { day, month, year };
+/* Hijri Kuwaiti Approx */
+function gregorianToHijri(date){
+ const jd=date/86400000+2440587.5;
+ const l=jd-1948440+10632;
+ const n=Math.floor((l-1)/10631);
+ let r=l-10631*n+354;
+ const j=(Math.floor((10985-r)/5316))*
+ (Math.floor((50*r)/17719))+
+ (Math.floor(r/5670))*
+ (Math.floor((43*r)/15238));
+ r=r-(Math.floor((30-j)/15))*
+ (Math.floor((17719*j)/50))-
+ (Math.floor(j/16))*
+ (Math.floor((15238*j)/43))+29;
+ const m=Math.floor((24*r)/709);
+ const d=r-Math.floor((709*m)/24);
+ const y=30*n+j-30;
+ return{d,m,y};
 }
 
-/* =========================
-   Default to Next 29th Hijri
-========================= */
+function setNextHijri29(){
+ let today=new Date();
+ for(let i=0;i<60;i++){
+   let test=new Date(today);
+   test.setDate(today.getDate()+i);
+   if(gregorianToHijri(test).d===29){
+     dateInput.value=test.toISOString().split('T')[0];
+     break;
+   }
+ }
+}
 
-function setNextHijri29() {
-  let today = new Date();
-  let testDate = new Date(today);
+function updateHijri(){
+ const h=gregorianToHijri(new Date(dateInput.value));
+ hijri.innerText=`Hijri: ${h.d}/${h.m}/${h.y}`;
+}
 
-  for (let i = 0; i < 60; i++) {
-    let hijri = gregorianToHijri(testDate);
-    if (hijri.day === 29 && testDate >= today) {
-      document.getElementById("dateInput").value =
-        testDate.toISOString().split('T')[0];
-      updateHijriDisplay(testDate);
-      return;
-    }
-    testDate.setDate(testDate.getDate() + 1);
+function renderHeat(){
+ if(heatLayer) map.removeLayer(heatLayer);
+ let heatData=[];
+ const date=new Date(dateInput.value);
+
+ for(let lat=10;lat<=60;lat+=3){
+  for(let lon=-130;lon<=-60;lon+=3){
+   const cat=odehCategory(date,lat,lon);
+   heatData.push([lat,lon,cat/3]);
   }
-}
+ }
 
-/* =========================
-   Display Hijri Date
-========================= */
-
-function updateHijriDisplay(date) {
-  const h = gregorianToHijri(date);
-  const months = [
-    "Muharram","Safar","Rabi I","Rabi II","Jumada I","Jumada II",
-    "Rajab","Sha'ban","Ramadan","Shawwal","Dhul Qa'dah","Dhul Hijjah"
-  ];
-  document.getElementById("hijri-display").innerText =
-    `Hijri Date: ${h.day} ${months[h.month-1]} ${h.year} AH`;
-}
-
-/* =========================
-   Visibility Model (Refined Simplified)
-========================= */
-
-function calculateVisibilityScore(lat) {
-  if (lat < 25) return 1;
-  if (lat < 40) return 0.5;
-  return 0;
-}
-
-/* =========================
-   Render Heat Layer
-========================= */
-
-function renderHeat(date) {
-  if (heatLayer) map.removeLayer(heatLayer);
-
-  let heatData = [];
-
-  for (let lat = 10; lat <= 60; lat += 4) {
-    for (let lon = -130; lon <= -60; lon += 4) {
-      const score = calculateVisibilityScore(lat);
-      heatData.push([lat, lon, score]);
-    }
+ heatLayer=L.heatLayer(heatData,{
+  radius:35,
+  blur:28,
+  gradient:{
+   0.0:'#b43c3c',
+   0.33:'#dcb446',
+   0.66:'#3c965a',
+   1.0:'#2f855a'
   }
+ }).addTo(map);
+}
 
-  heatLayer = L.heatLayer(heatData, {
-    radius: 35,
-    blur: 28,
-    maxZoom: 6,
-    gradient: {
-      0.0: '#b43c3c',
-      0.5: '#dcb446',
-      1.0: '#3c965a'
-    }
+function addUser(){
+ navigator.geolocation.getCurrentPosition(pos=>{
+  const lat=pos.coords.latitude;
+  const lon=pos.coords.longitude;
+  const date=new Date(dateInput.value);
+  const cat=odehCategory(date,lat,lon);
+
+  if(userCircle) map.removeLayer(userCircle);
+
+  userCircle=L.circle([lat,lon],{
+   radius:50000,
+   color:'#2c7a7b',
+   weight:1.5,
+   fillOpacity:.15
   }).addTo(map);
+
+  let text="";
+  if(cat>=2)
+    text="Based on your horizon, crescent visibility is likely possible.";
+  else if(cat===1)
+    text="Based on your horizon, optical aid would likely be required.";
+  else
+    text="Based on your horizon, visibility is unlikely.";
+
+  interpretation.innerText=text;
+ });
 }
 
-/* =========================
-   User Location Highlight
-========================= */
-
-function addUserLocation() {
-  if (!navigator.geolocation) return;
-
-  navigator.geolocation.getCurrentPosition(pos => {
-    const lat = pos.coords.latitude;
-    const lon = pos.coords.longitude;
-
-    if (userCircle) map.removeLayer(userCircle);
-
-    userCircle = L.circle([lat, lon], {
-      radius: 50000,
-      color: '#2c7a7b',
-      weight: 1.5,
-      fillColor: '#2c7a7b',
-      fillOpacity: 0.15
-    }).addTo(map);
-  });
+function update(){
+ map.getContainer().style.opacity=.4;
+ setTimeout(()=>{
+  updateHijri();
+  renderHeat();
+  addUser();
+  map.getContainer().style.opacity=1;
+ },300);
 }
 
-/* =========================
-   Date Change Handling
-========================= */
-
-function runCalculation() {
-  const wrapper = document.getElementById("map-wrapper");
-  wrapper.classList.add("fade-out");
-
-  setTimeout(() => {
-    const date = new Date(document.getElementById("dateInput").value);
-    updateHijriDisplay(date);
-    renderHeat(date);
-    wrapper.classList.remove("fade-out");
-  }, 300);
-}
-
-document.getElementById("dateInput").addEventListener("change", runCalculation);
-
-/* =========================
-   Init
-========================= */
+dateInput.addEventListener("change",update);
 
 setNextHijri29();
-runCalculation();
-addUserLocation();
-
+update();
 </script>
 
 </body>
