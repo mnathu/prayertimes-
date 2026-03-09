@@ -1,174 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hilal Forecast | PrayerTimes</title>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Hilal Forecast</title>
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 <script src="/prayertimes-/js/hilal-engine.js"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  setNextHijri29();
-  update();
-
-});
-</script>
-
 <style>
-body { margin:0; font-family:Arial,sans-serif; background:#f8f9fb; }
-.container { max-width:1000px; margin:auto; padding:20px; }
-h1 { text-align:center; font-weight:500; }
 
-#map { height:480px; border-radius:12px; margin-top:15px; }
-.fade { transition:opacity .4s ease; }
-.legend-bar {
- height:10px;
- border-radius:20px;
- background:linear-gradient(to right,
- rgba(180,60,60,.6),
- rgba(220,180,70,.6),
- rgba(60,150,90,.6));
- margin-top:10px;
+body{
+font-family:Arial;
+margin:0;
+background:#f7f7f7;
 }
+
+header{
+padding:14px;
+text-align:center;
+font-weight:600;
+}
+
+#map{
+height:60vh;
+}
+
+.controls{
+padding:10px;
+text-align:center;
+}
+
+.legend{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:10px;
+font-size:12px;
+}
+
+.legend div{
+padding:6px 10px;
+border-radius:8px;
+}
+
+.A{background:#d4f5d4}
+.B{background:#f0f5c8}
+.C{background:#f8e4b8}
+.D{background:#f5c6c6}
+
 </style>
+
 </head>
+
 <body>
 
-<div class="container">
-<h1>Hilal Visibility Forecast</h1>
+<header>Hilal Visibility Forecast</header>
+
+<div class="controls">
 
 <input type="date" id="dateInput">
-<div id="hijri"></div>
-<div id="interpretation" style="margin-top:8px;font-size:14px;color:#555;"></div>
 
-<div id="map" class="fade"></div>
+</div>
 
-<div class="legend-bar"></div>
+<div id="map"></div>
+
+<div class="legend">
+<div class="A">A Visible</div>
+<div class="B">B Optical Aid</div>
+<div class="C">C Possible</div>
+<div class="D">D Not Visible</div>
 </div>
 
 <script>
-const map = L.map('map').setView([39,-98],4);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
- attribution:'© OpenStreetMap'
-}).addTo(map);
+const map = L.map("map").setView([20,0],2);
 
-let heatLayer;
-let userCircle;
+L.tileLayer(
+"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+{maxZoom:6}
+).addTo(map);
 
-/* Hijri Kuwaiti Approx */
-function gregorianToHijri(date){
- const jd=date/86400000+2440587.5;
- const l=jd-1948440+10632;
- const n=Math.floor((l-1)/10631);
- let r=l-10631*n+354;
- const j=(Math.floor((10985-r)/5316))*
- (Math.floor((50*r)/17719))+
- (Math.floor(r/5670))*
- (Math.floor((43*r)/15238));
- r=r-(Math.floor((30-j)/15))*
- (Math.floor((17719*j)/50))-
- (Math.floor(j/16))*
- (Math.floor((15238*j)/43))+29;
- const m=Math.floor((24*r)/709);
- const d=r-Math.floor((709*m)/24);
- const y=30*n+j-30;
- return{d,m,y};
+const layer = L.layerGroup().addTo(map);
+
+function update(){
+
+layer.clearLayers()
+
+const date = new Date(
+document.getElementById("dateInput").value
+)
+
+for(let lat=-60; lat<=60; lat+=5){
+for(let lon=-180; lon<=180; lon+=5){
+
+const cat = odehCategory(date,lat,lon)
+
+let color =
+cat===3?"#2ecc71":
+cat===2?"#f1c40f":
+cat===1?"#e67e22":
+"#e74c3c"
+
+L.circle([lat,lon],{
+radius:300000,
+color,
+fillOpacity:0.35,
+weight:0
+}).addTo(layer)
+
+}}
+
 }
 
 function setNextHijri29(){
- let today=new Date();
- for(let i=0;i<60;i++){
-   let test=new Date(today);
-   test.setDate(today.getDate()+i);
-   if(gregorianToHijri(test).d===29){
-     dateInput.value=test.toISOString().split('T')[0];
-     break;
-   }
- }
-}
 
-function updateHijri(){
- const h=gregorianToHijri(new Date(dateInput.value));
- hijri.innerText=`Hijri: ${h.d}/${h.m}/${h.y}`;
-}
+const today = new Date()
 
-function renderHeat(){
- if(heatLayer) map.removeLayer(heatLayer);
- let heatData=[];
- const date=new Date(dateInput.value);
+for(let i=0;i<60;i++){
 
- for(let lat=10;lat<=60;lat+=3){
-  for(let lon=-130;lon<=-60;lon+=3){
-   const cat=odehCategory(date,lat,lon);
-   const intensity = cat === 0 ? 0.05 :
-                  cat === 1 ? 0.4 :
-                  cat === 2 ? 0.7 :
-                  1.0;
+let d = new Date(today)
+d.setDate(today.getDate()+i)
 
-heatData.push([lat, lon, intensity]);
-  }
- }
+let h = gregorianToHijri(d)
 
- heatLayer=L.heatLayer(heatData,{
-  radius:35,
-  blur:28,
-  gradient:{
-   0.0:'#b43c3c',
-   0.33:'#dcb446',
-   0.66:'#3c965a',
-   1.0:'#2f855a'
-  }
- }).addTo(map);
-}
+if(h.d===29){
 
-function addUser(){
- navigator.geolocation.getCurrentPosition(pos=>{
-  const lat=pos.coords.latitude;
-  const lon=pos.coords.longitude;
-  const date=new Date(dateInput.value);
-  const cat=odehCategory(date,lat,lon);
+document.getElementById("dateInput").value =
+d.toISOString().split("T")[0]
 
-  if(userCircle) map.removeLayer(userCircle);
+return
 
-  userCircle=L.circle([lat,lon],{
-   radius:50000,
-   color:'#2c7a7b',
-   weight:1.5,
-   fillOpacity:.15
-  }).addTo(map);
+}}}
 
-  let text="";
-  if(cat>=2)
-    text="Based on your horizon, crescent visibility is likely possible.";
-  else if(cat===1)
-    text="Based on your horizon, optical aid would likely be required.";
-  else
-    text="Based on your horizon, visibility is unlikely.";
+document
+.getElementById("dateInput")
+.addEventListener("change",update)
 
-  interpretation.innerText=text;
- });
-}
+setNextHijri29()
+update()
 
-function update(){
- map.getContainer().style.opacity=.4;
- setTimeout(()=>{
-  updateHijri();
-  renderHeat();
-  addUser();
-  map.getContainer().style.opacity=1;
- },300);
-}
-
-dateInput.addEventListener("change",update);
-
-setNextHijri29();
-update();
 </script>
 
 </body>
