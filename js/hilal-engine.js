@@ -142,6 +142,10 @@ function odehCategory(date, lat, lon) {
 }
 
 window.odehCategory = odehCategory;
+window.sunsetTime = sunsetTime;
+window.moonPosition = moonPosition;
+window.sunPosition = sunPosition;
+window.gregorianToHijri = gregorianToHijri;
 
 /* Export for pages */
 window.odehCategory = odehCategory;
