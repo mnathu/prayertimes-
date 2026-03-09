@@ -15,16 +15,15 @@ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
 
 body{
-font-family:Arial,Helvetica,sans-serif;
+font-family:Arial;
 margin:0;
 background:#f7f7f7;
 }
 
 header{
-padding:14px;
+padding:15px;
 text-align:center;
 font-weight:600;
-font-size:18px;
 }
 
 .controls{
@@ -42,24 +41,6 @@ font-size:14px;
 margin-top:5px;
 }
 
-.legend{
-display:flex;
-justify-content:center;
-gap:12px;
-padding:10px;
-font-size:13px;
-}
-
-.legend div{
-padding:6px 10px;
-border-radius:8px;
-}
-
-.A{background:#d8f3dc}
-.B{background:#fff3b0}
-.C{background:#ffd6a5}
-.D{background:#ffadad}
-
 </style>
 
 </head>
@@ -72,41 +53,38 @@ border-radius:8px;
 <input type="date" id="dateInput">
 </div>
 
-<div class="info" id="hijriInfo"></div>
+<div class="info" id="info"></div>
 
 <div id="map"></div>
 
-<div class="legend">
-<div class="A">Visible</div>
-<div class="B">Optical Aid</div>
-<div class="C">Possible</div>
-<div class="D">Not Visible</div>
-</div>
-
 <script>
 
-/* ---------- JULIAN DATE ---------- */
+/* ---------- HIJRI USING INTL ---------- */
 
-function julian(date){
-return date.getTime()/86400000 + 2440587.5;
+function getHijri(date){
+
+const formatter =
+new Intl.DateTimeFormat('en-TN-u-ca-islamic',{
+day:'numeric',
+month:'numeric',
+year:'numeric'
+});
+
+const parts=formatter.formatToParts(date);
+
+let h={};
+
+parts.forEach(p=>{
+if(p.type==="day") h.d=parseInt(p.value);
+if(p.type==="month") h.m=parseInt(p.value);
+if(p.type==="year") h.y=parseInt(p.value);
+});
+
+return h;
+
 }
 
-/* ---------- HIJRI CONVERSION ---------- */
-
-function gregorianToHijri(date){
-
-const jd = Math.floor(julian(date))+0.5;
-const days = jd-1948439.5;
-
-const year = Math.floor((30*days+10646)/10631);
-const month = Math.min(11,Math.ceil((days-29)/29.5));
-const day = jd%30;
-
-return {y:year,m:month+1,d:Math.floor(day)};
-
-}
-
-/* ---------- NEXT HIJRI 29 ---------- */
+/* ---------- FIND NEXT HIJRI 29 ---------- */
 
 function setNextHijri29(){
 
@@ -114,14 +92,14 @@ const today=new Date();
 
 for(let i=0;i<60;i++){
 
-const d=new Date(today);
+let d=new Date(today);
 d.setDate(today.getDate()+i);
 
-const h=gregorianToHijri(d);
+let h=getHijri(d);
 
 if(h.d===29){
 
-dateInput.value =
+dateInput.value=
 d.toISOString().split("T")[0];
 
 return;
@@ -132,87 +110,50 @@ return;
 
 }
 
-/* ---------- NEW MOON ---------- */
+/* ---------- MOON AGE ---------- */
+
+function julian(date){
+return date.getTime()/86400000 + 2440587.5;
+}
 
 function lastConjunction(date){
 
-const k = Math.floor(
+const k=Math.floor(
 (julian(date)-2451550.1)/29.530588853
 );
 
-const T=k/1236.85;
-
 const J=
 2451550.09765+
-29.530588853*k+
-0.0001337*T*T;
+29.530588853*k;
 
 return new Date((J-2440587.5)*86400000);
 
 }
 
-/* ---------- MOON AGE ---------- */
-
 function moonAge(date){
 
-const conj = lastConjunction(date);
+const conj=lastConjunction(date);
+
 return (date-conj)/3600000;
 
 }
 
-/* ---------- SUNSET ---------- */
+/* ---------- MOONSET LAG ---------- */
 
-function sunset(date,lat,lon){
+function moonsetLag(date,lat){
 
-const rad=Math.PI/180;
+const age=moonAge(date);
 
-const d=julian(date)-2451545;
-
-const M=(357.529+0.98560028*d)*rad;
-
-const C=1.9148*Math.sin(M);
-
-const L=(280.466+0.98564736*d+C)*rad;
-
-const dec=Math.asin(Math.sin(L)*Math.sin(23.44*rad));
-
-const cosH=
-(Math.sin(-0.83*rad)-
-Math.sin(lat*rad)*Math.sin(dec))/
-(Math.cos(lat*rad)*Math.cos(dec));
-
-const H=Math.acos(cosH);
-
-const sunsetUTC=
-12+(H*180/Math.PI)/15-lon/15;
-
-const s=new Date(date);
-
-s.setUTCHours(0,0,0,0);
-s.setUTCHours(sunsetUTC);
-
-return s;
+return Math.max(5,20+age-lat/3);
 
 }
 
-/* ---------- MOONSET ESTIMATE ---------- */
+/* ---------- VISIBILITY SCORE ---------- */
 
-function moonsetLag(date,lat,lon){
+function visibilityScore(date,lat){
 
-const age = moonAge(date);
-
-let lag = 20 + age;
-
-return Math.max(5,lag);
-
-}
-
-/* ---------- VISIBILITY ---------- */
-
-function visibilityScore(date,lat,lon){
-
-const age = moonAge(date);
-const lag = moonsetLag(date,lat,lon);
+const age=moonAge(date);
+const lag=moonsetLag(date,lat);
 
 let score=0;
 
@@ -223,18 +164,6 @@ if(lag>20) score++;
 if(lag>40) score++;
 
 return score;
-
-}
-
-function hilalCategory(date,lat,lon){
-
-const s = visibilityScore(date,lat,lon);
-
-if(s>=4) return "A";
-if(s>=3) return "B";
-if(s>=2) return "C";
-
-return "D";
 
 }
 
@@ -253,17 +182,17 @@ const layer=L.layerGroup().addTo(map);
 
 function drawCurve(date){
 
-let curve=[];
+let points=[];
 
 for(let lon=-180;lon<=180;lon+=2){
 
 for(let lat=60;lat>=-60;lat-=1){
 
-const cat = hilalCategory(date,lat,lon);
+let score=visibilityScore(date,lat);
 
-if(cat==="B"){
+if(score>=3){
 
-curve.push([lat,lon]);
+points.push([lat,lon]);
 break;
 
 }
@@ -272,10 +201,14 @@ break;
 
 }
 
-L.polyline(curve,{
+if(points.length>0){
+
+L.polyline(points,{
 color:"#2ecc71",
-weight:2
+weight:3
 }).addTo(layer);
+
+}
 
 }
 
@@ -289,31 +222,29 @@ const date=new Date(dateInput.value);
 
 drawCurve(date);
 
-/* Hijri display */
+/* info display */
 
-const h=gregorianToHijri(date);
-
-hijriInfo.innerHTML=
-`Hijri Date: ${h.d}-${h.m}-${h.y}`;
-
-/* Example location stats */
+const h=getHijri(date);
 
 const age=moonAge(date).toFixed(1);
-const lag=moonsetLag(date,30,-90).toFixed(0);
+const lag=moonsetLag(date,30).toFixed(0);
 
-hijriInfo.innerHTML+=
-` | Moon Age: ${age} hr | Moonset Lag: ${lag} min`;
+info.innerHTML=
+`Gregorian: ${date.toDateString()}
+ | Hijri: ${h.d}-${h.m}-${h.y}
+ | Moon Age: ${age} hr
+ | Moonset Lag: ${lag} min`;
 
 }
 
 /* ---------- INIT ---------- */
 
 const dateInput=document.getElementById("dateInput");
+const info=document.getElementById("info");
 
 dateInput.addEventListener("change",update);
 
 setNextHijri29();
-
 update();
 
 </script>
