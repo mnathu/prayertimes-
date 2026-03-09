@@ -3,17 +3,14 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hilal Forecast</title>
+<title>Hilal Visibility Forecast</title>
 
-<link
-rel="stylesheet"
-href="https://unpkg.com/leaflet/dist/leaflet.css"
-/>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="/prayertimes-/js/hilal-engine.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
 
@@ -24,26 +21,26 @@ background:#f7f7f7;
 }
 
 header{
-padding:14px;
+padding:16px;
 text-align:center;
 font-weight:600;
 }
 
-#map{
-height:60vh;
+.controls{
+text-align:center;
+margin-bottom:10px;
 }
 
-.controls{
-padding:10px;
-text-align:center;
+#map{
+height:65vh;
 }
 
 .legend{
 display:flex;
 justify-content:center;
-gap:10px;
-margin-top:10px;
-font-size:12px;
+gap:12px;
+padding:10px;
+font-size:13px;
 }
 
 .legend div{
@@ -51,10 +48,10 @@ padding:6px 10px;
 border-radius:8px;
 }
 
-.A{background:#d4f5d4}
-.B{background:#f0f5c8}
-.C{background:#f8e4b8}
-.D{background:#f5c6c6}
+.A{background:#d8f3dc}
+.B{background:#fff3b0}
+.C{background:#ffd6a5}
+.D{background:#ffadad}
 
 </style>
 
@@ -65,21 +62,59 @@ border-radius:8px;
 <header>Hilal Visibility Forecast</header>
 
 <div class="controls">
-
 <input type="date" id="dateInput">
-
 </div>
 
 <div id="map"></div>
 
 <div class="legend">
-<div class="A">A Visible</div>
-<div class="B">B Optical Aid</div>
-<div class="C">C Possible</div>
-<div class="D">D Not Visible</div>
+<div class="A">Visible</div>
+<div class="B">Optical Aid</div>
+<div class="C">Possible</div>
+<div class="D">Not Visible</div>
 </div>
 
 <script>
+
+/* ---------- BASIC ASTRONOMY ---------- */
+
+function julian(date){
+return date.getTime()/86400000 + 2440587.5;
+}
+
+function sunMoonElongation(date){
+
+const d = julian(date)-2451545;
+
+const sun = 280.46 + 0.9856474*d;
+const moon = 218.32 + 13.176396*d;
+
+return Math.abs(moon-sun)%360;
+
+}
+
+function moonAltitude(lat){
+
+return 10*Math.cos(lat*Math.PI/180);
+
+}
+
+/* ---------- ODEH STYLE CLASSIFICATION ---------- */
+
+function odehCategory(date,lat,lon){
+
+const el = sunMoonElongation(date);
+const alt = moonAltitude(lat);
+
+if(el>15 && alt>8) return 3;
+if(el>12 && alt>5) return 2;
+if(el>9 && alt>2) return 1;
+
+return 0;
+
+}
+
+/* ---------- MAP ---------- */
 
 const map = L.map("map").setView([20,0],2);
 
@@ -92,60 +127,86 @@ const layer = L.layerGroup().addTo(map);
 
 function update(){
 
-layer.clearLayers()
+layer.clearLayers();
 
 const date = new Date(
 document.getElementById("dateInput").value
-)
+);
 
 for(let lat=-60; lat<=60; lat+=5){
+
 for(let lon=-180; lon<=180; lon+=5){
 
-const cat = odehCategory(date,lat,lon)
+const cat = odehCategory(date,lat,lon);
 
 let color =
 cat===3?"#2ecc71":
 cat===2?"#f1c40f":
 cat===1?"#e67e22":
-"#e74c3c"
+"#e74c3c";
 
 L.circle([lat,lon],{
-radius:300000,
+radius:250000,
 color,
 fillOpacity:0.35,
 weight:0
-}).addTo(layer)
+}).addTo(layer);
 
 }}
 
 }
 
+/* ---------- NEXT HIJRI 29 ---------- */
+
+function gregorianToHijri(date){
+
+const jd = Math.floor(julian(date))+0.5;
+const days = jd-1948439.5;
+
+const year = Math.floor((30*days+10646)/10631);
+const month = Math.min(
+11,
+Math.ceil((days-29)/29.5)
+);
+
+const day = jd%30;
+
+return {d:day};
+
+}
+
 function setNextHijri29(){
 
-const today = new Date()
+const today=new Date();
 
 for(let i=0;i<60;i++){
 
-let d = new Date(today)
-d.setDate(today.getDate()+i)
+const d=new Date(today);
+d.setDate(today.getDate()+i);
 
-let h = gregorianToHijri(d)
+const h=gregorianToHijri(d);
 
 if(h.d===29){
 
 document.getElementById("dateInput").value =
-d.toISOString().split("T")[0]
+d.toISOString().split("T")[0];
 
-return
+return;
 
-}}}
+}
+
+}
+
+}
+
+/* ---------- INIT ---------- */
 
 document
 .getElementById("dateInput")
-.addEventListener("change",update)
+.addEventListener("change",update);
 
-setNextHijri29()
-update()
+setNextHijri29();
+update();
 
 </script>
 
