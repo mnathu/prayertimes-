@@ -71,3 +71,29 @@ NA_CITIES.forEach(city=>{
 
 determineMonthStart(conj, visibilityResults);
 
+function elongation(sunLon,moonLon){
+return Math.abs(moonLon-sunLon)
+}
+
+function altitude(dec,lat,ha){
+return Math.asin(
+Math.sin(dec*RAD)*Math.sin(lat*RAD)
++Math.cos(dec*RAD)*Math.cos(lat*RAD)*Math.cos(ha*RAD)
+)/RAD
+}
+
+function odehQ(alt,elong){
+
+return alt-(11.8371
+-6.3226*elong
++0.7319*Math.pow(elong,2)
+-0.1018*Math.pow(elong,3))
+}
+
+function odehCategory(Q){
+
+if(Q>0.216) return"A"
+if(Q>-0.014) return"B"
+if(Q>-0.160) return"C"
+return"D"
+}
