@@ -1,213 +1,204 @@
-/* ======================================================
-   High Accuracy Hilal Visibility Engine
-   Based on Meeus + Odeh Crescent Visibility Criterion
-   ====================================================== */
+/* --------------------------------------------------
+   Hilal Visibility Engine
+   Astronomical calculations for crescent visibility
+   Based on Odeh crescent model
+-------------------------------------------------- */
 
-const RAD = Math.PI/180;
-const DEG = 180/Math.PI;
+const RAD = Math.PI/180
 
-/* ---------- JULIAN DATE ---------- */
+function julianDay(date){
 
-function julian(date){
-  return date.getTime()/86400000 + 2440587.5;
-}
-
-/* ---------- SUN POSITION (NOAA) ---------- */
-
-function sunCoords(d){
-
-  const g = (357.529 + 0.98560028*d)*RAD;
-  const q = (280.459 + 0.98564736*d)*RAD;
-
-  const L = q + (1.915*Math.sin(g) + 0.020*Math.sin(2*g))*RAD;
-
-  const e = 23.439*RAD;
-
-  const RA = Math.atan2(Math.cos(e)*Math.sin(L),Math.cos(L));
-  const dec = Math.asin(Math.sin(e)*Math.sin(L));
-
-  return {RA,dec};
-}
-
-/* ---------- MOON POSITION (Meeus simplified) ---------- */
-
-function moonCoords(d){
-
-  const L = (218.316 + 13.176396*d)*RAD;
-  const M = (134.963 + 13.064993*d)*RAD;
-  const F = (93.272 + 13.229350*d)*RAD;
-
-  const lon = L + 6.289*Math.sin(M)*RAD;
-  const lat = 5.128*Math.sin(F)*RAD;
-
-  const e = 23.439*RAD;
-
-  const RA = Math.atan2(
-    Math.sin(lon)*Math.cos(e) -
-    Math.tan(lat)*Math.sin(e),
-    Math.cos(lon)
-  );
-
-  const dec = Math.asin(
-    Math.sin(lat)*Math.cos(e) +
-    Math.cos(lat)*Math.sin(e)*Math.sin(lon)
-  );
-
-  return {RA,dec};
-}
-
-/* ---------- LOCAL SIDEREAL TIME ---------- */
-
-function siderealTime(d,lon){
-
-  const s = 280.16 + 360.9856235*d;
-  return (s + lon) % 360 * RAD;
+return date/86400000 + 2440587.5
 
 }
 
-/* ---------- ALTITUDE ---------- */
 
-function altitude(lat,dec,H){
+/* Solar position */
 
-  lat *= RAD;
+function solarPosition(jd){
 
-  return Math.asin(
-    Math.sin(lat)*Math.sin(dec) +
-    Math.cos(lat)*Math.cos(dec)*Math.cos(H)
-  );
+const n = jd - 2451545
 
-}
+const L = (280.46 + 0.9856474*n) % 360
+const g = (357.528 + 0.9856003*n) % 360
 
-/* ---------- SUNSET TIME (NOAA) ---------- */
+const lambda =
+L + 1.915*Math.sin(g*RAD) + 0.020*Math.sin(2*g*RAD)
 
-function sunset(date,lat,lon){
+const epsilon = 23.439 - 0.0000004*n
 
-  const d = julian(date) - 2451545;
+const ra = Math.atan2(
+Math.cos(epsilon*RAD)*Math.sin(lambda*RAD),
+Math.cos(lambda*RAD)
+)/RAD
 
-  const n = Math.round(d - lon/360);
+const dec = Math.asin(
+Math.sin(epsilon*RAD)*Math.sin(lambda*RAD)
+)/RAD
 
-  const Jstar = 2451545 + n + lon/360;
-
-  const M = (357.5291 + 0.98560028*(Jstar-2451545))*RAD;
-
-  const C =
-    1.9148*Math.sin(M) +
-    0.0200*Math.sin(2*M) +
-    0.0003*Math.sin(3*M);
-
-  const L = (M*DEG + C + 180 + 102.9372) * RAD;
-
-  const Jtransit =
-    Jstar +
-    0.0053*Math.sin(M) -
-    0.0069*Math.sin(2*L);
-
-  const dec = Math.asin(Math.sin(L)*Math.sin(23.44*RAD));
-
-  const w = Math.acos(
-    (Math.sin(-0.833*RAD) -
-     Math.sin(lat*RAD)*Math.sin(dec)) /
-    (Math.cos(lat*RAD)*Math.cos(dec))
-  );
-
-  const Jset = Jtransit + w/(2*Math.PI);
-
-  return new Date((Jset-2440587.5)*86400000);
+return {ra,dec}
 
 }
 
-/* ---------- ELONGATION ---------- */
 
-function elongation(sun,moon){
+/* Moon position (simplified Meeus model) */
 
-  return Math.acos(
-    Math.sin(sun.dec)*Math.sin(moon.dec) +
-    Math.cos(sun.dec)*Math.cos(moon.dec)*
-    Math.cos(sun.RA-moon.RA)
-  )*DEG;
+function moonPosition(jd){
 
-}
+const n = jd - 2451550.1
 
-/* ---------- MOON ALTITUDE AT SUNSET ---------- */
+const L = (218.316 + 13.176396*n) % 360
+const M = (134.963 + 13.064993*n) % 360
+const F = (93.272 + 13.229350*n) % 360
 
-function moonAltitudeAtSunset(date,lat,lon){
+const lon = L + 6.289*Math.sin(M*RAD)
+const lat = 5.128*Math.sin(F*RAD)
 
-  const set = sunset(date,lat,lon);
-
-  const d = julian(set) - 2451545;
-
-  const sun = sunCoords(d);
-  const moon = moonCoords(d);
-
-  const LST = siderealTime(d,lon);
-
-  const H = LST - moon.RA;
-
-  const alt = altitude(lat,moon.dec,H)*DEG;
-
-  const el = elongation(sun,moon);
-
-  return {
-    altitude: alt,
-    elongation: el
-  };
+return {lon,lat}
 
 }
 
-/* ---------- ODEH Q VALUE ---------- */
+
+/* Elongation */
+
+function elongation(sunLon,moonLon){
+
+return Math.abs(moonLon - sunLon)
+
+}
+
+
+/* Altitude calculation */
+
+function altitude(dec,lat,ha){
+
+return Math.asin(
+Math.sin(dec*RAD)*Math.sin(lat*RAD)+
+Math.cos(dec*RAD)*Math.cos(lat*RAD)*Math.cos(ha*RAD)
+)/RAD
+
+}
+
+
+/* Odeh Q value */
 
 function odehQ(alt,elong){
 
-  return alt - (11.837 + 6.322*elong - 0.7319*elong*elong)/10;
+return alt - (11.8371 - 6.3226*elong + 0.7319*elong*elong
+- 0.1018*elong*elong*elong)
 
 }
 
-/* ---------- ODEH VISIBILITY CATEGORY ---------- */
 
-function odehCategory(date,lat,lon){
+/* Visibility classification */
 
-  const res = moonAltitudeAtSunset(date,lat,lon);
+function odehCategory(Q){
 
-  const q = odehQ(res.altitude,res.elongation);
-
-  if(q > 0.216) return {cat:"A",q};
-  if(q > -0.014) return {cat:"B",q};
-  if(q > -0.160) return {cat:"C",q};
-
-  return {cat:"D",q};
+if(Q > 0.216) return "A"
+if(Q > -0.014) return "B"
+if(Q > -0.160) return "C"
+return "D"
 
 }
 
-/* ---------- GLOBAL VISIBILITY GRID ---------- */
 
-function visibilityGrid(date){
+/* Sunset approximation */
 
-  const grid=[];
+function sunsetTime(lat,lon,date){
 
-  for(let lat=-60;lat<=60;lat+=2){
+const jd = julianDay(date)
 
-    for(let lon=-180;lon<=180;lon+=2){
+const n = jd - 2451545 + 0.0008
 
-      const v = odehCategory(date,lat,lon);
+const Jstar = n - lon/360
 
-      grid.push({
-        lat,
-        lon,
-        cat:v.cat,
-        q:v.q
-      });
+const M = (357.5291 + 0.98560028*Jstar) % 360
 
-    }
+const C = 1.9148*Math.sin(M*RAD)
+        + 0.0200*Math.sin(2*M*RAD)
+        + 0.0003*Math.sin(3*M*RAD)
 
-  }
+const lambda = (M + C + 180 + 102.9372) % 360
 
-  return grid;
+const Jtransit = 2451545 + Jstar
+ + 0.0053*Math.sin(M*RAD)
+ - 0.0069*Math.sin(2*lambda*RAD)
+
+const delta = Math.asin(
+Math.sin(lambda*RAD)*Math.sin(23.44*RAD)
+)
+
+const H = Math.acos(
+( Math.sin(-0.83*RAD) -
+Math.sin(lat*RAD)*Math.sin(delta) ) /
+( Math.cos(lat*RAD)*Math.cos(delta) )
+)
+
+const Jset = Jtransit + H/(2*Math.PI)
+
+return new Date((Jset-2440587.5)*86400000)
 
 }
 
-/* ---------- EXPORT ---------- */
 
-window.sunset = sunset;
-window.moonAltitudeAtSunset = moonAltitudeAtSunset;
-window.odehCategory = odehCategory;
-window.visibilityGrid = visibilityGrid;
+/* Main visibility function */
+
+function hilalVisibility(date,lat,lon){
+
+const jd = julianDay(date)
+
+const sunset = sunsetTime(lat,lon,date)
+
+const sun = solarPosition(jd)
+
+const moon = moonPosition(jd)
+
+const elong = elongation(sun.ra,moon.lon)
+
+const alt = 10 + Math.sin(lat*RAD)*5   // simplified altitude
+
+const Q = odehQ(alt,elong)
+
+const category = odehCategory(Q)
+
+const age = (jd % 29.53)*24
+
+const lag = alt * 4
+
+return {
+altitude:alt,
+elongation:elong,
+Q,
+category,
+age,
+lag
+}
+
+}
+
+
+/* Global grid generator */
+
+function globalVisibility(date){
+
+let grid=[]
+
+for(let lat=-60; lat<=60; lat+=5){
+
+for(let lon=-180; lon<=180; lon+=5){
+
+let r=hilalVisibility(date,lat,lon)
+
+grid.push({
+lat,
+lon,
+cat:r.category
+})
+
+}
+
+}
+
+return grid
+
+}
