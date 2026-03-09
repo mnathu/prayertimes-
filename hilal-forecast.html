@@ -6,76 +6,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hilal Visibility Forecast | PrayerTimes</title>
+<title>Hilal Forecast</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
 
 body{
-font-family:Arial, sans-serif;
+font-family:Arial;
 margin:0;
 background:#f4f6f8;
-color:#333;
-}
-
-nav{
-background:#1f3a5f;
-padding:14px;
-}
-
-nav a{
-color:white;
-margin-right:18px;
-text-decoration:none;
-font-weight:500;
 }
 
 .container{
 max-width:1100px;
 margin:auto;
-padding:25px;
+padding:20px;
 }
 
 .card{
 background:white;
 padding:20px;
 border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,.06);
 margin-bottom:20px;
+box-shadow:0 2px 6px rgba(0,0,0,.06);
 }
 
 #map{
 height:500px;
-border-radius:10px;
 }
 
 .status{
 padding:12px;
 border-radius:8px;
-margin-top:12px;
-font-weight:500;
+margin-top:10px;
 }
 
-.visible{
-background:#e8f5e9;
-color:#2e7d32;
-}
+.visible{background:#e8f5e9;color:#2e7d32;}
+.notvisible{background:#fdecea;color:#b71c1c;}
 
-.optical{
-background:#fff8e1;
-color:#8d6e00;
-}
-
-.notvisible{
-background:#fdecea;
-color:#b71c1c;
-}
-
-.small{
-font-size:14px;
-color:#666;
-}
+.small{font-size:14px;color:#666}
 
 </style>
 
@@ -83,23 +53,12 @@ color:#666;
 
 <body>
 
-<nav>
-
-<a href="/">Home</a>
-<a href="/annual.html">Annual Timetable</a>
-<a href="/qibla.html">Qibla</a>
-<a href="/halal.html">Halal Guide</a>
-<a href="/hilal-forecast.html">Hilal Forecast</a>
-
-</nav>
-
 <div class="container">
 
 <div class="card">
 
 <h2>Hilal Visibility Forecast</h2>
 
-<label>Select Date</label>
 <input type="date" id="datePicker">
 
 <p id="hijriDate" class="small"></p>
@@ -113,15 +72,6 @@ color:#666;
 <h3>Global Crescent Visibility</h3>
 
 <div id="map"></div>
-
-<p class="small">
-
-Green — visible to naked eye  
-Yellow — optical aid may help  
-Orange — difficult visibility  
-Red — not visible  
-
-</p>
 
 </div>
 
@@ -138,41 +88,52 @@ Red — not visible
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+<!-- YOUR ENGINE FILES -->
 <script src="/prayertimes-/js/astronomy-core.js"></script>
 <script src="/prayertimes-/js/moon-phase.js"></script>
 <script src="/prayertimes-/js/hilal-visibility.js"></script>
 <script src="/prayertimes-/js/horizon-logic.js"></script>
 <script src="/prayertimes-/js/hilal-map.js"></script>
 
+
 <script>
 
-/* MAP INITIALIZATION */
+/* verify engines loaded */
+
+console.log("astronomy-core:",typeof julianDay)
+console.log("visibility engine:",typeof odehCategory)
+console.log("horizon logic:",typeof horizonVisibility)
+console.log("global grid:",typeof globalVisibility)
+
+
+/* MAP */
 
 const map=L.map("map").setView([20,0],2)
 
 L.tileLayer(
-'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-{
-maxZoom:7,
-attribution:'© OpenStreetMap'
-}
+"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+{maxZoom:6}
 ).addTo(map)
 
-let visibilityLayer=[]
+let mapLayer=[]
 
 
 function clearMap(){
 
-visibilityLayer.forEach(l=>map.removeLayer(l))
-
-visibilityLayer=[]
+mapLayer.forEach(l=>map.removeLayer(l))
+mapLayer=[]
 
 }
 
 
-/* RENDER VISIBILITY GRID */
+/* draw visibility grid */
 
 function drawVisibility(date){
+
+if(typeof globalVisibility!=="function"){
+console.error("globalVisibility() missing")
+return
+}
 
 clearMap()
 
@@ -186,23 +147,23 @@ if(p.cat==="A") color="#2e7d32"
 if(p.cat==="B") color="#fbc02d"
 if(p.cat==="C") color="#fb8c00"
 
-let circle=L.circle([p.lat,p.lon],{
+const c=L.circle([p.lat,p.lon],{
 
-radius:180000,
+radius:200000,
 color:color,
 weight:0,
 fillOpacity:.35
 
 }).addTo(map)
 
-visibilityLayer.push(circle)
+mapLayer.push(c)
 
 })
 
 }
 
 
-/* HIJRI DATE */
+/* Hijri conversion */
 
 function gregorianToHijri(date){
 
@@ -234,9 +195,9 @@ const hijriMonths=[
 ]
 
 
-/* LOCATION */
+/* user location */
 
-let userLat=29
+let userLat=40
 let userLon=-95
 
 navigator.geolocation.getCurrentPosition(pos=>{
@@ -249,18 +210,20 @@ update()
 })
 
 
-/* UPDATE FORECAST */
+/* update page */
 
 function update(){
 
-const date=new Date(document.getElementById("datePicker").value)
+const dateStr=document.getElementById("datePicker").value
 
-if(!date) return
+if(!dateStr) return
+
+const date=new Date(dateStr)
 
 drawVisibility(date)
 
 
-/* HIJRI DATE */
+/* hijri */
 
 const h=gregorianToHijri(date)
 
@@ -268,7 +231,9 @@ document.getElementById("hijriDate").innerHTML=
 `${h.day} ${hijriMonths[h.month-1]} ${h.year} AH`
 
 
-/* HORIZON VISIBILITY */
+/* horizon visibility */
+
+if(typeof horizonVisibility==="function"){
 
 const visible=horizonVisibility(date,userLat,userLon)
 
@@ -279,46 +244,51 @@ status.className="status"
 if(visible){
 
 status.classList.add("visible")
-
-status.innerHTML=
-"Crescent may be visible after sunset within your horizon."
+status.innerHTML="Crescent may be visible within your horizon."
 
 }
 
 else{
 
 status.classList.add("notvisible")
+status.innerHTML="Crescent not expected to be visible."
 
-status.innerHTML=
-"Crescent is not expected to be visible from your horizon."
+}
 
 }
 
 
-/* NEXT MONTH FORECAST */
+/* forecast */
 
-const forecast=forecastNextMonth(userLat,userLon)
+if(typeof forecastNextMonth==="function"){
 
-if(forecast){
+const f=forecastNextMonth(userLat,userLon)
+
+if(f){
 
 document.getElementById("forecast").innerHTML=
 
-`Observation night: ${forecast.observation.toDateString()}<br>
-Possible first day of next lunar month: ${forecast.start.toDateString()}`
+"Observation night: "+
+f.observation.toDateString()+
+"<br>First day of next month: "+
+f.start.toDateString()
 
 }
 
 }
 
+}
 
-/* DEFAULT DATE */
+
+/* initialize */
 
 const today=new Date()
 
 document.getElementById("datePicker").value=
 today.toISOString().split("T")[0]
 
-document.getElementById("datePicker")
+document
+.getElementById("datePicker")
 .addEventListener("change",update)
 
 update()
