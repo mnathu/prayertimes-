@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Hilal Visibility Forecast</title>
 
@@ -15,24 +15,31 @@ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
 
 body{
-font-family:Arial;
+font-family:Arial,Helvetica,sans-serif;
 margin:0;
 background:#f7f7f7;
 }
 
 header{
-padding:16px;
+padding:14px;
 text-align:center;
 font-weight:600;
+font-size:18px;
 }
 
 .controls{
 text-align:center;
-margin-bottom:10px;
+margin:10px;
 }
 
 #map{
 height:65vh;
+}
+
+.info{
+text-align:center;
+font-size:14px;
+margin-top:5px;
 }
 
 .legend{
@@ -65,6 +72,8 @@ border-radius:8px;
 <input type="date" id="dateInput">
 </div>
 
+<div class="info" id="hijriInfo"></div>
+
 <div id="map"></div>
 
 <div class="legend">
@@ -76,87 +85,13 @@ border-radius:8px;
 
 <script>
 
-/* ---------- BASIC ASTRONOMY ---------- */
+/* ---------- JULIAN DATE ---------- */
 
 function julian(date){
 return date.getTime()/86400000 + 2440587.5;
 }
 
-function sunMoonElongation(date){
-
-const d = julian(date)-2451545;
-
-const sun = 280.46 + 0.9856474*d;
-const moon = 218.32 + 13.176396*d;
-
-return Math.abs(moon-sun)%360;
-
-}
-
-function moonAltitude(lat){
-
-return 10*Math.cos(lat*Math.PI/180);
-
-}
-
-/* ---------- ODEH STYLE CLASSIFICATION ---------- */
-
-function odehCategory(date,lat,lon){
-
-const el = sunMoonElongation(date);
-const alt = moonAltitude(lat);
-
-if(el>15 && alt>8) return 3;
-if(el>12 && alt>5) return 2;
-if(el>9 && alt>2) return 1;
-
-return 0;
-
-}
-
-/* ---------- MAP ---------- */
-
-const map = L.map("map").setView([20,0],2);
-
-L.tileLayer(
-"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{maxZoom:6}
-).addTo(map);
-
-const layer = L.layerGroup().addTo(map);
-
-function update(){
-
-layer.clearLayers();
-
-const date = new Date(
-document.getElementById("dateInput").value
-);
-
-for(let lat=-60; lat<=60; lat+=5){
-
-for(let lon=-180; lon<=180; lon+=5){
-
-const cat = odehCategory(date,lat,lon);
-
-let color =
-cat===3?"#2ecc71":
-cat===2?"#f1c40f":
-cat===1?"#e67e22":
-"#e74c3c";
-
-L.circle([lat,lon],{
-radius:250000,
-color,
-fillOpacity:0.35,
-weight:0
-}).addTo(layer);
-
-}}
-
-}
-
-/* ---------- NEXT HIJRI 29 ---------- */
+/* ---------- HIJRI CONVERSION ---------- */
 
 function gregorianToHijri(date){
 
@@ -164,16 +99,14 @@ const jd = Math.floor(julian(date))+0.5;
 const days = jd-1948439.5;
 
 const year = Math.floor((30*days+10646)/10631);
-const month = Math.min(
-11,
-Math.ceil((days-29)/29.5)
-);
-
+const month = Math.min(11,Math.ceil((days-29)/29.5));
 const day = jd%30;
 
-return {d:day};
+return {y:year,m:month+1,d:Math.floor(day)};
 
 }
+
+/* ---------- NEXT HIJRI 29 ---------- */
 
 function setNextHijri29(){
 
@@ -188,7 +121,7 @@ const h=gregorianToHijri(d);
 
 if(h.d===29){
 
-document.getElementById("dateInput").value =
+dateInput.value =
 d.toISOString().split("T")[0];
 
 return;
@@ -199,13 +132,188 @@ return;
 
 }
 
+/* ---------- NEW MOON ---------- */
+
+function lastConjunction(date){
+
+const k = Math.floor(
+(julian(date)-2451550.1)/29.530588853
+);
+
+const T=k/1236.85;
+
+const J=
+2451550.09765+
+29.530588853*k+
+0.0001337*T*T;
+
+return new Date((J-2440587.5)*86400000);
+
+}
+
+/* ---------- MOON AGE ---------- */
+
+function moonAge(date){
+
+const conj = lastConjunction(date);
+return (date-conj)/3600000;
+
+}
+
+/* ---------- SUNSET ---------- */
+
+function sunset(date,lat,lon){
+
+const rad=Math.PI/180;
+
+const d=julian(date)-2451545;
+
+const M=(357.529+0.98560028*d)*rad;
+
+const C=1.9148*Math.sin(M);
+
+const L=(280.466+0.98564736*d+C)*rad;
+
+const dec=Math.asin(Math.sin(L)*Math.sin(23.44*rad));
+
+const cosH=
+(Math.sin(-0.83*rad)-
+Math.sin(lat*rad)*Math.sin(dec))/
+(Math.cos(lat*rad)*Math.cos(dec));
+
+const H=Math.acos(cosH);
+
+const sunsetUTC=
+12+(H*180/Math.PI)/15-lon/15;
+
+const s=new Date(date);
+
+s.setUTCHours(0,0,0,0);
+s.setUTCHours(sunsetUTC);
+
+return s;
+
+}
+
+/* ---------- MOONSET ESTIMATE ---------- */
+
+function moonsetLag(date,lat,lon){
+
+const age = moonAge(date);
+
+let lag = 20 + age;
+
+return Math.max(5,lag);
+
+}
+
+/* ---------- VISIBILITY ---------- */
+
+function visibilityScore(date,lat,lon){
+
+const age = moonAge(date);
+const lag = moonsetLag(date,lat,lon);
+
+let score=0;
+
+if(age>18) score++;
+if(age>24) score++;
+
+if(lag>20) score++;
+if(lag>40) score++;
+
+return score;
+
+}
+
+function hilalCategory(date,lat,lon){
+
+const s = visibilityScore(date,lat,lon);
+
+if(s>=4) return "A";
+if(s>=3) return "B";
+if(s>=2) return "C";
+
+return "D";
+
+}
+
+/* ---------- MAP ---------- */
+
+const map=L.map("map").setView([20,0],2);
+
+L.tileLayer(
+"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+{maxZoom:6}
+).addTo(map);
+
+const layer=L.layerGroup().addTo(map);
+
+/* ---------- VISIBILITY CURVE ---------- */
+
+function drawCurve(date){
+
+let curve=[];
+
+for(let lon=-180;lon<=180;lon+=2){
+
+for(let lat=60;lat>=-60;lat-=1){
+
+const cat = hilalCategory(date,lat,lon);
+
+if(cat==="B"){
+
+curve.push([lat,lon]);
+break;
+
+}
+
+}
+
+}
+
+L.polyline(curve,{
+color:"#2ecc71",
+weight:2
+}).addTo(layer);
+
+}
+
+/* ---------- UPDATE ---------- */
+
+function update(){
+
+layer.clearLayers();
+
+const date=new Date(dateInput.value);
+
+drawCurve(date);
+
+/* Hijri display */
+
+const h=gregorianToHijri(date);
+
+hijriInfo.innerHTML=
+`Hijri Date: ${h.d}-${h.m}-${h.y}`;
+
+/* Example location stats */
+
+const age=moonAge(date).toFixed(1);
+const lag=moonsetLag(date,30,-90).toFixed(0);
+
+hijriInfo.innerHTML+=
+` | Moon Age: ${age} hr | Moonset Lag: ${lag} min`;
+
+}
+
 /* ---------- INIT ---------- */
 
-document
-.getElementById("dateInput")
-.addEventListener("change",update);
+const dateInput=document.getElementById("dateInput");
+
+dateInput.addEventListener("change",update);
 
 setNextHijri29();
+
 update();
 
 </script>
