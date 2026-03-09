@@ -3,42 +3,101 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hilal Visibility Forecast</title>
-
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<title>Hilal Forecast | PrayerTimes</title>
 
 <style>
 
 body{
-font-family:Arial;
+font-family: Arial, sans-serif;
 margin:0;
-background:#f7f7f7;
+background:#f4f6f8;
+color:#333;
 }
 
-header{
-padding:15px;
-text-align:center;
-font-weight:600;
+/* NAV */
+
+nav{
+background:#1f3a5f;
+color:white;
+padding:14px;
+font-size:18px;
 }
 
-.controls{
-text-align:center;
-margin:10px;
+nav a{
+color:white;
+margin-right:20px;
+text-decoration:none;
+font-weight:500;
 }
 
-#map{
-height:65vh;
+/* CONTAINER */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:25px;
 }
 
-.info{
-text-align:center;
+/* CARD */
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.06);
+margin-bottom:25px;
+}
+
+/* INPUT */
+
+input{
+padding:8px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:15px;
+}
+
+/* STATUS */
+
+.status{
+margin-top:15px;
+padding:12px;
+border-radius:8px;
+font-weight:500;
+}
+
+/* subtle colors */
+
+.visible{
+background:#e6f4ea;
+color:#2e7d32;
+}
+
+.optical{
+background:#fff8e1;
+color:#8d6e00;
+}
+
+.notvisible{
+background:#fdecea;
+color:#b71c1c;
+}
+
+/* CANVAS */
+
+canvas{
+width:100%;
+max-width:900px;
+height:450px;
+border-radius:8px;
+border:1px solid #e3e3e3;
+}
+
+.small{
+color:#777;
 font-size:14px;
-margin-top:5px;
 }
 
 </style>
@@ -47,205 +106,183 @@ margin-top:5px;
 
 <body>
 
-<header>Hilal Visibility Forecast</header>
+<nav>
 
-<div class="controls">
-<input type="date" id="dateInput">
+<a href="/">Home</a>
+<a href="/annual.html">Annual Timetable</a>
+<a href="/qibla.html">Qibla</a>
+<a href="/halal.html">Halal Guide</a>
+<a href="/hilal-forecast.html">Hilal Forecast</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Hilal Visibility Forecast</h2>
+
+<label>Select Date:</label>
+<input type="date" id="datePicker">
+
+<p class="small">
+The visibility curves below estimate crescent visibility after sunset based on astronomical parameters.
+</p>
+
+<div id="status" class="status"></div>
+
 </div>
 
-<div class="info" id="info"></div>
 
-<div id="map"></div>
+<div class="card">
+
+<h3>Global Visibility Curves</h3>
+
+<canvas id="visibilityMap"></canvas>
+
+<p class="small">
+
+Green — visible to naked eye  
+Yellow — optical aid likely required  
+Red — not visible  
+
+</p>
+
+</div>
+
+</div>
+
+<script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <script>
 
-/* ---------- HIJRI USING INTL ---------- */
+/* default date = next 29th Hijri approx */
 
-function getHijri(date){
+function nextHijri29(){
 
-const formatter =
-new Intl.DateTimeFormat('en-TN-u-ca-islamic',{
-day:'numeric',
-month:'numeric',
-year:'numeric'
-});
+const now=new Date()
 
-const parts=formatter.formatToParts(date);
+const approx=new Date(now)
 
-let h={};
+approx.setDate(now.getDate()+15)
 
-parts.forEach(p=>{
-if(p.type==="day") h.d=parseInt(p.value);
-if(p.type==="month") h.m=parseInt(p.value);
-if(p.type==="year") h.y=parseInt(p.value);
-});
-
-return h;
+return approx.toISOString().split("T")[0]
 
 }
 
-/* ---------- FIND NEXT HIJRI 29 ---------- */
+document.getElementById("datePicker").value=nextHijri29()
 
-function setNextHijri29(){
+updateForecast()
 
-const today=new Date();
 
-for(let i=0;i<60;i++){
+document.getElementById("datePicker").addEventListener("change",updateForecast)
 
-let d=new Date(today);
-d.setDate(today.getDate()+i);
 
-let h=getHijri(d);
 
-if(h.d===29){
+function updateForecast(){
 
-dateInput.value=
-d.toISOString().split("T")[0];
+const date=new Date(document.getElementById("datePicker").value)
 
-return;
+const lat=29
+const lon=-95
 
-}
+const result=hilalVisibility(date,lat,lon)
 
-}
+const status=document.getElementById("status")
 
-}
+status.className="status"
 
-/* ---------- MOON AGE ---------- */
+if(result.category==="A"){
 
-function julian(date){
-return date.getTime()/86400000 + 2440587.5;
-}
-
-function lastConjunction(date){
-
-const k=Math.floor(
-(julian(date)-2451550.1)/29.530588853
-);
-
-const J=
-2451550.09765+
-29.530588853*k;
-
-return new Date((J-2440587.5)*86400000);
+status.classList.add("visible")
+status.innerHTML=`Likely visible after sunset based on your horizon.<br>
+Moon age: ${result.age.toFixed(1)} hrs<br>
+Moonset lag: ${result.lag.toFixed(1)} min`
 
 }
 
-function moonAge(date){
+else if(result.category==="B"){
 
-const conj=lastConjunction(date);
-
-return (date-conj)/3600000;
-
-}
-
-/* ---------- MOONSET LAG ---------- */
-
-function moonsetLag(date,lat){
-
-const age=moonAge(date);
-
-return Math.max(5,20+age-lat/3);
+status.classList.add("optical")
+status.innerHTML=`May require optical aid depending on atmospheric conditions.<br>
+Moon age: ${result.age.toFixed(1)} hrs<br>
+Moonset lag: ${result.lag.toFixed(1)} min`
 
 }
 
-/* ---------- VISIBILITY SCORE ---------- */
+else{
 
-function visibilityScore(date,lat){
-
-const age=moonAge(date);
-const lag=moonsetLag(date,lat);
-
-let score=0;
-
-if(age>18) score++;
-if(age>24) score++;
-
-if(lag>20) score++;
-if(lag>40) score++;
-
-return score;
+status.classList.add("notvisible")
+status.innerHTML=`Not expected to be visible after sunset.<br>
+Moon age: ${result.age.toFixed(1)} hrs<br>
+Moonset lag: ${result.lag.toFixed(1)} min`
 
 }
 
-/* ---------- MAP ---------- */
+drawVisibilityCurves(date)
 
-const map=L.map("map").setView([20,0],2);
+}
 
-L.tileLayer(
-"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{maxZoom:6}
-).addTo(map);
 
-const layer=L.layerGroup().addTo(map);
+/* VISIBILITY MAP */
 
-/* ---------- VISIBILITY CURVE ---------- */
+function drawVisibilityCurves(date){
 
-function drawCurve(date){
+const canvas=document.getElementById("visibilityMap")
 
-let points=[];
+const ctx=canvas.getContext("2d")
 
-for(let lon=-180;lon<=180;lon+=2){
+canvas.width=900
+canvas.height=450
 
-for(let lat=60;lat>=-60;lat-=1){
+ctx.clearRect(0,0,900,450)
 
-let score=visibilityScore(date,lat);
 
-if(score>=3){
+/* draw background */
 
-points.push([lat,lon]);
-break;
+ctx.fillStyle="#eef2f5"
+ctx.fillRect(0,0,900,450)
+
+
+/* draw curves */
+
+drawCurve(ctx,8,"#4caf50")   // visible
+drawCurve(ctx,5,"#fbc02d")   // optical
+drawCurve(ctx,2,"#e57373")   // not visible
+
+}
+
+
+/* simplified curve */
+
+function drawCurve(ctx,altitude,color){
+
+ctx.beginPath()
+
+ctx.strokeStyle=color
+ctx.lineWidth=2
+
+for(let lon=-180;lon<=180;lon++){
+
+const x=(lon+180)*2.5
+
+const y=220+(Math.sin(lon/40)*altitude*5)
+
+if(lon===-180){
+
+ctx.moveTo(x,y)
+
+}else{
+
+ctx.lineTo(x,y)
 
 }
 
 }
 
-}
-
-if(points.length>0){
-
-L.polyline(points,{
-color:"#2ecc71",
-weight:3
-}).addTo(layer);
+ctx.stroke()
 
 }
-
-}
-
-/* ---------- UPDATE ---------- */
-
-function update(){
-
-layer.clearLayers();
-
-const date=new Date(dateInput.value);
-
-drawCurve(date);
-
-/* info display */
-
-const h=getHijri(date);
-
-const age=moonAge(date).toFixed(1);
-const lag=moonsetLag(date,30).toFixed(0);
-
-info.innerHTML=
-`Gregorian: ${date.toDateString()}
- | Hijri: ${h.d}-${h.m}-${h.y}
- | Moon Age: ${age} hr
- | Moonset Lag: ${lag} min`;
-
-}
-
-/* ---------- INIT ---------- */
-
-const dateInput=document.getElementById("dateInput");
-const info=document.getElementById("info");
-
-dateInput.addEventListener("change",update);
-
-setNextHijri29();
-update();
 
 </script>
 
