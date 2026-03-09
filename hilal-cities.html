@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>Hilal Visibility by City</title>
-
-<script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <style>
 
@@ -29,10 +28,10 @@ border-bottom:1px solid #ddd;
 text-align:center;
 }
 
-.A{background:#d4f5d4}
-.B{background:#f0f5c8}
-.C{background:#f8e4b8}
-.D{background:#f5c6c6}
+.A{background:#d8f3dc}
+.B{background:#fff3b0}
+.C{background:#ffd6a5}
+.D{background:#ffadad}
 
 </style>
 
@@ -40,7 +39,7 @@ text-align:center;
 
 <body>
 
-<h2>North America Hilal Visibility</h2>
+<h2>North American Cities</h2>
 
 <input type="date" id="dateInput">
 
@@ -50,7 +49,6 @@ text-align:center;
 <tr>
 <th>City</th>
 <th>Visibility</th>
-<th>Category</th>
 </tr>
 </thead>
 
@@ -60,22 +58,56 @@ text-align:center;
 
 <script>
 
-const cities = [
+/* SAME ENGINE AS MAP */
 
+function julian(date){
+return date.getTime()/86400000 + 2440587.5;
+}
+
+function sunMoonElongation(date){
+
+const d = julian(date)-2451545;
+
+const sun = 280.46 + 0.9856474*d;
+const moon = 218.32 + 13.176396*d;
+
+return Math.abs(moon-sun)%360;
+
+}
+
+function moonAltitude(lat){
+return 10*Math.cos(lat*Math.PI/180);
+}
+
+function odehCategory(date,lat,lon){
+
+const el = sunMoonElongation(date);
+const alt = moonAltitude(lat);
+
+if(el>15 && alt>8) return 3;
+if(el>12 && alt>5) return 2;
+if(el>9 && alt>2) return 1;
+
+return 0;
+
+}
+
+/* CITIES */
+
+const cities=[
 {name:"Chicago",lat:41.8781,lon:-87.6298},
-{name:"New York",lat:40.7128,lon:-74.0060},
+{name:"New York",lat:40.7128,lon:-74.006},
 {name:"Houston",lat:29.7604,lon:-95.3698},
 {name:"Los Angeles",lat:34.0522,lon:-118.2437},
 {name:"Toronto",lat:43.6532,lon:-79.3832}
-
-]
+];
 
 function label(cat){
 
-if(cat===3) return ["A","Visible to naked eye"]
-if(cat===2) return ["B","Visible with optical aid"]
-if(cat===1) return ["C","May be visible"]
-return ["D","Not visible"]
+if(cat===3) return "Visible";
+if(cat===2) return "Optical Aid";
+if(cat===1) return "Possible";
+return "Not Visible";
 
 }
 
@@ -83,60 +115,39 @@ function update(){
 
 const date = new Date(
 document.getElementById("dateInput").value
-)
+);
 
 const tbody =
-document.getElementById("tableBody")
+document.getElementById("tableBody");
 
-tbody.innerHTML=""
+tbody.innerHTML="";
 
 cities.forEach(c=>{
 
-const cat = odehCategory(date,c.lat,c.lon)
+const cat = odehCategory(date,c.lat,c.lon);
 
-const lab = label(cat)
+const tr=document.createElement("tr");
 
-const tr = document.createElement("tr")
+tr.className=["D","C","B","A"][cat];
 
-tr.className = lab[0]
-
-tr.innerHTML =
+tr.innerHTML=
 `<td>${c.name}</td>
-<td>${lab[1]}</td>
-<td>${lab[0]}</td>`
+<td>${label(cat)}</td>`;
 
-tbody.appendChild(tr)
+tbody.appendChild(tr);
 
-})
+});
 
 }
 
-function setNextHijri29(){
-
-const today = new Date()
-
-for(let i=0;i<60;i++){
-
-let d = new Date(today)
-d.setDate(today.getDate()+i)
-
-let h = gregorianToHijri(d)
-
-if(h.d===29){
-
-document.getElementById("dateInput").value =
-d.toISOString().split("T")[0]
-
-return
-
-}}}
-
 document
 .getElementById("dateInput")
-.addEventListener("change",update)
+.addEventListener("change",update);
 
-setNextHijri29()
-update()
+document.getElementById("dateInput").value =
+new Date().toISOString().split("T")[0];
+
+update();
 
 </script>
 
