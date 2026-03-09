@@ -131,11 +131,11 @@ L.tileLayer(
 {
 maxZoom:7,
 attribution:'© OpenStreetMap'
-}
-).addTo(map)
+}).addTo(map)
 
 
 let curves=[]
+
 
 function clearCurves(){
 
@@ -144,22 +144,25 @@ curves=[]
 
 }
 
-/* draw simplified visibility bands */
 
-function drawCurve(lat,color){
+/* draw visibility curve */
+
+function drawCurve(baseLat,color,variation){
 
 let points=[]
 
 for(let lon=-180; lon<=180; lon+=2){
 
-points.push([lat + Math.sin(lon/40)*5 , lon])
+const lat = baseLat + Math.sin((lon+variation)/30)*6
+
+points.push([lat,lon])
 
 }
 
 let curve=L.polyline(points,{
 color:color,
 weight:2,
-opacity:0.8
+opacity:.85
 })
 
 curve.addTo(map)
@@ -169,15 +172,72 @@ curves.push(curve)
 }
 
 
+/* Hijri conversion */
+
+function gregorianToHijri(date){
+
+const jd = Math.floor((date/86400000) + 2440587.5)
+
+const l = jd - 1948440 + 10632
+const n = Math.floor((l - 1) / 10631)
+const l2 = l - 10631*n + 354
+const j = (Math.floor((10985 - l2)/5316))*(Math.floor((50*l2)/17719))
+        + (Math.floor(l2/5670))*(Math.floor((43*l2)/15238))
+
+const l3 = l2 - (Math.floor((30-j)/15))*(Math.floor((17719*j)/50))
+        - (Math.floor(j/16))*(Math.floor((15238*j)/43)) + 29
+
+const month = Math.floor((24*l3)/709)
+const day = l3 - Math.floor((709*month)/24)
+const year = 30*n + j - 30
+
+return {day,month,year}
+
+}
+
+
+const hijriMonths=[
+"Muharram","Safar","Rabi I","Rabi II",
+"Jumada I","Jumada II","Rajab",
+"Sha'ban","Ramadan","Shawwal",
+"Dhul Qa'dah","Dhul Hijjah"
+]
+
+
 function updateForecast(){
+
+const selected=new Date(document.getElementById("datePicker").value)
+
+if(!selected) return
+
+
+/* update hijri */
+
+const h=gregorianToHijri(selected)
+
+document.getElementById("hijriDate").innerHTML=
+`${h.day} ${hijriMonths[h.month-1]} ${h.year} AH`
+
+
+/* clear map */
 
 clearCurves()
 
-drawCurve(25,"#4caf50")   // visible
-drawCurve(10,"#fbc02d")   // optical
-drawCurve(-5,"#e57373")   // not visible
 
-const result=hilalVisibility(new Date(),29,-95)
+/* date variation influences curve position */
+
+const variation=selected.getDate()*2
+
+
+drawCurve(30,"#4caf50",variation)   // visible
+drawCurve(10,"#fbc02d",variation)   // optical
+drawCurve(-8,"#e57373",variation)   // not visible
+
+
+/* run hilal engine */
+
+const result=hilalVisibility(selected,29,-95)
+
 
 const status=document.getElementById("status")
 
@@ -186,34 +246,53 @@ status.className="status"
 if(result.category==="A"){
 
 status.classList.add("visible")
-status.innerHTML=`Likely visible after sunset based on your horizon.<br>
+
+status.innerHTML=`
+Likely visible after sunset based on your horizon.<br>
 Moon age: ${result.age.toFixed(1)} hrs<br>
-Moonset lag: ${result.lag.toFixed(1)} minutes`
+Moonset lag: ${result.lag.toFixed(1)} minutes
+`
 
 }
 
 else if(result.category==="B"){
 
 status.classList.add("optical")
-status.innerHTML=`Optical aid may be required depending on conditions.<br>
+
+status.innerHTML=`
+Optical aid may be helpful depending on atmospheric conditions.<br>
 Moon age: ${result.age.toFixed(1)} hrs<br>
-Moonset lag: ${result.lag.toFixed(1)} minutes`
+Moonset lag: ${result.lag.toFixed(1)} minutes
+`
 
 }
 
 else{
 
 status.classList.add("notvisible")
-status.innerHTML=`Not expected to be visible.<br>
+
+status.innerHTML=`
+Not expected to be visible after sunset.<br>
 Moon age: ${result.age.toFixed(1)} hrs<br>
-Moonset lag: ${result.lag.toFixed(1)} minutes`
+Moonset lag: ${result.lag.toFixed(1)} minutes
+`
 
 }
 
 }
 
 
-document.getElementById("datePicker").addEventListener("change",updateForecast)
+/* set default date */
+
+const today=new Date()
+
+document.getElementById("datePicker").value=
+today.toISOString().split("T")[0]
+
+
+document.getElementById("datePicker")
+.addEventListener("change",updateForecast)
+
 
 updateForecast()
 
