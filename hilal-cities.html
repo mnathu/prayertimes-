@@ -1,75 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hilal Cities | PrayerTimes</title>
-<script src="js/hilal-engine.js"></script>
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Hilal Visibility by City</title>
+
+<script src="/prayertimes-/js/hilal-engine.js"></script>
+
 <style>
-body{font-family:Arial;background:#f8f9fb;margin:0;padding:20px;}
-table{width:100%;border-collapse:collapse;margin-top:20px;}
-th,td{padding:10px;text-align:center;border-bottom:1px solid #ddd;}
-th{background:#f0f0f0;}
-.badge{padding:4px 8px;border-radius:12px;font-size:12px;}
-.A{background:#2f855a;color:white;}
-.B{background:#3c965a;color:white;}
-.C{background:#dcb446;color:white;}
-.D{background:#b43c3c;color:white;}
+
+body{
+font-family:Arial;
+background:#f7f7f7;
+padding:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+.A{background:#d4f5d4}
+.B{background:#f0f5c8}
+.C{background:#f8e4b8}
+.D{background:#f5c6c6}
+
 </style>
+
 </head>
+
 <body>
 
-<h2>Major North American Cities</h2>
+<h2>North America Hilal Visibility</h2>
+
 <input type="date" id="dateInput">
 
 <table>
+
 <thead>
 <tr>
 <th>City</th>
-<th>Odeh Category</th>
 <th>Visibility</th>
+<th>Category</th>
 </tr>
 </thead>
+
 <tbody id="tableBody"></tbody>
+
 </table>
 
 <script>
-const cities=[
-{name:"Chicago",lat:41.88,lon:-87.63},
-{name:"Houston",lat:29.76,lon:-95.36},
-{name:"Los Angeles",lat:34.05,lon:-118.24},
-{name:"Toronto",lat:43.65,lon:-79.38},
-{name:"New York",lat:40.71,lon:-74.00}
-];
+
+const cities = [
+
+{name:"Chicago",lat:41.8781,lon:-87.6298},
+{name:"New York",lat:40.7128,lon:-74.0060},
+{name:"Houston",lat:29.7604,lon:-95.3698},
+{name:"Los Angeles",lat:34.0522,lon:-118.2437},
+{name:"Toronto",lat:43.6532,lon:-79.3832}
+
+]
 
 function label(cat){
- if(cat===3) return["A","Easily visible"];
- if(cat===2) return["B","Possible naked eye"];
- if(cat===1) return["C","Optical aid only"];
- return["D","Not visible"];
+
+if(cat===3) return ["A","Visible to naked eye"]
+if(cat===2) return ["B","Visible with optical aid"]
+if(cat===1) return ["C","May be visible"]
+return ["D","Not visible"]
+
 }
 
 function update(){
- const date=new Date(dateInput.value);
- tableBody.innerHTML="";
 
- cities.forEach(c=>{
-  const cat=odehCategory(date,c.lat,c.lon);
-  const l=label(cat);
+const date = new Date(
+document.getElementById("dateInput").value
+)
 
-  tableBody.innerHTML+=`
-  <tr>
-   <td>${c.name}</td>
-   <td><span class="badge ${l[0]}">${l[0]}</span></td>
-   <td>${l[1]}</td>
-  </tr>`;
- });
+const tbody =
+document.getElementById("tableBody")
+
+tbody.innerHTML=""
+
+cities.forEach(c=>{
+
+const cat = odehCategory(date,c.lat,c.lon)
+
+const lab = label(cat)
+
+const tr = document.createElement("tr")
+
+tr.className = lab[0]
+
+tr.innerHTML =
+`<td>${c.name}</td>
+<td>${lab[1]}</td>
+<td>${lab[0]}</td>`
+
+tbody.appendChild(tr)
+
+})
+
 }
 
-dateInput.addEventListener("change",update);
+function setNextHijri29(){
 
-dateInput.value=new Date().toISOString().split('T')[0];
-update();
+const today = new Date()
+
+for(let i=0;i<60;i++){
+
+let d = new Date(today)
+d.setDate(today.getDate()+i)
+
+let h = gregorianToHijri(d)
+
+if(h.d===29){
+
+document.getElementById("dateInput").value =
+d.toISOString().split("T")[0]
+
+return
+
+}}}
+
+document
+.getElementById("dateInput")
+.addEventListener("change",update)
+
+setNextHijri29()
+update()
+
 </script>
 
 </body>
