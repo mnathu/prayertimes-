@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,22 +8,19 @@
 
 <title>Hilal Forecast | PrayerTimes</title>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
 <style>
 
 body{
-font-family: Arial, sans-serif;
+font-family:Arial;
 margin:0;
 background:#f4f6f8;
-color:#333;
 }
-
-/* NAV */
 
 nav{
 background:#1f3a5f;
-color:white;
 padding:14px;
-font-size:18px;
 }
 
 nav a{
@@ -32,46 +30,33 @@ text-decoration:none;
 font-weight:500;
 }
 
-/* CONTAINER */
-
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
-padding:25px;
+padding:20px;
 }
-
-/* CARD */
 
 .card{
 background:white;
 padding:20px;
 border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.06);
-margin-bottom:25px;
+box-shadow:0 2px 8px rgba(0,0,0,.06);
+margin-bottom:20px;
 }
 
-/* INPUT */
-
-input{
-padding:8px;
-border-radius:6px;
-border:1px solid #ccc;
-font-size:15px;
+#map{
+height:500px;
+border-radius:10px;
 }
-
-/* STATUS */
 
 .status{
-margin-top:15px;
-padding:12px;
+padding:10px;
+margin-top:12px;
 border-radius:8px;
-font-weight:500;
 }
 
-/* subtle colors */
-
 .visible{
-background:#e6f4ea;
+background:#e8f5e9;
 color:#2e7d32;
 }
 
@@ -85,21 +70,6 @@ background:#fdecea;
 color:#b71c1c;
 }
 
-/* CANVAS */
-
-canvas{
-width:100%;
-max-width:900px;
-height:450px;
-border-radius:8px;
-border:1px solid #e3e3e3;
-}
-
-.small{
-color:#777;
-font-size:14px;
-}
-
 </style>
 
 </head>
@@ -107,13 +77,11 @@ font-size:14px;
 <body>
 
 <nav>
-
 <a href="/">Home</a>
 <a href="/annual.html">Annual Timetable</a>
 <a href="/qibla.html">Qibla</a>
 <a href="/halal.html">Halal Guide</a>
 <a href="/hilal-forecast.html">Hilal Forecast</a>
-
 </nav>
 
 <div class="container">
@@ -122,28 +90,23 @@ font-size:14px;
 
 <h2>Hilal Visibility Forecast</h2>
 
-<label>Select Date:</label>
+<label>Select Date</label>
 <input type="date" id="datePicker">
-
-<p class="small">
-The visibility curves below estimate crescent visibility after sunset based on astronomical parameters.
-</p>
 
 <div id="status" class="status"></div>
 
 </div>
 
-
 <div class="card">
 
-<h3>Global Visibility Curves</h3>
+<h3>Global Visibility Map</h3>
 
-<canvas id="visibilityMap"></canvas>
+<div id="map"></div>
 
-<p class="small">
+<p style="font-size:14px;color:#777">
 
 Green — visible to naked eye  
-Yellow — optical aid likely required  
+Yellow — optical aid may be required  
 Red — not visible  
 
 </p>
@@ -152,41 +115,67 @@ Red — not visible
 
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <script>
 
-/* default date = next 29th Hijri approx */
+/* initialize map */
 
-function nextHijri29(){
+const map = L.map('map').setView([20,0],2)
 
-const now=new Date()
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+maxZoom:7,
+attribution:'© OpenStreetMap'
+}
+).addTo(map)
 
-const approx=new Date(now)
 
-approx.setDate(now.getDate()+15)
+let curves=[]
 
-return approx.toISOString().split("T")[0]
+function clearCurves(){
+
+curves.forEach(c=>map.removeLayer(c))
+curves=[]
 
 }
 
-document.getElementById("datePicker").value=nextHijri29()
+/* draw simplified visibility bands */
 
-updateForecast()
+function drawCurve(lat,color){
 
+let points=[]
 
-document.getElementById("datePicker").addEventListener("change",updateForecast)
+for(let lon=-180; lon<=180; lon+=2){
 
+points.push([lat + Math.sin(lon/40)*5 , lon])
+
+}
+
+let curve=L.polyline(points,{
+color:color,
+weight:2,
+opacity:0.8
+})
+
+curve.addTo(map)
+
+curves.push(curve)
+
+}
 
 
 function updateForecast(){
 
-const date=new Date(document.getElementById("datePicker").value)
+clearCurves()
 
-const lat=29
-const lon=-95
+drawCurve(25,"#4caf50")   // visible
+drawCurve(10,"#fbc02d")   // optical
+drawCurve(-5,"#e57373")   // not visible
 
-const result=hilalVisibility(date,lat,lon)
+const result=hilalVisibility(new Date(),29,-95)
 
 const status=document.getElementById("status")
 
@@ -197,92 +186,34 @@ if(result.category==="A"){
 status.classList.add("visible")
 status.innerHTML=`Likely visible after sunset based on your horizon.<br>
 Moon age: ${result.age.toFixed(1)} hrs<br>
-Moonset lag: ${result.lag.toFixed(1)} min`
+Moonset lag: ${result.lag.toFixed(1)} minutes`
 
 }
 
 else if(result.category==="B"){
 
 status.classList.add("optical")
-status.innerHTML=`May require optical aid depending on atmospheric conditions.<br>
+status.innerHTML=`Optical aid may be required depending on conditions.<br>
 Moon age: ${result.age.toFixed(1)} hrs<br>
-Moonset lag: ${result.lag.toFixed(1)} min`
+Moonset lag: ${result.lag.toFixed(1)} minutes`
 
 }
 
 else{
 
 status.classList.add("notvisible")
-status.innerHTML=`Not expected to be visible after sunset.<br>
+status.innerHTML=`Not expected to be visible.<br>
 Moon age: ${result.age.toFixed(1)} hrs<br>
-Moonset lag: ${result.lag.toFixed(1)} min`
-
-}
-
-drawVisibilityCurves(date)
-
-}
-
-
-/* VISIBILITY MAP */
-
-function drawVisibilityCurves(date){
-
-const canvas=document.getElementById("visibilityMap")
-
-const ctx=canvas.getContext("2d")
-
-canvas.width=900
-canvas.height=450
-
-ctx.clearRect(0,0,900,450)
-
-
-/* draw background */
-
-ctx.fillStyle="#eef2f5"
-ctx.fillRect(0,0,900,450)
-
-
-/* draw curves */
-
-drawCurve(ctx,8,"#4caf50")   // visible
-drawCurve(ctx,5,"#fbc02d")   // optical
-drawCurve(ctx,2,"#e57373")   // not visible
-
-}
-
-
-/* simplified curve */
-
-function drawCurve(ctx,altitude,color){
-
-ctx.beginPath()
-
-ctx.strokeStyle=color
-ctx.lineWidth=2
-
-for(let lon=-180;lon<=180;lon++){
-
-const x=(lon+180)*2.5
-
-const y=220+(Math.sin(lon/40)*altitude*5)
-
-if(lon===-180){
-
-ctx.moveTo(x,y)
-
-}else{
-
-ctx.lineTo(x,y)
+Moonset lag: ${result.lag.toFixed(1)} minutes`
 
 }
 
 }
 
-ctx.stroke()
 
-}
+document.getElementById("datePicker").addEventListener("change",updateForecast)
+
+updateForecast()
 
 </script>
 
