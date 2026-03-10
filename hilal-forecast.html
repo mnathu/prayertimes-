@@ -186,13 +186,16 @@ VISIBILITY MODEL
 
 function visibility(lat,lon,date){
 
-let alt=moonAltitude(lat,date)
-let e=elongation(date)
+let ageHours = moonAge(date) * 24
 
-let q=alt-(11.837+6.322*Math.log(e))
+let alt = 0.25 * ageHours - Math.abs(lat)/12
 
-if(q>0.216) return "green"
-if(q>-0.014) return "yellow"
+let elong = ageHours * 0.5
+
+let q = alt - (11.837 + 6.322 * Math.log(elong))
+
+if(q > 1) return "green"
+if(q > -1) return "yellow"
 return "red"
 
 }
