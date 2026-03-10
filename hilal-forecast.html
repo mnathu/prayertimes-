@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Hilal Engine -->
+<script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <title>Hilal Visibility Forecast</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="/prayertimes-/css/leaflet.css">
+<script src="/prayertimes-/js/leaflet.js"></script>
+
+<script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <style>
 
@@ -103,6 +109,16 @@ opacity:.8;
 /* ------------------------
 MAP INITIALIZATION
 ------------------------ */
+<div class="card">
+<h3>Global Crescent Visibility</h3>
+
+<input type="date" id="forecastDate">
+
+<div id="map" style="height:500px;"></div>
+
+<div id="prediction"></div>
+
+</div>
 
 const map=L.map("map").setView([20,0],2)
 
@@ -360,5 +376,82 @@ datePicker.addEventListener("change",update)
 
 </script>
 
+<script>
+
+let map = L.map("map").setView([20,0],2)
+
+L.tileLayer(
+"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+{
+maxZoom:6,
+attribution:"© OpenStreetMap"
+}
+).addTo(map)
+
+let visibilityLayer = L.layerGroup().addTo(map)
+let curveLayer = L.layerGroup().addTo(map)
+
+</script>
+
+function drawVisibility(date){
+
+visibilityLayer.clearLayers()
+curveLayer.clearLayers()
+
+let grid = HilalEngine.generateVisibility(date)
+
+grid.forEach(p=>{
+
+let color="red"
+
+if(p.cat==="A") color="green"
+if(p.cat==="B") color="yellow"
+if(p.cat==="C") color="orange"
+
+L.circleMarker([p.lat,p.lon],{
+radius:3,
+color:color,
+fillOpacity:0.7
+}).addTo(visibilityLayer)
+
+})
+
+let curves = HilalEngine.generateCurves(grid)
+
+L.polyline(curves.naked,{
+color:"green",
+weight:2
+}).addTo(curveLayer)
+
+L.polyline(curves.optical,{
+color:"yellow",
+weight:2
+}).addTo(curveLayer)
+
+}
+
+document.getElementById("forecastDate")
+.addEventListener("change",function(){
+
+let date = new Date(this.value)
+
+drawVisibility(date)
+
+})
+
+window.onload = function(){
+
+let today = new Date()
+
+let dateInput = document.getElementById("forecastDate")
+
+dateInput.value = today.toISOString().split("T")[0]
+
+drawVisibility(today)
+
+}
+
+  
+  
 </body>
 </html>
