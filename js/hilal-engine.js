@@ -1,184 +1,171 @@
-/* ======================================
-   HILAL ENGINE – ASTRONOMICAL MODEL
-   ====================================== */
+/* ======================================================
+HILAL ENGINE V2
+Scientific crescent visibility model
+Based on ICOP / Odeh methodology
+====================================================== */
 
-const RAD = Math.PI/180
-const DEG = 180/Math.PI
+const HilalEngine = (function(){
 
-/* ======================================
-   JULIAN DATE
-   ====================================== */
+/* ---------- CONSTANTS ---------- */
 
-function toJulian(date){
-return date.getTime()/86400000 + 2440587.5
+const RAD = Math.PI / 180
+const DEG = 180 / Math.PI
+
+function rad(d){ return d * RAD }
+function deg(r){ return r * DEG }
+
+/* ---------- JULIAN DATE ---------- */
+
+function julian(date){
+
+return date/86400000 + 2440587.5
+
 }
 
-function centuries(jd){
-return (jd-2451545)/36525
-}
+/* ---------- SUN POSITION ---------- */
 
-/* ======================================
-   SOLAR POSITION (Meeus simplified)
-   ====================================== */
+function sunPosition(jd){
 
-function solarCoords(jd){
+let n = jd - 2451545
 
-let T = centuries(jd)
+let L = (280.46 + 0.9856474*n) % 360
+let g = (357.528 + 0.9856003*n) % 360
 
-let L0 = (280.46646 + 36000.76983*T) % 360
-let M  = (357.52911 + 35999.05029*T) % 360
+let lambda =
+L +
+1.915 * Math.sin(rad(g)) +
+0.020 * Math.sin(rad(2*g))
 
-let C =
-(1.914602 - 0.004817*T)*Math.sin(M*RAD) +
-0.019993*Math.sin(2*M*RAD) +
-0.000289*Math.sin(3*M*RAD)
-
-let trueLong = L0 + C
-
-let epsilon = 23.439291 - 0.0130042*T
+let epsilon = 23.439 - 0.0000004*n
 
 let RA = Math.atan2(
-Math.cos(epsilon*RAD)*Math.sin(trueLong*RAD),
-Math.cos(trueLong*RAD)
-)*DEG
+Math.cos(rad(epsilon))*Math.sin(rad(lambda)),
+Math.cos(rad(lambda))
+)
 
 let dec = Math.asin(
-Math.sin(epsilon*RAD)*Math.sin(trueLong*RAD)
-)*DEG
+Math.sin(rad(epsilon))*Math.sin(rad(lambda))
+)
 
 return {RA,dec}
 
 }
 
-/* ======================================
-   LUNAR POSITION (simplified Meeus)
-   ====================================== */
+/* ---------- MOON POSITION (Meeus simplified) ---------- */
 
-function moonCoords(jd){
+function moonPosition(jd){
 
-let D = jd - 2451545
+let n = jd - 2451550.1
 
-let L = (218.316 + 13.176396*D) % 360
-let M = (134.963 + 13.064993*D) % 360
-let F = (93.272 + 13.229350*D) % 360
+let L = (218.316 + 13.176396*n) % 360
+let M = (134.963 + 13.064993*n) % 360
+let F = (93.272 + 13.229350*n) % 360
 
-let lon = L + 6.289*Math.sin(M*RAD)
-let lat = 5.128*Math.sin(F*RAD)
+let lon =
+L +
+6.289*Math.sin(rad(M))
 
-let epsilon = 23.439
+let lat =
+5.128*Math.sin(rad(F))
 
 let RA = Math.atan2(
-Math.sin(lon*RAD)*Math.cos(epsilon*RAD),
-Math.cos(lon*RAD)
-)*DEG
+Math.sin(rad(lon))*Math.cos(rad(23.44)),
+Math.cos(rad(lon))
+)
 
 let dec = Math.asin(
-Math.sin(epsilon*RAD)*Math.sin(lon*RAD)
-)*DEG
+Math.sin(rad(lat))*Math.cos(rad(23.44)) +
+Math.cos(rad(lat))*Math.sin(rad(23.44))*Math.sin(rad(lon))
+)
 
-return {RA,dec,lon}
+return {RA,dec}
 
 }
 
-/* ======================================
-   SUNSET HOUR ANGLE
-   ====================================== */
+/* ---------- SUNSET TIME ---------- */
 
-function sunsetHourAngle(lat,dec){
+function sunset(lat,lon,date){
+
+let jd = julian(date)
+
+let sun = sunPosition(jd)
+
+let dec = sun.dec
+
+let latR = rad(lat)
 
 let cosH =
 (
-Math.sin(-0.83*RAD) -
-Math.sin(lat*RAD)*Math.sin(dec*RAD)
+Math.sin(rad(-0.833)) -
+Math.sin(latR)*Math.sin(dec)
 )/
 (
-Math.cos(lat*RAD)*Math.cos(dec*RAD)
+Math.cos(latR)*Math.cos(dec)
 )
 
-if(cosH>1) return null
-if(cosH<-1) return null
+if(cosH > 1) return null
 
-return Math.acos(cosH)*DEG
+let H = Math.acos(cosH)
+
+return H
 
 }
 
-/* ======================================
-   MOON ALTITUDE AT SUNSET
-   ====================================== */
+/* ---------- ALTITUDE ---------- */
 
-function moonAltitude(lat,moonDec,HA){
+function altitude(lat,dec,H){
 
-let h = Math.asin(
-
-Math.sin(lat*RAD)*Math.sin(moonDec*RAD) +
-
-Math.cos(lat*RAD)*Math.cos(moonDec*RAD)*
-Math.cos(HA*RAD)
-
+return Math.asin(
+Math.sin(rad(lat))*Math.sin(dec) +
+Math.cos(rad(lat))*Math.cos(dec)*Math.cos(H)
 )
-
-return h*DEG
 
 }
 
-/* ======================================
-   SUN-MOON ELONGATION
-   ====================================== */
+/* ---------- ELONGATION ---------- */
 
 function elongation(sun,moon){
 
 return Math.acos(
-
-Math.sin(sun.dec*RAD)*Math.sin(moon.dec*RAD)+
-
-Math.cos(sun.dec*RAD)*Math.cos(moon.dec*RAD)*
-
-Math.cos((sun.RA-moon.RA)*RAD)
-
-)*DEG
-
-}
-
-/* ======================================
-   ODEH VISIBILITY Q
-   ====================================== */
-
-function odehQ(alt,E){
-
-return alt -
-
-(
-11.8371 -
-6.3226*E +
-0.7319*E*E -
-0.1018*E*E*E
+Math.sin(sun.dec)*Math.sin(moon.dec) +
+Math.cos(sun.dec)*Math.cos(moon.dec)*
+Math.cos(sun.RA - moon.RA)
 )
 
 }
 
-/* ======================================
-   VISIBILITY CATEGORY
-   ====================================== */
+/* ---------- ODEH Q VALUE ---------- */
 
-function visibilityCategory(Q){
+function odehQ(alt,elong){
 
-if(Q>0.216) return "A"     // naked eye
-if(Q>-0.014) return "B"    // optical aid
-if(Q>-0.160) return "C"    // difficult
-return "D"                 // impossible
+let altDeg = deg(alt)
+let elDeg = deg(elong)
+
+let W = altDeg - (11.837 + 6.322 * Math.log(elDeg))
+
+return W
 
 }
 
-/* ======================================
-   GLOBAL GRID (5°)
-   ====================================== */
+/* ---------- VISIBILITY CATEGORY ---------- */
+
+function classify(Q){
+
+if(Q > 0.216) return "A" // visible naked eye
+if(Q > -0.014) return "B" // optical aid
+if(Q > -0.160) return "C" // optical possible
+return "D"
+
+}
+
+/* ---------- GRID GENERATION ---------- */
 
 function generateVisibility(date){
 
-let jd = toJulian(date)
+let jd = julian(date)
 
-let sun = solarCoords(jd)
-let moon = moonCoords(jd)
+let sun = sunPosition(jd)
+let moon = moonPosition(jd)
 
 let grid=[]
 
@@ -186,23 +173,23 @@ for(let lat=-60; lat<=60; lat+=5){
 
 for(let lon=-180; lon<=180; lon+=5){
 
-let H = sunsetHourAngle(lat,sun.dec)
+let H = sunset(lat,lon,date)
 
-if(H==null) continue
+if(!H) continue
 
-let alt = moonAltitude(lat,moon.dec,H)
+let alt = altitude(lat,moon.dec,H)
 
-let E = elongation(sun,moon)
+let el = elongation(sun,moon)
 
-let Q = odehQ(alt,E)
+let Q = odehQ(alt,el)
 
-let cat = visibilityCategory(Q)
+let cat = classify(Q)
 
 grid.push({
 lat,
 lon,
-alt,
-elong:E,
+alt:deg(alt),
+elong:deg(el),
 Q,
 cat
 })
@@ -215,9 +202,7 @@ return grid
 
 }
 
-/* ======================================
-   CURVE GENERATION
-   ====================================== */
+/* ---------- CURVE GENERATION ---------- */
 
 function generateCurves(grid){
 
@@ -226,14 +211,22 @@ let optical=[]
 
 for(let lon=-180; lon<=180; lon+=5){
 
-let column = grid.filter(p=>p.lon===lon)
+let bestN=null
+let bestO=null
 
-column.forEach(p=>{
+grid.forEach(p=>{
 
-if(p.cat==="A") naked.push([p.lat,p.lon])
-if(p.cat==="B") optical.push([p.lat,p.lon])
+if(Math.abs(p.lon-lon)<2){
+
+if(p.cat==="A" && !bestN) bestN=p
+if(p.cat==="B" && !bestO) bestO=p
+
+}
 
 })
+
+if(bestN) naked.push([bestN.lat,bestN.lon])
+if(bestO) optical.push([bestO.lat,bestO.lon])
 
 }
 
@@ -244,11 +237,11 @@ optical
 
 }
 
-/* ======================================
-   EXPORT
-   ====================================== */
+/* ---------- EXPORT ---------- */
 
-window.HilalEngine={
+return {
 generateVisibility,
 generateCurves
 }
+
+})()
