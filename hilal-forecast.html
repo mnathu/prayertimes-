@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hilal Visibility Forecast</title>
+<title>Global Hilal Visibility Forecast</title>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<!-- Hilal Engine -->
-<script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <style>
 
@@ -24,12 +23,12 @@ background:#f6f7fb;
 header{
 background:#1f2d3d;
 color:white;
-padding:14px;
+padding:15px;
 text-align:center;
 }
 
 #controls{
-padding:12px;
+padding:10px;
 background:white;
 border-bottom:1px solid #ddd;
 }
@@ -38,17 +37,9 @@ border-bottom:1px solid #ddd;
 height:520px;
 }
 
-.infoBox{
-background:white;
-padding:10px;
-margin-top:10px;
-border-radius:6px;
-box-shadow:0 2px 4px rgba(0,0,0,0.1);
-}
-
 .legend{
 display:flex;
-gap:12px;
+gap:14px;
 margin-top:8px;
 font-size:14px;
 }
@@ -67,7 +58,16 @@ border-radius:50%;
 
 .green{background:#2ecc71}
 .yellow{background:#f1c40f}
+.orange{background:#f39c12}
 .red{background:#e74c3c}
+
+#prediction{
+margin-top:10px;
+padding:8px;
+background:#fff;
+border-radius:6px;
+box-shadow:0 2px 4px rgba(0,0,0,.1)
+}
 
 </style>
 </head>
@@ -75,8 +75,11 @@ border-radius:50%;
 <body>
 
 <header>
-<h2>Hilal Crescent Visibility Forecast</h2>
+
+<h2>Global Crescent Visibility Forecast</h2>
+
 <div id="hijri"></div>
+
 </header>
 
 <div id="controls">
@@ -85,12 +88,15 @@ border-radius:50%;
 <input type="date" id="datePicker">
 
 <div class="legend">
-<div><span class="dot green"></span>Visible</div>
+
+<div><span class="dot green"></span>Visible (Naked Eye)</div>
 <div><span class="dot yellow"></span>Optical Aid</div>
+<div><span class="dot orange"></span>Difficult</div>
 <div><span class="dot red"></span>Not Visible</div>
+
 </div>
 
-<div class="infoBox" id="prediction"></div>
+<div id="prediction"></div>
 
 </div>
 
@@ -98,90 +104,266 @@ border-radius:50%;
 
 <script>
 
-/* ------------------------
-MAP INITIALIZATION
------------------------- */
+/* =========================
+HILAL ENGINE V2
+========================= */
 
-const map = L.map("map").setView([20,0],2)
+const RAD=Math.PI/180
+const DEG=180/Math.PI
+
+function rad(d){return d*RAD}
+function deg(r){return r*DEG}
+
+/* Julian Date */
+
+function julian(date){
+
+return date/86400000+2440587.5
+
+}
+
+/* Sun position */
+
+function sunPosition(jd){
+
+let n=jd-2451545
+
+let L=(280.46+0.9856474*n)%360
+let g=(357.528+0.9856003*n)%360
+
+let lambda=
+L+
+1.915*Math.sin(rad(g))+
+0.020*Math.sin(rad(2*g))
+
+let epsilon=23.439-0.0000004*n
+
+let RA=Math.atan2(
+Math.cos(rad(epsilon))*Math.sin(rad(lambda)),
+Math.cos(rad(lambda))
+)
+
+let dec=Math.asin(
+Math.sin(rad(epsilon))*Math.sin(rad(lambda))
+)
+
+return{RA,dec}
+
+}
+
+/* Moon position */
+
+function moonPosition(jd){
+
+let n=jd-2451550.1
+
+let L=(218.316+13.176396*n)%360
+let M=(134.963+13.064993*n)%360
+let F=(93.272+13.229350*n)%360
+
+let lon=L+6.289*Math.sin(rad(M))
+let lat=5.128*Math.sin(rad(F))
+
+let RA=Math.atan2(
+Math.sin(rad(lon))*Math.cos(rad(23.44)),
+Math.cos(rad(lon))
+)
+
+let dec=Math.asin(
+Math.sin(rad(lat))*Math.cos(rad(23.44))+
+Math.cos(rad(lat))*Math.sin(rad(23.44))*Math.sin(rad(lon))
+)
+
+return{RA,dec}
+
+}
+
+/* Sunset */
+
+function sunset(lat,dec){
+
+let latR=rad(lat)
+
+let cosH=
+(
+Math.sin(rad(-0.833))-
+Math.sin(latR)*Math.sin(dec)
+)/
+(
+Math.cos(latR)*Math.cos(dec)
+)
+
+if(cosH>1)return null
+
+return Math.acos(cosH)
+
+}
+
+/* Altitude */
+
+function altitude(lat,dec,H){
+
+return Math.asin(
+Math.sin(rad(lat))*Math.sin(dec)+
+Math.cos(rad(lat))*Math.cos(dec)*Math.cos(H)
+)
+
+}
+
+/* Elongation */
+
+function elongation(sun,moon){
+
+return Math.acos(
+Math.sin(sun.dec)*Math.sin(moon.dec)+
+Math.cos(sun.dec)*Math.cos(moon.dec)*
+Math.cos(sun.RA-moon.RA)
+)
+
+}
+
+/* Odeh Q */
+
+function odehQ(alt,elong){
+
+let altD=deg(alt)
+let elD=deg(elong)
+
+return altD-(11.837+6.322*Math.log(elD))
+
+}
+
+/* Classification */
+
+function classify(Q){
+
+if(Q>0.216)return"A"
+if(Q>-0.014)return"B"
+if(Q>-0.160)return"C"
+return"D"
+
+}
+
+/* Generate grid */
+
+function generateVisibility(date){
+
+let jd=julian(date)
+
+let sun=sunPosition(jd)
+let moon=moonPosition(jd)
+
+let grid=[]
+
+for(let lat=-60;lat<=60;lat+=5){
+
+for(let lon=-180;lon<=180;lon+=5){
+
+let H=sunset(lat,sun.dec)
+
+if(!H)continue
+
+let alt=altitude(lat,moon.dec,H)
+let el=elongation(sun,moon)
+
+let Q=odehQ(alt,el)
+
+let cat=classify(Q)
+
+grid.push({lat,lon,cat})
+
+}
+
+}
+
+return grid
+
+}
+
+/* Curves */
+
+function generateCurves(grid){
+
+let naked=[]
+let optical=[]
+
+for(let lon=-180;lon<=180;lon+=5){
+
+let n=null
+let o=null
+
+grid.forEach(p=>{
+
+if(Math.abs(p.lon-lon)<2){
+
+if(p.cat==="A"&&!n)n=p
+if(p.cat==="B"&&!o)o=p
+
+}
+
+})
+
+if(n)naked.push([n.lat,n.lon])
+if(o)optical.push([o.lat,o.lon])
+
+}
+
+return{naked,optical}
+
+}
+
+/* =========================
+MAP
+========================= */
+
+const map=L.map("map").setView([20,0],2)
 
 L.tileLayer(
 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{
-maxZoom:6,
-attribution:"© OpenStreetMap"
-}
+{attribution:"© OpenStreetMap"}
 ).addTo(map)
 
-let visibilityLayer = L.layerGroup().addTo(map)
-let curveLayer = L.layerGroup().addTo(map)
+const visibilityLayer=L.layerGroup().addTo(map)
+const curveLayer=L.layerGroup().addTo(map)
 
-/* ------------------------
-DRAW VISIBILITY
------------------------- */
+/* Draw */
 
-function drawVisibility(date){
+function drawHilal(date){
 
 visibilityLayer.clearLayers()
 curveLayer.clearLayers()
 
-let grid = HilalEngine.generateVisibility(date)
+let grid=generateVisibility(date)
 
 grid.forEach(p=>{
 
 let color="red"
 
-if(p.cat==="A") color="#2ecc71"
-if(p.cat==="B") color="#f1c40f"
-if(p.cat==="C") color="#e67e22"
+if(p.cat==="A")color="green"
+if(p.cat==="B")color="yellow"
+if(p.cat==="C")color="orange"
 
 L.circleMarker([p.lat,p.lon],{
 radius:3,
 color:color,
-fillColor:color,
 fillOpacity:0.7
 }).addTo(visibilityLayer)
 
 })
 
-let curves = HilalEngine.generateCurves(grid)
+let curves=generateCurves(grid)
 
-if(curves.naked.length){
-L.polyline(curves.naked,{
-color:"#2ecc71",
-weight:2
-}).addTo(curveLayer)
-}
+L.polyline(curves.naked,{color:"green",weight:2})
+.addTo(curveLayer)
 
-if(curves.optical.length){
-L.polyline(curves.optical,{
-color:"#f1c40f",
-weight:2
-}).addTo(curveLayer)
-}
-
-updatePrediction(grid)
+L.polyline(curves.optical,{color:"yellow",weight:2})
+.addTo(curveLayer)
 
 }
 
-/* ------------------------
-PREDICTION TEXT
------------------------- */
-
-function updatePrediction(grid){
-
-let visible = grid.some(p=>p.cat==="A")
-
-let text = visible
-? "Crescent likely visible somewhere on Earth."
-: "Crescent unlikely to be observed globally."
-
-document.getElementById("prediction").innerHTML = text
-
-}
-
-/* ------------------------
+/* =========================
 HIJRI DATE
------------------------- */
+========================= */
 
 function hijri(date){
 
@@ -211,35 +393,48 @@ return d+" / "+m+" / "+y
 
 }
 
-/* ------------------------
-UPDATE FUNCTION
------------------------- */
+/* =========================
+USER LOCATION
+========================= */
 
-function update(){
+navigator.geolocation.getCurrentPosition(pos=>{
 
-let dateInput = document.getElementById("datePicker")
-let d = new Date(dateInput.value)
+let lat=pos.coords.latitude
+let lon=pos.coords.longitude
 
-drawVisibility(d)
+L.marker([lat,lon])
+.addTo(map)
+.bindPopup("Your Location")
 
-document.getElementById("hijri").innerHTML =
-"Hijri Date: "+hijri(d)
+})
 
-}
+/* =========================
+DATE
+========================= */
 
-/* ------------------------
-DEFAULT LOAD
------------------------- */
+const picker=document.getElementById("datePicker")
 
-let today = new Date()
+let today=new Date()
 
-document.getElementById("datePicker").value =
-today.toISOString().split("T")[0]
+picker.valueAsDate=today
 
 update()
 
-document.getElementById("datePicker")
-.addEventListener("change",update)
+picker.addEventListener("change",update)
+
+function update(){
+
+let d=new Date(picker.value)
+
+drawHilal(d)
+
+document.getElementById("hijri")
+.innerHTML="Hijri Date: "+hijri(d)
+
+document.getElementById("prediction")
+.innerHTML="Global crescent visibility forecast based on astronomical modeling."
+
+}
 
 </script>
 
