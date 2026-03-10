@@ -311,19 +311,22 @@ PREDICTION TEXT
 
 function prediction(date){
 
-let age=moonAge(date)
-let lag=moonLag(date)
+let age = moonAge(date)
+let lag = moonLag(date)
 
 let txt="Moon age: "+age.toFixed(1)+" days<br>"
 txt+="Moonset lag: "+lag.toFixed(0)+" minutes<br>"
 
-if(age>18 && lag>40)
-txt+="Based on horizon conditions the crescent is likely observable."
+if(age > 1.0 && lag > 30)
+txt += "Crescent visibility possible in favorable regions."
+
+else if(age > 0.8)
+txt += "Crescent may be seen with optical aid."
 
 else
-txt+="Crescent unlikely to be observed from most regions."
+txt += "Crescent unlikely to be observed."
 
-document.getElementById("prediction").innerHTML=txt
+document.getElementById("prediction").innerHTML = txt
 
 }
 
