@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Hilal Engine -->
-<script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <title>Hilal Visibility Forecast</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<link rel="stylesheet" href="/prayertimes-/css/leaflet.css">
-<script src="/prayertimes-/js/leaflet.js"></script>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Hilal Engine -->
 <script src="/prayertimes-/js/hilal-engine.js"></script>
 
 <style>
@@ -70,11 +69,6 @@ border-radius:50%;
 .yellow{background:#f1c40f}
 .red{background:#e74c3c}
 
-.curve{
-stroke-width:2;
-opacity:.8;
-}
-
 </style>
 </head>
 
@@ -102,190 +96,86 @@ opacity:.8;
 
 <div id="map"></div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
 
 /* ------------------------
 MAP INITIALIZATION
 ------------------------ */
-<div class="card">
-<h3>Global Crescent Visibility</h3>
 
-<input type="date" id="forecastDate">
-
-<div id="map" style="height:500px;"></div>
-
-<div id="prediction"></div>
-
-</div>
-
-const map=L.map("map").setView([20,0],2)
+const map = L.map("map").setView([20,0],2)
 
 L.tileLayer(
 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{attribution:"© OpenStreetMap"}
+{
+maxZoom:6,
+attribution:"© OpenStreetMap"
+}
 ).addTo(map)
 
-/* ------------------------
-ASTRONOMY UTILITIES
------------------------- */
-
-function deg2rad(d){return d*Math.PI/180}
-function rad2deg(r){return r*180/Math.PI}
-
-/* approximate sun position */
-
-function solarLongitude(d){
-
-let n=d/36525
-let L=280.46+36000.77*n
-return L%360
-
-}
-
-/* approximate moon longitude */
-
-function moonLongitude(d){
-
-let L=218.32+481267.881*n
-return L%360
-
-}
-
-/* moon age */
-
-function moonAge(date){
-
-let synodic=29.530588
-let known=new Date("2000-01-06")
-
-let days=(date-known)/86400000
-let age=days%synodic
-
-return age
-
-}
-
-/* elongation approximation */
-
-function elongation(date){
-
-let age=moonAge(date)
-return age*12.19
-
-}
-
-/* moon altitude approximation */
-
-function moonAltitude(lat,date){
-
-let e=elongation(date)
-
-return Math.sin(deg2rad(e))*40
-
-}
-
-/* moonset lag */
-
-function moonLag(date){
-
-let e=elongation(date)
-
-return e*2
-
-}
+let visibilityLayer = L.layerGroup().addTo(map)
+let curveLayer = L.layerGroup().addTo(map)
 
 /* ------------------------
-VISIBILITY MODEL
+DRAW VISIBILITY
 ------------------------ */
-
-function visibility(lat,lon,date){
-
-let ageHours = moonAge(date) * 24
-
-let alt = 0.25 * ageHours - Math.abs(lat)/12
-
-let elong = ageHours * 0.5
-
-let q = alt - (11.837 + 6.322 * Math.log(elong))
-
-if(q > 1) return "green"
-if(q > -1) return "yellow"
-return "red"
-
-}
-
-/* ------------------------
-GLOBAL VISIBILITY MAP
------------------------- */
-
-let grid=[]
 
 function drawVisibility(date){
 
-grid.forEach(c=>map.removeLayer(c))
-grid=[]
+visibilityLayer.clearLayers()
+curveLayer.clearLayers()
 
-for(let lat=-60;lat<=60;lat+=6){
+let grid = HilalEngine.generateVisibility(date)
 
-for(let lon=-180;lon<=180;lon+=6){
+grid.forEach(p=>{
 
-let v=visibility(lat,lon,date)
+let color="red"
 
-let color=
-v=="green"?"#2ecc71":
-v=="yellow"?"#f1c40f":"#e74c3c"
+if(p.cat==="A") color="#2ecc71"
+if(p.cat==="B") color="#f1c40f"
+if(p.cat==="C") color="#e67e22"
 
-let circle=L.circle([lat,lon],{
-radius:180000,
+L.circleMarker([p.lat,p.lon],{
+radius:3,
 color:color,
 fillColor:color,
-fillOpacity:.45,
-weight:0
-}).addTo(map)
+fillOpacity:0.7
+}).addTo(visibilityLayer)
 
-grid.push(circle)
+})
 
+let curves = HilalEngine.generateCurves(grid)
+
+if(curves.naked.length){
+L.polyline(curves.naked,{
+color:"#2ecc71",
+weight:2
+}).addTo(curveLayer)
 }
+
+if(curves.optical.length){
+L.polyline(curves.optical,{
+color:"#f1c40f",
+weight:2
+}).addTo(curveLayer)
 }
+
+updatePrediction(grid)
 
 }
 
 /* ------------------------
-VISIBILITY CURVES
+PREDICTION TEXT
 ------------------------ */
 
-function drawCurves(date){
+function updatePrediction(grid){
 
-let visible=[]
-let optical=[]
-let impossible=[]
+let visible = grid.some(p=>p.cat==="A")
 
-for(let lon=-180;lon<=180;lon+=2){
+let text = visible
+? "Crescent likely visible somewhere on Earth."
+: "Crescent unlikely to be observed globally."
 
-let latVisible=null
-let latOptical=null
-
-for(let lat=60;lat>=-60;lat-=1){
-
-let v=visibility(lat,lon,date)
-
-if(v=="green" && latVisible==null) latVisible=lat
-if(v=="yellow" && latOptical==null) latOptical=lat
-
-}
-
-if(latVisible!==null) visible.push([latVisible,lon])
-if(latOptical!==null) optical.push([latOptical,lon])
-
-}
-
-if(visible.length)
-L.polyline(visible,{color:"#2ecc71",weight:2}).addTo(map)
-
-if(optical.length)
-L.polyline(optical,{color:"#f1c40f",weight:2}).addTo(map)
+document.getElementById("prediction").innerHTML = text
 
 }
 
@@ -322,136 +212,36 @@ return d+" / "+m+" / "+y
 }
 
 /* ------------------------
-PREDICTION TEXT
------------------------- */
-
-function prediction(date){
-
-let age = moonAge(date)
-let lag = moonLag(date)
-
-let txt="Moon age: "+age.toFixed(1)+" days<br>"
-txt+="Moonset lag: "+lag.toFixed(0)+" minutes<br>"
-
-if(age > 1.0 && lag > 30)
-txt += "Crescent visibility possible in favorable regions."
-
-else if(age > 0.8)
-txt += "Crescent may be seen with optical aid."
-
-else
-txt += "Crescent unlikely to be observed."
-
-document.getElementById("prediction").innerHTML = txt
-
-}
-
-/* ------------------------
-DATE CHANGE
+UPDATE FUNCTION
 ------------------------ */
 
 function update(){
 
-let d=new Date(datePicker.value)
+let dateInput = document.getElementById("datePicker")
+let d = new Date(dateInput.value)
 
 drawVisibility(d)
-drawCurves(d)
 
-document.getElementById("hijri").innerHTML=
+document.getElementById("hijri").innerHTML =
 "Hijri Date: "+hijri(d)
 
-prediction(d)
-
 }
 
-/* default today */
-
-let today=new Date()
-
-datePicker.valueAsDate=today
-
-update()
-
-datePicker.addEventListener("change",update)
-
-</script>
-
-<script>
-
-let map = L.map("map").setView([20,0],2)
-
-L.tileLayer(
-"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{
-maxZoom:6,
-attribution:"© OpenStreetMap"
-}
-).addTo(map)
-
-let visibilityLayer = L.layerGroup().addTo(map)
-let curveLayer = L.layerGroup().addTo(map)
-
-</script>
-
-function drawVisibility(date){
-
-visibilityLayer.clearLayers()
-curveLayer.clearLayers()
-
-let grid = HilalEngine.generateVisibility(date)
-
-grid.forEach(p=>{
-
-let color="red"
-
-if(p.cat==="A") color="green"
-if(p.cat==="B") color="yellow"
-if(p.cat==="C") color="orange"
-
-L.circleMarker([p.lat,p.lon],{
-radius:3,
-color:color,
-fillOpacity:0.7
-}).addTo(visibilityLayer)
-
-})
-
-let curves = HilalEngine.generateCurves(grid)
-
-L.polyline(curves.naked,{
-color:"green",
-weight:2
-}).addTo(curveLayer)
-
-L.polyline(curves.optical,{
-color:"yellow",
-weight:2
-}).addTo(curveLayer)
-
-}
-
-document.getElementById("forecastDate")
-.addEventListener("change",function(){
-
-let date = new Date(this.value)
-
-drawVisibility(date)
-
-})
-
-window.onload = function(){
+/* ------------------------
+DEFAULT LOAD
+------------------------ */
 
 let today = new Date()
 
-let dateInput = document.getElementById("forecastDate")
+document.getElementById("datePicker").value =
+today.toISOString().split("T")[0]
 
-dateInput.value = today.toISOString().split("T")[0]
+update()
 
-drawVisibility(today)
+document.getElementById("datePicker")
+.addEventListener("change",update)
 
-}
+</script>
 
-  
-  
 </body>
 </html>
