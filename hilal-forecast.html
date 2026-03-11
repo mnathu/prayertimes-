@@ -5,49 +5,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Global Hilal Visibility Forecast</title>
+<title>Hilal Visibility Forecast | PrayerTimes</title>
 
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
 
 body{
-font-family:Arial;
 margin:0;
+font-family:Arial, Helvetica, sans-serif;
 background:#f6f7fb;
 }
+
+/* header consistent with prayer pages */
 
 header{
 background:#1f2d3d;
 color:white;
-padding:15px;
+padding:16px;
 text-align:center;
 }
 
-#controls{
-padding:10px;
-background:white;
-border-bottom:1px solid #ddd;
+header h2{
+margin:0;
+font-size:20px;
 }
 
-#map{
-height:520px;
+header small{
+opacity:.8;
 }
+
+/* controls */
+
+#controls{
+background:white;
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+#controls label{
+font-weight:bold;
+margin-right:6px;
+}
+
+#datePicker{
+padding:6px;
+font-size:14px;
+}
+
+/* map */
+
+#map{
+height:55vh;
+width:100%;
+}
+
+/* legend */
 
 .legend{
 display:flex;
-gap:14px;
-margin-top:8px;
-font-size:14px;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+margin-top:10px;
+font-size:13px;
 }
 
 .legend div{
 display:flex;
 align-items:center;
-gap:6px;
+gap:5px;
 }
 
 .dot{
@@ -61,12 +91,30 @@ border-radius:50%;
 .orange{background:#f39c12}
 .red{background:#e74c3c}
 
+/* prediction box */
+
 #prediction{
-margin-top:10px;
-padding:8px;
-background:#fff;
+margin:10px auto;
+max-width:600px;
+padding:10px;
+background:white;
 border-radius:6px;
-box-shadow:0 2px 4px rgba(0,0,0,.1)
+box-shadow:0 2px 4px rgba(0,0,0,.1);
+font-size:14px;
+}
+
+/* mobile */
+
+@media(max-width:600px){
+
+header h2{
+font-size:18px;
+}
+
+#map{
+height:50vh;
+}
+
 }
 
 </style>
@@ -76,37 +124,36 @@ box-shadow:0 2px 4px rgba(0,0,0,.1)
 
 <header>
 
-<h2>Global Crescent Visibility Forecast</h2>
-
-<div id="hijri"></div>
+<h2>Global Hilal Visibility</h2>
+<small id="hijri"></small>
 
 </header>
 
 <div id="controls">
 
-<label>Select Date:</label>
+<label>Date:</label>
 <input type="date" id="datePicker">
 
 <div class="legend">
 
-<div><span class="dot green"></span>Visible (Naked Eye)</div>
+<div><span class="dot green"></span>Visible</div>
 <div><span class="dot yellow"></span>Optical Aid</div>
 <div><span class="dot orange"></span>Difficult</div>
 <div><span class="dot red"></span>Not Visible</div>
 
 </div>
 
-<div id="prediction"></div>
-
 </div>
 
 <div id="map"></div>
 
+<div id="prediction"></div>
+
 <script>
 
-/* =========================
-HILAL ENGINE V2
-========================= */
+/* ===========================
+HILAL ENGINE v2.1
+=========================== */
 
 const RAD=Math.PI/180
 const DEG=180/Math.PI
@@ -114,15 +161,9 @@ const DEG=180/Math.PI
 function rad(d){return d*RAD}
 function deg(r){return r*DEG}
 
-/* Julian Date */
-
 function julian(date){
-
 return date/86400000+2440587.5
-
 }
-
-/* Sun position */
 
 function sunPosition(jd){
 
@@ -136,7 +177,7 @@ L+
 1.915*Math.sin(rad(g))+
 0.020*Math.sin(rad(2*g))
 
-let epsilon=23.439-0.0000004*n
+let epsilon=23.439
 
 let RA=Math.atan2(
 Math.cos(rad(epsilon))*Math.sin(rad(lambda)),
@@ -151,8 +192,6 @@ return{RA,dec}
 
 }
 
-/* Moon position */
-
 function moonPosition(jd){
 
 let n=jd-2451550.1
@@ -164,23 +203,23 @@ let F=(93.272+13.229350*n)%360
 let lon=L+6.289*Math.sin(rad(M))
 let lat=5.128*Math.sin(rad(F))
 
+let epsilon=23.439
+
 let RA=Math.atan2(
-Math.sin(rad(lon))*Math.cos(rad(23.44)),
+Math.sin(rad(lon))*Math.cos(rad(epsilon)),
 Math.cos(rad(lon))
 )
 
 let dec=Math.asin(
-Math.sin(rad(lat))*Math.cos(rad(23.44))+
-Math.cos(rad(lat))*Math.sin(rad(23.44))*Math.sin(rad(lon))
+Math.sin(rad(lat))*Math.cos(rad(epsilon))+
+Math.cos(rad(lat))*Math.sin(rad(epsilon))*Math.sin(rad(lon))
 )
 
 return{RA,dec}
 
 }
 
-/* Sunset */
-
-function sunset(lat,dec){
+function sunsetHourAngle(lat,dec){
 
 let latR=rad(lat)
 
@@ -199,8 +238,6 @@ return Math.acos(cosH)
 
 }
 
-/* Altitude */
-
 function altitude(lat,dec,H){
 
 return Math.asin(
@@ -209,8 +246,6 @@ Math.cos(rad(lat))*Math.cos(dec)*Math.cos(H)
 )
 
 }
-
-/* Elongation */
 
 function elongation(sun,moon){
 
@@ -222,18 +257,16 @@ Math.cos(sun.RA-moon.RA)
 
 }
 
-/* Odeh Q */
-
 function odehQ(alt,elong){
 
 let altD=deg(alt)
 let elD=deg(elong)
 
+if(elD<=0)return-999
+
 return altD-(11.837+6.322*Math.log(elD))
 
 }
-
-/* Classification */
 
 function classify(Q){
 
@@ -244,14 +277,9 @@ return"D"
 
 }
 
-/* Generate grid */
-
 function generateVisibility(date){
 
 let jd=julian(date)
-
-let sun=sunPosition(jd)
-let moon=moonPosition(jd)
 
 let grid=[]
 
@@ -259,11 +287,19 @@ for(let lat=-60;lat<=60;lat+=5){
 
 for(let lon=-180;lon<=180;lon+=5){
 
-let H=sunset(lat,sun.dec)
+let jdLocal=jd+lon/360
+
+let sun=sunPosition(jdLocal)
+let moon=moonPosition(jdLocal)
+
+let H=sunsetHourAngle(lat,sun.dec)
 
 if(!H)continue
 
 let alt=altitude(lat,moon.dec,H)
+
+alt-=rad(0.566)
+
 let el=elongation(sun,moon)
 
 let Q=odehQ(alt,el)
@@ -280,8 +316,6 @@ return grid
 
 }
 
-/* Curves */
-
 function generateCurves(grid){
 
 let naked=[]
@@ -289,22 +323,22 @@ let optical=[]
 
 for(let lon=-180;lon<=180;lon+=5){
 
-let n=null
-let o=null
+let bestA=null
+let bestB=null
 
 grid.forEach(p=>{
 
-if(Math.abs(p.lon-lon)<2){
+if(Math.abs(p.lon-lon)<3){
 
-if(p.cat==="A"&&!n)n=p
-if(p.cat==="B"&&!o)o=p
+if(p.cat==="A"&&!bestA)bestA=p
+if(p.cat==="B"&&!bestB)bestB=p
 
 }
 
 })
 
-if(n)naked.push([n.lat,n.lon])
-if(o)optical.push([o.lat,o.lon])
+if(bestA)naked.push([bestA.lat,bestA.lon])
+if(bestB)optical.push([bestB.lat,bestB.lon])
 
 }
 
@@ -312,9 +346,9 @@ return{naked,optical}
 
 }
 
-/* =========================
+/* ===========================
 MAP
-========================= */
+=========================== */
 
 const map=L.map("map").setView([20,0],2)
 
@@ -326,7 +360,7 @@ L.tileLayer(
 const visibilityLayer=L.layerGroup().addTo(map)
 const curveLayer=L.layerGroup().addTo(map)
 
-/* Draw */
+/* draw */
 
 function drawHilal(date){
 
@@ -346,24 +380,19 @@ if(p.cat==="C")color="orange"
 L.circleMarker([p.lat,p.lon],{
 radius:3,
 color:color,
-fillOpacity:0.7
+fillOpacity:.7
 }).addTo(visibilityLayer)
 
 })
 
 let curves=generateCurves(grid)
 
-L.polyline(curves.naked,{color:"green",weight:2})
-.addTo(curveLayer)
-
-L.polyline(curves.optical,{color:"yellow",weight:2})
-.addTo(curveLayer)
+L.polyline(curves.naked,{color:"green",weight:2}).addTo(curveLayer)
+L.polyline(curves.optical,{color:"yellow",weight:2}).addTo(curveLayer)
 
 }
 
-/* =========================
-HIJRI DATE
-========================= */
+/* hijri date */
 
 function hijri(date){
 
@@ -393,24 +422,19 @@ return d+" / "+m+" / "+y
 
 }
 
-/* =========================
-USER LOCATION
-========================= */
+/* user location */
 
 navigator.geolocation.getCurrentPosition(pos=>{
 
 let lat=pos.coords.latitude
 let lon=pos.coords.longitude
 
-L.marker([lat,lon])
-.addTo(map)
+L.marker([lat,lon]).addTo(map)
 .bindPopup("Your Location")
 
 })
 
-/* =========================
-DATE
-========================= */
+/* date control */
 
 const picker=document.getElementById("datePicker")
 
@@ -428,11 +452,11 @@ let d=new Date(picker.value)
 
 drawHilal(d)
 
-document.getElementById("hijri")
-.innerHTML="Hijri Date: "+hijri(d)
+document.getElementById("hijri").innerHTML=
+"Hijri Date: "+hijri(d)
 
-document.getElementById("prediction")
-.innerHTML="Global crescent visibility forecast based on astronomical modeling."
+document.getElementById("prediction").innerHTML=
+"Global crescent visibility forecast based on astronomical modeling."
 
 }
 
