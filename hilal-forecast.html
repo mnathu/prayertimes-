@@ -1,68 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hilal Prediction — FCNA/ISNA Method</title>
+  <title>Hilal Visibility — Major U.S. Cities</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; }
-    .card { max-width: 600px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
-    h2 { margin-top: 0; }
-    input { width: 100%; padding: 6px; margin: 6px 0; }
-    button { padding: 10px 16px; background: #1e88e5; color: white; border: none; cursor: pointer; }
-    .result { margin-top: 20px; padding: 15px; background: #f3f3f3; border-radius: 6px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    th { background: #eee; }
   </style>
 </head>
 
 <body>
 
-<div class="card">
-  <h2>Hilal Prediction (Moonsighting.com / FCNA Criteria)</h2>
+<h2>Hilal Prediction for Major U.S. Cities<br>(FCNA / Moonsighting.com Criteria)</h2>
 
-  <p>Enter the astronomical parameters *at local sunset somewhere on Earth*:</p>
+<p><strong>Rule:</strong> Hilal is “visible” if <strong>Altitude ≥ 5°</strong> AND <strong>Elongation ≥ 8°</strong> at local sunset.  
+Otherwise “not visible”.</p>
 
-  <label>Moon Altitude (degrees):</label>
-  <input type="number" id="alt" step="0.1" placeholder="e.g. 7.2">
+<button onclick="runPrediction()">Run Prediction</button>
 
-  <label>Elongation (degrees):</label>
-  <input type="number" id="elong" step="0.1" placeholder="e.g. 10.5">
-
-  <button onclick="predictHilal()">Predict</button>
-
-  <div id="output" class="result" style="display:none;"></div>
-</div>
+<table id="resultsTable">
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Altitude (°)</th>
+      <th>Elongation (°)</th>
+      <th>Visibility</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 
 <script>
-function predictHilal() {
-    const alt = parseFloat(document.getElementById('alt').value);
-    const elong = parseFloat(document.getElementById('elong').value);
+// Major U.S. cities we will evaluate
+const cities = [
+    { name: "New York, NY" },
+    { name: "Chicago, IL" },
+    { name: "Houston, TX" },
+    { name: "Phoenix, AZ" },
+    { name: "Los Angeles, CA" },
+    { name: "Seattle, WA" },
+    { name: "Miami, FL" },
+    { name: "Denver, CO" },
+    { name: "Atlanta, GA" },
+    { name: "San Francisco, CA" }
+];
 
-    if (isNaN(alt) || isNaN(elong)) {
-        alert("Please enter valid numbers for altitude and elongation.");
-        return;
-    }
+// Placeholder: INSERT REAL ASTRONOMICAL DATA HERE.
+// In production, replace this function with:
+//  - API call
+//  - Backend computation
+//  - Ephemeris library results
+function getAstronomicalParameters(cityName) {
+    // EXAMPLE placeholder values (NOT REAL)
+    // Replace with actual altitude & elongation values at local sunset.
+    return {
+        altitude: Math.random() * 12 - 2,   // range: -2 to 10 degrees
+        elongation: Math.random() * 15      // range: 0 to 15 degrees
+    };
+}
 
-    // FCNA/ISNA criteria (Moonsighting.com)
-    const meetsCriteria = (alt >= 5 && elong >= 8);
+// FCNA/Moonsighting.com visibility rule
+function isHilalVisible(alt, elong) {
+    return (alt >= 5 && elong >= 8);
+}
 
-    let result = "";
-    if (meetsCriteria) {
-        result = `
-        <strong>Result:</strong><br>
-        The hilal <strong>is considered visible</strong> somewhere on Earth based on<br>
-        <strong>Altitude ≥ 5° and Elongation ≥ 8°</strong>.<br><br>
-        → <strong>Tomorrow</strong> will be the 1st of the new Islamic month.
+function runPrediction() {
+    const tbody = document.querySelector("#resultsTable tbody");
+    tbody.innerHTML = "";
+
+    cities.forEach(city => {
+        // Get altitude & elongation for each city
+        const params = getAstronomicalParameters(city.name);
+
+        const visible = isHilalVisible(params.altitude, params.elongation)
+            ? "Visible"
+            : "Not Visible";
+
+        const row = `
+            <tr>
+                <td>${city.name}</td>
+                <td>${params.altitude.toFixed(2)}</td>
+                <td>${params.elongation.toFixed(2)}</td>
+                <td><strong>${visible}</strong></td>
+            </tr>
         `;
-    } else {
-        result = `
-        <strong>Result:</strong><br>
-        The hilal <strong>does NOT meet</strong> the visibility thresholds:<br>
-        altitude must be ≥ 5° and elongation must be ≥ 8°.<br><br>
-        → Add one more day: <strong>the day after tomorrow</strong> is the 1st of the new month.
-        `;
-    }
 
-    const box = document.getElementById('output');
-    box.style.display = 'block';
-    box.innerHTML = result;
+        tbody.innerHTML += row;
+    });
 }
 </script>
 
