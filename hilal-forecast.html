@@ -151,9 +151,9 @@ height:50vh;
 
 <script>
 
-/* ===========================
-HILAL ENGINE v2.1
-=========================== */
+/* ===============================
+HILAL ENGINE v2.2 (FIXED)
+=============================== */
 
 const RAD=Math.PI/180
 const DEG=180/Math.PI
@@ -164,6 +164,10 @@ function deg(r){return r*DEG}
 function julian(date){
 return date/86400000+2440587.5
 }
+
+/* -----------------------------
+SUN POSITION
+----------------------------- */
 
 function sunPosition(jd){
 
@@ -192,13 +196,17 @@ return{RA,dec}
 
 }
 
+/* -----------------------------
+MOON POSITION
+----------------------------- */
+
 function moonPosition(jd){
 
-let n=jd-2451550.1
+let D=jd-2451545
 
-let L=(218.316+13.176396*n)%360
-let M=(134.963+13.064993*n)%360
-let F=(93.272+13.229350*n)%360
+let L=(218.316+13.176396*D)%360
+let M=(134.963+13.064993*D)%360
+let F=(93.272+13.229350*D)%360
 
 let lon=L+6.289*Math.sin(rad(M))
 let lat=5.128*Math.sin(rad(F))
@@ -219,6 +227,10 @@ return{RA,dec}
 
 }
 
+/* -----------------------------
+SUNSET HOUR ANGLE
+----------------------------- */
+
 function sunsetHourAngle(lat,dec){
 
 let latR=rad(lat)
@@ -238,6 +250,10 @@ return Math.acos(cosH)
 
 }
 
+/* -----------------------------
+ALTITUDE
+----------------------------- */
+
 function altitude(lat,dec,H){
 
 return Math.asin(
@@ -246,6 +262,10 @@ Math.cos(rad(lat))*Math.cos(dec)*Math.cos(H)
 )
 
 }
+
+/* -----------------------------
+ELONGATION
+----------------------------- */
 
 function elongation(sun,moon){
 
@@ -257,12 +277,14 @@ Math.cos(sun.RA-moon.RA)
 
 }
 
+/* -----------------------------
+ODEH Q
+----------------------------- */
+
 function odehQ(alt,elong){
 
 let altD=deg(alt)
 let elD=deg(elong)
-
-if(elD<=0)return-999
 
 return altD-(11.837+6.322*Math.log(elD))
 
@@ -276,6 +298,10 @@ if(Q>-0.160)return"C"
 return"D"
 
 }
+
+/* -----------------------------
+MAIN VISIBILITY GRID
+----------------------------- */
 
 function generateVisibility(date){
 
@@ -292,11 +318,17 @@ let jdLocal=jd+lon/360
 let sun=sunPosition(jdLocal)
 let moon=moonPosition(jdLocal)
 
-let H=sunsetHourAngle(lat,sun.dec)
+let Hsun=sunsetHourAngle(lat,sun.dec)
 
-if(!H)continue
+if(!Hsun)continue
 
-let alt=altitude(lat,moon.dec,H)
+/* moon hour angle at sunset */
+
+let Hmoon=Hsun+(sun.RA-moon.RA)
+
+let alt=altitude(lat,moon.dec,Hmoon)
+
+/* refraction correction */
 
 alt-=rad(0.566)
 
@@ -315,151 +347,6 @@ grid.push({lat,lon,cat})
 return grid
 
 }
-
-function generateCurves(grid){
-
-let naked=[]
-let optical=[]
-
-for(let lon=-180;lon<=180;lon+=5){
-
-let bestA=null
-let bestB=null
-
-grid.forEach(p=>{
-
-if(Math.abs(p.lon-lon)<3){
-
-if(p.cat==="A"&&!bestA)bestA=p
-if(p.cat==="B"&&!bestB)bestB=p
-
-}
-
-})
-
-if(bestA)naked.push([bestA.lat,bestA.lon])
-if(bestB)optical.push([bestB.lat,bestB.lon])
-
-}
-
-return{naked,optical}
-
-}
-
-/* ===========================
-MAP
-=========================== */
-
-const map=L.map("map").setView([20,0],2)
-
-L.tileLayer(
-"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{attribution:"© OpenStreetMap"}
-).addTo(map)
-
-const visibilityLayer=L.layerGroup().addTo(map)
-const curveLayer=L.layerGroup().addTo(map)
-
-/* draw */
-
-function drawHilal(date){
-
-visibilityLayer.clearLayers()
-curveLayer.clearLayers()
-
-let grid=generateVisibility(date)
-
-grid.forEach(p=>{
-
-let color="red"
-
-if(p.cat==="A")color="green"
-if(p.cat==="B")color="yellow"
-if(p.cat==="C")color="orange"
-
-L.circleMarker([p.lat,p.lon],{
-radius:3,
-color:color,
-fillOpacity:.7
-}).addTo(visibilityLayer)
-
-})
-
-let curves=generateCurves(grid)
-
-L.polyline(curves.naked,{color:"green",weight:2}).addTo(curveLayer)
-L.polyline(curves.optical,{color:"yellow",weight:2}).addTo(curveLayer)
-
-}
-
-/* hijri date */
-
-function hijri(date){
-
-let jd=date/86400000+2440587.5
-
-let l=jd-1948440+10632
-let n=Math.floor((l-1)/10631)
-l=l-10631*n+354
-
-let j=
-(Math.floor((10985-l)/5316))*
-(Math.floor((50*l)/17719))+
-(Math.floor(l/5670))*
-(Math.floor((43*l)/15238))
-
-l=l-
-(Math.floor((30-j)/15))*
-(Math.floor((17719*j)/50))-
-(Math.floor(j/16))*
-(Math.floor((15238*j)/43))+29
-
-let m=Math.floor((24*l)/709)
-let d=l-Math.floor((709*m)/24)
-let y=30*n+j-30
-
-return d+" / "+m+" / "+y
-
-}
-
-/* user location */
-
-navigator.geolocation.getCurrentPosition(pos=>{
-
-let lat=pos.coords.latitude
-let lon=pos.coords.longitude
-
-L.marker([lat,lon]).addTo(map)
-.bindPopup("Your Location")
-
-})
-
-/* date control */
-
-const picker=document.getElementById("datePicker")
-
-let today=new Date()
-
-picker.valueAsDate=today
-
-update()
-
-picker.addEventListener("change",update)
-
-function update(){
-
-let d=new Date(picker.value)
-
-drawHilal(d)
-
-document.getElementById("hijri").innerHTML=
-"Hijri Date: "+hijri(d)
-
-document.getElementById("prediction").innerHTML=
-"Global crescent visibility forecast based on astronomical modeling."
-
-}
-
 </script>
 
 </body>
