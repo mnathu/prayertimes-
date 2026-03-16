@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>iOS-Style Moon Illumination with Hijri Date</title>
+<title>iOS‑Style Moon Illumination + Visibility Chance</title>
 
 <style>
   body { font-family: system-ui, Arial; margin: 32px; }
@@ -14,7 +14,7 @@
 
 <body>
 
-<h2>iOS‑Style Moon Illumination (Local‑Noon Method)</h2>
+<h2>iOS‑Style Moon Illumination (Daily) + Visibility Chance</h2>
 
 <label>Select Date:
   <input type="date" id="dateInput">
@@ -30,85 +30,66 @@
 <thead>
 <tr>
   <th>City</th>
-  <th>Sunset (UTC)</th>
-  <th>+20 min (UTC)</th>
-  <th>Illumination at Local Noon</th>
-  <th>iOS‑phase</th>
-  <th>Elongation (°)</th>
+  <th>Illumination</th>
+  <th>Elongation</th>
+  <th>Phase</th>
+  <th>Visibility Chance</th>
 </tr>
 </thead>
 <tbody id="results"></tbody>
 </table>
 
 <script>
-// ======================================================
-// DST RULES (USA + Canada)
-// ======================================================
-// • DST begins SECOND SUNDAY OF MARCH
-// • DST ends   FIRST SUNDAY OF NOVEMBER
+// ---------------- DST boundaries for North America ----------------
+// DST: 2nd Sunday March → 1st Sunday November
 function isDST_NA(gDate) {
   const year = gDate.getUTCFullYear();
 
-  function secondSundayOfMarch(y) {
-    const d = new Date(Date.UTC(y,2,1)); // March 1
-    // Day of week 0=Sun..6=Sat
-    const day = d.getUTCDay();
-    const offset = (7 - day) % 7;
-    return new Date(Date.UTC(y,2,1+offset+7));
+  function secondSundayMarch(y){
+    const d=new Date(Date.UTC(y,2,1));
+    const day=d.getUTCDay();
+    return new Date(Date.UTC(y,2,1 + ((7-day)%7) + 7));
   }
-  function firstSundayOfNov(y) {
-    const d = new Date(Date.UTC(y,10,1)); // Nov 1
-    const day = d.getUTCDay();
-    const offset = (7 - day) % 7;
-    return new Date(Date.UTC(y,10,1+offset));
+  function firstSundayNov(y){
+    const d=new Date(Date.UTC(y,10,1));
+    const day=d.getUTCDay();
+    return new Date(Date.UTC(y,10,1 + ((7-day)%7)));
   }
-  const begin = secondSundayOfMarch(year);
-  const end   = firstSundayOfNov(year);
+
+  const begin = secondSundayMarch(year);
+  const end   = firstSundayNov(year);
   return (gDate >= begin && gDate < end);
 }
 
-// ======================================================
-// CITIES (base UTC offsets BEFORE DST)
-// ======================================================
+// ---------------- City list (base UTC offsets, DST handled separately) ----------------
 const CITIES_BASE = [
-  // USA
   { name:"Minneapolis, MN", lat:44.9778, lon:-93.2650, baseUTC:-6 },
   { name:"Orlando, FL",     lat:28.5383, lon:-81.3792, baseUTC:-5 },
   { name:"New York, NY",    lat:40.7128, lon:-74.0060, baseUTC:-5 },
   { name:"Chicago, IL",     lat:41.8781, lon:-87.6298, baseUTC:-6 },
   { name:"Houston, TX",     lat:29.7604, lon:-95.3698, baseUTC:-6 },
-  { name:"Phoenix, AZ",     lat:33.4484, lon:-112.0740, baseUTC:-7 }, // NO DST
+  { name:"Phoenix, AZ",     lat:33.4484, lon:-112.0740, baseUTC:-7 }, // no DST
   { name:"Los Angeles, CA", lat:34.0522, lon:-118.2437, baseUTC:-8 },
   { name:"Denver, CO",      lat:39.7392, lon:-104.9903, baseUTC:-7 },
   { name:"Miami, FL",       lat:25.7617, lon:-80.1918, baseUTC:-5 },
   { name:"Seattle, WA",     lat:47.6062, lon:-122.3321, baseUTC:-8 },
-
-  // CANADA
   { name:"Toronto, ON",     lat:43.6532, lon:-79.3832, baseUTC:-5 },
   { name:"Vancouver, BC",   lat:49.2827, lon:-123.1207, baseUTC:-8 }
 ];
 
-function getUTCOffset(city, gDate) {
-  // Phoenix (AZ) never uses DST
-  if (city.name.includes("Phoenix")) return city.baseUTC;
-
-  // All others observe NA DST
+function getUTCOffset(city, gDate){
+  if(city.name.includes("Phoenix")) return city.baseUTC;  
   return city.baseUTC + (isDST_NA(gDate) ? 1 : 0);
 }
 
-// ======================================================
-// HELPER MATH
-// ======================================================
-const d2r = d => d*Math.PI/180;
-const r2d = r => r*180/Math.PI;
-const norm360 = x => (x % 360 + 360) % 360;
+// ---------------- Astro helpers ----------------
+const d2r=d=>d*Math.PI/180;
+const r2d=r=>r*180/Math.PI;
+const norm360=x=>(x % 360 + 360) % 360;
 
-// ======================================================
-// JULIAN DATE
-// ======================================================
+// ---------------- Julian date ----------------
 function jdFromDate(d){
-  const y=d.getUTCFullYear();
-  const m=d.getUTCMonth()+1;
+  const y=d.getUTCFullYear(), m=d.getUTCMonth()+1;
   const day=d.getUTCDate() + (d.getUTCHours()+d.getUTCMinutes()/60)/24;
   let Y=y, M=m;
   if(M<=2){ Y--; M+=12; }
@@ -118,35 +99,19 @@ function jdFromDate(d){
        + Math.floor(30.6001*(M+1))
        + day + B - 1524.5;
 }
-function gmstHours(jd){
-  return (18.697374558 + 24.06570982441908*(jd - 2451545.0)) % 24;
-}
 
-// ======================================================
-// SUN POSITION
-// ======================================================
+// ---------------- Sun position ----------------
 function sunLong(jd){
   const T=(jd-2451545)/36525;
   const L0=norm360(280.46646 + 36000.76983*T);
   const M =norm360(357.52911 + 35999.05029*T);
   const C =(1.914602-0.004817*T)*Math.sin(d2r(M))
-         +(0.019993-0.000101*T)*Math.sin(d2r(2*M))
-         +0.000289*Math.sin(d2r(3*M));
+       +(0.019993-0.000101*T)*Math.sin(d2r(2*M))
+       +0.000289*Math.sin(d2r(3*M));
   return L0+C;
 }
-function sunEquatorial(jd){
-  const lam=sunLong(jd);
-  const eps=23.439;
-  const dec=r2d(Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam))));
-  const RA=r2d(Math.atan2(Math.sin(d2r(lam))*Math.cos(d2r(eps)),
-                          Math.cos(d2r(lam))));
-  return {RA, dec};
-}
 
-// ======================================================
-// MOON POSITION
-// (Meeus truncated series — matches phase behavior adequately)
-// ======================================================
+// ---------------- Moon position ----------------
 function moonLong(jd){
   const T=(jd-2451545)/36525;
   const L1=norm360(218.316 + 481267.8813*T);
@@ -162,74 +127,8 @@ function moonLong(jd){
     0.110*Math.sin(d2r(L1))
   );
 }
-function moonEquatorial(jd){
-  const lam=moonLong(jd);
-  const eps=23.439;
-  const dec=r2d(Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam))));
-  const RA =r2d(Math.atan2(Math.sin(d2r(lam))*Math.cos(d2r(eps)),
-                           Math.cos(d2r(lam))));
-  return {RA, dec};
-}
 
-// ======================================================
-// ALTITUDE + SUNSET
-// ======================================================
-function altitude(jd,lat,lon,RAdeg,decdeg){
-  const GMST=gmstHours(jd);
-  const LST = GMST + lon/15;
-  const HA  = norm360(LST*15 - RAdeg);
-
-  return r2d(Math.asin(
-    Math.sin(d2r(lat))*Math.sin(d2r(decdeg)) +
-    Math.cos(d2r(lat))*Math.cos(d2r(decdeg))*Math.cos(d2r(HA))
-  ));
-}
-function sunAltitude(jd,lat,lon){
-  const {RA,dec}=sunEquatorial(jd);
-  return altitude(jd,lat,lon,RA,dec);
-}
-
-function sunsetUTC(date, lat, lon){
-  const N=Math.floor(
-    (Date.UTC(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate())
-    - Date.UTC(date.getUTCFullYear(),0,0))/86400000
-  );
-
-  const lngHour=lon/15;
-  const t=N + (18 - lngHour)/24;
-
-  const M=(0.9856*t) - 3.289;
-  const L=norm360(M + 1.916*Math.sin(d2r(M)) + 0.020*Math.sin(d2r(2*M)) + 282.634);
-
-  const RA=norm360(r2d(Math.atan(0.91764*Math.tan(d2r(L)))));
-  const Lq=Math.floor(L/90)*90, RAq=Math.floor(RA/90)*90;
-  const RAh=(RA + (Lq - RAq))/15;
-
-  const sinDec=0.39782*Math.sin(d2r(L));
-  const cosDec=Math.cos(Math.asin(sinDec));
-
-  const cosH=(Math.cos(d2r(90.833)) - sinDec*Math.sin(d2r(lat)))
-             /(cosDec*Math.cos(d2r(lat)));
-
-  if(cosH>1) return null;
-
-  const H=r2d(Math.acos(cosH))/15;
-
-  let UT=(H + RAh - 0.06571*t - 6.622) % 24;
-  if(UT < 0) UT += 24;
-
-  return new Date(Date.UTC(
-    date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
-    Math.floor(UT), Math.floor((UT%1)*60)
-  ));
-}
-
-function fmtHMUTC(d){ return d ? d.toISOString().substring(11,16) : "—"; }
-
-// ======================================================
-// ILLUMINATION (iOS method: illumination = (1 - cos θ)/2)
-// θ = Sun–Moon phase angle (elongation)
-// ======================================================
+// ---------------- Illumination & phase ----------------
 function elongationDeg(jd){
   const s=sunLong(jd), m=moonLong(jd);
   let E=Math.abs(norm360(m - s));
@@ -239,7 +138,6 @@ function elongationDeg(jd){
 function illuminationFraction(jd){
   return (1 - Math.cos(d2r(elongationDeg(jd)))) / 2;
 }
-
 function phaseName(illum, elong){
   if(illum < 0.01) return "New Moon";
   if(illum < 0.49 && elong < 90) return "Waxing Crescent";
@@ -251,45 +149,40 @@ function phaseName(illum, elong){
   return "Waning Crescent";
 }
 
-// ======================================================
-// HIJRI CIVIL TABULAR
-// ======================================================
+// ---------------- Hijri (civil) ----------------
 function gregToHijri(g){
   var day=g.getUTCDate(),
       month=g.getUTCMonth()+1,
       year=g.getUTCFullYear();
 
   var m=month, y=year;
-  if(m < 3){ y--; m += 12; }
+  if(m < 3){ y--; m+=12; }
 
   var a=Math.floor(y/100);
   var b=2 - a + Math.floor(a/4);
 
   var jd=Math.floor(365.25*(y+4716))
-         + Math.floor(30.6001*(m+1))
-         + day + b - 1524.5;
+        + Math.floor(30.6001*(m+1))
+        + day + b - 1524.5;
 
   var l = jd - 1948440 + 10632;
   var n = Math.floor((l - 1)/10631);
   l = l - 10631*n + 354;
 
-  var j = (Math.floor((10985 - l)/5316)) * (Math.floor((50*l)/17719))
+  var j=(Math.floor((10985 - l)/5316)) * (Math.floor((50*l)/17719))
         + (Math.floor(l/5670)) * (Math.floor((43*l)/15238));
 
-  l = l - (Math.floor((30 - j)/15))*(Math.floor((17719*j)/50))
-        - (Math.floor(j/16))*(Math.floor((15238*j)/43)) + 29;
+  l = l - (Math.floor((30 - j)/15)) * (Math.floor((17719*j)/50))
+        - (Math.floor(j/16))      * (Math.floor((15238*j)/43)) + 29;
 
-  var mHij = Math.floor((24*l)/709);
-  var dHij = l - Math.floor((709*mHij)/24);
-  var yHij = 30*n + j - 30;
-
+  var mHij=Math.floor((24*l)/709);
+  var dHij=l - Math.floor((709*mHij)/24);
+  var yHij=30*n + j - 30;
   return {hDay:dHij, hMonth:mHij, hYear:yHij};
 }
 
-// ======================================================
-// LOCAL-NOON CALCULATION (iOS-like)
-// ======================================================
-function localNoonUTC(gDate, utcOffset) {
+// ---------------- Local Noon UTC ----------------
+function localNoonUTC(gDate, utcOffset){
   const utcHr = (12 - utcOffset + 24) % 24;
   return new Date(Date.UTC(
     gDate.getUTCFullYear(),
@@ -299,14 +192,26 @@ function localNoonUTC(gDate, utcOffset) {
   ));
 }
 
-// ======================================================
-// MAIN
-// ======================================================
-function run(){
-  const v=document.getElementById("dateInput").value;
-  if(!v){ alert("Choose a date"); return; }
+// ---------------- Visibility Chance ----------------
+function visibilityChance(illum, elong){
+  const pct = illum * 100;
 
-  const gDate=new Date(v+"T00:00:00Z");
+  // Good chance: illum >=1% and elong >=10°
+  if(pct >= 1 && elong >= 10) return "✓ Likely Visible";
+
+  // Borderline
+  if(pct >= 0.5 && elong >= 7) return "~ Borderline";
+
+  // Otherwise unlikely
+  return "× Unlikely";
+}
+
+// ---------------- MAIN ----------------
+function run(){
+  const val=document.getElementById("dateInput").value;
+  if(!val){ alert("Pick a date"); return; }
+
+  const gDate=new Date(val+"T00:00:00Z");
 
   const jd = jdFromDate(gDate);
   document.getElementById("jdOut").textContent = jd.toFixed(5);
@@ -319,41 +224,31 @@ function run(){
   tbody.innerHTML="";
 
   CITIES_BASE.forEach(city=>{
-    const utcOffset = getUTCOffset(city, gDate);
+    const offset = getUTCOffset(city, gDate);
+    const lnUTC = localNoonUTC(gDate, offset);
+    const jdLn = jdFromDate(lnUTC);
 
-    // (1) local noon (iOS daily illumination)
-    const lnUTC = localNoonUTC(gDate, utcOffset);
-    const jdLn  = jdFromDate(lnUTC);
-    const illumLn = illuminationFraction(jdLn);
-    const elongLn = elongationDeg(jdLn);
-    const phase   = phaseName(illumLn, elongLn);
-
-    // (2) sunset + 20 min illum
-    const ss = sunsetUTC(gDate, city.lat, city.lon);
-    const t20 = ss ? new Date(ss.getTime() + 20*60000) : null;
-    const illum20 = t20 ? illuminationFraction(jdFromDate(t20)) : null;
+    const illum = illuminationFraction(jdLn);
+    const elong = elongationDeg(jdLn);
+    const phase = phaseName(illum, elong);
+    const vis = visibilityChance(illum, elong);
 
     tbody.innerHTML += `
       <tr>
         <td>${city.name}</td>
-        <td>${fmtHMUTC(ss)}</td>
-        <td>${fmtHMUTC(t20)}</td>
-        <td><strong>${(illumLn*100).toFixed(1)}%</strong></td>
+        <td>${(illum*100).toFixed(1)}%</td>
+        <td>${elong.toFixed(2)}°</td>
         <td>${phase}</td>
-        <td>${elongLn.toFixed(2)}</td>
+        <td>${vis}</td>
       </tr>`;
   });
 }
 
-// ======================================================
-// AUTO‑LOAD TODAY'S DATE & RUN
-// ======================================================
-window.onload = function() {
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth()+1).padStart(2,'0');
-  const dd = String(today.getDate()).padStart(2,'0');
-  document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
+// --------- AUTO‑RUN TODAY ----------
+window.onload = function(){
+  const t=new Date();
+  const y=t.getFullYear(), m=String(t.getMonth()+1).padStart(2,'0'), d=String(t.getDate()).padStart(2,'0');
+  document.getElementById("dateInput").value=`${y}-${m}-${d}`;
   run();
 };
 </script>
