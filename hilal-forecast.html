@@ -2,232 +2,169 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Hilal Prediction — FCNA + Odeh + Yallop — JD + Hijri (No API)</title>
+<title>iOS‑Style Moon Phase & Illumination with Hijri Date</title>
 
 <style>
   body { font-family: system-ui, Arial; margin: 32px; }
-  table { border-collapse: collapse; width: 100%; margin-top: 16px; }
-  th, td { border: 1px solid #ccc; padding: 6px; text-align: center; }
+  table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
   th { background: #eee; }
-  .ok { color: #0b7; font-weight: bold; }
-  .no { color: #b00; font-weight: bold; }
 </style>
 </head>
 
 <body>
 
-<h2>Hilal Prediction (FCNA + Odeh + Yallop) — Offline Engine</h2>
+<h2>iOS‑Style Moon Illumination (20 minutes after sunset)</h2>
 
-<p>
-  <strong>FCNA / Moonsighting.com:</strong> Visible if Moon altitude ≥ 5° AND elongation ≥ 8° at local sunset.  
-  <br>(Criteria documented by FCNA & Moonsighting.com) <!-- [1](https://astronomycenter.net/pdf/2006_cri.pdf?origin=publication_detail)[2](https://link.springer.com/article/10.1007/s10686-005-9002-5) -->
-</p>
+<label>Select Gregorian date:
+  <input type="date" id="dateInput">
+</label>
+<button onclick="run()">Run</button>
 
-<p>
-  <strong>Odeh (ICOP 2006 Criterion):</strong> Uses ARCV and crescent width W;  
-  <strong>V > 0 ⇒ naked‑eye possible.</strong>  
-  (Derived from Odeh’s 2006 model in *Experimental Astronomy*, and ICOP visibility methodology) <!-- [3](https://moonsighting.net/methodology)[1](https://astronomycenter.net/pdf/2006_cri.pdf?origin=publication_detail) -->
-</p>
-
-<p>
-  <strong>Yallop (HMNAO 1997):</strong> q parameter → Zones A–F (Easily visible → Impossible).  
-  (Summarized in lunar visibility methodology sources) <!-- [3](https://moonsighting.net/methodology) -->
-</p>
-
-<hr>
-
-<label>Pick date (Gregorian): <input type="date" id="obsDate"></label>
-<button onclick="runPrediction()">Run</button>
-
-<div style="margin: 20px 0;">
-  <p><strong>Julian Date:</strong> <span id="jdDisplay"></span></p>
-  <p><strong>Hijri Date:</strong> <span id="hijriDisplay"></span></p>
+<div style="margin:20px 0;">
+  <p><strong>Julian Date:</strong> <span id="jdOut"></span></p>
+  <p><strong>Hijri Date:</strong> <span id="hijriOut"></span></p>
 </div>
 
-<table id="results">
+<table>
 <thead>
 <tr>
   <th>City</th>
   <th>Sunset (UTC)</th>
-  <th>Moonset (UTC)</th>
-  <th>Best Time (UTC)</th>
-
-  <th>Alt@Sunset</th>
-  <th>Elong@Sunset</th>
-  <th>FCNA</th>
-
-  <th>ARCV</th>
-  <th>W (arcmin)</th>
-  <th>V (Odeh)</th>
-  <th>Odeh Verdict</th>
-
-  <th>Yallop q</th>
-  <th>Yallop Zone</th>
+  <th>+20 min (UTC)</th>
+  <th>Illumination %</th>
+  <th>Phase Name</th>
+  <th>Elongation (°)</th>
 </tr>
 </thead>
-<tbody></tbody>
+<tbody id="results"></tbody>
 </table>
 
-
 <script>
-// ===============================================
+// ======================================================================
 // CITY LIST
-// ===============================================
+// ======================================================================
 const CITIES = [
-  { name:"New York, NY",    lat:40.7128, lon:-74.0060 },
-  { name:"Chicago, IL",     lat:41.8781, lon:-87.6298 },
-  { name:"Houston, TX",     lat:29.7604, lon:-95.3698 },
-  { name:"Phoenix, AZ",     lat:33.4484, lon:-112.0740 },
+  { name:"New York, NY", lat:40.7128, lon:-74.0060 },
+  { name:"Chicago, IL", lat:41.8781, lon:-87.6298 },
+  { name:"Houston, TX", lat:29.7604, lon:-95.3698 },
+  { name:"Phoenix, AZ", lat:33.4484, lon:-112.0740 },
   { name:"Los Angeles, CA", lat:34.0522, lon:-118.2437 },
-  { name:"Denver, CO",      lat:39.7392, lon:-104.9903 },
-  { name:"Miami, FL",       lat:25.7617, lon:-80.1918 },
-  { name:"Seattle, WA",     lat:47.6062, lon:-122.3321 }
+  { name:"Denver, CO", lat:39.7392, lon:-104.9903 },
+  { name:"Miami, FL", lat:25.7617, lon:-80.1918 },
+  { name:"Seattle, WA", lat:47.6062, lon:-122.3321 }
 ];
 
-
-// ===============================================
-// BASIC MATH HELPERS
-// ===============================================
 const d2r = d => d*Math.PI/180;
 const r2d = r => r*180/Math.PI;
 const norm360 = x => (x % 360 + 360) % 360;
 
-
-// ===============================================
+// ======================================================================
 // JULIAN DATE
-// ===============================================
+// ======================================================================
 function jdFromDate(d){
   const y=d.getUTCFullYear(), m=d.getUTCMonth()+1;
-  const day=d.getUTCDate() + (d.getUTCHours() + d.getUTCMinutes()/60)/24;
+  const day=d.getUTCDate() + (d.getUTCHours()+d.getUTCMinutes()/60)/24;
   let Y=y, M=m;
   if(M<=2){ Y--; M+=12; }
   const A=Math.floor(Y/100);
   const B=2 - A + Math.floor(A/4);
-  return Math.floor(365.25*(Y+4716)) +
-         Math.floor(30.6001*(M+1)) +
-         day + B - 1524.5;
+  return Math.floor(365.25*(Y+4716))
+       + Math.floor(30.6001*(M+1))
+       + day + B - 1524.5;
 }
 
 function gmstHours(jd){
   return (18.697374558 + 24.06570982441908*(jd - 2451545.0)) % 24;
 }
 
-
-// ===============================================
+// ======================================================================
 // SUN POSITION
-// ===============================================
-function sunEclipticLongitude(jd){
+// ======================================================================
+function sunLong(jd){
   const T=(jd-2451545)/36525;
   const L0=norm360(280.46646 + 36000.76983*T);
   const M =norm360(357.52911 + 35999.05029*T);
   const C =(1.914602-0.004817*T)*Math.sin(d2r(M))
-         + (0.019993-0.000101*T)*Math.sin(d2r(2*M))
-         + 0.000289*Math.sin(d2r(3*M));
-  return L0 + C;
+         +(0.019993-0.000101*T)*Math.sin(d2r(2*M))
+         +0.000289*Math.sin(d2r(3*M));
+  return L0+C;
 }
 
 function sunEquatorial(jd){
-  const lam=sunEclipticLongitude(jd);
+  const lam=sunLong(jd);
   const eps=23.439;
-  const sinDec = Math.sin(d2r(eps))*Math.sin(d2r(lam));
-  const dec = r2d(Math.asin(sinDec));
-  const RA = r2d(Math.atan2(
-     Math.sin(d2r(lam))*Math.cos(d2r(eps)),
-     Math.cos(d2r(lam))
-  ));
+  const dec = r2d(Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam))));
+  const RA  = r2d(
+    Math.atan2(Math.sin(d2r(lam))*Math.cos(d2r(eps)),
+               Math.cos(d2r(lam)))
+  );
   return {RA, dec};
 }
 
-function sunAltitude(jd,lat,lon){
-  const {RA,dec} = sunEquatorial(jd);
-  return altitudeAt(jd,lat,lon,RA,dec);
-}
-
-
-// ===============================================
+// ======================================================================
 // MOON POSITION
-// ===============================================
-function moonEclipticLongitude(jd){
+// ======================================================================
+function moonLong(jd){
   const T=(jd-2451545)/36525;
   const L1=norm360(218.316 + 481267.8813*T);
   const M =norm360(134.963 + 477198.8676*T);
   const Ms=norm360(357.529 + 35999.050*T);
-
-  const lon = L1
-    + 6.289*Math.sin(d2r(M))
-    + 1.274*Math.sin(d2r(2*L1 - M - Ms))
-    + 0.658*Math.sin(d2r(2*L1))
-    + 0.214*Math.sin(d2r(2*M))
-    + 0.110*Math.sin(d2r(L1));
-
-  return norm360(lon);
+  return norm360(
+    L1
+    +6.289*Math.sin(d2r(M))
+    +1.274*Math.sin(d2r(2*L1 - M - Ms))
+    +0.658*Math.sin(d2r(2*L1))
+    +0.214*Math.sin(d2r(2*M))
+    +0.110*Math.sin(d2r(L1))
+  );
 }
 
 function moonEquatorial(jd){
-  const lam=moonEclipticLongitude(jd);
-  const beta=0; // simplified: lunar latitude omitted
+  const lam=moonLong(jd);
   const eps=23.439;
-
-  const sinDec = Math.sin(d2r(beta))*Math.cos(d2r(eps))
-               + Math.cos(d2r(beta))*Math.sin(d2r(eps))*Math.sin(d2r(lam));
-  const dec = r2d(Math.asin(sinDec));
-
-  const sinRA = Math.sin(d2r(lam))*Math.cos(d2r(eps))
-              - Math.tan(d2r(beta))*Math.sin(d2r(eps));
-  const cosRA = Math.cos(d2r(lam));
-  const RA = r2d(Math.atan2(sinRA, cosRA));
-
+  const dec = r2d(Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam))));
+  const RA  = r2d(
+    Math.atan2(Math.sin(d2r(lam))*Math.cos(d2r(eps)),
+               Math.cos(d2r(lam)))
+  );
   return {RA, dec};
 }
 
-function moonAltitude(jd,lat,lon){
-  const {RA,dec} = moonEquatorial(jd);
-  return altitudeAt(jd,lat,lon,RA,dec);
-}
-
-function elongationDeg(jd){
-  const s=sunEclipticLongitude(jd), m=moonEclipticLongitude(jd);
-  let E=Math.abs(norm360(m-s));
-  if(E>180) E=360-E;
-  return E;
-}
-
-
-// ===============================================
-// ALTITUDE / TRANSFORMS
-// ===============================================
-function altitudeAt(jd,latDeg,lonDeg,RAdeg,decDeg){
+// ======================================================================
+// ALTITUDE / SUNSET TIME
+// ======================================================================
+function altitude(jd,lat,lon,RAdeg,decdeg){
   const GMST = gmstHours(jd);
-  const LST = GMST + lonDeg/15;
-  const HA  = norm360(LST*15 - RAdeg);
-  const lat = d2r(latDeg), dec = d2r(decDeg), ha=d2r(HA);
-
-  const alt = Math.asin(
-    Math.sin(lat)*Math.sin(dec)
-    + Math.cos(lat)*Math.cos(dec)*Math.cos(ha)
-  );
-  return r2d(alt);
+  const LST  = GMST + lon/15;
+  const HA   = norm360(LST*15 - RAdeg);
+  const latr=d2r(lat), decr=d2r(decdeg), har=d2r(HA);
+  return r2d(Math.asin(
+    Math.sin(latr)*Math.sin(decr)
+    + Math.cos(latr)*Math.cos(decr)*Math.cos(har)
+  ));
 }
 
+function sunAltitude(jd,lat,lon){
+  const {RA,dec}=sunEquatorial(jd);
+  return altitude(jd,lat,lon,RA,dec);
+}
 
-// ===============================================
-// SUNSET + MOONSET
-// ===============================================
-function computeSunsetUTC(dateLocal,lat,lon){
+// NOAA-style sunset
+function sunsetUTC(date, lat, lon){
   const N=Math.floor(
-    (Date.UTC(dateLocal.getFullYear(),dateLocal.getMonth(),dateLocal.getDate())
-     - Date.UTC(dateLocal.getFullYear(),0,0)) / 86400000
+    (Date.UTC(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate())
+     - Date.UTC(date.getUTCFullYear(),0,0))/86400000
   );
+  const lngHour=lon/15;
+  const t=N + (18 - lngHour)/24;
 
-  const lngHour = lon/15;
-  const t = N + (18 - lngHour)/24;
-
-  const M = (0.9856*t) - 3.289;
-  const L = norm360(M + 1.916*Math.sin(d2r(M))
+  const M=(0.9856*t) - 3.289;
+  const L=norm360(M + 1.916*Math.sin(d2r(M))
                      + 0.020*Math.sin(d2r(2*M))
                      + 282.634);
 
-  const RA = norm360(r2d(Math.atan(0.91764*Math.tan(d2r(L)))));
+  const RA=norm360(r2d(Math.atan(0.91764*Math.tan(d2r(L)))));
   const Lq=Math.floor(L/90)*90, RAq=Math.floor(RA/90)*90;
   const RAh=(RA + (Lq - RAq))/15;
 
@@ -235,172 +172,120 @@ function computeSunsetUTC(dateLocal,lat,lon){
   const cosDec=Math.cos(Math.asin(sinDec));
 
   const cosH=(Math.cos(d2r(90.833))
-   - (sinDec*Math.sin(d2r(lat))))/(cosDec*Math.cos(d2r(lat)));
+   - sinDec*Math.sin(d2r(lat))) /
+   (cosDec*Math.cos(d2r(lat)));
 
   if(cosH>1) return null;
-
   const H=r2d(Math.acos(cosH))/15;
   let UT=(H + RAh - 0.06571*t - 6.622) % 24;
   if(UT<0) UT+=24;
 
-  return new Date(Date.UTC(dateLocal.getFullYear(),dateLocal.getMonth(),dateLocal.getDate(),UT));
+  return new Date(Date.UTC(
+    date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
+    Math.floor(UT), Math.floor((UT%1)*60)
+  ));
 }
 
-function computeMoonsetUTC(sunset,lat,lon){
-  if(!sunset) return null;
-
-  let jd=jdFromDate(sunset);
-  if(moonAltitude(jd,lat,lon)<=0) return null;
-
-  for(let i=1;i<=240;i++){
-    const t=new Date(sunset.getTime()+i*60000);
-    jd=jdFromDate(t);
-    if(moonAltitude(jd,lat,lon)<=0) return t;
-  }
-  return null;
+// ======================================================================
+// ILLUMINATION (iOS-style)
+// ======================================================================
+function elongationDeg(jd){
+  const s=sunLong(jd), m=moonLong(jd);
+  let E=Math.abs(norm360(m-s));
+  if(E>180) E=360-E;
+  return E;
 }
 
-
-// ===============================================
-// FCNA RULE
-// ===============================================
-function fcnaVerdict(alt,elong){
-  return (alt>=5 && elong>=8) ? "Visible" : "Not Visible";
+function illuminationFraction(jd){
+  const E = d2r(elongationDeg(jd));
+  return (1 - Math.cos(E))/2;   // exactly how Apple defines illumination
 }
 
-
-// ===============================================
-// ODEH + YALLOP
-// ===============================================
-function computeOdehYallop(jd,lat,lon){
-  const sAlt=sunAltitude(jd,lat,lon);
-  const mAlt=moonAltitude(jd,lat,lon);
-  const ARCV=mAlt - sAlt;
-
-  const E=elongationDeg(jd);
-  const illum=0.5*(1 - Math.cos(d2r(E)));
-  const W = illum * 31.07; // arcminutes
-
-  const odehBoundary = -0.1018*W**3 + 0.7319*W**2 - 6.3226*W + 7.1651;
-  const V = ARCV - odehBoundary;
-  const odehVerd = (V>0 ? "Naked‑eye possible" : "Naked‑eye unlikely");
-
-  const yBoundary = 11.8371 - 6.3226*W + 0.7319*W**2 - 0.1018*W**3;
-  const q = (ARCV - yBoundary)/10;
-
-  let zone="";
-  if(q>0.216) zone="A (Easily visible)";
-  else if(q>-0.014) zone="B (Visible)";
-  else if(q>-0.160) zone="C (Optical‑aid first)";
-  else if(q>-0.232) zone="D (Difficult)";
-  else if(q>-0.293) zone="E (Telescope)";
-  else zone="F (Impossible)";
-
-  return {ARCV,W,V,odehVerd,q,zone};
+// ======================================================================
+// PHASE NAME (Apple-like)
+// ======================================================================
+function phaseName(illum, elong){
+  if(illum < 0.01) return "New Moon";
+  if(illum < 0.49 && elong < 90) return "Waxing Crescent";
+  if(Math.abs(illum - 0.5) < 0.02 && elong < 90) return "First Quarter";
+  if(illum < 0.99 && elong > 90 && elong < 180) return "Waxing Gibbous";
+  if(illum > 0.99) return "Full Moon";
+  if(illum < 0.99 && elong > 180 && elong < 270) return "Waning Gibbous";
+  if(Math.abs(illum - 0.5) < 0.02 && elong > 180) return "Last Quarter";
+  return "Waning Crescent";
 }
 
+// ======================================================================
+// HIJRI DATE (Kuwaiti algorithm)
+// ======================================================================
+function gregorianToHijri(g, adjust=0){
+  var day=g.getUTCDate(), month=g.getUTCMonth()+1, year=g.getUTCFullYear();
+  var m=month, y=year;
+  if(m<3){ y--; m+=12; }
+  var a=Math.floor(y/100);
+  var b=2 - a + Math.floor(a/4);
+  var jd=Math.floor(365.25*(y+4716))
+       + Math.floor(30.6001*(m+1))
+       + day + b - 1524.5 + adjust;
 
-// ===============================================
-// HIJRI (Kuwaiti algorithm)
-// ===============================================
-function gregorianToHijri(g, adjust=0) {
-  var day = g.getUTCDate();
-  var month = g.getUTCMonth() + 1;
-  var year = g.getUTCFullYear();
-
-  var m = month;
-  var y = year;
-
-  if (m < 3) { y -= 1; m += 12; }
-
-  var a = Math.floor(y/100);
-  var b = 2 - a + Math.floor(a/4);
-
-  var jd = Math.floor(365.25*(y+4716))
-         + Math.floor(30.6001*(m+1))
-         + day + b - 1524.5;
-
-  jd += adjust;
-
-  var l = jd - 1948440 + 10632;
-  var n = Math.floor((l - 1) / 10631);
+  var l=jd - 1948440 + 10632;
+  var n=Math.floor((l - 1)/10631);
   l = l - 10631*n + 354;
-  var j = (Math.floor((10985 - l) / 5316)) *
-          (Math.floor((50*l) / 17719)) +
-          (Math.floor(l / 5670)) *
-          (Math.floor((43*l) / 15238));
-  l = l - (Math.floor((30 - j)/15)) *
-          (Math.floor((17719*j)/50)) -
-          (Math.floor(j/16)) *
-          (Math.floor((15238*j)/43)) + 29;
+  var j=(Math.floor((10985-l)/5316))* (Math.floor((50*l)/17719))
+       + (Math.floor))* (Math.floor((15238*j)/43)) + 29;
 
-  var mHijri = Math.floor((24*l)/709);
-  var dHijri = l - Math.floor((709*mHijri)/24);
-  var yHijri = 30*n + j - 30;
+  var mHij=Math.floor((24*l)/709);
+  var dHij=l - Math.floor((709*mHij)/24);
+  var yHij=30*n + j - 30;
 
-  return { hDay:dHijri, hMonth:mHijri, hYear:yHijri };
+  return {hDay:dHij, hMonth:mHij, hYear:yHij};
 }
 
+// ======================================================================
+// MAIN
+// ======================================================================
+function run(){
+  const v=document.getElementById("dateInput").value;
+  if(!v){ alert("Pick a date."); return; }
 
-// ===============================================
-// MAIN ENGINE
-// ===============================================
-function fmt(d){ return d ? d.toISOString().substring(11,16) : "—"; }
-
-function runPrediction(){
-  const dateVal=document.getElementById("obsDate").value;
-  if(!dateVal){ alert("Pick a date."); return; }
-
-  const date=new Date(dateVal+"T00:00:00Z");
-
+  const date=new Date(v+"T00:00:00Z");
   const jd=jdFromDate(date);
-  document.getElementById("jdDisplay").textContent = jd.toFixed(5);
 
-  const h = gregorianToHijri(date);
-  document.getElementById("hijriDisplay").textContent =
-    `${h.hDay} / ${h.hMonth} / ${h.hYear} AH`;
+  document.getElementById("jdOut").textContent = jd.toFixed(5);
 
-  const tbody=document.querySelector("#results tbody");
+  const h=gregorianToHijri(date);
+  document.getElementById("hijriOut").textContent =
+    `${h.hDay}/${h.hMonth}/${h.hYear} AH`;
+
+  const tbody=document.getElementById("results");
   tbody.innerHTML="";
 
   CITIES.forEach(city=>{
-    const sunset=computeSunsetUTC(date,city.lat,city.lon);
-    const jdS=sunset? jdFromDate(sunset): null;
-
-    const altS=jdS? moonAltitude(jdS,city.lat,city.lon) : NaN;
-    const elongS=jdS? elongationDeg(jdS) : NaN;
-    const fcna = jdS? fcnaVerdict(altS,elongS) : "—";
-
-    const moonset = sunset? computeMoonsetUTC(sunset,city.lat,city.lon) : null;
-
-    let bestUTC=null, data=null;
-    if(sunset && moonset){
-      bestUTC = new Date((sunset.getTime() + moonset.getTime())/2);
-      const jdB=jdFromDate(bestUTC);
-      data = computeOdehYallop(jdB,city.lat,city.lon);
+    const ss=sunsetUTC(date, city.lat, city.lon);
+    if(!ss) {
+      tbody.innerHTML += `<tr>
+         <td>${city.name}</td><td colspan="5">No sunset</td>
+       </tr>`;
+      return;
     }
 
-    tbody.insertAdjacentHTML("beforeend", `
+    // +20 minutes
+    const t20=new Date(ss.getTime() + 20*60000);
+    const jd20=jdFromDate(t20);
+
+    const illum=illuminationFraction(jd20);
+    const elong=elongationDeg(jd20);
+    const ph=phaseName(illum, elong);
+
+    tbody.innerHTML += `
       <tr>
         <td>${city.name}</td>
-
-        <td>${fmt(sunset)}</td>
-        <td>${fmt(moonset)}</td>
-        <td>${fmt(bestUTC)}</td>
-
-        <td>${isFinite(altS)? altS.toFixed(2):"—"}</td>
-        <td>${isFinite(elongS)? elongS.toFixed(2):"—"}</td>
-        <td class="${fcna==="Visible"?"ok":"no"}">${fcna}</td>
-
-        <td>${data? data.ARCV.toFixed(2) : "—"}</td>
-        <td>${data? data.W.toFixed(2) : "—"}</td>
-        <td>${data? data.V.toFixed(2) : "—"}</td>
-        <td class="${data && data.V>0? "ok":"no"}">${data? data.odehVerd : "—"}</td>
-
-        <td>${data? data.q.toFixed(3) : "—"}</td>
-        <td>${data? data.zone : "—"}</td>
-      </tr>
-    `);
+        <td>${ss.toISOString().substring(11,16)}</td>
+        <td>${t20.toISOString().substring(11,16)}</td>
+        <td>${(illum*100).toFixed(1)}%</td>
+        <td>${ph}</td>
+        <td>${elong.toFixed(2)}</td>
+      </tr>`;
   });
 }
 
