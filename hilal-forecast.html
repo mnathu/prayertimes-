@@ -1,56 +1,401 @@
-<hr style="margin:40px 0;">
-<h2>World Map – Crescent Visibility Zones</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Offline Crescent Visibility Planner + Leaflet Map</title>
 
-<!-- Map container -->
-<div id="mapContainer" style="width:100%; max-width:900px; margin-top:20px;">
-  <svg id="worldMap" viewBox="0 0 1000 500" style="width:100%; border:1px solid #ccc;">
-    <!-- World Outline (simple Robinson-style projection) -->
-    <image href="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' width='1000' height='500'>
-        <rect width='1000' height='500' fill='#eef' />
-        <path d='M110 200 L130 220 L150 210 L170 230 L200 250 L230 240 L260 260 L300 270 L350 260 L400 280 L450 300 L480 310 L520 305 L540 290 L580 270 L620 250 L650 240 L690 230 L730 225 L770 240 L800 260 L830 280 L860 295 L900 310'
-              stroke='#999' stroke-width='1.5' fill='none'/>
-      </svg>"
-      x="0" y="0" width="1000" height="500"/>
-  </svg>
-</div>
+<style>
+  body { font-family: system-ui, Arial; margin: 32px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 25px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  th { background:#f2f2f2; }
+  #map { width:100%; height:600px; margin-top:35px; border:1px solid #cccccc; }
+</style>
+
+<!-- Leaflet (fully offline, no CDN) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- NOTE: If you want *fully* offline, download leaflet.css/js locally and replace these URLs. -->
+
+</head>
+<body>
+
+<h2>Offline Crescent Visibility Planner (Leaflet Map)</h2>
+
+<label>Select Date:
+  <input type="date" id="dateInput">
+</label>
+
+<p><strong>Hijri Date:</strong> <span id="hijriOut"></span></p>
+
+<!-- CITY TABLE -->
+<table>
+<thead>
+<tr>
+  <th>City</th>
+  <th>Illum%</th>
+  <th>Elong°</th>
+  <th>Alt@20m</th>
+  <th>Alt@30m</th>
+  <th>Alt@40m</th>
+  <th>Phase</th>
+  <th>Visibility</th>
+</tr>
+</thead>
+<tbody id="results"></tbody>
+</table>
+
+<h2 style="margin-top:40px;">World Visibility Map</h2>
+
+<div id="map"></div>
 
 <script>
-// =============================
-// WORLD MAP VISIBILITY ENGINE
-// =============================
+/* ============================================================
+   1.  CITY LIST + DST
+============================================================ */
+const CITIES = [
+  { name:"Minneapolis, MN", lat:44.9778, lon:-93.2650, baseUTC:-6 },
+  { name:"Orlando, FL",     lat:28.5383, lon:-81.3792, baseUTC:-5 },
+  { name:"New York, NY",    lat:40.7128, lon:-74.0060, baseUTC:-5 },
+  { name:"Chicago, IL",     lat:41.8781, lon:-87.6298, baseUTC:-6 },
+  { name:"Houston, TX",     lat:29.7604, lon:-95.3698, baseUTC:-6 },
+  { name:"Phoenix, AZ",     lat:33.4484, lon:-112.0740, baseUTC:-7 },
+  { name:"Los Angeles, CA", lat:34.0522, lon:-118.2437, baseUTC:-8 },
+  { name:"Denver, CO",      lat:39.7392, lon:-104.9903, baseUTC:-7 },
+  { name:"Miami, FL",       lat:25.7617, lon:-80.1918, baseUTC:-5 },
+  { name:"Seattle, WA",     lat:47.6062, lon:-122.3321, baseUTC:-8 },
+  { name:"Toronto, ON",     lat:43.6532, lon:-79.3832, baseUTC:-5 },
+  { name:"Vancouver, BC",   lat:49.2827, lon:-123.1207, baseUTC:-8 }
+];
 
-// Choose resolution (lower = faster)
-const LAT_STEP = 10;   // degrees
-const LON_STEP = 10;
-
-// Map projection: simple equirectangular
-function project(lon, lat) {
-  const x = (lon + 180) * (1000/360);
-  const y = (90 - lat) * (500/180);
-  return {x, y};
+function isDST(g){
+  const year=g.getUTCFullYear();
+  function secondSundayMarch(y){
+    let d=new Date(Date.UTC(y,2,1));
+    let dow=d.getUTCDay();
+    return new Date(Date.UTC(y,2,1 + ((7-dow)%7) + 7));
+  }
+  function firstSundayNov(y){
+    let d=new Date(Date.UTC(y,10,1));
+    let dow=d.getUTCDay();
+    return new Date(Date.UTC(y,10,1+((7-dow)%7)));
+  }
+  const begin=secondSundayMarch(year), end=firstSundayNov(year);
+  return g>=begin && g<end;
+}
+function getUTCOffset(city,g){
+  if(city.name.includes("Phoenix")) return city.baseUTC;
+  return city.baseUTC + (isDST(g)?1:0);
 }
 
-function computeVisibilityForPoint(date, lat, lon) {
-  const sunset = sunsetUTC(date, lat, lon);
-  if(!sunset) return "gray"; // no sunset
+/* ============================================================
+   2.  MATH + SUN/MOON POSITION (same as your working engine)
+============================================================ */
+const d2r=d=>d*Math.PI/180, r2d=r=>r*180/Math.PI;
+const norm360=x=>(x%360+360)%360;
 
-  // Times
-  const t20 = new Date(sunset.getTime() + 20*60000);
-  const t30 = new Date(sunset.getTime() + 30*60000);
-  const t40 = new Date(sunset.getTime() + 40*60000);
+function jdFromDate(d){
+  const y=d.getUTCFullYear(), m=d.getUTCMonth()+1;
+  const dy=d.getUTCDate()+(d.getUTCHours()+d.getUTCMinutes()/60)/24;
+  let Y=y, M=m;
+  if(M<=2){ Y--; M+=12; }
+  const A=Math.floor(Y/100);
+  const B=2 - A + Math.floor(A/4);
+  return Math.floor(365.25*(Y+4716))+Math.floor(30.6001*(M+1))+dy+B-1524.5;
+}
 
-  const jd20 = jdFromDate(t20);
-  const jd30 = jdFromDate(t30);
-  const jd40 = jdFromDate(t40);
+function gmst(jd){ return (18.697374558+24.06570982441908*(jd-2451545))%24; }
 
-  const alt20 = moonAltitude(jd20, lat, lon);
-  const alt30 = moonAltitude(jd30, lat, lon);
-  const alt40 = moonAltitude(jd40, lat, lon);
-  const maxAlt = Math.max(alt20, alt30, alt40);
+function sunLong(jd){
+  const T=(jd-2451545)/36525;
+  const L0=norm360(280.46646+36000.76983*T);
+  const M =norm360(357.52911+35999.05029*T);
+  const C =(1.914602-0.004817*T)*Math.sin(d2r(M))
+         +(0.019993-0.000101*T)*Math.sin(d2r(2*M))
+         +0.000289*Math.sin(d2r(3*M));
+  return L0+C;
+}
 
-  // Daily illumination (iOS-style)
-  const noonUTC = new Date(Date.UTC(
-    date.getUTCFullYear(),
-    date.getUTCMonth(),
-    date.getUTCDate(),
+function moonLong(jd){
+  const T=(jd-2451545)/36525;
+  const L1=norm360(218.316+481267.8813*T);
+  const M =norm360(134.963+477198.8676*T);
+  const Ms=norm360(357.529+35999.050*T);
+  return norm360(
+    L1 +
+    6.289*Math.sin(d2r(M)) +
+    1.274*Math.sin(d2r(2*L1 - M - Ms)) +
+    0.658*Math.sin(d2r(2*L1)) +
+    0.214*Math.sin(d2r(2*M)) +
+    0.110*Math.sin(d2r(L1))
+  );
+}
+
+function moonEQ(jd){
+  const lam=moonLong(jd), eps=23.439;
+  const dec=r2d(Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam))));
+  const RA =r2d(Math.atan2(Math.sin(d2r(lam))*Math.cos(d2r(eps)),
+                           Math.cos(d2r(lam))));
+  return {RA, dec};
+}
+
+function altitude(jd,lat,lon,RAdeg,decdeg){
+  const H=norm360((gmst(jd)+lon/15)*15 - RAdeg);
+  return r2d(Math.asin(
+    Math.sin(d2r(lat))*Math.sin(d2r(decdeg)) +
+    Math.cos(d2r(lat))*Math.cos(d2r(decdeg))*Math.cos(d2r(H))
+  ));
+}
+function moonAlt(jd,lat,lon){
+  const {RA,dec}=moonEQ(jd);
+  return altitude(jd,lat,lon,RA,dec);
+}
+
+function elongationDeg(jd){
+  let E=Math.abs(norm360(moonLong(jd)-sunLong(jd)));
+  return (E>180)?360-E:E;
+}
+function illumination(jd){ return (1 - Math.cos(d2r(elongationDeg(jd))))/2; }
+
+/* ============================================================
+   3.  SUNSET
+============================================================ */
+function sunsetUTC(gDate,lat,lon){
+  const N=Math.floor((Date.UTC(gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate())
+       -Date.UTC(gDate.getUTCFullYear(),0,0))/86400000);
+  const lngHour=lon/15;
+  const t=N+(18-lngHour)/24;
+
+  const M=(0.9856*t)-3.289;
+  const L=norm360(M+1.916*Math.sin(d2r(M))+0.020*Math.sin(d2r(2*M))+282.634);
+  const RA=norm360(r2d(Math.atan(0.91764*Math.tan(d2r(L)))));
+  const Lq=Math.floor(L/90)*90, RAq=Math.floor(RA/90)*90;
+  const RAh=(RA+(Lq-RAq))/15;
+
+  const sinDec=0.39782*Math.sin(d2r(L));
+  const cosDec=Math.cos(Math.asin(sinDec));
+
+  const cosH=(Math.cos(d2r(90.833)) - sinDec*Math.sin(d2r(lat)))
+            /(cosDec*Math.cos(d2r(lat)));
+  if(cosH>1) return null;
+
+  const H=r2d(Math.acos(cosH))/15;
+  let UT=(H+RAh-0.06571*t-6.622)%24;
+  if(UT<0) UT+=24;
+
+  return new Date(Date.UTC(gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate(),
+    Math.floor(UT),Math.floor((UT%1)*60)));
+}
+
+/* ============================================================
+   4.  HIJRI (tabular)
+============================================================ */
+const HIJRI_MONTHS=[
+  "Muharram","Safar","Rabiʿ I","Rabiʿ II","Jumada I","Jumada II",
+  "Rajab","Shaʿban","Ramadan","Shawwal","Dhul-Qaʿdah","Dhul-Hijjah"
+];
+
+function gregToHijri(g){
+  var day=g.getUTCDate(), month=g.getUTCMonth()+1, year=g.getUTCFullYear();
+  var m=month, y=year;
+  if(m<3){ y--; m+=12; }
+  var a=Math.floor(y/100);
+  var b=2 - a + Math.floor(a/4);
+
+  var jd=Math.floor(365.25*(y+4716))
+        + Math.floor(30.6001*(m+1))
+        + day + b - 1524.5;
+
+  var l=jd - 1948440 + 10632;
+  var n=Math.floor((l-1)/10631);
+  l=l - 10631*n + 354;
+
+  var j=(Math.floor((10985-l)/5316))*(Math.floor((50*l)/17719))
+       +(Math.floor(l/5670))*(Math.floor((43*l)/15238));
+
+  l=l - (Math.floor((30-j)/15))*(Math.floor((17719*j)/50))
+       - (Math.floor(j/16))*(Math.floor((15238*j)/43)) + 29;
+
+  var mHij=Math.floor((24*l)/709);
+  var dHij=l - Math.floor((709*mHij)/24);
+  var yHij=30*n + j - 30;
+
+  return {hDay:dHij, hMonth:mHij, hYear:yHij};
+}
+
+/* ============================================================
+   5.  VISIBILITY CHANCE + PHASE
+============================================================ */
+function phaseName(illum,el){
+  if(illum<0.01) return "New Moon";
+  if(illum<0.49 && el<90) return "Waxing Crescent";
+  if(Math.abs(illum-0.5)<0.02 && el<90) return "First Quarter";
+  if(illum<0.99 && el>90 && el<180) return "Waxing Gibbous";
+  if(illum>0.99) return "Full";
+  if(illum<0.99 && el>180 && el<270) return "Waning Gibbous";
+  if(Math.abs(illum-0.5)<0.02 && el>180) return "Last Quarter";
+  return "Waning Crescent";
+}
+
+function visibilityChance(illum, el, a20, a30, a40){
+  const pct = illum*100;
+  const maxAlt=Math.max(a20,a30,a40);
+
+  if(pct>=1 && el>=10 && maxAlt>=10) return "✓ Likely Visible";
+  if(pct>=0.5 && el>=7 && maxAlt>=5) return "~ Borderline";
+  return "× Unlikely";
+}
+
+/* ============================================================
+   6.  RUN (City Table)
+============================================================ */
+function run(){
+  const val=document.getElementById("dateInput").value;
+  if(!val) return;
+
+  const gDate=new Date(val+"T00:00:00Z");
+  const h=gregToHijri(gDate);
+  document.getElementById("hijriOut").textContent =
+      `${HIJRI_MONTHS[h.hMonth-1]} ${h.hDay}`;
+
+  const tbody=document.getElementById("results");
+  tbody.innerHTML="";
+
+  CITIES.forEach(city=>{
+    const utcOffset=getUTCOffset(city,gDate);
+
+    const noonUTC=new Date(Date.UTC(
+      gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate(),
+      (12-utcOffset+24)%24,0,0));
+
+    const jdNoon=jdFromDate(noonUTC);
+    const illum=illumination(jdNoon);
+    const el=elongationDeg(jdNoon);
+    const phase=phaseName(illum,el);
+
+    const ss=sunsetUTC(gDate,city.lat,city.lon);
+
+    let a20="—", a30="—", a40="—", vis="× Unlikely";
+
+    if(ss){
+      const t20=new Date(ss.getTime()+20*60000);
+      const t30=new Date(ss.getTime()+30*60000);
+      const t40=new Date(ss.getTime()+40*60000);
+
+      a20=moonAlt(jdFromDate(t20),city.lat,city.lon).toFixed(1);
+      a30=moonAlt(jdFromDate(t30),city.lat,city.lon).toFixed(1);
+      a40=moonAlt(jdFromDate(t40),city.lat,city.lon).toFixed(1);
+
+      vis=visibilityChance(illum,el, parseFloat(a20),parseFloat(a30),parseFloat(a40));
+    }
+
+    tbody.innerHTML += `
+      <tr>
+        <td>${city.name}</td>
+        <td>${(illum*100).toFixed(1)}%</td>
+        <td>${el.toFixed(2)}</td>
+        <td>${a20}</td>
+        <td>${a30}</td>
+        <td>${a40}</td>
+        <td>${phase}</td>
+        <td>${vis}</td>
+      </tr>
+    `;
+  });
+
+  drawWorldDots();
+}
+
+/* ============================================================
+   7.  LEAFLET + OFFLINE PNG BASEMAP
+============================================================ */
+
+//  *** REPLACE THIS WITH YOUR ACTUAL BASE64 PNG ***
+// Below is a *tiny placeholder* image so the HTML loads properly.
+// Insert your actual 2048x1024 Base64 PNG in place of <BASE64_DATA>.
+const WORLD_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAA...REPLACE_THIS...";
+
+const map = L.map('map', {
+  minZoom: 1,
+  maxZoom: 6,
+  crs: L.CRS.EPSG4326    // treat image as lat/lon world
+});
+
+const southWest = L.latLng(-90,-180),
+      northEast = L.latLng( 90, 180),
+      bounds = L.latLngBounds(southWest, northEast);
+
+L.imageOverlay(WORLD_BASE64, bounds).addTo(map);
+map.fitBounds(bounds);
+
+/* ============================================================
+   8.  DRAW WORLD VISIBILITY DOTS
+============================================================ */
+function drawWorldDots(){
+  if(window._visLayer) map.removeLayer(window._visLayer);
+
+  const markers = [];
+
+  for(let lat=-80; lat<=80; lat+=10){
+    for(let lon=-180; lon<=180; lon+=10){
+
+      const dateVal=document.getElementById("dateInput").value;
+      const gDate=new Date(dateVal+"T00:00:00Z");
+
+      const ss=sunsetUTC(gDate,lat,lon);
+      if(!ss){
+        markers.push(L.circleMarker([lat,lon],{radius:6,color:"#999",fillColor:"#999",fillOpacity:1}));
+        continue;
+      }
+
+      const t20=new Date(ss.getTime()+20*60000);
+      const t30=new Date(ss.getTime()+30*60000);
+      const t40=new Date(ss.getTime()+40*60000);
+
+      const a20=moonAlt(jdFromDate(t20),lat,lon);
+      const a30=moonAlt(jdFromDate(t30),lat,lon);
+      const a40=moonAlt(jdFromDate(t40),lat,lon);
+      const maxAlt=Math.max(a20,a30,a40);
+
+      const noonUTC=new Date(Date.UTC(
+        gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate(),
+        12,0,0));
+      const jdN=jdFromDate(noonUTC);
+      const illum=illumination(jdN);
+      const el=elongationDeg(jdN);
+      const pct=illum*100;
+
+      let color="#db3236";  // red = unlikely
+      if(pct>=1 && el>=10 && maxAlt>=10) color="#3cba54";
+      else if(pct>=0.5 && el>=7 && maxAlt>=5) color="#f4c20d";
+      else color="#db3236";
+
+      markers.push(
+        L.circleMarker([lat,lon],{
+          radius:6,
+          color:color,
+          fillColor:color,
+          fillOpacity:1
+        })
+      );
+    }
+  }
+
+  window._visLayer = L.layerGroup(markers).addTo(map);
+}
+
+/* ============================================================
+   9. AUTOLOAD TODAY + AUTO UPDATE
+============================================================ */
+window.onload=function(){
+  const t=new Date();
+  const yyyy=t.getFullYear(), mm=String(t.getMonth()+1).padStart(2,'0'), dd=String(t.getDate()).padStart(2,'0');
+  document.getElementById("dateInput").value=`${yyyy}-${mm}-${dd}`;
+  run();
+};
+document.getElementById("dateInput").addEventListener("change", run);
+
+</script>
+</body>
+</html>
+``
