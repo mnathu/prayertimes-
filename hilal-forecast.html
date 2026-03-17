@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hilal Visibility Map</title>
+<title>Crescent Visibility Map</title>
 
 <link rel="stylesheet"
 href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -17,13 +17,13 @@ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 body{
 font-family:system-ui;
 margin:0;
-background:#f4f6fb;
+background:#f5f6fb;
 }
 
 nav{
 background:#0A166C;
 color:white;
-padding:12px;
+padding:10px;
 text-align:center;
 }
 
@@ -34,22 +34,22 @@ text-decoration:none;
 }
 
 #controls{
-padding:12px;
-text-align:center;
 background:white;
+padding:15px;
+text-align:center;
 border-bottom:1px solid #ddd;
 }
 
 #map{
-height:60vh;
+height:65vh;
 width:100%;
 }
 
 .legend{
+margin-top:10px;
 display:flex;
 justify-content:center;
-gap:16px;
-margin-top:10px;
+gap:20px;
 }
 
 .dot{
@@ -64,7 +64,6 @@ display:inline-block;
 .red{background:#e74c3c}
 
 </style>
-
 </head>
 
 <body>
@@ -78,14 +77,14 @@ display:inline-block;
 
 <div id="controls">
 
-<h3>Global Crescent Visibility</h3>
+<h3>Crescent Visibility (North America)</h3>
 
 <input type="date" id="dateInput">
 
 <div class="legend">
-<div><span class="dot green"></span>Visible</div>
+<div><span class="dot green"></span>Likely Visible</div>
 <div><span class="dot yellow"></span>Borderline</div>
-<div><span class="dot red"></span>Not Visible</div>
+<div><span class="dot red"></span>Unlikely</div>
 </div>
 
 </div>
@@ -94,68 +93,60 @@ display:inline-block;
 
 <script>
 
-/* ==============================
-MAP INIT
-============================== */
+/* ===============================
+CITY LIST (Your Original)
+=============================== */
 
-let map
-let layer
+const CITIES = [
 
-window.onload=function(){
+{ name:"Minneapolis, MN", lat:44.9778, lon:-93.2650 },
+{ name:"Orlando, FL", lat:28.5383, lon:-81.3792 },
+{ name:"New York, NY", lat:40.7128, lon:-74.0060 },
+{ name:"Chicago, IL", lat:41.8781, lon:-87.6298 },
+{ name:"Houston, TX", lat:29.7604, lon:-95.3698 },
+{ name:"Phoenix, AZ", lat:33.4484, lon:-112.0740 },
+{ name:"Los Angeles, CA", lat:34.0522, lon:-118.2437 },
+{ name:"Denver, CO", lat:39.7392, lon:-104.9903 },
+{ name:"Miami, FL", lat:25.7617, lon:-80.1918 },
+{ name:"Seattle, WA", lat:47.6062, lon:-122.3321 },
+{ name:"Toronto, ON", lat:43.6532, lon:-79.3832 },
+{ name:"Vancouver, BC", lat:49.2827, lon:-123.1207 }
 
-map=L.map("map").setView([20,0],2)
+]
+
+/* ===============================
+MAP
+=============================== */
+
+const map=L.map("map").setView([39,-98],4)
 
 L.tileLayer(
 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 {attribution:"© OpenStreetMap"}
 ).addTo(map)
 
-layer=L.layerGroup().addTo(map)
+let layer=L.layerGroup().addTo(map)
 
-initDate()
-
-}
-
-/* ==============================
-DATE CONTROL
-============================== */
-
-function initDate(){
-
-const picker=document.getElementById("dateInput")
-
-const today=new Date()
-
-picker.value=today.toISOString().split("T")[0]
-
-draw(today)
-
-picker.addEventListener("change",()=>{
-draw(new Date(picker.value))
-})
-
-}
-
-/* ==============================
+/* ===============================
 ASTRONOMY HELPERS
-============================== */
+=============================== */
 
 const d2r=d=>d*Math.PI/180
 const norm360=x=>(x%360+360)%360
 
+function julian(date){
+return date/86400000+2440587.5
+}
+
 function sunLong(jd){
 
 const T=(jd-2451545)/36525
-
 const L0=norm360(280.46646+36000.76983*T)
-
 const M=norm360(357.52911+35999.05029*T)
 
-const C=
+return L0+
 1.914602*Math.sin(d2r(M))+
 0.019993*Math.sin(d2r(2*M))
-
-return L0+C
 
 }
 
@@ -173,19 +164,12 @@ L1+
 
 }
 
-function julian(date){
-
-return date/86400000+2440587.5
-
-}
-
 function elongation(jd){
 
 let s=sunLong(jd)
 let m=moonLong(jd)
 
 let E=Math.abs(norm360(m-s))
-
 if(E>180)E=360-E
 
 return E
@@ -198,29 +182,27 @@ return (1-Math.cos(d2r(elongation(jd))))/2
 
 }
 
-/* ==============================
+/* ===============================
 VISIBILITY MODEL
-============================== */
+=============================== */
 
 function visibility(illum,el){
 
 const pct=illum*100
 
-const alt=el*0.8
+if(pct>=1 && el>=10)
+return {color:"green",text:"Likely Visible"}
 
-if(pct>=1 && el>=10 && alt>=10)
-return "green"
+if(pct>=0.5 && el>=7)
+return {color:"yellow",text:"Borderline"}
 
-if(pct>=0.5 && el>=7 && alt>=5)
-return "yellow"
-
-return "red"
+return {color:"red",text:"Unlikely"}
 
 }
 
-/* ==============================
+/* ===============================
 DRAW MAP
-============================== */
+=============================== */
 
 function draw(date){
 
@@ -228,27 +210,49 @@ layer.clearLayers()
 
 const jd=julian(date)
 
-for(let lat=-60;lat<=60;lat+=5){
-
-for(let lon=-180;lon<=180;lon+=5){
+CITIES.forEach(city=>{
 
 let illum=illumination(jd)
-
 let el=elongation(jd)
 
-let color=visibility(illum,el)
+let vis=visibility(illum,el)
 
-L.circleMarker([lat,lon],{
-radius:3,
-color:color,
-fillOpacity:.7
-}).addTo(layer)
+L.circleMarker([city.lat,city.lon],{
+
+radius:8,
+color:vis.color,
+fillOpacity:0.8
+
+})
+.addTo(layer)
+.bindPopup(
+
+"<b>"+city.name+"</b><br>"+
+"Illumination: "+(illum*100).toFixed(2)+"%<br>"+
+"Elongation: "+el.toFixed(2)+"°<br>"+
+"Visibility: "+vis.text
+
+)
+
+})
 
 }
 
-}
+/* ===============================
+DATE CONTROL
+=============================== */
 
-}
+const picker=document.getElementById("dateInput")
+
+const today=new Date()
+
+picker.value=today.toISOString().split("T")[0]
+
+draw(today)
+
+picker.addEventListener("change",()=>{
+draw(new Date(picker.value))
+})
 
 </script>
 
