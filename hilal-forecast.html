@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,6 +64,7 @@ display:inline-block;
 .red{background:#e74c3c}
 
 </style>
+
 </head>
 
 <body>
@@ -81,9 +83,9 @@ display:inline-block;
 <input type="date" id="dateInput">
 
 <div class="legend">
-<div><span class="dot green"></span> Visible</div>
-<div><span class="dot yellow"></span> Borderline</div>
-<div><span class="dot red"></span> Not Visible</div>
+<div><span class="dot green"></span>Visible</div>
+<div><span class="dot yellow"></span>Borderline</div>
+<div><span class="dot red"></span>Not Visible</div>
 </div>
 
 </div>
@@ -92,54 +94,54 @@ display:inline-block;
 
 <script>
 
-/* ===============================
-MAP
-=============================== */
+/* ==============================
+MAP INIT
+============================== */
 
-const map=L.map("map").setView([20,0],2)
+let map
+let layer
+
+window.onload=function(){
+
+map=L.map("map").setView([20,0],2)
 
 L.tileLayer(
 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 {attribution:"© OpenStreetMap"}
 ).addTo(map)
 
-let layer=L.layerGroup().addTo(map)
+layer=L.layerGroup().addTo(map)
 
-/* ===============================
-MATH HELPERS
-=============================== */
-
-const d2r=d=>d*Math.PI/180
-const r2d=r=>r*180/Math.PI
-const norm360=x=>(x%360+360)%360
-
-/* ===============================
-JULIAN DATE
-=============================== */
-
-function jdFromDate(d){
-
-const y=d.getUTCFullYear()
-const m=d.getUTCMonth()+1
-const dy=d.getUTCDate()
-
-let Y=y
-let M=m
-
-if(M<=2){Y--;M+=12}
-
-const A=Math.floor(Y/100)
-const B=2-A+Math.floor(A/4)
-
-return Math.floor(365.25*(Y+4716))
-+Math.floor(30.6001*(M+1))
-+dy+B-1524.5
+initDate()
 
 }
 
-/* ===============================
-SUN
-=============================== */
+/* ==============================
+DATE CONTROL
+============================== */
+
+function initDate(){
+
+const picker=document.getElementById("dateInput")
+
+const today=new Date()
+
+picker.value=today.toISOString().split("T")[0]
+
+draw(today)
+
+picker.addEventListener("change",()=>{
+draw(new Date(picker.value))
+})
+
+}
+
+/* ==============================
+ASTRONOMY HELPERS
+============================== */
+
+const d2r=d=>d*Math.PI/180
+const norm360=x=>(x%360+360)%360
 
 function sunLong(jd){
 
@@ -157,10 +159,6 @@ return L0+C
 
 }
 
-/* ===============================
-MOON
-=============================== */
-
 function moonLong(jd){
 
 const T=(jd-2451545)/36525
@@ -175,14 +173,16 @@ L1+
 
 }
 
-/* ===============================
-ELONGATION
-=============================== */
+function julian(date){
 
-function elongationDeg(jd){
+return date/86400000+2440587.5
 
-const s=sunLong(jd)
-const m=moonLong(jd)
+}
+
+function elongation(jd){
+
+let s=sunLong(jd)
+let m=moonLong(jd)
 
 let E=Math.abs(norm360(m-s))
 
@@ -192,113 +192,51 @@ return E
 
 }
 
-/* ===============================
-ILLUMINATION
-=============================== */
-
 function illumination(jd){
 
-return (1-Math.cos(d2r(elongationDeg(jd))))/2
+return (1-Math.cos(d2r(elongation(jd))))/2
 
 }
 
-/* ===============================
-SUNSET
-=============================== */
+/* ==============================
+VISIBILITY MODEL
+============================== */
 
-function sunsetUTC(date,lat,lon){
-
-const N=Math.floor(
-(Date.UTC(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate())
--Date.UTC(date.getUTCFullYear(),0,0))/86400000
-)
-
-const lngHour=lon/15
-const t=N+(18-lngHour)/24
-
-const M=(0.9856*t)-3.289
-
-const L=norm360(
-M+
-1.916*Math.sin(d2r(M))+
-282.634
-)
-
-const RA=r2d(Math.atan(0.91764*Math.tan(d2r(L))))/15
-
-const sinDec=0.39782*Math.sin(d2r(L))
-const cosDec=Math.cos(Math.asin(sinDec))
-
-const cosH=(Math.cos(d2r(90.833))-sinDec*Math.sin(d2r(lat)))
-/(cosDec*Math.cos(d2r(lat)))
-
-if(cosH>1)return null
-
-const H=r2d(Math.acos(cosH))/15
-
-let UT=(H+RA-0.06571*t-6.622)%24
-
-if(UT<0)UT+=24
-
-return new Date(Date.UTC(
-date.getUTCFullYear(),
-date.getUTCMonth(),
-date.getUTCDate(),
-Math.floor(UT),
-Math.floor((UT%1)*60)
-))
-
-}
-
-/* ===============================
-ALTITUDE
-=============================== */
-
-function moonAltitude(jd,lat){
-
-const el=elongationDeg(jd)
-
-return el*0.8
-
-}
-
-/* ===============================
-VISIBILITY
-=============================== */
-
-function visibility(illum,el,alt){
+function visibility(illum,el){
 
 const pct=illum*100
 
-if(pct>=1 && el>=10 && alt>=10) return "green"
+const alt=el*0.8
 
-if(pct>=0.5 && el>=7 && alt>=5) return "yellow"
+if(pct>=1 && el>=10 && alt>=10)
+return "green"
+
+if(pct>=0.5 && el>=7 && alt>=5)
+return "yellow"
 
 return "red"
 
 }
 
-/* ===============================
+/* ==============================
 DRAW MAP
-=============================== */
+============================== */
 
 function draw(date){
 
 layer.clearLayers()
 
+const jd=julian(date)
+
 for(let lat=-60;lat<=60;lat+=5){
 
 for(let lon=-180;lon<=180;lon+=5){
 
-const jd=jdFromDate(date)
+let illum=illumination(jd)
 
-const illum=illumination(jd)
+let el=elongation(jd)
 
-const el=elongationDeg(jd)
-
-const alt=el*0.8
-
-const color=visibility(illum,el,alt)
+let color=visibility(illum,el)
 
 L.circleMarker([lat,lon],{
 radius:3,
@@ -311,24 +249,6 @@ fillOpacity:.7
 }
 
 }
-
-/* ===============================
-DATE CONTROL
-=============================== */
-
-const picker=document.getElementById("dateInput")
-
-const today=new Date()
-
-picker.value=today.toISOString().split("T")[0]
-
-draw(today)
-
-picker.addEventListener("change",()=>{
-
-draw(new Date(picker.value))
-
-})
 
 </script>
 
