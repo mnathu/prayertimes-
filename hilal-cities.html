@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Crescent Visibility Planner (iOS Illumination + Real Altitudes)</title>
+<title>Crescent Visibility Planner (Illumination + Elongation + Altitude)</title>
 
 <style>
   body { font-family: system-ui, Arial; margin: 32px; }
@@ -13,16 +13,19 @@
 </head>
 
 <body>
-
-<h2>Crescent Visibility Planner (Illumination + Elongation + Altitude)</h2>
+<nav style="background:#0A166C; color:white; padding:10px; text-align:center;">
+  <a href="index.html" style="color:white; margin:0 10px; text-decoration:none;">Home</a>
+  <a href="annual.html" style="color:white; margin:0 10px; text-decoration:none;">Annual Timetable</a>
+  <a href="qibla.html" style="color:white; margin:0 10px; text-decoration:none;">Qibla Locator</a>
+  <a href="halal.html" style="color:white; margin:0 10px; text-decoration:none;">Halal Guide</a>
+</nav>
+<h2>Crescent Visibility Planner</h2>
 
 <label>Select Date:
   <input type="date" id="dateInput">
 </label>
-<button onclick="run()">Run</button>
 
 <div style="margin:20px 0;">
-  <p><strong>Julian Date:</strong> <span id="jdOut"></span></p>
   <p><strong>Hijri Date:</strong> <span id="hijriOut"></span></p>
 </div>
 
@@ -36,7 +39,7 @@
   <th>Alt@30m</th>
   <th>Alt@40m</th>
   <th>Phase</th>
-  <th>Visibility Chance</th>
+  <th>Visibility</th>
 </tr>
 </thead>
 <tbody id="results"></tbody>
@@ -65,7 +68,7 @@ function isDST_NA(gDate){
 }
 
 // ==============================
-// CITY LIST (base UTC offsets)
+// CITY LIST
 // ==============================
 const CITIES = [
   { name:"Minneapolis, MN", lat:44.9778, lon:-93.2650, baseUTC:-6 },
@@ -114,7 +117,7 @@ function gmstHours(jd){
 }
 
 // ==============================
-// SUN POSITION (Meeus approximation)
+// SUN POSITION
 // ==============================
 function sunLong(jd){
   const T=(jd-2451545)/36525;
@@ -136,7 +139,7 @@ function sunEquatorial(jd){
 }
 
 // ==============================
-// MOON POSITION (truncated series)
+// MOON POSITION
 // ==============================
 function moonLong(jd){
   const T=(jd-2451545)/36525;
@@ -164,7 +167,7 @@ function moonEquatorial(jd){
 }
 
 // ==============================
-// ALTITUDE
+// ALTITUDE CALC
 // ==============================
 function altitude(jd,lat,lon,RAdeg,decdeg){
   const GMST=gmstHours(jd);
@@ -182,7 +185,7 @@ function moonAltitude(jd,lat,lon){
 }
 
 // ==============================
-// SUNSET (for altitude timings)
+// SUNSET
 // ==============================
 function sunsetUTC(gDate, lat, lon){
   const N = Math.floor(
@@ -210,7 +213,7 @@ function sunsetUTC(gDate, lat, lon){
 
   const H=r2d(Math.acos(cosH))/15;
   let UT=(H + RAh - 0.06571*t - 6.622) % 24;
-  if(UT<0) UT+=24;
+  if(UT < 0) UT += 24;
 
   return new Date(Date.UTC(
     gDate.getUTCFullYear(), gDate.getUTCMonth(), gDate.getUTCDate(),
@@ -227,25 +230,30 @@ function elongationDeg(jd){
   if(E>180) E=360-E;
   return E;
 }
-
 function illuminationFraction(jd){
   return (1 - Math.cos(d2r(elongationDeg(jd)))) / 2;
 }
-
-function phaseName(illum, elong){
+function phaseName(illum, el){
   if(illum<0.01) return "New Moon";
-  if(illum<0.49 && elong<90) return "Waxing Crescent";
-  if(Math.abs(illum-0.5)<0.02 && elong<90) return "First Quarter";
-  if(illum<0.99 && elong>90 && elong<180) return "Waxing Gibbous";
+  if(illum<0.49 && el<90) return "Waxing Crescent";
+  if(Math.abs(illum-0.5)<0.02 && el<90) return "First Quarter";
+  if(illum<0.99 && el>90 && el<180) return "Waxing Gibbous";
   if(illum>0.99) return "Full Moon";
-  if(illum<0.99 && elong>180 && elong<270) return "Waning Gibbous";
-  if(Math.abs(illum-0.5)<0.02 && elong>180) return "Last Quarter";
+  if(illum<0.99 && el>180 && el<270) return "Waning Gibbous";
+  if(Math.abs(illum-0.5)<0.02 && el>180) return "Last Quarter";
   return "Waning Crescent";
 }
 
 // ==============================
-// HIJRI (Civil)
+// HIJRI MONTH NAMES
 // ==============================
+const HIJRI_MONTHS = [
+  "Muharram","Safar","Rabiʿ al-Awwal","Rabiʿ al-Thani",
+  "Jumada al-Ula","Jumada al-Akhirah",
+  "Rajab","Sha'ban","Ramadan","Shawwal",
+  "Dhul Qa'dah","Dhul Hijjah"
+];
+
 function gregToHijri(g){
   var day=g.getUTCDate(),
       month=g.getUTCMonth()+1,
@@ -279,22 +287,18 @@ function gregToHijri(g){
 }
 
 // ==============================
-// VISIBILITY CHANCE (with altitude)
+// VISIBILITY CHANCE
 // ==============================
-function visibilityChance(illum, elong, alt20, alt30, alt40){
+function visibilityChance(illum, el, alt20, alt30, alt40){
   const pct = illum*100;
-
   const maxAlt = Math.max(alt20, alt30, alt40);
 
-  // ✓ Likely Visible
-  if(pct >= 1 && elong >= 10 && maxAlt >= 10)
+  if(pct>=1 && el>=10 && maxAlt>=10)
     return "✓ Likely Visible";
 
-  // ~ Borderline
-  if(pct >= 0.5 && elong >= 7 && maxAlt >= 5)
+  if(pct>=0.5 && el>=7 && maxAlt>=5)
     return "~ Borderline";
 
-  // × Unlikely
   return "× Unlikely";
 }
 
@@ -303,76 +307,76 @@ function visibilityChance(illum, elong, alt20, alt30, alt40){
 // ==============================
 function run(){
   const val=document.getElementById("dateInput").value;
-  if(!val){ alert("Pick a date"); return; }
+  if(!val) return;
 
   const gDate=new Date(val+"T00:00:00Z");
 
-  const jd = jdFromDate(gDate);
-  document.getElementById("jdOut").textContent = jd.toFixed(5);
-
   const hij = gregToHijri(gDate);
   document.getElementById("hijriOut").textContent =
-    `${hij.hDay}/${hij.hMonth}/${hij.hYear} AH`;
+    `${HIJRI_MONTHS[hij.hMonth-1]} ${hij.hDay}`;
 
   const tbody=document.getElementById("results");
   tbody.innerHTML="";
 
   CITIES.forEach(city=>{
-    const utcOffset = getUTCOffset(city, gDate);
+    const utcOffset=getUTCOffset(city, gDate);
 
     // Daily iOS illumination (local noon)
     const noonUTC = new Date(Date.UTC(
       gDate.getUTCFullYear(), gDate.getUTCMonth(), gDate.getUTCDate(),
       (12 - utcOffset + 24) % 24, 0, 0
     ));
-    const jdNoon = jdFromDate(noonUTC);
+    const jdNoon=jdFromDate(noonUTC);
 
-    const illum = illuminationFraction(jdNoon);
+    const illum=illuminationFraction(jdNoon);
     const el = elongationDeg(jdNoon);
-    const phase = phaseName(illum, el);
+    const phase=phaseName(illum, el);
 
     // Sunset
     const ss = sunsetUTC(gDate, city.lat, city.lon);
 
-    let alt20="—", alt30="—", alt40="—";
+    let alt20="—", alt30="—", alt40="—", vis="× Unlikely";
 
     if(ss){
-      const t20 = new Date(ss.getTime() + 20*60000);
-      const t30 = new Date(ss.getTime() + 30*60000);
-      const t40 = new Date(ss.getTime() + 40*60000);
+      const t20=new Date(ss.getTime()+20*60000);
+      const t30=new Date(ss.getTime()+30*60000);
+      const t40=new Date(ss.getTime()+40*60000);
 
-      alt20 = moonAltitude(jdFromDate(t20), city.lat, city.lon).toFixed(1);
-      alt30 = moonAltitude(jdFromDate(t30), city.lat, city.lon).toFixed(1);
-      alt40 = moonAltitude(jdFromDate(t40), city.lat, city.lon).toFixed(1);
+      alt20=moonAltitude(jdFromDate(t20), city.lat, city.lon).toFixed(1);
+      alt30=moonAltitude(jdFromDate(t30), city.lat, city.lon).toFixed(1);
+      alt40=moonAltitude(jdFromDate(t40), city.lat, city.lon).toFixed(1);
+
+      vis=visibilityChance(
+        illum, el,
+        parseFloat(alt20), parseFloat(alt30), parseFloat(alt40)
+      );
     }
 
-    const vis = visibilityChance(illum, el,
-      parseFloat(alt20)||-999,
-      parseFloat(alt30)||-999,
-      parseFloat(alt40)||-999
-    );
-
     tbody.innerHTML += `
-      <tr>
-        <td>${city.name}</td>
-        <td>${(illum*100).toFixed(1)}%</td>
-        <td>${el.toFixed(2)}</td>
-        <td>${alt20}</td>
-        <td>${alt30}</td>
-        <td>${alt40}</td>
-        <td>${phase}</td>
-        <td>${vis}</td>
-      </tr>`;
+    <tr>
+      <td>${city.name}</td>
+      <td>${(illum*100).toFixed(1)}%</td>
+      <td>${el.toFixed(2)}</td>
+      <td>${alt20}</td>
+      <td>${alt30}</td>
+      <td>${alt40}</td>
+      <td>${phase}</td>
+      <td>${vis}</td>
+    </tr>`;
   });
 }
 
-// Auto-run
+// ==============================
+// AUTO‑LOAD TODAY & AUTO‑UPDATE
+// ==============================
 window.onload = function(){
   const t=new Date();
-  const y=t.getFullYear(), m=String(t.getMonth()+1).padStart(2,'0'), d=String(t.getDate()).padStart(2,'0');
-  document.getElementById("dateInput").value=`${y}-${m}-${d}`;
+  const yyyy=t.getFullYear(), mm=String(t.getMonth()+1).padStart(2,'0'), dd=String(t.getDate()).padStart(2,'0');
+  document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
   run();
 };
+
+document.getElementById("dateInput").addEventListener("change", run);
 </script>
 
 </body>
