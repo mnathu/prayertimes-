@@ -1,245 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hilal Forecast – PrayerTimes</title>
-
-<!-- SunCalc (CSP SAFE) -->
-<script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+<meta charset="utf-8" />
+<title>iOS‑Style Moon Illumination + Visibility Chance</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f9f9f9;
-        color: #222;
-    }
-
-    .container {
-        max-width: 1000px;
-        margin: auto;
-        padding: 20px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .card {
-        background: #fff;
-        padding: 20px;
-        margin-top: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-    }
-
-    th, td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-    }
-
-    th {
-        background: #f2f2f2;
-    }
-
-    .verdict-good { color: green; font-weight: bold; }
-    .verdict-mid { color: orange; font-weight: bold; }
-    .verdict-bad { color: red; font-weight: bold; }
-
-    .small {
-        font-size: 0.9em;
-        color: #666;
-    }
+  body { font-family: system-ui, Arial; margin: 32px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 25px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  th { background:#f2f2f2; }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<h2>iOS‑Style Moon Illumination (Daily) + Visibility Chance</h2>
 
-<h1>🌙 Hilal Forecast</h1>
-<p class="small" id="locationDisplay">Detecting location...</p>
+<label>Select Date:
+  <input type="date" id="dateInput">
+</label>
+<button onclick="run()">Run</button>
 
-<div class="card">
-    <h2>Your Location Forecast</h2>
-    <div id="userForecast">Calculating...</div>
+<div style="margin:20px 0;">
+  <p><strong>Julian Date:</strong> <span id="jdOut"></span></p>
+  <p><strong>Hijri Date:</strong> <span id="hijriOut"></span></p>
 </div>
 
-<div class="card">
-    <h2>Major North American Cities</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>City</th>
-                <th>Yallop</th>
-                <th>Odeh</th>
-            </tr>
-        </thead>
-        <tbody id="cityTable"></tbody>
-    </table>
-</div>
-
-</div>
+<table>
+<thead>
+<tr>
+  <th>City</th>
+  <th>Illumination</th>
+  <th>Elongation</th>
+  <th>Phase</th>
+  <th>Visibility Chance</th>
+</tr>
+</thead>
+<tbody id="results"></tbody>
+</table>
 
 <script>
+// ---------------- DST boundaries for North America ----------------
+// DST: 2nd Sunday March → 1st Sunday November
+function isDST_NA(gDate) {
+  const year = gDate.getUTCFullYear();
 
-/* =========================
-   Major North American Cities
-========================= */
+  function secondSundayMarch(y){
+    const d=new Date(Date.UTC(y,2,1));
+    const day=d.getUTCDay();
+    return new Date(Date.UTC(y,2,1 + ((7-day)%7) + 7));
+  }
+  function firstSundayNov(y){
+    const d=new Date(Date.UTC(y,10,1));
+    const day=d.getUTCDay();
+    return new Date(Date.UTC(y,10,1 + ((7-day)%7)));
+  }
 
-const NA_CITIES = [
-  { name: "New York, NY", lat: 40.7128, lon: -74.0060 },
-  { name: "Chicago, IL", lat: 41.8781, lon: -87.6298 },
-  { name: "Houston, TX", lat: 29.7604, lon: -95.3698 },
-  { name: "Phoenix, AZ", lat: 33.4484, lon: -112.0740 },
-  { name: "Los Angeles, CA", lat: 34.0522, lon: -118.2437 },
-  { name: "Minneapolis, MN", lat: 44.9778, lon: -93.2650 },
-  { name: "Seattle, WA", lat: 47.6062, lon: -122.3321 },
-  { name: "Denver, CO", lat: 39.7392, lon: -104.9903 },
-  { name: "Toronto, ON", lat: 43.6532, lon: -79.3832 },
-  { name: "Calgary, AB", lat: 51.0447, lon: -114.0719 },
-  { name: "Miami, FL", lat: 25.7617, lon: -80.1918 },
-  { name: "Dallas, TX", lat: 32.7767, lon: -96.7970 },
-  { name: "San Francisco, CA", lat: 37.7749, lon: -122.4194 },
-  { name: "Washington, DC", lat: 38.9072, lon: -77.0369 }
+  const begin = secondSundayMarch(year);
+  const end   = firstSundayNov(year);
+  return (gDate >= begin && gDate < end);
+}
+
+// ---------------- City list (base UTC offsets, DST handled separately) ----------------
+const CITIES_BASE = [
+  { name:"Minneapolis, MN", lat:44.9778, lon:-93.2650, baseUTC:-6 },
+  { name:"Orlando, FL",     lat:28.5383, lon:-81.3792, baseUTC:-5 },
+  { name:"New York, NY",    lat:40.7128, lon:-74.0060, baseUTC:-5 },
+  { name:"Chicago, IL",     lat:41.8781, lon:-87.6298, baseUTC:-6 },
+  { name:"Houston, TX",     lat:29.7604, lon:-95.3698, baseUTC:-6 },
+  { name:"Phoenix, AZ",     lat:33.4484, lon:-112.0740, baseUTC:-7 }, // no DST
+  { name:"Los Angeles, CA", lat:34.0522, lon:-118.2437, baseUTC:-8 },
+  { name:"Denver, CO",      lat:39.7392, lon:-104.9903, baseUTC:-7 },
+  { name:"Miami, FL",       lat:25.7617, lon:-80.1918, baseUTC:-5 },
+  { name:"Seattle, WA",     lat:47.6062, lon:-122.3321, baseUTC:-8 },
+  { name:"Toronto, ON",     lat:43.6532, lon:-79.3832, baseUTC:-5 },
+  { name:"Vancouver, BC",   lat:49.2827, lon:-123.1207, baseUTC:-8 }
 ];
 
-/* =========================
-   Find Next New Moon (Approx)
-========================= */
-
-function getNextNewMoon() {
-    const now = new Date();
-    for (let i = 0; i < 35; i++) {
-        const testDate = new Date(now.getTime() + i * 24*60*60*1000);
-        const illum = SunCalc.getMoonIllumination(testDate);
-        if (illum.phase < 0.02) {
-            return testDate;
-        }
-    }
-    return now;
+function getUTCOffset(city, gDate){
+  if(city.name.includes("Phoenix")) return city.baseUTC;  
+  return city.baseUTC + (isDST_NA(gDate) ? 1 : 0);
 }
 
-/* =========================
-   Compute Hilal Parameters
-========================= */
+// ---------------- Astro helpers ----------------
+const d2r=d=>d*Math.PI/180;
+const r2d=r=>r*180/Math.PI;
+const norm360=x=>(x % 360 + 360) % 360;
 
-function computeHilal(date, lat, lon) {
-
-    const times = SunCalc.getTimes(date, lat, lon);
-    const sunset = times.sunset;
-
-    const moonPos = SunCalc.getMoonPosition(sunset, lat, lon);
-    const sunPos = SunCalc.getPosition(sunset, lat, lon);
-    const illum = SunCalc.getMoonIllumination(sunset);
-
-    const moonAlt = moonPos.altitude * (180/Math.PI);
-    const sunAlt = sunPos.altitude * (180/Math.PI);
-
-    const elongation = illum.phaseAngle * (180/Math.PI);
-
-    const ARCV = moonAlt - sunAlt;
-
-    const moonset = SunCalc.getTimes(date, lat, lon).moonset;
-    const lag = moonset ? (moonset - sunset)/60000 : 0;
-
-    const crescentWidth = illum.fraction * 60;
-
-    return { elongation, ARCV, crescentWidth, lag };
+// ---------------- Julian date ----------------
+function jdFromDate(d){
+  const y=d.getUTCFullYear(), m=d.getUTCMonth()+1;
+  const day=d.getUTCDate() + (d.getUTCHours()+d.getUTCMinutes()/60)/24;
+  let Y=y, M=m;
+  if(M<=2){ Y--; M+=12; }
+  const A=Math.floor(Y/100);
+  const B=2 - A + Math.floor(A/4);
+  return Math.floor(365.25*(Y+4716))
+       + Math.floor(30.6001*(M+1))
+       + day + B - 1524.5;
 }
 
-/* =========================
-   Yallop Model
-========================= */
-
-function yallopQ(ARCV, W) {
-    const fW = -0.1018 * W**3 + 0.7319 * W**2 - 6.3226 * W + 7.1651;
-    return ARCV - fW;
+// ---------------- Sun position ----------------
+function sunLong(jd){
+  const T=(jd-2451545)/36525;
+  const L0=norm360(280.46646 + 36000.76983*T);
+  const M =norm360(357.52911 + 35999.05029*T);
+  const C =(1.914602-0.004817*T)*Math.sin(d2r(M))
+       +(0.019993-0.000101*T)*Math.sin(d2r(2*M))
+       +0.000289*Math.sin(d2r(3*M));
+  return L0+C;
 }
 
-function classifyYallop(q) {
-    if (q > 0.216) return ["Easily Visible", "verdict-good"];
-    if (q > -0.014) return ["Visible", "verdict-good"];
-    if (q > -0.160) return ["Optical Aid Only", "verdict-mid"];
-    if (q > -0.232) return ["May Need Optical Aid", "verdict-mid"];
-    return ["Not Visible", "verdict-bad"];
+// ---------------- Moon position ----------------
+function moonLong(jd){
+  const T=(jd-2451545)/36525;
+  const L1=norm360(218.316 + 481267.8813*T);
+  const M =norm360(134.963 + 477198.8676*T);
+  const Ms=norm360(357.529 + 35999.050*T);
+
+  return norm360(
+    L1 +
+    6.289*Math.sin(d2r(M)) +
+    1.274*Math.sin(d2r(2*L1 - M - Ms)) +
+    0.658*Math.sin(d2r(2*L1)) +
+    0.214*Math.sin(d2r(2*M)) +
+    0.110*Math.sin(d2r(L1))
+  );
 }
 
-/* =========================
-   Odeh Model
-========================= */
-
-function classifyOdeh(ARCL, ARCV) {
-    if (ARCL >= 10 && ARCV >= 5) return "Naked Eye Possible";
-    if (ARCL >= 8 && ARCV >= 4) return "Optical Aid";
-    return "Not Visible";
+// ---------------- Illumination & phase ----------------
+function elongationDeg(jd){
+  const s=sunLong(jd), m=moonLong(jd);
+  let E=Math.abs(norm360(m - s));
+  if(E>180) E=360 - E;
+  return E;
+}
+function illuminationFraction(jd){
+  return (1 - Math.cos(d2r(elongationDeg(jd)))) / 2;
+}
+function phaseName(illum, elong){
+  if(illum < 0.01) return "New Moon";
+  if(illum < 0.49 && elong < 90) return "Waxing Crescent";
+  if(Math.abs(illum - 0.5) < 0.02 && elong < 90) return "First Quarter";
+  if(illum < 0.99 && elong > 90 && elong < 180) return "Waxing Gibbous";
+  if(illum > 0.99) return "Full Moon";
+  if(illum < 0.99 && elong > 180 && elong < 270) return "Waning Gibbous";
+  if(Math.abs(illum - 0.5) < 0.02 && elong > 180) return "Last Quarter";
+  return "Waning Crescent";
 }
 
-/* =========================
-   Run Forecast
-========================= */
+// ---------------- Hijri (civil) ----------------
+function gregToHijri(g){
+  var day=g.getUTCDate(),
+      month=g.getUTCMonth()+1,
+      year=g.getUTCFullYear();
 
-function runForecast(lat, lon, locationName) {
+  var m=month, y=year;
+  if(m < 3){ y--; m+=12; }
 
-    document.getElementById("locationDisplay").innerText =
-        "Location: " + locationName;
+  var a=Math.floor(y/100);
+  var b=2 - a + Math.floor(a/4);
 
-    const newMoon = getNextNewMoon();
+  var jd=Math.floor(365.25*(y+4716))
+        + Math.floor(30.6001*(m+1))
+        + day + b - 1524.5;
 
-    const data = computeHilal(newMoon, lat, lon);
-    const q = yallopQ(data.ARCV, data.crescentWidth);
-    const yClass = classifyYallop(q);
-    const oClass = classifyOdeh(data.elongation, data.ARCV);
+  var l = jd - 1948440 + 10632;
+  var n = Math.floor((l - 1)/10631);
+  l = l - 10631*n + 354;
 
-    document.getElementById("userForecast").innerHTML = `
-        <p><strong>Elongation:</strong> ${data.elongation.toFixed(2)}°</p>
-        <p><strong>ARCV:</strong> ${data.ARCV.toFixed(2)}°</p>
-        <p><strong>Lag Time:</strong> ${data.lag.toFixed(0)} minutes</p>
-        <p><strong>Yallop:</strong> <span class="${yClass[1]}">${yClass[0]}</span></p>
-        <p><strong>Odeh:</strong> ${oClass}</p>
-    `;
+  var j=(Math.floor((10985 - l)/5316)) * (Math.floor((50*l)/17719))
+        + (Math.floor(l/5670)) * (Math.floor((43*l)/15238));
 
-    const table = document.getElementById("cityTable");
-    table.innerHTML = "";
+  l = l - (Math.floor((30 - j)/15)) * (Math.floor((17719*j)/50))
+        - (Math.floor(j/16))      * (Math.floor((15238*j)/43)) + 29;
 
-    NA_CITIES.forEach(city => {
-        const cityData = computeHilal(newMoon, city.lat, city.lon);
-        const qCity = yallopQ(cityData.ARCV, cityData.crescentWidth);
-        const yCity = classifyYallop(qCity);
-        const oCity = classifyOdeh(cityData.elongation, cityData.ARCV);
-
-        table.innerHTML += `
-            <tr>
-                <td>${city.name}</td>
-                <td class="${yCity[1]}">${yCity[0]}</td>
-                <td>${oCity}</td>
-            </tr>
-        `;
-    });
+  var mHij=Math.floor((24*l)/709);
+  var dHij=l - Math.floor((709*mHij)/24);
+  var yHij=30*n + j - 30;
+  return {hDay:dHij, hMonth:mHij, hYear:yHij};
 }
 
-/* =========================
-   Geolocation
-========================= */
+// ---------------- Local Noon UTC ----------------
+function localNoonUTC(gDate, utcOffset){
+  const utcHr = (12 - utcOffset + 24) % 24;
+  return new Date(Date.UTC(
+    gDate.getUTCFullYear(),
+    gDate.getUTCMonth(),
+    gDate.getUTCDate(),
+    utcHr, 0, 0
+  ));
+}
 
-navigator.geolocation.getCurrentPosition(
-    pos => {
-        runForecast(pos.coords.latitude, pos.coords.longitude, "Your Current Location");
-    },
-    () => {
-        runForecast(44.9778, -93.2650, "Minneapolis, MN (Default)");
-    }
-);
+// ---------------- Visibility Chance ----------------
+function visibilityChance(illum, elong){
+  const pct = illum * 100;
 
+  // Good chance: illum >=1% and elong >=10°
+  if(pct >= 1 && elong >= 10) return "✓ Likely Visible";
+
+  // Borderline
+  if(pct >= 0.5 && elong >= 7) return "~ Borderline";
+
+  // Otherwise unlikely
+  return "× Unlikely";
+}
+
+// ---------------- MAIN ----------------
+function run(){
+  const val=document.getElementById("dateInput").value;
+  if(!val){ alert("Pick a date"); return; }
+
+  const gDate=new Date(val+"T00:00:00Z");
+
+  const jd = jdFromDate(gDate);
+  document.getElementById("jdOut").textContent = jd.toFixed(5);
+
+  const hij = gregToHijri(gDate);
+  document.getElementById("hijriOut").textContent =
+    `${hij.hDay}/${hij.hMonth}/${hij.hYear} AH`;
+
+  const tbody=document.getElementById("results");
+  tbody.innerHTML="";
+
+  CITIES_BASE.forEach(city=>{
+    const offset = getUTCOffset(city, gDate);
+    const lnUTC = localNoonUTC(gDate, offset);
+    const jdLn = jdFromDate(lnUTC);
+
+    const illum = illuminationFraction(jdLn);
+    const elong = elongationDeg(jdLn);
+    const phase = phaseName(illum, elong);
+    const vis = visibilityChance(illum, elong);
+
+    tbody.innerHTML += `
+      <tr>
+        <td>${city.name}</td>
+        <td>${(illum*100).toFixed(1)}%</td>
+        <td>${elong.toFixed(2)}°</td>
+        <td>${phase}</td>
+        <td>${vis}</td>
+      </tr>`;
+  });
+}
+
+// --------- AUTO‑RUN TODAY ----------
+window.onload = function(){
+  const t=new Date();
+  const y=t.getFullYear(), m=String(t.getMonth()+1).padStart(2,'0'), d=String(t.getDate()).padStart(2,'0');
+  document.getElementById("dateInput").value=`${y}-${m}-${d}`;
+  run();
+};
 </script>
 
 </body>
