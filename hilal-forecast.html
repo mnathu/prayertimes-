@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Crescent Visibility Planner (Next 28.5 Hijri Default)</title>
+<title>Crescent Visibility Planner — Next 28.5 Hijri Default</title>
 
 <style>
   body { font-family: system-ui, Arial; margin: 32px; }
@@ -81,7 +81,7 @@ const CITIES = [
   { name:"Vancouver, BC",   lat:49.2827, lon:-123.1207, baseUTC:-8 }
 ];
 
-function getUTCOffset(city, gDate){
+function getUTCOffset(city,gDate){
   if(city.name.includes("Phoenix")) return city.baseUTC;
   return city.baseUTC + (isDST_NA(gDate) ? 1 : 0);
 }
@@ -118,21 +118,12 @@ function gmstHours(jd){
 // =====================================================================
 function sunLong(jd){
   const T=(jd-2451545)/36525;
-  const L0=norm360(280.46646 + 36000.76983*T);
-  const M=norm360(357.52911 + 35999.05029*T);
-  const C=(1.914602-0.004817*T)*Math.sin(d2r(M))
-        +(0.019993-0.000101*T)*Math.sin(d2r(2*M))
-        +0.000289*Math.sin(d2r(3*M));
+  const L0=norm360(280.46646+36000.76983*T);
+  const M =norm360(357.52911+35999.05029*T);
+  const C =(1.914602-0.004817*T)*Math.sin(d2r(M))
+         +(0.019993-0.000101*T)*Math.sin(d2r(2*M))
+         +0.000289*Math.sin(d2r(3*M));
   return L0+C;
-}
-
-function sunEquatorial(jd){
-  const lam=sunLong(jd);
-  const eps=23.439;
-  const dec=r2d(Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam))));
-  const RA=r2d(Math.atan2(Math.sin(d2r(lam))*Math.cos(d2r(eps)),
-                          Math.cos(d2r(lam))));
-  return {RA, dec};
 }
 
 // =====================================================================
@@ -207,16 +198,13 @@ function sunsetUTC(gDate,lat,lon){
 
   if(cosH>1) return null;
 
-  const H=r2d(Math.acos(cosH))/15;
-  let UT=(H + RAh - 0.06571*t - 6.622) % 24;
+  const H      = r2d(Math.acos(cosH))/15;
+  let   UT=(H + RAh - 0.06571*t - 6.622) % 24;
   if(UT<0) UT+=24;
 
   return new Date(Date.UTC(
-    gDate.getUTCFullYear(),
-    gDate.getUTCMonth(),
-    gDate.getUTCDate(),
-    Math.floor(UT),
-    Math.floor((UT%1)*60)
+    gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate(),
+    Math.floor(UT), Math.floor((UT%1)*60)
   ));
 }
 
@@ -272,13 +260,13 @@ function gregToHijri(g){
 
   var l=jd - 1948440 + 10632;
   var n=Math.floor((l-1)/10631);
-  l=l - 10631*n + 354;
+  l = l - 10631*n + 354;
 
   var j=(Math.floor((10985-l)/5316))*(Math.floor((50*l)/17719))
         + (Math.floor(l/5670))*(Math.floor((43*l)/15238));
 
-  l = l - (Math.floor((30-j)/15))*(Math.floor((17719*j)/50))
-        - (Math.floor(j/16))*(Math.floor((15238*j)/43)) + 29;
+  l=l - (Math.floor((30-j)/15))*(Math.floor((17719*j)/50))
+       - (Math.floor(j/16))*(Math.floor((15238*j)/43)) + 29;
 
   var mHij=Math.floor((24*l)/709);
   var dHij=l - Math.floor((709*mHij)/24);
@@ -288,7 +276,7 @@ function gregToHijri(g){
 }
 
 // =====================================================================
-// Hijri → Gregorian (Tabular)
+// Hijri → Gregorian (tabular)
 // =====================================================================
 function hijriToJD(hDay, hMonth, hYear){
   return hDay
@@ -315,7 +303,11 @@ function jdToGregorian(jd){
   let month = (E < 14) ? (E - 1) : (E - 13);
   let year = (month > 2) ? (C - 4716) : (C - 4715);
 
-  return {year, month, day:Math.floor(day)};
+  return {
+    year,
+    month,
+    day:Math.floor(day)
+  };
 }
 
 function hijriToGregorianDate(hDay,hMonth,hYear){
@@ -355,19 +347,20 @@ function run(){
   CITIES.forEach(city=>{
     const utcOffset=getUTCOffset(city,gDate);
 
-    // Local noon for iOS-style illumination
+    // iOS - style illumination (local noon)
     const noonUTC = new Date(Date.UTC(
       gDate.getUTCFullYear(),
       gDate.getUTCMonth(),
       gDate.getUTCDate(),
-      (12 - utcOffset + 24)%24, 0, 0
+      (12 - utcOffset + 24)%24,
+      0,0
     ));
     const jdNoon=jdFromDate(noonUTC);
+
     const illum=illuminationFraction(jdNoon);
     const el=elongationDeg(jdNoon);
     const phase=phaseName(illum,el);
 
-    // Sunset
     const ss=sunsetUTC(gDate,city.lat,city.lon);
 
     let alt20="—", alt30="—", alt40="—", vis="× Unlikely";
@@ -382,8 +375,8 @@ function run(){
       alt40=moonAltitude(jdFromDate(t40),city.lat,city.lon).toFixed(1);
 
       vis=visibilityChance(
-        illum, el,
-        parseFloat(alt20), parseFloat(alt30), parseFloat(alt40)
+         illum,el,
+         parseFloat(alt20),parseFloat(alt30),parseFloat(alt40)
       );
     }
 
@@ -402,26 +395,22 @@ function run(){
 }
 
 // =====================================================================
-// DEFAULT TO NEXT 28.5 HIJRI DATE → Hijri 29
+// DEFAULT TO NEXT HIJRI 28.5  → HIJRI DAY 29
 // =====================================================================
 window.onload = function(){
-  const today = new Date();
-  const gToday = new Date(Date.UTC(
-    today.getFullYear(), today.getMonth(), today.getDate()
+  const today=new Date();
+  const gToday=new Date(Date.UTC(
+    today.getFullYear(),today.getMonth(),today.getDate()
   ));
 
   const h = gregToHijri(gToday);
 
-  let nextDay, nextMonth, nextYear;
+  let nextDay=29;
+  let nextMonth=h.hMonth;
+  let nextYear=h.hYear;
 
-  if(h.hDay < 28){
-    nextDay = 29;
-    nextMonth = h.hMonth;
-    nextYear = h.hYear;
-  } else {
-    nextDay = 29;
+  if(h.hDay >= 28){
     nextMonth = h.hMonth + 1;
-    nextYear = h.hYear;
     if(nextMonth > 12){
       nextMonth = 1;
       nextYear += 1;
@@ -430,6 +419,7 @@ window.onload = function(){
 
   const nextGreg = hijriToGregorianDate(nextDay,nextMonth,nextYear);
   document.getElementById("dateInput").value = nextGreg;
+
   run();
 };
 
