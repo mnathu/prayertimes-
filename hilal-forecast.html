@@ -208,30 +208,60 @@ function draw(date){
 
 layer.clearLayers()
 
-const jd=julian(date)
-
 CITIES.forEach(city=>{
 
-let illum=illumination(jd)
-let el=elongation(jd)
+const jd=julian(date)
 
-let vis=visibility(illum,el)
+const illum=illumination(jd)
+const el=elongation(jd)
+
+const ss = sunsetUTC(date, city.lat, city.lon)
+
+let alt20=0
+let alt30=0
+let alt40=0
+
+if(ss){
+
+const t20=new Date(ss.getTime()+20*60000)
+const t30=new Date(ss.getTime()+30*60000)
+const t40=new Date(ss.getTime()+40*60000)
+
+alt20=moonAltitude(julian(t20), city.lat, city.lon)
+alt30=moonAltitude(julian(t30), city.lat, city.lon)
+alt40=moonAltitude(julian(t40), city.lat, city.lon)
+
+}
+
+const pct = illum*100
+const maxAlt = Math.max(alt20,alt30,alt40)
+
+let color="red"
+let text="Unlikely"
+
+if(pct>=1 && el>=10 && maxAlt>=10){
+color="green"
+text="Likely Visible"
+}
+else if(pct>=0.5 && el>=7 && maxAlt>=5){
+color="yellow"
+text="Borderline"
+}
 
 L.circleMarker([city.lat,city.lon],{
-
 radius:8,
-color:vis.color,
+color:color,
 fillOpacity:0.8
-
 })
 .addTo(layer)
 .bindPopup(
-
 "<b>"+city.name+"</b><br>"+
-"Illumination: "+(illum*100).toFixed(2)+"%<br>"+
-"Elongation: "+el.toFixed(2)+"°<br>"+
-"Visibility: "+vis.text
-
+"Illum: "+pct.toFixed(2)+"%<br>"+
+"Elong: "+el.toFixed(2)+"°<br>"+
+"Alt 20m: "+alt20.toFixed(1)+"°<br>"+
+"Alt 30m: "+alt30.toFixed(1)+"°<br>"+
+"Alt 40m: "+alt40.toFixed(1)+"°<br>"+
+"Visibility: "+text
 )
 
 })
