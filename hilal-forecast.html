@@ -201,6 +201,83 @@ return {color:"red",text:"Unlikely"}
 }
 
 /* ===============================
+Moon Altitude
+=============================== */
+
+function moonAltitude(jd,lat,lon){
+
+const GMST=(18.697374558 + 24.06570982441908*(jd-2451545)) % 24
+const LST = GMST + lon/15
+
+const lam=moonLong(jd)
+const eps=23.439
+
+const dec = Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam)))
+const RA  = Math.atan2(
+Math.sin(d2r(lam))*Math.cos(d2r(eps)),
+Math.cos(d2r(lam))
+)
+
+const HA = (LST*15*d2r(1)) - RA
+
+return Math.asin(
+Math.sin(d2r(lat))*Math.sin(dec) +
+Math.cos(d2r(lat))*Math.cos(dec)*Math.cos(HA)
+) * 180/Math.PI
+
+}
+
+/* ===============================
+sunsetUTC
+=============================== */
+
+function sunsetUTC(gDate, lat, lon){
+
+const N = Math.floor(
+(Date.UTC(gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate())
+- Date.UTC(gDate.getUTCFullYear(),0,0))/86400000
+)
+
+const lngHour = lon/15
+const t = N + (18 - lngHour)/24
+
+const M=(0.9856*t)-3.289
+
+const L=norm360(
+M +
+1.916*Math.sin(d2r(M)) +
+0.020*Math.sin(d2r(2*M)) +
+282.634
+)
+
+const RA = Math.atan(0.91764*Math.tan(d2r(L))) * 180/Math.PI
+
+const sinDec=0.39782*Math.sin(d2r(L))
+const cosDec=Math.cos(Math.asin(sinDec))
+
+const cosH=(Math.cos(d2r(90.833)) - sinDec*Math.sin(d2r(lat)))
+/(cosDec*Math.cos(d2r(lat)))
+
+if(cosH>1)return null
+
+const H=Math.acos(cosH)*180/Math.PI/15
+
+let UT=(H + RA/15 - 0.06571*t - 6.622) % 24
+
+if(UT<0)UT+=24
+
+return new Date(Date.UTC(
+gDate.getUTCFullYear(),
+gDate.getUTCMonth(),
+gDate.getUTCDate(),
+Math.floor(UT),
+Math.floor((UT%1)*60)
+))
+
+}
+
+  
+/* ===============================
 DRAW MAP
 =============================== */
 
