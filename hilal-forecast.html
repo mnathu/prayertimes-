@@ -5,57 +5,58 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hilal Visibility Map</title>
+<title>Crescent Visibility Map</title>
 
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
 
 body{
-  font-family:system-ui;
-  margin:0;
-  background:#f4f6fb;
+font-family:system-ui;
+margin:0;
+background:#f5f6fb;
 }
 
 nav{
-  background:#0A166C;
-  color:white;
-  padding:12px;
-  text-align:center;
+background:#0A166C;
+color:white;
+padding:10px;
+text-align:center;
 }
 
 nav a{
-  color:white;
-  margin:0 12px;
-  text-decoration:none;
+color:white;
+margin:0 12px;
+text-decoration:none;
 }
 
 #controls{
-  padding:12px;
-  text-align:center;
-  background:white;
-  border-bottom:1px solid #ddd;
+background:white;
+padding:15px;
+text-align:center;
+border-bottom:1px solid #ddd;
 }
 
 #map{
-  height:60vh;
-  width:100%;
+height:65vh;
+width:100%;
 }
 
 .legend{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  margin-top:10px;
+margin-top:10px;
+display:flex;
+justify-content:center;
+gap:20px;
 }
 
 .dot{
-  width:14px;
-  height:14px;
-  border-radius:50%;
-  display:inline-block;
+width:14px;
+height:14px;
+border-radius:50%;
+display:inline-block;
 }
 
 .green{background:#2ecc71}
@@ -63,214 +64,195 @@ nav a{
 .red{background:#e74c3c}
 
 </style>
-
 </head>
 
 <body>
 
 <nav>
-index.htmlHome</a>
-annual.htmlAnnual Timetable</a>
-qibla.htmlQibla Locator</a>
-halal.htmlHalal Guide</a>
+<a href="index.html">Home</a>
+<a href="annual.html">Annual Timetable</a>
+<a href="qibla.html">Qibla Locator</a>
+<a href="halal.html">Halal Guide</a>
 </nav>
 
 <div id="controls">
 
-<h3>Global Crescent Visibility</h3>
+<h3>Crescent Visibility (North America)</h3>
 
 <input type="date" id="dateInput">
-<p><strong>Hijri Date:</strong> <span id="hijriOutput"></span></p>
 
 <div class="legend">
-  <div><span class="dot green"></span>Visible</div>
-  <div><span class="dot yellow"></span>Borderline</div>
-  <div><span class="dot red"></span>Not Visible</div>
+<div><span class="dot green"></span>Likely Visible</div>
+<div><span class="dot yellow"></span>Borderline</div>
+<div><span class="dot red"></span>Unlikely</div>
 </div>
 
 </div>
 
 <div id="map"></div>
 
-
 <script>
 
-/* ==============================
-   MAP INIT
-============================== */
+/* ===============================
+CITY LIST (Your Original)
+=============================== */
 
-let map;
-let layer;
+const CITIES = [
 
-document.addEventListener("DOMContentLoaded", function() {
-  
-  map = L.map("map").setView([20,0], 2);
+{ name:"Minneapolis, MN", lat:44.9778, lon:-93.2650 },
+{ name:"Orlando, FL", lat:28.5383, lon:-81.3792 },
+{ name:"New York, NY", lat:40.7128, lon:-74.0060 },
+{ name:"Chicago, IL", lat:41.8781, lon:-87.6298 },
+{ name:"Houston, TX", lat:29.7604, lon:-95.3698 },
+{ name:"Phoenix, AZ", lat:33.4484, lon:-112.0740 },
+{ name:"Los Angeles, CA", lat:34.0522, lon:-118.2437 },
+{ name:"Denver, CO", lat:39.7392, lon:-104.9903 },
+{ name:"Miami, FL", lat:25.7617, lon:-80.1918 },
+{ name:"Seattle, WA", lat:47.6062, lon:-122.3321 },
+{ name:"Toronto, ON", lat:43.6532, lon:-79.3832 },
+{ name:"Vancouver, BC", lat:49.2827, lon:-123.1207 }
 
-  // 🌍 Online tile provider
-  L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {attribution:"© OpenStreetMap"}
-  ).addTo(map);
+]
 
-  layer = L.layerGroup().addTo(map);
+/* ===============================
+MAP
+=============================== */
 
-  initDate();
-});
+const map=L.map("map").setView([39,-98],4)
 
+L.tileLayer(
+"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+{attribution:"© OpenStreetMap"}
+).addTo(map)
 
-/* ==============================
-   DATE CONTROL
-============================== */
+let layer=L.layerGroup().addTo(map)
 
-function initDate(){
+/* ===============================
+ASTRONOMY HELPERS
+=============================== */
 
-  const picker = document.getElementById("dateInput");
-  const today = new Date();
+const d2r=d=>d*Math.PI/180
+const norm360=x=>(x%360+360)%360
 
-  picker.value = today.toISOString().split("T")[0];
-  updateHijri(today);
-
-  draw(today);
-
-  picker.addEventListener("change", () => {
-    const dt = new Date(picker.value);
-    updateHijri(dt);
-    draw(dt);
-  });
+function julian(date){
+return date/86400000+2440587.5
 }
-
-
-/* ==============================
-   TABULAR HIJRI DATE
-============================== */
-
-const HIJRI_MONTHS = [
-  "Muharram","Safar","Rabiʿ I","Rabiʿ II","Jumada I","Jumada II",
-  "Rajab","Shaʿban","Ramadan","Shawwal","Dhul-Qaʿdah","Dhul-Hijjah"
-];
-
-function gregToHijri(g){
-  var day=g.getUTCDate(),
-      month=g.getUTCMonth()+1,
-      year=g.getUTCFullYear();
-
-  var m=month, y=year;
-  if(m<3){ y--; m+=12; }
-
-  var a=Math.floor(y/100);
-  var b=2 - a + Math.floor(a/4);
-
-  var jd=Math.floor(365.25*(y+4716))
-        + Math.floor(30.6001*(m+1))
-        + day + b - 1524.5;
-
-  var l=jd - 1948440 + 10632;
-  var n=Math.floor((l-1)/10631);
-  l=l - 10631*n + 354;
-
-  var j=(Math.floor((10985-l)/5316))* (Math.floor((50*l)/17719))
-        +(Math.floor(l/5670))* (Math.floor((43*l)/15238));
-
-  l = l - (Math.floor((30-j)/15))* (Math.floor((17719*j)/50))
-        - (Math.floor(j/16))* (Math.floor((15238*j)/43)) + 29;
-
-  var mHij=Math.floor((24*l)/709);
-  var dHij=l - Math.floor((709*mHij)/24);
-  var yHij=30*n + j - 30;
-
-  return {hDay:dHij, hMonth:mHij, hYear:yHij};
-}
-
-function updateHijri(date){
-  const h = gregToHijri(new Date(Date.UTC(
-    date.getFullYear(), date.getMonth(), date.getDate()
-  )));
-  document.getElementById("hijriOutput").textContent =
-      `${HIJRI_MONTHS[h.hMonth-1]} ${h.hDay}`;
-}
-
-
-/* ==============================
-   ASTRONOMY HELPERS
-============================== */
-
-const d2r = d => d*Math.PI/180;
-const norm360 = x => (x%360+360)%360;
 
 function sunLong(jd){
-  const T=(jd-2451545)/36525;
-  const L0=norm360(280.46646+36000.76983*T);
-  const M =norm360(357.52911+35999.05029*T);
-  const C = 1.914602*Math.sin(d2r(M)) + 0.019993*Math.sin(d2r(2*M));
-  return L0+C;
+
+const T=(jd-2451545)/36525
+const L0=norm360(280.46646+36000.76983*T)
+const M=norm360(357.52911+35999.05029*T)
+
+return L0+
+1.914602*Math.sin(d2r(M))+
+0.019993*Math.sin(d2r(2*M))
+
 }
 
 function moonLong(jd){
-  const T=(jd-2451545)/36525;
-  const L1=norm360(218.316+481267.8813*T);
-  const M =norm360(134.963+477198.8676*T);
-  return norm360(L1 + 6.289*Math.sin(d2r(M)));
-}
 
-function julian(date){
-  return date/86400000 + 2440587.5;
+const T=(jd-2451545)/36525
+
+const L1=norm360(218.316+481267.8813*T)
+const M=norm360(134.963+477198.8676*T)
+
+return norm360(
+L1+
+6.289*Math.sin(d2r(M))
+)
+
 }
 
 function elongation(jd){
-  let s=sunLong(jd);
-  let m=moonLong(jd);
 
-  let E=Math.abs(norm360(m-s));
-  if(E>180) E=360-E;
-  return E;
+let s=sunLong(jd)
+let m=moonLong(jd)
+
+let E=Math.abs(norm360(m-s))
+if(E>180)E=360-E
+
+return E
+
 }
 
 function illumination(jd){
-  return (1 - Math.cos(d2r(elongation(jd))))/2;
+
+return (1-Math.cos(d2r(elongation(jd))))/2
+
 }
 
-
-/* ==============================
-   VISIBILITY MODEL
-============================== */
+/* ===============================
+VISIBILITY MODEL
+=============================== */
 
 function visibility(illum,el){
-  const pct = illum*100;
-  const alt = el * 0.8;  // crude proxy
 
-  if(pct>=1 && el>=10 && alt>=10) return "green";
-  if(pct>=0.5 && el>=7 && alt>=5) return "yellow";
-  return "red";
+const pct=illum*100
+
+if(pct>=1 && el>=10)
+return {color:"green",text:"Likely Visible"}
+
+if(pct>=0.5 && el>=7)
+return {color:"yellow",text:"Borderline"}
+
+return {color:"red",text:"Unlikely"}
+
 }
 
-
-/* ==============================
-   DRAW MAP
-============================== */
+/* ===============================
+DRAW MAP
+=============================== */
 
 function draw(date){
 
-  layer.clearLayers();
+layer.clearLayers()
 
-  const jd = julian(date);
+const jd=julian(date)
 
-  for(let lat=-60; lat<=60; lat+=5){
-    for(let lon=-180; lon<=180; lon+=5){
+CITIES.forEach(city=>{
 
-      let illum = illumination(jd);
-      let el = elongation(jd);
-      let color = visibility(illum,el);
+let illum=illumination(jd)
+let el=elongation(jd)
 
-      L.circleMarker([lat,lon],{
-        radius:3,
-        color:color,
-        fillColor:color,
-        fillOpacity:0.75
-      }).addTo(layer);
+let vis=visibility(illum,el)
 
-    }
-  }
+L.circleMarker([city.lat,city.lon],{
+
+radius:8,
+color:vis.color,
+fillOpacity:0.8
+
+})
+.addTo(layer)
+.bindPopup(
+
+"<b>"+city.name+"</b><br>"+
+"Illumination: "+(illum*100).toFixed(2)+"%<br>"+
+"Elongation: "+el.toFixed(2)+"°<br>"+
+"Visibility: "+vis.text
+
+)
+
+})
+
 }
+
+/* ===============================
+DATE CONTROL
+=============================== */
+
+const picker=document.getElementById("dateInput")
+
+const today=new Date()
+
+picker.value=today.toISOString().split("T")[0]
+
+draw(today)
+
+picker.addEventListener("change",()=>{
+draw(new Date(picker.value))
+})
 
 </script>
 
