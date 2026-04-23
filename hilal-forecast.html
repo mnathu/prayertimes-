@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Hilal Forecast – Map View</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy:   #0A166C;
+    --gold:   #C9A84C;
+    --cream:  #F5EFE0;
+    --dark:   #070E3E;
+    --green:  #2E7D52;
+    --amber:  #D97706;
+    --red:    #B91C1C;
+    --glass:  rgba(10,22,108,0.82);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--gold);
+    flex-shrink: 0;
+  }
+  nav a {
+    color: var(--cream);
+    margin: 0 12px;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  nav a:hover { color: var(--gold); }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--navy) 60%, #1a2a8a);
+    padding: 18px 28px 14px;
+    border-bottom: 1px solid rgba(201,168,76,.3);
+    flex-shrink: 0;
+  }
+  header h1 {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    color: var(--gold);
+    letter-spacing: .04em;
+  }
+  header .sub { font-size: 13px; color: rgba(245,239,224,.55); margin-top:2px; }
+
+  /* ── CONTROLS ── */
+  .controls {
+    background: rgba(255,255,255,.04);
+    border-bottom: 1px solid rgba(201,168,76,.2);
+    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  .controls label { font-size: 13px; color: var(--gold); letter-spacing:.07em; }
+  .controls input[type=date] {
+    background: var(--dark);
+    border: 1px solid var(--gold);
+    color: var(--cream);
+    padding: 6px 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .hijri-display {
+    margin-left: auto;
+    font-family: 'Amiri', serif;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: .05em;
+  }
+
+  /* ── LEGEND ── */
+  .legend-bar {
+    padding: 8px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgba(0,0,0,.2);
+    flex-shrink: 0;
+  }
+  .legend-bar span {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing:.05em;
+  }
+  .dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid rgba(255,255,255,.25);
+  }
+  .dot.likely  { background: #22c55e; }
+  .dot.border  { background: #f59e0b; }
+  .dot.unlikely{ background: #ef4444; }
+
+  /* ── MAP WRAPPER ── */
+  .map-wrap {
+    flex: 1;
+    position: relative;
+    min-height: 420px;
+  }
+  #map { width:100%; height:100%; min-height: 420px; }
+
+  /* ── LEAFLET POPUP OVERRIDES ── */
+  .leaflet-popup-content-wrapper {
+    background: var(--glass) !important;
+    border: 1px solid var(--gold) !important;
+    border-radius: 6px !important;
+    backdrop-filter: blur(10px);
+    color: var(--cream) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 13px !important;
+    padding: 0 !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,.6) !important;
+  }
+  .leaflet-popup-content { margin: 0 !important; padding: 0 !important; width: auto !important; }
+  .leaflet-popup-tip { background: var(--navy) !important; }
+  .leaflet-popup-close-button { color: var(--gold) !important; }
+
+  .popup-inner { padding: 14px 18px; min-width: 200px; }
+  .popup-city {
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    color: var(--gold);
+    border-bottom: 1px solid rgba(201,168,76,.3);
+    padding-bottom: 7px;
+    margin-bottom: 9px;
+  }
+  .popup-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+  .popup-label { color: rgba(245,239,224,.55); }
+  .popup-val   { font-weight: 600; }
+  .popup-vis   { margin-top: 10px; text-align: center; padding: 5px 10px; border-radius: 3px; font-size: 13px; letter-spacing:.06em; font-weight: 700; }
+  .vis-likely  { background: rgba(34,197,94,.18); color: #4ade80; border: 1px solid #22c55e; }
+  .vis-border  { background: rgba(245,158,11,.18); color: #fbbf24; border: 1px solid #f59e0b; }
+  .vis-unlikely{ background: rgba(239,68,68,.18);  color: #f87171; border: 1px solid #ef4444; }
+
+  /* moon glow on markers */
+  .moon-marker {
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.35);
+    cursor: pointer;
+    transition: transform .15s;
+  }
+  .moon-marker:hover { transform: scale(1.25); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="annual.html">Annual Timetable</a>
+  <a href="qibla.html">Qibla Locator</a>
+  <a href="halal.html">Halal Guide</a>
+  <a href="hilal-cities.html">Moonsighting</a>
+</nav>
+
+<header>
+  <h1>🌙 Hilal Forecast — Map View</h1>
+  <div class="sub">Crescent visibility by city · Illumination, Elongation &amp; Altitude</div>
+</header>
+
+<div class="controls">
+  <label for="dateInput">SELECT DATE</label>
+  <input type="date" id="dateInput"/>
+  <div class="hijri-display" id="hijriOut"></div>
+  <a href="hilal-cities.html" style="color:var(--gold);font-size:13px;margin-left:8px;text-decoration:none;letter-spacing:.06em;">↩ Table View</a>
+</div>
+
+<div class="legend-bar">
+  <span><span class="dot likely"></span> Likely Visible</span>
+  <span><span class="dot border"></span> Borderline</span>
+  <span><span class="dot unlikely"></span> Unlikely</span>
+  <span style="margin-left:auto;font-size:11px;color:rgba(245,239,224,.4);">Circle size ∝ illumination · Click a city for details</span>
+</div>
+
+<div class="map-wrap">
+  <div id="map"></div>
+</div>
+
+<script>
+// ─── DST ───
+function isDST_NA(gDate){
+  const y=gDate.getUTCFullYear();
+  function ss(mo,base){ const d=new Date(Date.UTC(y,mo,1));return new Date(Date.UTC(y,mo,1+((7-d.getUTCDay())%7)+base)); }
+  return gDate>=ss(2,7) && gDate<ss(10,0);
+}
+
+// ─── CITIES ───
+const CITIES=[
+  {name:"Minneapolis, MN",lat:44.9778,lon:-93.2650,baseUTC:-6},
+  {name:"Orlando, FL",    lat:28.5383,lon:-81.3792,baseUTC:-5},
+  {name:"New York, NY",   lat:40.7128,lon:-74.0060,baseUTC:-5},
+  {name:"Chicago, IL",    lat:41.8781,lon:-87.6298,baseUTC:-6},
+  {name:"Houston, TX",    lat:29.7604,lon:-95.3698,baseUTC:-6},
+  {name:"Phoenix, AZ",    lat:33.4484,lon:-112.0740,baseUTC:-7},
+  {name:"Los Angeles, CA",lat:34.0522,lon:-118.2437,baseUTC:-8},
+  {name:"Denver, CO",     lat:39.7392,lon:-104.9903,baseUTC:-7},
+  {name:"Miami, FL",      lat:25.7617,lon:-80.1918,baseUTC:-5},
+  {name:"Seattle, WA",    lat:47.6062,lon:-122.3321,baseUTC:-8},
+  {name:"Toronto, ON",    lat:43.6532,lon:-79.3832,baseUTC:-5},
+  {name:"Vancouver, BC",  lat:49.2827,lon:-123.1207,baseUTC:-8}
+];
+
+function getUTCOffset(c,gd){ return c.baseUTC+(c.name.includes("Phoenix")?0:isDST_NA(gd)?1:0); }
+
+// ─── MATH ───
+const d2r=d=>d*Math.PI/180, r2d=r=>r*180/Math.PI;
+const norm360=x=>(x%360+360)%360;
+
+function jdFromDate(d){
+  let y=d.getUTCFullYear(), m=d.getUTCMonth()+1;
+  const dy=d.getUTCDate()+(d.getUTCHours()+d.getUTCMinutes()/60)/24;
+  let Y=y,M=m; if(M<=2){Y--;M+=12;}
+  const A=Math.floor(Y/100), B=2-A+Math.floor(A/4);
+  return Math.floor(365.25*(Y+4716))+Math.floor(30.6001*(M+1))+dy+B-1524.5;
+}
+function gmstHours(jd){ return (18.697374558+24.06570982441908*(jd-2451545))%24; }
+
+function sunLong(jd){
+  const T=(jd-2451545)/36525;
+  const L0=norm360(280.46646+36000.76983*T);
+  const M=norm360(357.52911+35999.05029*T);
+  const C=(1.914602-0.004817*T)*Math.sin(d2r(M))+(0.019993-0.000101*T)*Math.sin(d2r(2*M))+0.000289*Math.sin(d2r(3*M));
+  return L0+C;
+}
+function moonLong(jd){
+  const T=(jd-2451545)/36525;
+  const L1=norm360(218.316+481267.8813*T);
+  const M=norm360(134.963+477198.8676*T);
+  const Ms=norm360(357.529+35999.050*T);
+  return norm360(L1+6.289*Math.sin(d2r(M))+1.274*Math.sin(d2r(2*L1-M-Ms))+0.658*Math.sin(d2r(2*L1))+0.214*Math.sin(d2r(2*M))+0.110*Math.sin(d2r(L1)));
+}
+function moonEquatorial(jd){
+  const lam=moonLong(jd), eps=23.439;
+  return {
+    RA:r2d(Math.atan2(Math.sin(d2r(lam))*Math.cos(d2r(eps)),Math.cos(d2r(lam)))),
+    dec:r2d(Math.asin(Math.sin(d2r(eps))*Math.sin(d2r(lam))))
+  };
+}
+function altitude(jd,lat,lon,RAdeg,decdeg){
+  const LST=gmstHours(jd)+lon/15;
+  const HA=norm360(LST*15-RAdeg);
+  return r2d(Math.asin(Math.sin(d2r(lat))*Math.sin(d2r(decdeg))+Math.cos(d2r(lat))*Math.cos(d2r(decdeg))*Math.cos(d2r(HA))));
+}
+function moonAlt(jd,lat,lon){ const {RA,dec}=moonEquatorial(jd); return altitude(jd,lat,lon,RA,dec); }
+
+function elongationDeg(jd){ let E=Math.abs(norm360(moonLong(jd)-sunLong(jd))); if(E>180)E=360-E; return E; }
+function illuminationFraction(jd){ return (1-Math.cos(d2r(elongationDeg(jd))))/2; }
+
+function sunsetUTC(gDate,lat,lon){
+  const N=Math.floor((Date.UTC(gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate())-Date.UTC(gDate.getUTCFullYear(),0,0))/86400000);
+  const lh=lon/15, t=N+(18-lh)/24;
+  const M=(0.9856*t)-3.289;
+  const L=norm360(M+1.916*Math.sin(d2r(M))+0.020*Math.sin(d2r(2*M))+282.634);
+  const RA=norm360(r2d(Math.atan(0.91764*Math.tan(d2r(L)))));
+  const Lq=Math.floor(L/90)*90, RAq=Math.floor(RA/90)*90;
+  const RAh=(RA+(Lq-RAq))/15;
+  const sinDec=0.39782*Math.sin(d2r(L)), cosDec=Math.cos(Math.asin(sinDec));
+  const cosH=(Math.cos(d2r(90.833))-sinDec*Math.sin(d2r(lat)))/(cosDec*Math.cos(d2r(lat)));
+  if(cosH>1)return null;
+  let UT=(r2d(Math.acos(cosH))/15+RAh-0.06571*t-6.622)%24;
+  if(UT<0)UT+=24;
+  return new Date(Date.UTC(gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate(),Math.floor(UT),Math.floor((UT%1)*60)));
+}
+
+function phaseName(illum,el){
+  if(illum<0.01) return "New Moon";
+  if(illum<0.49&&el<90) return "Waxing Crescent";
+  if(Math.abs(illum-0.5)<0.02&&el<90) return "First Quarter";
+  if(illum<0.99&&el>90&&el<180) return "Waxing Gibbous";
+  if(illum>0.99) return "Full Moon";
+  if(illum<0.99&&el>180&&el<270) return "Waning Gibbous";
+  if(Math.abs(illum-0.5)<0.02&&el>180) return "Last Quarter";
+  return "Waning Crescent";
+}
+
+function visLabel(illum,el,alt20,alt30,alt40){
+  const pct=illum*100, maxAlt=Math.max(alt20,alt30,alt40);
+  if(pct>=1&&el>=10&&maxAlt>=10) return "likely";
+  if(pct>=0.5&&el>=7&&maxAlt>=5)  return "border";
+  return "unlikely";
+}
+
+// ─── HIJRI ───
+const HIJRI_MONTHS=["Muharram","Safar","Rabiʿ al-Awwal","Rabiʿ al-Thani","Jumada al-Ula","Jumada al-Akhirah","Rajab","Sha'ban","Ramadan","Shawwal","Dhul Qa'dah","Dhul Hijjah"];
+function gregToHijri(g){
+  let m=g.getUTCMonth()+1,y=g.getUTCFullYear(),d=g.getUTCDate();
+  if(m<3){y--;m+=12;}
+  const a=Math.floor(y/100),b=2-a+Math.floor(a/4);
+  const jd=Math.floor(365.25*(y+4716))+Math.floor(30.6001*(m+1))+d+b-1524.5;
+  const l=jd-1948440+10632;
+  const n=Math.floor((l-1)/10631);
+  const l2=l-10631*n+354;
+  const j=(Math.floor((10985-l2)/5316))*(Math.floor((50*l2)/17719))+(Math.floor(l2/5670))*(Math.floor((43*l2)/15238));
+  const l3=l2-(Math.floor((30-j)/15))*(Math.floor((17719*j)/50))-(Math.floor(j/16))*(Math.floor((15238*j)/43))+29;
+  const mH=Math.floor((24*l3)/709);
+  const dH=l3-Math.floor((709*mH)/24);
+  return {hDay:dH,hMonth:mH,hYear:30*n+j-30};
+}
+
+// ─── MAP SETUP ───
+const map = L.map('map', {
+  center: [38, -97],
+  zoom: 4,
+  zoomControl: true,
+  attributionControl: true
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 18
+}).addTo(map);
+
+let markers = [];
+
+function colorForVis(vis){
+  if(vis==="likely")  return "#22c55e";
+  if(vis==="border")  return "#f59e0b";
+  return "#ef4444";
+}
+
+function visText(vis){
+  if(vis==="likely")  return "✓ Likely Visible";
+  if(vis==="border")  return "~ Borderline";
+  return "× Unlikely";
+}
+
+function formatTime(date, utcOffset){
+  if(!date) return "—";
+  const local = new Date(date.getTime() + utcOffset*3600000);
+  return local.getUTCHours().toString().padStart(2,'0') + ':' + local.getUTCMinutes().toString().padStart(2,'0');
+}
+
+function run(){
+  const val = document.getElementById("dateInput").value;
+  if(!val) return;
+  const gDate = new Date(val+"T00:00:00Z");
+
+  const hij = gregToHijri(gDate);
+  document.getElementById("hijriOut").textContent = `${HIJRI_MONTHS[hij.hMonth-1]} ${hij.hDay}, ${hij.hYear} AH`;
+
+  // clear old markers
+  markers.forEach(m=>map.removeLayer(m));
+  markers=[];
+
+  CITIES.forEach(city=>{
+    const utcOffset = getUTCOffset(city, gDate);
+    const noonUTC = new Date(Date.UTC(gDate.getUTCFullYear(),gDate.getUTCMonth(),gDate.getUTCDate(),(12-utcOffset+24)%24,0,0));
+    const jdNoon = jdFromDate(noonUTC);
+    const illum = illuminationFraction(jdNoon);
+    const el    = elongationDeg(jdNoon);
+    const phase = phaseName(illum, el);
+    const ss    = sunsetUTC(gDate, city.lat, city.lon);
+
+    let alt20=NaN,alt30=NaN,alt40=NaN;
+    if(ss){
+      alt20 = moonAlt(jdFromDate(new Date(ss.getTime()+20*60000)), city.lat, city.lon);
+      alt30 = moonAlt(jdFromDate(new Date(ss.getTime()+30*60000)), city.lat, city.lon);
+      alt40 = moonAlt(jdFromDate(new Date(ss.getTime()+40*60000)), city.lat, city.lon);
+    }
+
+    const vis = isNaN(alt20) ? "unlikely" : visLabel(illum, el, alt20, alt30, alt40);
+    const col = colorForVis(vis);
+
+    // radius based on illumination (min 8, max 24)
+    const radius = 8 + Math.min(illum*100, 100)/100*16;
+
+    const circle = L.circleMarker([city.lat, city.lon], {
+      radius: radius,
+      fillColor: col,
+      color: "rgba(255,255,255,0.4)",
+      weight: 2,
+      fillOpacity: 0.82
+    });
+
+    const altStr = isNaN(alt20)
+      ? `<div class="popup-row"><span class="popup-label">Altitude</span><span class="popup-val">No sunset</span></div>`
+      : `<div class="popup-row"><span class="popup-label">Alt @20m</span><span class="popup-val">${alt20.toFixed(1)}°</span></div>
+         <div class="popup-row"><span class="popup-label">Alt @30m</span><span class="popup-val">${alt30.toFixed(1)}°</span></div>
+         <div class="popup-row"><span class="popup-label">Alt @40m</span><span class="popup-val">${alt40.toFixed(1)}°</span></div>`;
+
+    const ssStr = ss ? formatTime(ss, utcOffset) : "—";
+    const visClass = `vis-${vis}`;
+
+    circle.bindPopup(`
+      <div class="popup-inner">
+        <div class="popup-city">🌙 ${city.name}</div>
+        <div class="popup-row"><span class="popup-label">Phase</span><span class="popup-val">${phase}</span></div>
+        <div class="popup-row"><span class="popup-label">Illumination</span><span class="popup-val">${(illum*100).toFixed(1)}%</span></div>
+        <div class="popup-row"><span class="popup-label">Elongation</span><span class="popup-val">${el.toFixed(2)}°</span></div>
+        <div class="popup-row"><span class="popup-label">Sunset</span><span class="popup-val">${ssStr} local</span></div>
+        ${altStr}
+        <div class="popup-vis ${visClass}">${visText(vis)}</div>
+      </div>
+    `, { maxWidth: 260 });
+
+    circle.addTo(map);
+    markers.push(circle);
+  });
+}
+
+// ─── INIT ───
+window.onload = function(){
+  const t=new Date();
+  const yyyy=t.getFullYear(), mm=String(t.getMonth()+1).padStart(2,'0'), dd=String(t.getDate()).padStart(2,'0');
+  document.getElementById("dateInput").value=`${yyyy}-${mm}-${dd}`;
+  run();
+};
+document.getElementById("dateInput").addEventListener("change", run);
+</script>
+
+</body>
+</html>
